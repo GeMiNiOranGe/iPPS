@@ -1,3 +1,2 @@
-## iPPS software
-# Winform Application
-This is a project management software
+# iPPS project management application
+Window form application programmed using dotNET framework
