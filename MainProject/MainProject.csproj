@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssignProjects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssignProjects.Designer.cs">
+      <DependentUpon>AssignProjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeProjects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeProjects.Designer.cs">
+      <DependentUpon>EmployeeProjects.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -53,7 +65,22 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="AdminProjects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminProjects.Designer.cs">
+      <DependentUpon>AdminProjects.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AssignProjects.resx">
+      <DependentUpon>AssignProjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminProjects.resx">
+      <DependentUpon>AdminProjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeProjects.resx">
+      <DependentUpon>EmployeeProjects.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
