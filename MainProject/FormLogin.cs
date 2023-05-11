@@ -26,13 +26,13 @@ namespace MainProject {
         private void btn_dangNhap_Click(object sender, EventArgs e) {
             string strUserId = txtBox_userId.Text;
             string strPassword = txtBox_password.Text;
-            string strError = "Tên tài khoản hoặc mật khẩu không đúng";
             string strQuery = $"SELECT * FROM PHANQUYEN INNER JOIN DANGNHAP ON PHANQUYEN.ID = DANGNHAP.ID WHERE DANGNHAP.USERID = '{strUserId}'AND DANGNHAP.PASSWORD = '{strPassword}'";
+            
             sqlCommand = sqlConnection.CreateCommand();
             sqlCommand.CommandText = strQuery;
 
             if (string.IsNullOrEmpty(strUserId) || string.IsNullOrEmpty(strPassword))
-                lb_error.Text = strError;
+                lb_error.Text = "Không được để trống thông tin đăng nhập";
             else {
                 SqlDataReader dt = sqlCommand.ExecuteReader();
                 if (dt.Read()) {
@@ -40,7 +40,7 @@ namespace MainProject {
                     formMain.Show();
                 }
                 else
-                    lb_error.Text = strError;
+                    lb_error.Text = "Tên tài khoản hoặc mật khẩu không đúng";
                 dt.Close();
             }
             txtBox_userId.Clear();
