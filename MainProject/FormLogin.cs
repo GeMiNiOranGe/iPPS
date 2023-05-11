@@ -41,6 +41,7 @@ namespace MainProject {
                 }
                 else
                     lb_error.Text = strError;
+                dt.Close();
             }
             txtBox_userId.Clear();
             txtBox_password.Clear();
