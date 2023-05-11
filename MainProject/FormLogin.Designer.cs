@@ -71,7 +71,7 @@ namespace MainProject {
             this.txtBox_password.Location = new System.Drawing.Point(155, 114);
             this.txtBox_password.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtBox_password.Name = "txtBox_password";
-            this.txtBox_password.PasswordChar = '*';
+            this.txtBox_password.PasswordChar = '●';
             this.txtBox_password.Size = new System.Drawing.Size(226, 37);
             this.txtBox_password.TabIndex = 1;
             // 
