@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminProjects));
             this.dgvProjects = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProjectName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.KhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,12 +39,15 @@
             this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjects)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvProjects
             // 
             this.dgvProjects.AllowUserToAddRows = false;
+            this.dgvProjects.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(128)))), ((int)(((byte)(134)))));
             this.dgvProjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProjects.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -54,18 +58,30 @@
             this.TrangThai,
             this.Edit,
             this.Delete});
-            this.dgvProjects.Location = new System.Drawing.Point(45, 69);
+            this.dgvProjects.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgvProjects.Location = new System.Drawing.Point(0, 0);
             this.dgvProjects.Name = "dgvProjects";
             this.dgvProjects.RowHeadersWidth = 51;
             this.dgvProjects.RowTemplate.Height = 24;
-            this.dgvProjects.Size = new System.Drawing.Size(1194, 383);
+            this.dgvProjects.Size = new System.Drawing.Size(1082, 461);
             this.dgvProjects.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(63)))), ((int)(((byte)(60)))));
+            this.panel1.Controls.Add(this.btnAdd);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 460);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1082, 73);
+            this.panel1.TabIndex = 1;
             // 
             // ID
             // 
-            this.ID.HeaderText = "Mã dự án";
+            this.ID.HeaderText = "Mã";
             this.ID.MinimumWidth = 6;
             this.ID.Name = "ID";
+            this.ID.Width = 70;
             // 
             // ProjectName
             // 
@@ -122,16 +138,29 @@
             this.Delete.Name = "Delete";
             this.Delete.Width = 6;
             // 
-            // Projects
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(128)))), ((int)(((byte)(134)))));
+            this.btnAdd.ForeColor = System.Drawing.Color.Black;
+            this.btnAdd.Location = new System.Drawing.Point(970, 11);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(100, 50);
+            this.btnAdd.TabIndex = 0;
+            this.btnAdd.Text = "THÊM";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            // 
+            // AdminProjects
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1251, 533);
+            this.ClientSize = new System.Drawing.Size(1082, 533);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvProjects);
-            this.Name = "Projects";
+            this.Name = "AdminProjects";
             this.Text = "Projects";
             this.Load += new System.EventHandler(this.AdminProjects_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjects)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -139,6 +168,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvProjects;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProjectName;
         private System.Windows.Forms.DataGridViewTextBoxColumn KhachHang;
@@ -147,5 +177,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
+        private System.Windows.Forms.Button btnAdd;
     }
 }

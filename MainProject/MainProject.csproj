@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssignProjects.cs">
+    <Compile Include="AdminProjectsModule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AssignProjects.Designer.cs">
-      <DependentUpon>AssignProjects.cs</DependentUpon>
+    <Compile Include="AdminProjectsModule.Designer.cs">
+      <DependentUpon>AdminProjectsModule.cs</DependentUpon>
     </Compile>
     <Compile Include="EmployeeProjects.cs">
       <SubType>Form</SubType>
@@ -72,11 +72,11 @@
       <DependentUpon>AdminProjects.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AssignProjects.resx">
-      <DependentUpon>AssignProjects.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AdminProjects.resx">
       <DependentUpon>AdminProjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminProjectsModule.resx">
+      <DependentUpon>AdminProjectsModule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeeProjects.resx">
       <DependentUpon>EmployeeProjects.cs</DependentUpon>
