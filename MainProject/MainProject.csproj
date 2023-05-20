@@ -46,6 +46,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminProjectsModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminProjectsModule.Designer.cs">
+      <DependentUpon>AdminProjectsModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeProjects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeProjects.Designer.cs">
+      <DependentUpon>EmployeeProjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
     <Compile Include="Config.cs" />
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
@@ -61,7 +74,21 @@
     </Compile>
     <Compile Include="HandleControl.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="AdminProjects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminProjects.Designer.cs">
+      <DependentUpon>AdminProjects.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AdminProjects.resx">
+      <DependentUpon>AdminProjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminProjectsModule.resx">
+      <DependentUpon>AdminProjectsModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeProjects.resx">
+      <DependentUpon>EmployeeProjects.cs</DependentUpon>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
