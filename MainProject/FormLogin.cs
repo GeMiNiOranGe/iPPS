@@ -36,7 +36,7 @@ namespace MainProject {
         private void btn_dangNhap_Click(object sender, EventArgs e) {
             string strUserId = txtBox_userId.Text;
             string strPassword = txtBox_password.Text;
-            string strQuery = $"SELECT * FROM PHANQUYEN INNER JOIN DANGNHAP ON PHANQUYEN.ID = DANGNHAP.ID WHERE DANGNHAP.USERID = '{strUserId}'AND DANGNHAP.PASSWORD = '{strPassword}'";
+            string strQuery = $"SELECT * FROM DECENTRALIZATION INNER JOIN LOGIN ON DECENTRALIZATION.DECENTRALIZATION_ID = LOGIN.USERID WHERE LOGIN.USERID = '{strUserId}' AND LOGIN.PASSWORD = '{strPassword}'";
 
             sqlCommand = sqlConnection.CreateCommand();
             sqlCommand.CommandText = strQuery;
@@ -46,7 +46,7 @@ namespace MainProject {
             else {
                 SqlDataReader dt = sqlCommand.ExecuteReader();
                 if (dt.Read()) {
-                    FormMain formMain = new FormMain();
+                    AdminProjects formMain = new AdminProjects();
                     formMain.Show();
                 }
                 else

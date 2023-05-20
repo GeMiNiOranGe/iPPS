@@ -9,11 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Config;
+
 namespace MainProject
 {
     public partial class AdminProjects : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=PROJECT_MANAGEMENT;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(Database.CONNECTION_STRING);
         SqlCommand cmd = new SqlCommand();
         SqlDataReader rd = null;
 
