@@ -9,32 +9,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MainProject
-{
-    public partial class EmployeeProjects : Form
-    {
-        SqlConnection conn = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=QLDA;Integrated Security=True");
+using Config;
+
+namespace MainProject {
+    public partial class EmployeeProjects : Form {
+        SqlConnection conn = new SqlConnection(Database.CONNECTION_STRING);
         SqlCommand cmd = new SqlCommand();
         SqlDataReader rd = null;
-        public EmployeeProjects()
-        {
+        public EmployeeProjects() {
             InitializeComponent();
         }
 
-        private void EmployeeProjects_Load(object sender, EventArgs e)
-        {
+        private void EmployeeProjects_Load(object sender, EventArgs e) {
             LoadEmployeeProjects();
         }
 
-        public void LoadEmployeeProjects()
-        {
+        public void LoadEmployeeProjects() {
             dgvProjects.Rows.Clear();
             int i = 0;
             conn.Open();
             cmd = new SqlCommand("select * from DUAN", conn);
             rd = cmd.ExecuteReader();
-            while (rd.Read())
-            {
+            while (rd.Read()) {
                 i++;
                 dgvProjects.Rows.Add(rd["MADA"].ToString(), rd["TENDA"].ToString(),
                     rd["KHACHHANG"].ToString(), rd["NGAYBATDAU"].ToString(),

@@ -8,12 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MainProject
-{
-    public partial class AdminProjectsModule : Form
-    {
-        public AdminProjectsModule()
-        {
+namespace MainProject {
+    public partial class AdminProjectsModule : Form {
+        public AdminProjectsModule() {
             InitializeComponent();
         }
     }
