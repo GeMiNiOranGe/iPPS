@@ -24,56 +24,56 @@ namespace MainProject {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.txtBox_userId = new System.Windows.Forms.TextBox();
-            this.lb_appName = new System.Windows.Forms.Label();
-            this.txtBox_password = new System.Windows.Forms.TextBox();
-            this.btn_dangNhap = new System.Windows.Forms.Button();
+            this.TxtUserId = new System.Windows.Forms.TextBox();
+            this.LbAppName = new System.Windows.Forms.Label();
+            this.TxtPassword = new System.Windows.Forms.TextBox();
+            this.BtnLogin = new System.Windows.Forms.Button();
             this.lb_error = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // txtBox_userId
+            // TxtUserId
             // 
-            this.txtBox_userId.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtBox_userId.Location = new System.Drawing.Point(49, 65);
-            this.txtBox_userId.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.txtBox_userId.Name = "txtBox_userId";
-            this.txtBox_userId.Size = new System.Drawing.Size(364, 37);
-            this.txtBox_userId.TabIndex = 2;
+            this.TxtUserId.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxtUserId.Location = new System.Drawing.Point(49, 65);
+            this.TxtUserId.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.TxtUserId.Name = "TxtUserId";
+            this.TxtUserId.Size = new System.Drawing.Size(364, 37);
+            this.TxtUserId.TabIndex = 2;
             // 
-            // lb_appName
+            // LbAppName
             // 
-            this.lb_appName.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lb_appName.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_appName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(245)))), ((int)(((byte)(168)))));
-            this.lb_appName.Location = new System.Drawing.Point(0, 0);
-            this.lb_appName.Name = "lb_appName";
-            this.lb_appName.Size = new System.Drawing.Size(468, 59);
-            this.lb_appName.TabIndex = 0;
-            this.lb_appName.Text = "PHẦN MỀM iPPS";
-            this.lb_appName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LbAppName.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LbAppName.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbAppName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(245)))), ((int)(((byte)(168)))));
+            this.LbAppName.Location = new System.Drawing.Point(0, 0);
+            this.LbAppName.Name = "LbAppName";
+            this.LbAppName.Size = new System.Drawing.Size(468, 59);
+            this.LbAppName.TabIndex = 0;
+            this.LbAppName.Text = "PHẦN MỀM iPPS";
+            this.LbAppName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtBox_password
+            // TxtPassword
             // 
-            this.txtBox_password.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtBox_password.Location = new System.Drawing.Point(49, 114);
-            this.txtBox_password.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.txtBox_password.Name = "txtBox_password";
-            this.txtBox_password.Size = new System.Drawing.Size(364, 37);
-            this.txtBox_password.TabIndex = 3;
-            this.txtBox_password.UseSystemPasswordChar = true;
-            this.txtBox_password.Enter += new System.EventHandler(this.txtBox_password_Enter);
-            this.txtBox_password.Leave += new System.EventHandler(this.txtBox_password_Leave);
+            this.TxtPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxtPassword.Location = new System.Drawing.Point(49, 114);
+            this.TxtPassword.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.TxtPassword.Name = "TxtPassword";
+            this.TxtPassword.Size = new System.Drawing.Size(364, 37);
+            this.TxtPassword.TabIndex = 3;
+            this.TxtPassword.UseSystemPasswordChar = true;
+            this.TxtPassword.Enter += new System.EventHandler(this.TxtPassword_Enter);
+            this.TxtPassword.Leave += new System.EventHandler(this.TxtPassword_Leave);
             // 
-            // btn_dangNhap
+            // BtnLogin
             // 
-            this.btn_dangNhap.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_dangNhap.Location = new System.Drawing.Point(49, 190);
-            this.btn_dangNhap.Name = "btn_dangNhap";
-            this.btn_dangNhap.Size = new System.Drawing.Size(364, 49);
-            this.btn_dangNhap.TabIndex = 1;
-            this.btn_dangNhap.Text = "Đăng nhập";
-            this.btn_dangNhap.UseVisualStyleBackColor = true;
-            this.btn_dangNhap.Click += new System.EventHandler(this.btn_dangNhap_Click);
+            this.BtnLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BtnLogin.Location = new System.Drawing.Point(49, 190);
+            this.BtnLogin.Name = "BtnLogin";
+            this.BtnLogin.Size = new System.Drawing.Size(364, 49);
+            this.BtnLogin.TabIndex = 1;
+            this.BtnLogin.Text = "Đăng nhập";
+            this.BtnLogin.UseVisualStyleBackColor = true;
+            this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
             // lb_error
             // 
@@ -88,16 +88,16 @@ namespace MainProject {
             // 
             // FormLogin
             // 
-            this.AcceptButton = this.btn_dangNhap;
+            this.AcceptButton = this.BtnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(63)))), ((int)(((byte)(60)))));
             this.ClientSize = new System.Drawing.Size(468, 251);
-            this.Controls.Add(this.txtBox_password);
-            this.Controls.Add(this.txtBox_userId);
+            this.Controls.Add(this.TxtPassword);
+            this.Controls.Add(this.TxtUserId);
             this.Controls.Add(this.lb_error);
-            this.Controls.Add(this.btn_dangNhap);
-            this.Controls.Add(this.lb_appName);
+            this.Controls.Add(this.BtnLogin);
+            this.Controls.Add(this.LbAppName);
             this.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -112,10 +112,10 @@ namespace MainProject {
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtBox_userId;
-        private System.Windows.Forms.Label lb_appName;
-        private System.Windows.Forms.TextBox txtBox_password;
-        private System.Windows.Forms.Button btn_dangNhap;
+        private System.Windows.Forms.TextBox TxtUserId;
+        private System.Windows.Forms.Label LbAppName;
+        private System.Windows.Forms.TextBox TxtPassword;
+        private System.Windows.Forms.Button BtnLogin;
         private System.Windows.Forms.Label lb_error;
     }
 }

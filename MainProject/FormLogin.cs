@@ -17,15 +17,15 @@ namespace MainProject {
         SqlConnection sqlConnection;
         SqlCommand sqlCommand;
 
-        string userId_ph = "User ID";
-        string password_ph = "Password";
+        private const string USER_ID_PLACEHOLDER = "ID người dùng";
+        private const string PASSWORD_PLACEHOLDER = "Mật khẩu";
 
         public FormLogin() {
             InitializeComponent();
 
-            ForTextbox.SetPlaceHolder(this.txtBox_userId, userId_ph);
-            ForTextbox.SetPlaceHolder(this.txtBox_password, password_ph);
-            txtBox_password.UseSystemPasswordChar = false;
+            ForTextbox.SetPlaceHolder(this.TxtUserId, USER_ID_PLACEHOLDER);
+            ForTextbox.SetPlaceHolder(this.TxtPassword, PASSWORD_PLACEHOLDER);
+            TxtPassword.UseSystemPasswordChar = false;
         }
 
         private void FormLogin_Load(object sender, EventArgs e) {
@@ -33,15 +33,16 @@ namespace MainProject {
             sqlConnection.Open();
         }
 
-        private void btn_dangNhap_Click(object sender, EventArgs e) {
-            string strUserId = txtBox_userId.Text;
-            string strPassword = txtBox_password.Text;
+        private void BtnLogin_Click(object sender, EventArgs e) {
+            string strUserId = TxtUserId.Text;
+            string strPassword = TxtPassword.Text;
             string strQuery = $"SELECT * FROM PHANQUYEN INNER JOIN DANGNHAP ON PHANQUYEN.ID = DANGNHAP.ID WHERE DANGNHAP.USERID = '{strUserId}'AND DANGNHAP.PASSWORD = '{strPassword}'";
 
             sqlCommand = sqlConnection.CreateCommand();
             sqlCommand.CommandText = strQuery;
 
-            if (string.IsNullOrEmpty(strUserId) || string.IsNullOrEmpty(strPassword))
+            if (string.IsNullOrEmpty(strUserId) || string.IsNullOrEmpty(strPassword) ||
+                TxtUserId.Text == USER_ID_PLACEHOLDER || TxtPassword.Text == PASSWORD_PLACEHOLDER)
                 lb_error.Text = "Không được để trống thông tin đăng nhập";
             else {
                 SqlDataReader dt = sqlCommand.ExecuteReader();
@@ -53,18 +54,20 @@ namespace MainProject {
                     lb_error.Text = "Tên tài khoản hoặc mật khẩu không đúng";
                 dt.Close();
             }
-            txtBox_userId.Clear();
-            txtBox_password.Clear();
+            if (TxtUserId.Text != USER_ID_PLACEHOLDER || TxtPassword.Text != PASSWORD_PLACEHOLDER) {
+                TxtUserId.Clear();
+                TxtPassword.Clear();
+            }
         }
 
-        private void txtBox_password_Enter(object sender, EventArgs e) {
-            if (txtBox_password.Text == password_ph)
-                txtBox_password.UseSystemPasswordChar = true;
+        private void TxtPassword_Enter(object sender, EventArgs e) {
+            if (TxtPassword.Text == PASSWORD_PLACEHOLDER)
+                TxtPassword.UseSystemPasswordChar = true;
         }
 
-        private void txtBox_password_Leave(object sender, EventArgs e) {
-            if (String.IsNullOrWhiteSpace(txtBox_password.Text))
-                txtBox_password.UseSystemPasswordChar = false;
+        private void TxtPassword_Leave(object sender, EventArgs e) {
+            if (String.IsNullOrWhiteSpace(TxtPassword.Text) || TxtPassword.Text == PASSWORD_PLACEHOLDER)
+                TxtPassword.UseSystemPasswordChar = false;
         }
     }
 }
