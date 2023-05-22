@@ -60,12 +60,15 @@ namespace MainProject {
         }
 
         private void TxtPassword_Enter(object sender, EventArgs e) {
-            if (TxtPassword.Text == PASSWORD_PLACEHOLDER)
+            if (TxtPassword.Text == PASSWORD_PLACEHOLDER) {
+                TextBox textBox = sender as TextBox;
                 TxtPassword.UseSystemPasswordChar = true;
+                textBox.ForeColor = Color.Black;
+            }
         }
 
         private void TxtPassword_Leave(object sender, EventArgs e) {
-            if (String.IsNullOrWhiteSpace(TxtPassword.Text) || TxtPassword.Text == PASSWORD_PLACEHOLDER)
+            if (TxtPassword.Text == PASSWORD_PLACEHOLDER)
                 TxtPassword.UseSystemPasswordChar = false;
         }
     }

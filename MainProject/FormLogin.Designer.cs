@@ -34,6 +34,7 @@ namespace MainProject {
             // TxtUserId
             // 
             this.TxtUserId.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxtUserId.ForeColor = System.Drawing.Color.Gray;
             this.TxtUserId.Location = new System.Drawing.Point(49, 65);
             this.TxtUserId.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.TxtUserId.Name = "TxtUserId";
@@ -55,6 +56,7 @@ namespace MainProject {
             // TxtPassword
             // 
             this.TxtPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxtPassword.ForeColor = System.Drawing.Color.Gray;
             this.TxtPassword.Location = new System.Drawing.Point(49, 114);
             this.TxtPassword.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.TxtPassword.Name = "TxtPassword";
@@ -67,6 +69,7 @@ namespace MainProject {
             // BtnLogin
             // 
             this.BtnLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BtnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnLogin.Location = new System.Drawing.Point(49, 190);
             this.BtnLogin.Name = "BtnLogin";
             this.BtnLogin.Size = new System.Drawing.Size(364, 49);
