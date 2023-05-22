@@ -36,13 +36,12 @@ namespace MainProject {
         private void BtnLogin_Click(object sender, EventArgs e) {
             string strUserId = TxtUserId.Text;
             string strPassword = TxtPassword.Text;
-            string strQuery = $"SELECT * FROM PHANQUYEN INNER JOIN DANGNHAP ON PHANQUYEN.ID = DANGNHAP.ID WHERE DANGNHAP.USERID = '{strUserId}'AND DANGNHAP.PASSWORD = '{strPassword}'";
+            string strQuery = $"SELECT * FROM DECENTRALIZATION INNER JOIN LOGIN ON DECENTRALIZATION.DECENTRALIZATION_ID = LOGIN.USERID WHERE LOGIN.USERID = '{strUserId}' AND LOGIN.PASSWORD = '{strPassword}'";
 
             sqlCommand = sqlConnection.CreateCommand();
             sqlCommand.CommandText = strQuery;
 
-            if (string.IsNullOrEmpty(strUserId) || string.IsNullOrEmpty(strPassword) ||
-                TxtUserId.Text == USER_ID_PLACEHOLDER || TxtPassword.Text == PASSWORD_PLACEHOLDER)
+            if (string.IsNullOrEmpty(strUserId) || string.IsNullOrEmpty(strPassword) || TxtUserId.Text == USER_ID_PLACEHOLDER || TxtPassword.Text == PASSWORD_PLACEHOLDER)
                 lb_error.Text = "Không được để trống thông tin đăng nhập";
             else {
                 SqlDataReader dt = sqlCommand.ExecuteReader();
