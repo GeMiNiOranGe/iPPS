@@ -42,6 +42,7 @@
             // 
             this.dgvProjects.AllowUserToAddRows = false;
             this.dgvProjects.AllowUserToDeleteRows = false;
+            this.dgvProjects.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(128)))), ((int)(((byte)(134)))));
             this.dgvProjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProjects.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MADA,
@@ -50,20 +51,22 @@
             this.NgayBatDau,
             this.NgayKetThuc,
             this.TrangThai});
-            this.dgvProjects.Location = new System.Drawing.Point(128, 56);
+            this.dgvProjects.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvProjects.Location = new System.Drawing.Point(0, 0);
             this.dgvProjects.Name = "dgvProjects";
             this.dgvProjects.ReadOnly = true;
             this.dgvProjects.RowHeadersWidth = 51;
             this.dgvProjects.RowTemplate.Height = 24;
-            this.dgvProjects.Size = new System.Drawing.Size(964, 422);
+            this.dgvProjects.Size = new System.Drawing.Size(1017, 453);
             this.dgvProjects.TabIndex = 0;
             // 
             // MADA
             // 
-            this.MADA.HeaderText = "ID";
+            this.MADA.HeaderText = "Mã";
             this.MADA.MinimumWidth = 6;
             this.MADA.Name = "MADA";
             this.MADA.ReadOnly = true;
+            this.MADA.Width = 70;
             // 
             // TENDA
             // 
@@ -71,7 +74,7 @@
             this.TENDA.MinimumWidth = 6;
             this.TENDA.Name = "TENDA";
             this.TENDA.ReadOnly = true;
-            this.TENDA.Width = 125;
+            this.TENDA.Width = 140;
             // 
             // KhachHang
             // 
@@ -109,9 +112,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1144, 513);
+            this.ClientSize = new System.Drawing.Size(1017, 453);
             this.Controls.Add(this.dgvProjects);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EmployeeProjects";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EmployeeProjects";
             this.Load += new System.EventHandler(this.EmployeeProjects_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjects)).EndInit();

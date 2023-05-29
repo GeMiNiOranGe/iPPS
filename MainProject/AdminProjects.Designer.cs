@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminProjects));
             this.dgvProjects = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProjectName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.KhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,7 +40,6 @@
             this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.btnAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjects)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -65,6 +65,7 @@
             this.dgvProjects.RowTemplate.Height = 24;
             this.dgvProjects.Size = new System.Drawing.Size(1082, 461);
             this.dgvProjects.TabIndex = 0;
+            this.dgvProjects.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProjects_CellContentClick);
             // 
             // panel1
             // 
@@ -75,6 +76,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1082, 73);
             this.panel1.TabIndex = 1;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Location = new System.Drawing.Point(970, 11);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(100, 50);
+            this.btnAdd.TabIndex = 0;
+            this.btnAdd.Text = "Thêm";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // ID
             // 
@@ -88,7 +100,7 @@
             this.ProjectName.HeaderText = "Tên dự án";
             this.ProjectName.MinimumWidth = 6;
             this.ProjectName.Name = "ProjectName";
-            this.ProjectName.Width = 125;
+            this.ProjectName.Width = 140;
             // 
             // KhachHang
             // 
@@ -138,17 +150,6 @@
             this.Delete.Name = "Delete";
             this.Delete.Width = 6;
             // 
-            // btnAdd
-            // 
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(128)))), ((int)(((byte)(134)))));
-            this.btnAdd.ForeColor = System.Drawing.Color.Black;
-            this.btnAdd.Location = new System.Drawing.Point(970, 11);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(100, 50);
-            this.btnAdd.TabIndex = 0;
-            this.btnAdd.Text = "THÊM";
-            this.btnAdd.UseVisualStyleBackColor = false;
-            // 
             // AdminProjects
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -156,7 +157,9 @@
             this.ClientSize = new System.Drawing.Size(1082, 533);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvProjects);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AdminProjects";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Projects";
             this.Load += new System.EventHandler(this.AdminProjects_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjects)).EndInit();
@@ -169,6 +172,7 @@
 
         private System.Windows.Forms.DataGridView dgvProjects;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProjectName;
         private System.Windows.Forms.DataGridViewTextBoxColumn KhachHang;
@@ -177,6 +181,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
-        private System.Windows.Forms.Button btnAdd;
     }
 }
