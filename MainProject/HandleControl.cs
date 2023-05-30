@@ -9,7 +9,7 @@ namespace HandleControl {
             textBox.GotFocus += delegate (object sender, EventArgs args) {
                 if (textBox.Text == PlaceHolderText) {
                     textBox.Text = "";
-                    textBox.ForeColor = Color.Black;
+                    textBox.ForeColor = Color.FromArgb(248, 245, 168);
                 }
             };
             textBox.LostFocus += delegate (object sender, EventArgs args) {
