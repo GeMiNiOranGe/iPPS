@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E41D4346-F596-4288-A7F3-B2F482FF6AA1}</ProjectGuid>
+    <ProjectGuid>{3704282B-D786-4240-A2D3-23A3B8F8496D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>MainProject</RootNamespace>
-    <AssemblyName>MainProject</AssemblyName>
+    <RootNamespace>IPPS</RootNamespace>
+    <AssemblyName>IPPS</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
