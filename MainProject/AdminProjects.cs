@@ -31,16 +31,29 @@ namespace MainProject
         {
             dgvProjects.Rows.Clear();
             conn.Open();
-            cmd=new SqlCommand("select * from PROJECT", conn);
+            cmd=new SqlCommand("SELECT * FROM PROJECT", conn);
             rd= cmd.ExecuteReader();
             while (rd.Read())
             {
-                dgvProjects.Rows.Add(rd["PROJECT_ID"].ToString(), rd["PROJECT_NAME"].ToString(), 
-                    rd["CUSTOMER"].ToString(), rd["FIRST_DAY"].ToString(), 
-                    rd["LAST_DAY"].ToString(), rd["STATE"].ToString());
+                string strFirstDay = GetDate(rd["FIRST_DAY"]);
+                string strLastDay = GetDate(rd["LAST_DAY"]);
+
+                dgvProjects.Rows.Add(rd["PROJECT_ID"].ToString(), 
+                    rd["PROJECT_NAME"].ToString(),rd["CUSTOMER"].ToString(), 
+                    strFirstDay, strLastDay, rd["STATE"].ToString());
             }
             rd.Close();
             conn.Close();
+        }
+
+        private string GetDate(object dateObj)
+        {
+            if (dateObj is DateTime)
+            {
+                DateTime date = (DateTime)dateObj;
+                return date.ToString("MM/dd/yyyy");
+            }
+            return string.Empty;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -67,11 +80,12 @@ namespace MainProject
 
                 adminProjectsModule.btnSave.Enabled = false;
                 adminProjectsModule.btnUpdate.Enabled = true;
+                adminProjectsModule.btnClear.Enabled = false;
                 adminProjectsModule.ShowDialog();
             }
             else if(strColName == "Delete")
             {
-                if(MessageBox.Show("Bạn có chắc chắn muốn xóa dự án này", "Thông báo",
+                if(MessageBox.Show("Bạn có muốn xóa dự án này?", "Xác nhận",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     conn.Open();
@@ -79,7 +93,7 @@ namespace MainProject
                     cmd = new SqlCommand($"DELETE FROM PROJECT WHERE PROJECT_ID='{strIDProject}'", conn);
                     cmd.ExecuteNonQuery();
                     conn.Close();
-                    MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK);
+                    MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK);
                 }
             }
             LoadAdminProjects();

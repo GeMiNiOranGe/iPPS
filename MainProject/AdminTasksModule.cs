@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace MainProject
 {
-    public partial class AdminProjectsModule : Form
+    public partial class AdminTasksModule : Form
     {
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -24,7 +24,8 @@ namespace MainProject
 
         SqlConnection conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=PROJECT_MANAGEMENT;Integrated Security=True");
         SqlCommand cmd = new SqlCommand();
-        public AdminProjectsModule()
+
+        public AdminTasksModule()
         {
             InitializeComponent();
         }
@@ -40,63 +41,69 @@ namespace MainProject
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if(txtID.Text=="" || txtName.Text == "" 
-                || txtCustomer.Text == "" || cbbState.Text == "")
+            if (txtProjectID.Text == "" || txtTaskID.Text == "" 
+                || txtName.Text == "" || cbbPriority.Text == "" 
+                || cbbState.Text == "" || cbbPublic.Text == "")
             {
                 MessageBox.Show("Không được để trống thông tin!");
                 return;
             }
             try
             {
-                if(MessageBox.Show("Bạn có muốn lưu dự án này?", "Xác nhận",
+                if (MessageBox.Show("Bạn có muốn lưu công việc này?", "Xác nhận",
                            MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    cmd = new SqlCommand("INSERT INTO PROJECT VALUES(@id,@name,@cus,@start,@end,@state)", conn);
-                    cmd.Parameters.AddWithValue("@id", txtID.Text);
+                    cmd = new SqlCommand("INSERT INTO WORK VALUES(@idTask,@name,@start,@end,@priority,@state,@public,@idProject)", conn);
+                    cmd.Parameters.AddWithValue("@idTask", txtTaskID.Text);
                     cmd.Parameters.AddWithValue("@name", txtName.Text);
-                    cmd.Parameters.AddWithValue("@cus", txtCustomer.Text);
                     cmd.Parameters.AddWithValue("@start", dtpStart.Text);
                     cmd.Parameters.AddWithValue("@end", dtpEnd.Text);
+                    cmd.Parameters.AddWithValue("@priority", cbbPriority.Text);
                     cmd.Parameters.AddWithValue("@state", cbbState.Text);
+                    cmd.Parameters.AddWithValue("@public", cbbPublic.Text);
+                    cmd.Parameters.AddWithValue("@idProject", txtProjectID.Text);
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
                     ResetTextBox();
-                    MessageBox.Show("Lưu dự án thành công!");
+                    MessageBox.Show("Lưu công việc thành công!");
                     this.Dispose();
                 }
             }
             catch (Exception ex)
-            { 
+            {
                 MessageBox.Show(ex.Message);
             }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (txtID.Text == "" || txtName.Text == ""
-                || txtCustomer.Text == "" || cbbState.Text == "")
+            if (txtProjectID.Text == "" || txtTaskID.Text == ""
+                || txtName.Text == "" || cbbPriority.Text == ""
+                || cbbState.Text == "" || cbbPublic.Text == "")
             {
                 MessageBox.Show("Không được để trống thông tin!");
                 return;
             }
             try
             {
-                if (MessageBox.Show("Bạn có muốn cập nhật dự án này?", "Xác nhận",
+                if (MessageBox.Show("Bạn có muốn cập nhật công việc này?", "Xác nhận",
                            MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    cmd = new SqlCommand($"UPDATE PROJECT SET PROJECT_ID=@id, PROJECT_NAME=@name, CUSTOMER=@cus, FIRST_DAY=@start, LAST_DAY=@end, STATE=@state WHERE PROJECT_ID={txtID.Text}", conn);
-                    cmd.Parameters.AddWithValue("@id", txtID.Text);
+                    cmd = new SqlCommand($"UPDATE WORK SET WORK_ID=@idTask, WORK_NAME=@name, FIRST_DAY=@start, LAST_DAY=@end, PRIORITY=@priority, STATE=@state, OPEN_PUBLIC=@public, PROJECT_ID=@idProject WHERE WORK_ID={txtTaskID.Text}", conn);
+                    cmd.Parameters.AddWithValue("@idTask", txtTaskID.Text);
                     cmd.Parameters.AddWithValue("@name", txtName.Text);
-                    cmd.Parameters.AddWithValue("@cus", txtCustomer.Text);
                     cmd.Parameters.AddWithValue("@start", dtpStart.Text);
                     cmd.Parameters.AddWithValue("@end", dtpEnd.Text);
+                    cmd.Parameters.AddWithValue("@priority", cbbPriority.Text);
                     cmd.Parameters.AddWithValue("@state", cbbState.Text);
+                    cmd.Parameters.AddWithValue("@public", cbbPublic.Text);
+                    cmd.Parameters.AddWithValue("@idProject", txtProjectID.Text);
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
                     ResetTextBox();
-                    MessageBox.Show("Cập nhật dự án thành công!");
+                    MessageBox.Show("Cập nhật công việc thành công!");
                     this.Dispose();
                 }
             }
@@ -113,17 +120,19 @@ namespace MainProject
             btnUpdate.Enabled = false;
         }
 
-        public void ResetTextBox()
+        private void ResetTextBox()
         {
-            txtID.ResetText();
+            txtProjectID.ResetText();
+            txtTaskID.ResetText();
             txtName.ResetText();
-            txtCustomer.ResetText();
             dtpStart.ResetText();
             dtpEnd.ResetText();
+            cbbPriority.ResetText();
             cbbState.ResetText();
+            cbbPublic.ResetText();
         }
 
-        private void ptbClose_Click(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }

@@ -63,7 +63,7 @@
             this.dgvProjects.Name = "dgvProjects";
             this.dgvProjects.RowHeadersWidth = 51;
             this.dgvProjects.RowTemplate.Height = 24;
-            this.dgvProjects.Size = new System.Drawing.Size(1082, 461);
+            this.dgvProjects.Size = new System.Drawing.Size(1082, 476);
             this.dgvProjects.TabIndex = 0;
             this.dgvProjects.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProjects_CellContentClick);
             // 
@@ -72,19 +72,19 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(63)))), ((int)(((byte)(60)))));
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 460);
+            this.panel1.Location = new System.Drawing.Point(0, 473);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1082, 73);
+            this.panel1.Size = new System.Drawing.Size(1082, 80);
             this.panel1.TabIndex = 1;
             // 
             // btnAdd
             // 
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(970, 11);
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Location = new System.Drawing.Point(1020, 18);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(100, 50);
+            this.btnAdd.Size = new System.Drawing.Size(50, 50);
             this.btnAdd.TabIndex = 0;
-            this.btnAdd.Text = "Thêm";
+            this.btnAdd.Text = "+";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -107,28 +107,28 @@
             this.KhachHang.HeaderText = "Khách hàng";
             this.KhachHang.MinimumWidth = 6;
             this.KhachHang.Name = "KhachHang";
-            this.KhachHang.Width = 125;
+            this.KhachHang.Width = 130;
             // 
             // NgayBatDau
             // 
             this.NgayBatDau.HeaderText = "Ngày bắt đầu";
             this.NgayBatDau.MinimumWidth = 6;
             this.NgayBatDau.Name = "NgayBatDau";
-            this.NgayBatDau.Width = 125;
+            this.NgayBatDau.Width = 110;
             // 
             // NgayKetThuc
             // 
             this.NgayKetThuc.HeaderText = "Ngày kết thúc";
             this.NgayKetThuc.MinimumWidth = 6;
             this.NgayKetThuc.Name = "NgayKetThuc";
-            this.NgayKetThuc.Width = 125;
+            this.NgayKetThuc.Width = 110;
             // 
             // TrangThai
             // 
             this.TrangThai.HeaderText = "Trạng thái";
             this.TrangThai.MinimumWidth = 6;
             this.TrangThai.Name = "TrangThai";
-            this.TrangThai.Width = 125;
+            this.TrangThai.Width = 130;
             // 
             // Edit
             // 
@@ -154,10 +154,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1082, 533);
+            this.ClientSize = new System.Drawing.Size(1082, 553);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvProjects);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AdminProjects";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Projects";

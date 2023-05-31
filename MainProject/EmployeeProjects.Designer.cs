@@ -57,7 +57,7 @@
             this.dgvProjects.ReadOnly = true;
             this.dgvProjects.RowHeadersWidth = 51;
             this.dgvProjects.RowTemplate.Height = 24;
-            this.dgvProjects.Size = new System.Drawing.Size(1017, 453);
+            this.dgvProjects.Size = new System.Drawing.Size(1082, 553);
             this.dgvProjects.TabIndex = 0;
             // 
             // MADA
@@ -66,7 +66,7 @@
             this.MADA.MinimumWidth = 6;
             this.MADA.Name = "MADA";
             this.MADA.ReadOnly = true;
-            this.MADA.Width = 70;
+            this.MADA.Width = 72;
             // 
             // TENDA
             // 
@@ -74,7 +74,7 @@
             this.TENDA.MinimumWidth = 6;
             this.TENDA.Name = "TENDA";
             this.TENDA.ReadOnly = true;
-            this.TENDA.Width = 140;
+            this.TENDA.Width = 160;
             // 
             // KhachHang
             // 
@@ -82,7 +82,7 @@
             this.KhachHang.MinimumWidth = 6;
             this.KhachHang.Name = "KhachHang";
             this.KhachHang.ReadOnly = true;
-            this.KhachHang.Width = 125;
+            this.KhachHang.Width = 140;
             // 
             // NgayBatDau
             // 
@@ -106,15 +106,14 @@
             this.TrangThai.MinimumWidth = 6;
             this.TrangThai.Name = "TrangThai";
             this.TrangThai.ReadOnly = true;
-            this.TrangThai.Width = 125;
+            this.TrangThai.Width = 135;
             // 
             // EmployeeProjects
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1017, 453);
+            this.ClientSize = new System.Drawing.Size(1082, 553);
             this.Controls.Add(this.dgvProjects);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EmployeeProjects";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EmployeeProjects";
