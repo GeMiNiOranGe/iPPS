@@ -74,7 +74,7 @@
             this.TENDA.MinimumWidth = 6;
             this.TENDA.Name = "TENDA";
             this.TENDA.ReadOnly = true;
-            this.TENDA.Width = 160;
+            this.TENDA.Width = 150;
             // 
             // KhachHang
             // 
@@ -90,7 +90,7 @@
             this.NgayBatDau.MinimumWidth = 6;
             this.NgayBatDau.Name = "NgayBatDau";
             this.NgayBatDau.ReadOnly = true;
-            this.NgayBatDau.Width = 125;
+            this.NgayBatDau.Width = 120;
             // 
             // NgayKetThuc
             // 
@@ -98,7 +98,7 @@
             this.NgayKetThuc.MinimumWidth = 6;
             this.NgayKetThuc.Name = "NgayKetThuc";
             this.NgayKetThuc.ReadOnly = true;
-            this.NgayKetThuc.Width = 125;
+            this.NgayKetThuc.Width = 120;
             // 
             // TrangThai
             // 
@@ -114,6 +114,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1082, 553);
             this.Controls.Add(this.dgvProjects);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EmployeeProjects";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EmployeeProjects";

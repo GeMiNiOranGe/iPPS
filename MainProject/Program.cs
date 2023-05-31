@@ -13,7 +13,7 @@ namespace MainProject {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AdminTasks());
+            Application.Run(new EmployeeTasks());
         }
     }
 }

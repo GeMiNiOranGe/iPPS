@@ -102,15 +102,39 @@ namespace MainProject
             LoadAdminTasks();
         }
 
-        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtSearchProject_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (txtSearch.Text == "")
+            if (txtSearchProject.Text == "")
                 LoadAdminTasks();
             else
             {
                 dgvTasks.Rows.Clear();
                 conn.Open();
-                cmd = new SqlCommand($"SELECT * FROM WORK WHERE PROJECT_ID LIKE '{txtSearch.Text}'", conn);
+                cmd = new SqlCommand($"SELECT * FROM WORK WHERE PROJECT_ID LIKE '{txtSearchProject.Text}'", conn);
+                rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    string strFirstDay = GetDate(rd["FIRST_DAY"]);
+                    string strLastDay = GetDate(rd["LAST_DAY"]);
+
+                    dgvTasks.Rows.Add(rd["WORK_ID"].ToString(), rd["WORK_NAME"].ToString(),
+                        strFirstDay, strLastDay, rd["PRIORITY"].ToString(), rd["STATE"].ToString(),
+                        rd["OPEN_PUBLIC"].ToString(), rd["PROJECT_ID"].ToString());
+                }
+                rd.Close();
+                conn.Close();
+            }
+        }
+
+        private void txtSearchTask_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtSearchTask.Text == "")
+                LoadAdminTasks();
+            else
+            {
+                dgvTasks.Rows.Clear();
+                conn.Open();
+                cmd = new SqlCommand($"SELECT * FROM WORK WHERE WORK_ID LIKE '{txtSearchTask.Text}'", conn);
                 rd = cmd.ExecuteReader();
                 while (rd.Read())
                 {

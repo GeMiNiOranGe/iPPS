@@ -30,10 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminTasks));
             this.dgvTasks = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.lblSearch = new System.Windows.Forms.Label();
             this.WorkID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WorkName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Start = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +40,12 @@
             this.ProjectID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.txtSearchTask = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.txtSearchProject = new System.Windows.Forms.TextBox();
+            this.lblSearch = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTasks)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -73,48 +75,6 @@
             this.dgvTasks.TabIndex = 0;
             this.dgvTasks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTasks_CellContentClick);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(63)))), ((int)(((byte)(60)))));
-            this.panel1.Controls.Add(this.btnAdd);
-            this.panel1.Controls.Add(this.txtSearch);
-            this.panel1.Controls.Add(this.lblSearch);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 473);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1082, 80);
-            this.panel1.TabIndex = 1;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(1020, 18);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(50, 50);
-            this.btnAdd.TabIndex = 2;
-            this.btnAdd.Text = "+";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(224, 30);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(200, 22);
-            this.txtSearch.TabIndex = 1;
-            this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
-            // 
-            // lblSearch
-            // 
-            this.lblSearch.AutoSize = true;
-            this.lblSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearch.ForeColor = System.Drawing.Color.White;
-            this.lblSearch.Location = new System.Drawing.Point(69, 30);
-            this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(132, 22);
-            this.lblSearch.TabIndex = 0;
-            this.lblSearch.Text = "Nhập mã dự án";
-            // 
             // WorkID
             // 
             this.WorkID.HeaderText = "Mã CV";
@@ -134,12 +94,14 @@
             this.Start.HeaderText = "Ngày bắt đầu";
             this.Start.MinimumWidth = 6;
             this.Start.Name = "Start";
+            this.Start.Width = 101;
             // 
             // End
             // 
             this.End.HeaderText = "Ngày kết thúc";
             this.End.MinimumWidth = 6;
             this.End.Name = "End";
+            this.End.Width = 101;
             // 
             // Priority
             // 
@@ -189,6 +151,69 @@
             this.Delete.Name = "Delete";
             this.Delete.Width = 6;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(63)))), ((int)(((byte)(60)))));
+            this.panel1.Controls.Add(this.txtSearchTask);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.btnAdd);
+            this.panel1.Controls.Add(this.txtSearchProject);
+            this.panel1.Controls.Add(this.lblSearch);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 473);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1082, 80);
+            this.panel1.TabIndex = 1;
+            // 
+            // txtSearchTask
+            // 
+            this.txtSearchTask.Location = new System.Drawing.Point(639, 28);
+            this.txtSearchTask.Name = "txtSearchTask";
+            this.txtSearchTask.Size = new System.Drawing.Size(100, 22);
+            this.txtSearchTask.TabIndex = 4;
+            this.txtSearchTask.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearchTask_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(453, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(163, 22);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Nhập mã công việc";
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Location = new System.Drawing.Point(1020, 18);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(50, 50);
+            this.btnAdd.TabIndex = 2;
+            this.btnAdd.Text = "+";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // txtSearchProject
+            // 
+            this.txtSearchProject.Location = new System.Drawing.Point(218, 30);
+            this.txtSearchProject.Name = "txtSearchProject";
+            this.txtSearchProject.Size = new System.Drawing.Size(100, 22);
+            this.txtSearchProject.TabIndex = 1;
+            this.txtSearchProject.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearchProject_KeyPress);
+            // 
+            // lblSearch
+            // 
+            this.lblSearch.AutoSize = true;
+            this.lblSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearch.ForeColor = System.Drawing.Color.White;
+            this.lblSearch.Location = new System.Drawing.Point(69, 30);
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(132, 22);
+            this.lblSearch.TabIndex = 0;
+            this.lblSearch.Text = "Nhập mã dự án";
+            // 
             // AdminTasks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -196,6 +221,7 @@
             this.ClientSize = new System.Drawing.Size(1082, 553);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvTasks);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AdminTasks";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin Tasks";
@@ -212,8 +238,10 @@
         private System.Windows.Forms.DataGridView dgvTasks;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.TextBox txtSearchProject;
         private System.Windows.Forms.Label lblSearch;
+        private System.Windows.Forms.TextBox txtSearchTask;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn WorkID;
         private System.Windows.Forms.DataGridViewTextBoxColumn WorkName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Start;

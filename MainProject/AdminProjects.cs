@@ -98,5 +98,29 @@ namespace MainProject
             }
             LoadAdminProjects();
         }
+
+        private void txtSearchProject_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtSearchProject.Text == "")
+                LoadAdminProjects();
+            else
+            {
+                dgvProjects.Rows.Clear();
+                conn.Open();
+                cmd = new SqlCommand($"SELECT * FROM PROJECT WHERE PROJECT_ID LIKE '{txtSearchProject.Text}'", conn);
+                rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    string strFirstDay = GetDate(rd["FIRST_DAY"]);
+                    string strLastDay = GetDate(rd["LAST_DAY"]);
+
+                    dgvProjects.Rows.Add(rd["PROJECT_ID"].ToString(),
+                        rd["PROJECT_NAME"].ToString(), rd["CUSTOMER"].ToString(),
+                        strFirstDay, strLastDay, rd["STATE"].ToString());
+                }
+                rd.Close();
+                conn.Close();
+            }
+        }
     }
 }
