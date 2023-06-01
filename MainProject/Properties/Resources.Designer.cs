@@ -19,7 +19,7 @@ namespace MainProject.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -65,7 +65,7 @@ namespace MainProject.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap closeLockWhite {
             get {
-                object obj = ResourceManager.GetObject("closeLockWhite", resourceCulture);
+                object obj = ResourceManager.GetObject("CloseLockWhite", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -76,6 +76,16 @@ namespace MainProject.Properties {
         internal static System.Drawing.Bitmap closeLockYellow {
             get {
                 object obj = ResourceManager.GetObject("closeLockYellow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MK {
+            get {
+                object obj = ResourceManager.GetObject("MK", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -96,6 +106,16 @@ namespace MainProject.Properties {
         internal static System.Drawing.Bitmap openLockYellow {
             get {
                 object obj = ResourceManager.GetObject("openLockYellow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TK {
+            get {
+                object obj = ResourceManager.GetObject("TK", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
