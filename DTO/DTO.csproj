@@ -46,9 +46,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CAccount.cs" />
     <Compile Include="CDepartment.cs" />
+    <Compile Include="CDocument.cs" />
+    <Compile Include="CDocumentNativeFileFormat.cs" />
+    <Compile Include="CEmployeeBelongToProject.cs" />
     <Compile Include="CEmployeePhoneNumber.cs" />
     <Compile Include="CEmployee.cs" />
+    <Compile Include="CImplementProject.cs" />
+    <Compile Include="CJob.cs" />
+    <Compile Include="CJoinJob.cs" />
+    <Compile Include="CJoinProject.cs" />
+    <Compile Include="CPartner.cs" />
+    <Compile Include="CProject.cs" />
+    <Compile Include="CRole.cs" />
     <Compile Include="Enumerate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
