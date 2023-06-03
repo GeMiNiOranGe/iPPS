@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MainProject {
+namespace GUI {
     public partial class FormMain : Form {
         public FormMain() {
             InitializeComponent();

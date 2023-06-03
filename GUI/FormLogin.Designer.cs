@@ -1,5 +1,5 @@
 ﻿
-namespace MainProject {
+namespace GUI {
     partial class FormLogin {
         /// <summary>
         /// Required designer variable.
@@ -104,7 +104,7 @@ namespace MainProject {
             // 
             // PictureUserID
             // 
-            this.PictureUserID.BackgroundImage = global::MainProject.Properties.Resources.userWhite;
+            this.PictureUserID.BackgroundImage = global::GUI.Properties.Resources.UserWhite;
             this.PictureUserID.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.PictureUserID.Location = new System.Drawing.Point(49, 76);
             this.PictureUserID.Name = "PictureUserID";
@@ -114,13 +114,14 @@ namespace MainProject {
             // 
             // PicturePassWord
             // 
-            this.PicturePassWord.BackgroundImage = global::MainProject.Properties.Resources.closeLockWhite;
+            this.PicturePassWord.BackgroundImage = global::GUI.Properties.Resources.CloseLockWhite;
             this.PicturePassWord.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.PicturePassWord.Location = new System.Drawing.Point(49, 151);
             this.PicturePassWord.Name = "PicturePassWord";
             this.PicturePassWord.Size = new System.Drawing.Size(52, 50);
             this.PicturePassWord.TabIndex = 5;
             this.PicturePassWord.TabStop = false;
+            this.PicturePassWord.Click += new System.EventHandler(this.PicturePassWord_Click);
             // 
             // panel1
             // 
@@ -146,7 +147,7 @@ namespace MainProject {
             this.label1.Size = new System.Drawing.Size(27, 30);
             this.label1.TabIndex = 8;
             this.label1.Text = "X";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.Click += new System.EventHandler(this.Label1_Click);
             // 
             // FormLogin
             // 
