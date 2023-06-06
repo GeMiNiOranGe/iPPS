@@ -13,5 +13,9 @@ namespace GUI {
         public FormMain() {
             InitializeComponent();
         }
+
+        private void FormMain_Load(object sender, EventArgs e) {
+            DgvMain.DataSource = BLL.CProjectBLL.GetProjectList();
+        }
     }
 }
