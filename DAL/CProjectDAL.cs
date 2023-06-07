@@ -6,10 +6,21 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DAL {
-    public static class CProjectDAL {
-        public static DataTable GetProjectList() {
+    public class CProjectDAL {
+        #region Singleton Design Pattern
+        private static CProjectDAL instance;
+
+        public static CProjectDAL Instance {
+            get => instance ?? (instance = new CProjectDAL());
+            private set => instance = value;
+        }
+
+        private CProjectDAL() { }
+        #endregion
+
+        public DataTable GetProjectList() {
             string query = "EXECUTE SP_SELECT_ALL_PROJECT";
-            return DataProvider.ExecuteQuery(query);
+            return DataProvider.Instance.ExecuteQuery(query);
         }
     }
 }

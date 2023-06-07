@@ -6,19 +6,16 @@ using System.Threading.Tasks;
 
 namespace DAL {
     public class CAccountDAL {
+        #region Singleton Design Pattern
         private static CAccountDAL instance;
 
         public static CAccountDAL Instance {
-            get {
-                if (instance == null) {
-                    instance = new CAccountDAL();
-                };
-                return instance;
-            }
+            get => instance ?? (instance = new CAccountDAL());
             private set => instance = value;
         }
 
         private CAccountDAL() { }
+        #endregion
 
         //public bool Login(string userId, string password) {
 

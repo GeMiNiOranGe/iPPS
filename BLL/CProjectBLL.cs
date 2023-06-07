@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace BLL {
     public static class CProjectBLL {
         public static DataTable GetProjectList() {
-            return DAL.CProjectDAL.GetProjectList();
+            return DAL.CProjectDAL.Instance.GetProjectList();
         }
     }
 }

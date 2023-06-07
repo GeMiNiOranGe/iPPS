@@ -7,26 +7,38 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DAL {
-    public static class DataProvider {
+    public class DataProvider {
         private const string CONNECTION_STRING = @"Data Source=.;Initial Catalog=PROJECT_MANAGEMENT_TEMP;Integrated Security=True";
 
-        private static SqlConnection GetConnection() {
+        #region Singleton Design Pattern
+        private static DataProvider instance;
+        
+        public static DataProvider Instance {
+            // The null-coalescing operators
+            get => instance ?? (instance = new DataProvider());
+            private set => instance = value;
+        }
+
+        private DataProvider() { }
+        #endregion
+
+        private SqlConnection GetConnection() {
             return new SqlConnection(CONNECTION_STRING);
         }
 
-        public static void OpenConnection(SqlConnection sqlConnection) {
+        public void OpenConnection(SqlConnection sqlConnection) {
             if (sqlConnection.State == ConnectionState.Closed || sqlConnection.State == ConnectionState.Broken) {
                 sqlConnection.Open();
             }
         }
 
-        public static void CloseConnection(SqlConnection sqlConnection) {
+        public void CloseConnection(SqlConnection sqlConnection) {
             if (sqlConnection != null) {
                 sqlConnection.Close();
             }
         }
 
-        public static DataTable ExecuteQuery(string query) {
+        public DataTable ExecuteQuery(string query) {
             var data = new DataTable();
             using (var sqlConnection = GetConnection()) {
                 OpenConnection(sqlConnection);
@@ -39,7 +51,7 @@ namespace DAL {
             return data;
         }
 
-        public static int ExecuteNonQuery(string query) {
+        public int ExecuteNonQuery(string query) {
             int data = 0;
             using (var sqlConnection = GetConnection()) {
                 OpenConnection(sqlConnection);
@@ -51,13 +63,24 @@ namespace DAL {
             return data;
         }
 
-        public static object ExecuteScalar(string query) {
+        public object ExecuteScalar(string query) {
             object data = 0;
             using (var sqlConnection = GetConnection()) {
                 OpenConnection(sqlConnection);
                 var sqlCommand = new SqlCommand(query, sqlConnection);
                 var sqlDataAdapter = new SqlDataAdapter(sqlCommand);
                 data = sqlCommand.ExecuteScalar();
+                CloseConnection(sqlConnection);
+            }
+            return data;
+        }
+
+        public SqlDataReader ExecuteReader(string query) {
+            SqlDataReader data;
+            using (var sqlConnection = GetConnection()) {
+                OpenConnection(sqlConnection);
+                var sqlCommand = new SqlCommand(query, sqlConnection);
+                data = sqlCommand.ExecuteReader();
                 CloseConnection(sqlConnection);
             }
             return data;
