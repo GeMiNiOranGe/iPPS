@@ -24,286 +24,286 @@ namespace MainProject {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.PcbBTT = new System.Windows.Forms.PictureBox();
-            this.PcbBaocao = new System.Windows.Forms.PictureBox();
-            this.PcbDuan = new System.Windows.Forms.PictureBox();
-            this.PcbTaikhoan = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.PcbOut = new System.Windows.Forms.PictureBox();
-            this.PcbBell = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.LbUsername = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.LbMain = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbBTT)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbBaocao)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbDuan)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbTaikhoan)).BeginInit();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbOut)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbBell)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            this.panel3.SuspendLayout();
+            this.pnLeft = new System.Windows.Forms.Panel();
+            this.lbIPPS = new System.Windows.Forms.Label();
+            this.lbBaocao = new System.Windows.Forms.Label();
+            this.lbBTT = new System.Windows.Forms.Label();
+            this.lbDuan = new System.Windows.Forms.Label();
+            this.lbTaikhoan = new System.Windows.Forms.Label();
+            this.pcbBTT = new System.Windows.Forms.PictureBox();
+            this.pcbBaocao = new System.Windows.Forms.PictureBox();
+            this.pcbDuan = new System.Windows.Forms.PictureBox();
+            this.pcbTaikhoan = new System.Windows.Forms.PictureBox();
+            this.pnAbove = new System.Windows.Forms.Panel();
+            this.pcbSidebar = new System.Windows.Forms.PictureBox();
+            this.pcbOut = new System.Windows.Forms.PictureBox();
+            this.pcbBell = new System.Windows.Forms.PictureBox();
+            this.PcbUser = new System.Windows.Forms.PictureBox();
+            this.lbUsername = new System.Windows.Forms.Label();
+            this.pnCenter = new System.Windows.Forms.Panel();
+            this.lbCenter = new System.Windows.Forms.Label();
+            this.pnLeft.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbBTT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbBaocao)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbDuan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbTaikhoan)).BeginInit();
+            this.pnAbove.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbSidebar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbOut)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbBell)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbUser)).BeginInit();
+            this.pnCenter.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnLeft
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(63)))), ((int)(((byte)(60)))));
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.PcbBTT);
-            this.panel1.Controls.Add(this.PcbBaocao);
-            this.panel1.Controls.Add(this.PcbDuan);
-            this.panel1.Controls.Add(this.PcbTaikhoan);
-            this.panel1.Location = new System.Drawing.Point(3, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(195, 764);
-            this.panel1.TabIndex = 0;
+            this.pnLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(63)))), ((int)(((byte)(60)))));
+            this.pnLeft.Controls.Add(this.lbIPPS);
+            this.pnLeft.Controls.Add(this.lbBaocao);
+            this.pnLeft.Controls.Add(this.lbBTT);
+            this.pnLeft.Controls.Add(this.lbDuan);
+            this.pnLeft.Controls.Add(this.lbTaikhoan);
+            this.pnLeft.Controls.Add(this.pcbBTT);
+            this.pnLeft.Controls.Add(this.pcbBaocao);
+            this.pnLeft.Controls.Add(this.pcbDuan);
+            this.pnLeft.Controls.Add(this.pcbTaikhoan);
+            this.pnLeft.Location = new System.Drawing.Point(3, 0);
+            this.pnLeft.Name = "pnLeft";
+            this.pnLeft.Size = new System.Drawing.Size(195, 764);
+            this.pnLeft.TabIndex = 0;
             // 
-            // label7
+            // lbIPPS
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(31, 27);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(151, 81);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "IPPS";
+            this.lbIPPS.AutoSize = true;
+            this.lbIPPS.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbIPPS.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbIPPS.Location = new System.Drawing.Point(31, 27);
+            this.lbIPPS.Name = "lbIPPS";
+            this.lbIPPS.Size = new System.Drawing.Size(151, 81);
+            this.lbIPPS.TabIndex = 8;
+            this.lbIPPS.Text = "IPPS";
             // 
-            // label4
+            // lbBaocao
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(49, 546);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 31);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Báo cáo";
+            this.lbBaocao.AutoSize = true;
+            this.lbBaocao.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbBaocao.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbBaocao.Location = new System.Drawing.Point(49, 546);
+            this.lbBaocao.Name = "lbBaocao";
+            this.lbBaocao.Size = new System.Drawing.Size(94, 31);
+            this.lbBaocao.TabIndex = 7;
+            this.lbBaocao.Text = "Báo cáo";
             // 
-            // label3
+            // lbBTT
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(9, 713);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(173, 31);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Bảng tình trạng";
+            this.lbBTT.AutoSize = true;
+            this.lbBTT.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbBTT.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbBTT.Location = new System.Drawing.Point(9, 713);
+            this.lbBTT.Name = "lbBTT";
+            this.lbBTT.Size = new System.Drawing.Size(173, 31);
+            this.lbBTT.TabIndex = 6;
+            this.lbBTT.Text = "Bảng tình trạng";
             // 
-            // label2
+            // lbDuan
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(67, 387);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 31);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Dự án";
+            this.lbDuan.AutoSize = true;
+            this.lbDuan.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDuan.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbDuan.Location = new System.Drawing.Point(67, 387);
+            this.lbDuan.Name = "lbDuan";
+            this.lbDuan.Size = new System.Drawing.Size(75, 31);
+            this.lbDuan.TabIndex = 5;
+            this.lbDuan.Text = "Dự án";
             // 
-            // label1
+            // lbTaikhoan
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(49, 227);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 31);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Tài khoản";
+            this.lbTaikhoan.AutoSize = true;
+            this.lbTaikhoan.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTaikhoan.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbTaikhoan.Location = new System.Drawing.Point(49, 227);
+            this.lbTaikhoan.Name = "lbTaikhoan";
+            this.lbTaikhoan.Size = new System.Drawing.Size(109, 31);
+            this.lbTaikhoan.TabIndex = 0;
+            this.lbTaikhoan.Text = "Tài khoản";
             // 
-            // PcbBTT
+            // pcbBTT
             // 
-            this.PcbBTT.BackgroundImage = global::MainProject.Properties.Resources.bảng;
-            this.PcbBTT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PcbBTT.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.PcbBTT.Location = new System.Drawing.Point(55, 621);
-            this.PcbBTT.Name = "PcbBTT";
-            this.PcbBTT.Size = new System.Drawing.Size(87, 89);
-            this.PcbBTT.TabIndex = 4;
-            this.PcbBTT.TabStop = false;
+            this.pcbBTT.BackgroundImage = global::MainProject.Properties.Resources.bảng;
+            this.pcbBTT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pcbBTT.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pcbBTT.Location = new System.Drawing.Point(55, 621);
+            this.pcbBTT.Name = "pcbBTT";
+            this.pcbBTT.Size = new System.Drawing.Size(87, 89);
+            this.pcbBTT.TabIndex = 4;
+            this.pcbBTT.TabStop = false;
             // 
-            // PcbBaocao
+            // pcbBaocao
             // 
-            this.PcbBaocao.BackgroundImage = global::MainProject.Properties.Resources.csdl2;
-            this.PcbBaocao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PcbBaocao.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.PcbBaocao.Location = new System.Drawing.Point(55, 454);
-            this.PcbBaocao.Name = "PcbBaocao";
-            this.PcbBaocao.Size = new System.Drawing.Size(87, 89);
-            this.PcbBaocao.TabIndex = 3;
-            this.PcbBaocao.TabStop = false;
+            this.pcbBaocao.BackgroundImage = global::MainProject.Properties.Resources.csdl2;
+            this.pcbBaocao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pcbBaocao.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pcbBaocao.Location = new System.Drawing.Point(55, 454);
+            this.pcbBaocao.Name = "pcbBaocao";
+            this.pcbBaocao.Size = new System.Drawing.Size(87, 89);
+            this.pcbBaocao.TabIndex = 3;
+            this.pcbBaocao.TabStop = false;
             // 
-            // PcbDuan
+            // pcbDuan
             // 
-            this.PcbDuan.BackgroundImage = global::MainProject.Properties.Resources.dự__án_2;
-            this.PcbDuan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PcbDuan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.PcbDuan.Location = new System.Drawing.Point(55, 295);
-            this.PcbDuan.Name = "PcbDuan";
-            this.PcbDuan.Size = new System.Drawing.Size(87, 89);
-            this.PcbDuan.TabIndex = 2;
-            this.PcbDuan.TabStop = false;
+            this.pcbDuan.BackgroundImage = global::MainProject.Properties.Resources.dự__án_2;
+            this.pcbDuan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pcbDuan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pcbDuan.Location = new System.Drawing.Point(55, 295);
+            this.pcbDuan.Name = "pcbDuan";
+            this.pcbDuan.Size = new System.Drawing.Size(87, 89);
+            this.pcbDuan.TabIndex = 2;
+            this.pcbDuan.TabStop = false;
             // 
-            // PcbTaikhoan
+            // pcbTaikhoan
             // 
-            this.PcbTaikhoan.BackgroundImage = global::MainProject.Properties.Resources.in4_2;
-            this.PcbTaikhoan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PcbTaikhoan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.PcbTaikhoan.Location = new System.Drawing.Point(55, 135);
-            this.PcbTaikhoan.Name = "PcbTaikhoan";
-            this.PcbTaikhoan.Size = new System.Drawing.Size(87, 89);
-            this.PcbTaikhoan.TabIndex = 1;
-            this.PcbTaikhoan.TabStop = false;
+            this.pcbTaikhoan.BackgroundImage = global::MainProject.Properties.Resources.in4_2;
+            this.pcbTaikhoan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pcbTaikhoan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pcbTaikhoan.Location = new System.Drawing.Point(55, 135);
+            this.pcbTaikhoan.Name = "pcbTaikhoan";
+            this.pcbTaikhoan.Size = new System.Drawing.Size(87, 89);
+            this.pcbTaikhoan.TabIndex = 1;
+            this.pcbTaikhoan.TabStop = false;
             // 
-            // panel2
+            // pnAbove
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(63)))), ((int)(((byte)(60)))));
-            this.panel2.Controls.Add(this.pictureBox8);
-            this.panel2.Controls.Add(this.PcbOut);
-            this.panel2.Controls.Add(this.PcbBell);
-            this.panel2.Controls.Add(this.pictureBox7);
-            this.panel2.Controls.Add(this.LbUsername);
-            this.panel2.Location = new System.Drawing.Point(204, 2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1131, 67);
-            this.panel2.TabIndex = 1;
+            this.pnAbove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(63)))), ((int)(((byte)(60)))));
+            this.pnAbove.Controls.Add(this.pcbSidebar);
+            this.pnAbove.Controls.Add(this.pcbOut);
+            this.pnAbove.Controls.Add(this.pcbBell);
+            this.pnAbove.Controls.Add(this.PcbUser);
+            this.pnAbove.Controls.Add(this.lbUsername);
+            this.pnAbove.Location = new System.Drawing.Point(204, 2);
+            this.pnAbove.Name = "pnAbove";
+            this.pnAbove.Size = new System.Drawing.Size(1131, 67);
+            this.pnAbove.TabIndex = 1;
             // 
-            // pictureBox8
+            // pcbSidebar
             // 
-            this.pictureBox8.BackgroundImage = global::MainProject.Properties.Resources.Amitjakhu_Drip_Menu_512;
-            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox8.Location = new System.Drawing.Point(13, 4);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(62, 49);
-            this.pictureBox8.TabIndex = 10;
-            this.pictureBox8.TabStop = false;
+            this.pcbSidebar.BackgroundImage = global::MainProject.Properties.Resources.Amitjakhu_Drip_Menu_512;
+            this.pcbSidebar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pcbSidebar.Location = new System.Drawing.Point(13, 4);
+            this.pcbSidebar.Name = "pcbSidebar";
+            this.pcbSidebar.Size = new System.Drawing.Size(62, 49);
+            this.pcbSidebar.TabIndex = 10;
+            this.pcbSidebar.TabStop = false;
             // 
-            // PcbOut
+            // pcbOut
             // 
-            this.PcbOut.BackgroundImage = global::MainProject.Properties.Resources._126467;
-            this.PcbOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PcbOut.Location = new System.Drawing.Point(745, 4);
-            this.PcbOut.Name = "PcbOut";
-            this.PcbOut.Size = new System.Drawing.Size(44, 49);
-            this.PcbOut.TabIndex = 8;
-            this.PcbOut.TabStop = false;
+            this.pcbOut.BackgroundImage = global::MainProject.Properties.Resources._126467;
+            this.pcbOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pcbOut.Location = new System.Drawing.Point(745, 4);
+            this.pcbOut.Name = "pcbOut";
+            this.pcbOut.Size = new System.Drawing.Size(44, 49);
+            this.pcbOut.TabIndex = 8;
+            this.pcbOut.TabStop = false;
             // 
-            // PcbBell
+            // pcbBell
             // 
-            this.PcbBell.BackgroundImage = global::MainProject.Properties.Resources.bell;
-            this.PcbBell.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PcbBell.Location = new System.Drawing.Point(668, 4);
-            this.PcbBell.Name = "PcbBell";
-            this.PcbBell.Size = new System.Drawing.Size(52, 49);
-            this.PcbBell.TabIndex = 9;
-            this.PcbBell.TabStop = false;
+            this.pcbBell.BackgroundImage = global::MainProject.Properties.Resources.bell;
+            this.pcbBell.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pcbBell.Location = new System.Drawing.Point(668, 4);
+            this.pcbBell.Name = "pcbBell";
+            this.pcbBell.Size = new System.Drawing.Size(52, 49);
+            this.pcbBell.TabIndex = 9;
+            this.pcbBell.TabStop = false;
             // 
-            // pictureBox7
+            // PcbUser
             // 
-            this.pictureBox7.BackgroundImage = global::MainProject.Properties.Resources.ảnh_hồ_sơ;
-            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox7.Location = new System.Drawing.Point(873, -2);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(61, 59);
-            this.pictureBox7.TabIndex = 10;
-            this.pictureBox7.TabStop = false;
+            this.PcbUser.BackgroundImage = global::MainProject.Properties.Resources.ảnh_hồ_sơ;
+            this.PcbUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PcbUser.Location = new System.Drawing.Point(873, -2);
+            this.PcbUser.Name = "PcbUser";
+            this.PcbUser.Size = new System.Drawing.Size(61, 59);
+            this.PcbUser.TabIndex = 10;
+            this.PcbUser.TabStop = false;
             // 
-            // LbUsername
+            // lbUsername
             // 
-            this.LbUsername.AutoSize = true;
-            this.LbUsername.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LbUsername.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LbUsername.Location = new System.Drawing.Point(940, 0);
-            this.LbUsername.Name = "LbUsername";
-            this.LbUsername.Size = new System.Drawing.Size(188, 31);
-            this.LbUsername.TabIndex = 8;
-            this.LbUsername.Text = "Nguyễn Văn AAA";
+            this.lbUsername.AutoSize = true;
+            this.lbUsername.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUsername.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbUsername.Location = new System.Drawing.Point(940, 0);
+            this.lbUsername.Name = "lbUsername";
+            this.lbUsername.Size = new System.Drawing.Size(188, 31);
+            this.lbUsername.TabIndex = 8;
+            this.lbUsername.Text = "Nguyễn Văn AAA";
             // 
-            // panel3
+            // pnCenter
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(128)))), ((int)(((byte)(134)))));
-            this.panel3.Controls.Add(this.LbMain);
-            this.panel3.Location = new System.Drawing.Point(204, 75);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1131, 689);
-            this.panel3.TabIndex = 2;
+            this.pnCenter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(128)))), ((int)(((byte)(134)))));
+            this.pnCenter.Controls.Add(this.lbCenter);
+            this.pnCenter.Location = new System.Drawing.Point(204, 75);
+            this.pnCenter.Name = "pnCenter";
+            this.pnCenter.Size = new System.Drawing.Size(1131, 689);
+            this.pnCenter.TabIndex = 2;
             // 
-            // LbMain
+            // lbCenter
             // 
-            this.LbMain.AutoSize = true;
-            this.LbMain.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LbMain.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LbMain.Location = new System.Drawing.Point(274, 12);
-            this.LbMain.Name = "LbMain";
-            this.LbMain.Size = new System.Drawing.Size(642, 59);
-            this.LbMain.TabIndex = 7;
-            this.LbMain.Text = "Phần mềm quản lý tiến độ dự án";
+            this.lbCenter.AutoSize = true;
+            this.lbCenter.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCenter.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbCenter.Location = new System.Drawing.Point(274, 12);
+            this.lbCenter.Name = "lbCenter";
+            this.lbCenter.Size = new System.Drawing.Size(642, 59);
+            this.lbCenter.TabIndex = 7;
+            this.lbCenter.Text = "Phần mềm quản lý tiến độ dự án";
             // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1339, 768);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnCenter);
+            this.Controls.Add(this.pnAbove);
+            this.Controls.Add(this.pnLeft);
             this.Name = "FormMenu";
             this.Text = "Phần mềm quản lý tiến độ dự án";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbBTT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbBaocao)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbDuan)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbTaikhoan)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbOut)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbBell)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.pnLeft.ResumeLayout(false);
+            this.pnLeft.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbBTT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbBaocao)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbDuan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbTaikhoan)).EndInit();
+            this.pnAbove.ResumeLayout(false);
+            this.pnAbove.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbSidebar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbOut)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbBell)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbUser)).EndInit();
+            this.pnCenter.ResumeLayout(false);
+            this.pnCenter.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox PcbTaikhoan;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.PictureBox PcbBTT;
-        private System.Windows.Forms.PictureBox PcbBaocao;
-        private System.Windows.Forms.PictureBox PcbDuan;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.PictureBox PcbOut;
-        private System.Windows.Forms.PictureBox PcbBell;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.Label LbUsername;
-        private System.Windows.Forms.Label LbMain;
+        private System.Windows.Forms.Panel pnLeft;
+        private System.Windows.Forms.PictureBox pcbTaikhoan;
+        private System.Windows.Forms.Panel pnAbove;
+        private System.Windows.Forms.Panel pnCenter;
+        private System.Windows.Forms.PictureBox pcbBTT;
+        private System.Windows.Forms.PictureBox pcbBaocao;
+        private System.Windows.Forms.PictureBox pcbDuan;
+        private System.Windows.Forms.Label lbIPPS;
+        private System.Windows.Forms.Label lbBaocao;
+        private System.Windows.Forms.Label lbBTT;
+        private System.Windows.Forms.Label lbDuan;
+        private System.Windows.Forms.Label lbTaikhoan;
+        private System.Windows.Forms.PictureBox pcbSidebar;
+        private System.Windows.Forms.PictureBox pcbOut;
+        private System.Windows.Forms.PictureBox pcbBell;
+        private System.Windows.Forms.PictureBox PcbUser;
+        private System.Windows.Forms.Label lbUsername;
+        private System.Windows.Forms.Label lbCenter;
     }
 }
 
