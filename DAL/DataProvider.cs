@@ -7,12 +7,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DAL {
-    public class DataProvider {
+    internal class DataProvider {
         private const string CONNECTION_STRING = @"Data Source=.;Initial Catalog=PROJECT_MANAGEMENT_TEMP;Integrated Security=True";
 
         #region Singleton Design Pattern
         private static DataProvider instance;
-        
+
         public static DataProvider Instance {
             // The null-coalescing operators
             get => instance ?? (instance = new DataProvider());
@@ -25,65 +25,100 @@ namespace DAL {
         private SqlConnection GetConnection() {
             return new SqlConnection(CONNECTION_STRING);
         }
+        public SqlCommand GetCommand(string query) {
+            var sqlConnection = GetConnection();
+            return new SqlCommand(query, sqlConnection);
+        }
 
         public void OpenConnection(SqlConnection sqlConnection) {
-            if (sqlConnection.State == ConnectionState.Closed || sqlConnection.State == ConnectionState.Broken) {
-                sqlConnection.Open();
+            var state = sqlConnection.State;
+            if (state == ConnectionState.Closed ||
+                state == ConnectionState.Broken) {
+                try { sqlConnection.Open(); }
+                catch (SqlException ex) { throw ex; }
             }
+        }
+        public void OpenConnection(SqlCommand sqlCommand) {
+            OpenConnection(sqlCommand.Connection);
         }
 
         public void CloseConnection(SqlConnection sqlConnection) {
             if (sqlConnection != null) {
-                sqlConnection.Close();
+                try { sqlConnection.Close(); }
+                catch (SqlException ex) { throw ex; }
             }
         }
+        public void CloseConnection(SqlCommand sqlCommand) {
+            CloseConnection(sqlCommand.Connection);
+        }
+
 
         public DataTable ExecuteQuery(string query) {
-            var data = new DataTable();
+            var dataTable = new DataTable();
             using (var sqlConnection = GetConnection()) {
                 OpenConnection(sqlConnection);
                 var sqlCommand = new SqlCommand(query, sqlConnection);
                 var sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-                // Fill data with returned query
-                sqlDataAdapter.Fill(data);
+
+                // Fill dataTable with returned query
+                try { sqlDataAdapter.Fill(dataTable); }
+                catch (SqlException ex) { throw ex; }
+
                 CloseConnection(sqlConnection);
             }
-            return data;
+            return dataTable;
         }
 
         public int ExecuteNonQuery(string query) {
-            int data = 0;
+            int iData = 0;
             using (var sqlConnection = GetConnection()) {
                 OpenConnection(sqlConnection);
                 var sqlCommand = new SqlCommand(query, sqlConnection);
-                var sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-                data = sqlCommand.ExecuteNonQuery();
+
+                // Execute CRUD
+                try { iData = sqlCommand.ExecuteNonQuery(); }
+                catch (SqlException ex) { throw ex; }
+
+                iData = sqlCommand.ExecuteNonQuery();
                 CloseConnection(sqlConnection);
             }
-            return data;
+            return iData;
         }
 
+        /// <summary>
+        ///     Executes the query, and returns the first column of the first row in the result
+        ///     set returned by the query. Additional columns or rows are ignored.
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns>
+        ///     The first column of the first row in the result set, or a null reference (Nothing
+        ///     in Visual Basic) if the result set is empty. Returns a maximum of 2033 characters.
+        /// </returns>
         public object ExecuteScalar(string query) {
-            object data = 0;
+            object objData = 0;
             using (var sqlConnection = GetConnection()) {
                 OpenConnection(sqlConnection);
                 var sqlCommand = new SqlCommand(query, sqlConnection);
-                var sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-                data = sqlCommand.ExecuteScalar();
+
+                // Get data 
+                try { objData = sqlCommand.ExecuteScalar(); }
+                catch (SqlException ex) { throw ex; }
+
                 CloseConnection(sqlConnection);
             }
-            return data;
+            return objData;
         }
 
-        public SqlDataReader ExecuteReader(string query) {
-            SqlDataReader data;
-            using (var sqlConnection = GetConnection()) {
-                OpenConnection(sqlConnection);
-                var sqlCommand = new SqlCommand(query, sqlConnection);
-                data = sqlCommand.ExecuteReader();
-                CloseConnection(sqlConnection);
-            }
-            return data;
-        }
+        //public void ExecuteReader(string query, out SqlDataReader dataReader) {
+        //    using (var sqlConnection = GetConnection()) {
+        //        OpenConnection(sqlConnection);
+        //        var sqlCommand = new SqlCommand(query, sqlConnection);
+        //        try {
+        //            dataReader = sqlCommand.ExecuteReader();
+        //        }
+        //        catch (SqlException ex) { throw ex; }
+        //        CloseConnection(sqlConnection);
+        //    }
+        //}
     }
 }

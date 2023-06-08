@@ -1,9 +1,9 @@
 ﻿namespace DTO {
     public class CAccount {
-        public string strId;
-        public string strEmployeeId;
-        public string strPassword;
-        public bool isActive;
+        private string strId;
+        private string strEmployeeId;
+        private string strPassword;
+        private bool isActive;
 
         // Getter and setter methods using lambda expressions
         public string Id {

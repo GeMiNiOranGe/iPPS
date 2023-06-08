@@ -28,7 +28,7 @@ namespace GUI {
             this.LbAppName = new System.Windows.Forms.Label();
             this.TxtPassword = new System.Windows.Forms.TextBox();
             this.BtnLogin = new System.Windows.Forms.Button();
-            this.lb_error = new System.Windows.Forms.Label();
+            this.LbError = new System.Windows.Forms.Label();
             this.PictureUserID = new System.Windows.Forms.PictureBox();
             this.PicturePassWord = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -91,16 +91,16 @@ namespace GUI {
             this.BtnLogin.UseVisualStyleBackColor = true;
             this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
-            // lb_error
+            // LbError
             // 
-            this.lb_error.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lb_error.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_error.ForeColor = System.Drawing.Color.Red;
-            this.lb_error.Location = new System.Drawing.Point(49, 217);
-            this.lb_error.Name = "lb_error";
-            this.lb_error.Size = new System.Drawing.Size(364, 30);
-            this.lb_error.TabIndex = 3;
-            this.lb_error.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LbError.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LbError.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbError.ForeColor = System.Drawing.Color.Red;
+            this.LbError.Location = new System.Drawing.Point(49, 217);
+            this.LbError.Name = "LbError";
+            this.LbError.Size = new System.Drawing.Size(364, 30);
+            this.LbError.TabIndex = 3;
+            this.LbError.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // PictureUserID
             // 
@@ -163,7 +163,7 @@ namespace GUI {
             this.Controls.Add(this.PictureUserID);
             this.Controls.Add(this.TxtPassword);
             this.Controls.Add(this.TxtUserId);
-            this.Controls.Add(this.lb_error);
+            this.Controls.Add(this.LbError);
             this.Controls.Add(this.BtnLogin);
             this.Controls.Add(this.LbAppName);
             this.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -186,7 +186,7 @@ namespace GUI {
         private System.Windows.Forms.Label LbAppName;
         private System.Windows.Forms.TextBox TxtPassword;
         private System.Windows.Forms.Button BtnLogin;
-        private System.Windows.Forms.Label lb_error;
+        private System.Windows.Forms.Label LbError;
         private System.Windows.Forms.PictureBox PictureUserID;
         private System.Windows.Forms.PictureBox PicturePassWord;
         private System.Windows.Forms.Panel panel1;

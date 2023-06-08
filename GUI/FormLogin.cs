@@ -17,6 +17,8 @@ namespace GUI {
         SqlConnection sqlConnection;
         SqlCommand sqlCommand;
 
+        private DTO.CAccount account = new DTO.CAccount();
+
         private const string USER_ID_PLACEHOLDER = "ID người dùng";
         private const string PASSWORD_PLACEHOLDER = "Mật khẩu";
 
@@ -33,28 +35,72 @@ namespace GUI {
         }
 
         private void BtnLogin_Click(object sender, EventArgs e) {
-            string strUserId = TxtUserId.Text;
-            string strPassword = TxtPassword.Text;
-            string strQuery = $"SELECT * FROM DECENTRALIZATION INNER JOIN LOGIN ON DECENTRALIZATION.DECENTRALIZATION_ID = LOGIN.USERID WHERE LOGIN.USERID = '{strUserId}' AND LOGIN.PASSWORD = '{strPassword}'";
+            //string strUserId = TxtUserId.Text;
+            //string strPassword = TxtPassword.Text;
+            //string strQuery = $"SELECT * FROM DECENTRALIZATION INNER JOIN LOGIN ON DECENTRALIZATION.DECENTRALIZATION_ID = LOGIN.USERID WHERE LOGIN.USERID = '{strUserId}' AND LOGIN.PASSWORD = '{strPassword}'";
 
-            sqlCommand = sqlConnection.CreateCommand();
-            sqlCommand.CommandText = strQuery;
+            //sqlCommand = sqlConnection.CreateCommand();
+            //sqlCommand.CommandText = strQuery;
 
-            if (string.IsNullOrEmpty(strUserId) || string.IsNullOrEmpty(strPassword) || TxtUserId.Text == USER_ID_PLACEHOLDER || TxtPassword.Text == PASSWORD_PLACEHOLDER)
-                lb_error.Text = "Không được để trống thông tin đăng nhập";
-            else {
-                SqlDataReader dt = sqlCommand.ExecuteReader();
-                if (dt.Read()) {
-                    FormMain formMain = new FormMain();
-                    formMain.Show();
-                }
-                else
-                    lb_error.Text = "Tên tài khoản hoặc mật khẩu không đúng";
-                dt.Close();
-            }
-            if (TxtUserId.Text != USER_ID_PLACEHOLDER || TxtPassword.Text != PASSWORD_PLACEHOLDER) {
+            //if (string.IsNullOrEmpty(strUserId) || string.IsNullOrEmpty(strPassword) || TxtUserId.Text == USER_ID_PLACEHOLDER || TxtPassword.Text == PASSWORD_PLACEHOLDER)
+            //    LbError.Text = "Không được để trống thông tin đăng nhập";
+            //else {
+            //    SqlDataReader dt = sqlCommand.ExecuteReader();
+            //    if (dt.Read()) {
+            //        FormMain formMain = new FormMain();
+            //        formMain.Show();
+            //    }
+            //    else
+            //        LbError.Text = "Tên tài khoản hoặc mật khẩu không đúng";
+            //    dt.Close();
+            //}
+            //if (TxtUserId.Text != USER_ID_PLACEHOLDER || TxtPassword.Text != PASSWORD_PLACEHOLDER) {
+            //    TxtUserId.Clear();
+            //    TxtPassword.Clear();
+            //}
+
+            // Lấy dữ liệu từ các textbox
+            account.EmployeeId = TxtUserId.Text;
+            account.Password = TxtPassword.Text;
+            // Gọi phương thức xử lý đăng nhập và lấy kết quả
+            BLL.LoginStatus status = BLL.CAccountBLL.Instance.GetLoginStatus(account);
+            // Kiểm tra kết quả
+            switch (status) {
+            case BLL.LoginStatus.Success:
+                // Hiển thị thông báo thành công và chuyển sang form khác
+                MessageBox.Show("Đăng nhập thành công!");
+                var formMain = new FormMain();
+                formMain.Show();
+                //this.Hide();
+                break;
+            case BLL.LoginStatus.InvalidInput:
+                // Hiển thị thông báo lỗi do dữ liệu đầu vào không hợp lệ
+                MessageBox.Show("Tên đăng nhập và mật khẩu không được để trống!");
                 TxtUserId.Clear();
                 TxtPassword.Clear();
+                TxtUserId.Focus();
+                break;
+            case BLL.LoginStatus.InvalidAccount:
+                // Hiển thị thông báo lỗi do tài khoản không tồn tại hoặc sai thông tin
+                MessageBox.Show("Tên đăng nhập hoặc mật khẩu sai!");
+                TxtUserId.Clear();
+                TxtPassword.Clear();
+                TxtUserId.Focus();
+                break;
+            case BLL.LoginStatus.LockedAccount:
+                // Hiển thị thông báo lỗi do tài khoản bị khóa
+                MessageBox.Show("Tài khoản của bạn đã bị khóa!");
+                TxtUserId.Clear();
+                TxtPassword.Clear();
+                TxtUserId.Focus();
+                break;
+            case BLL.LoginStatus.OtherError:
+                // Hiển thị thông báo lỗi do các nguyên nhân khác
+                MessageBox.Show("Đã xảy ra lỗi trong quá trình đăng nhập!");
+                TxtUserId.Clear();
+                TxtPassword.Clear();
+                TxtUserId.Focus();
+                break;
             }
         }
 
