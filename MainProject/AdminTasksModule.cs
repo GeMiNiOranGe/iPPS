@@ -22,7 +22,7 @@ namespace MainProject
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
-        SqlConnection conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=PROJECT_MANAGEMENT;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=PROJECT_MANAGEMENT_TEMP;Integrated Security=True");
         SqlCommand cmd = new SqlCommand();
 
         public AdminTasksModule()
@@ -41,9 +41,9 @@ namespace MainProject
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (txtProjectID.Text == "" || txtTaskID.Text == "" 
-                || txtName.Text == "" || cbbPriority.Text == "" 
-                || cbbState.Text == "" || cbbPublic.Text == "")
+            if (txtPrjID.Text == "" || txtJobID.Text == "" 
+                || txtMngID.Text == "" || txtAccessR.Text == "" 
+                || txtDepPub.Text == "" || txtPrjPub.Text == "")
             {
                 MessageBox.Show("Không được để trống thông tin!");
                 return;
@@ -53,15 +53,15 @@ namespace MainProject
                 if (MessageBox.Show("Bạn có muốn lưu công việc này?", "Xác nhận",
                            MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    cmd = new SqlCommand("INSERT INTO WORK VALUES(@idTask,@name,@start,@end,@priority,@state,@public,@idProject)", conn);
-                    cmd.Parameters.AddWithValue("@idTask", txtTaskID.Text);
+                    cmd = new SqlCommand("INSERT INTO JOB VALUES (@idJob,@idMng,@name,@access,@status,@prjPub,@depPub,@idPrj)", conn);
+                    cmd.Parameters.AddWithValue("@idJob", txtJobID.Text);
+                    cmd.Parameters.AddWithValue("@idMng", txtMngID.Text);
                     cmd.Parameters.AddWithValue("@name", txtName.Text);
-                    cmd.Parameters.AddWithValue("@start", dtpStart.Text);
-                    cmd.Parameters.AddWithValue("@end", dtpEnd.Text);
-                    cmd.Parameters.AddWithValue("@priority", cbbPriority.Text);
-                    cmd.Parameters.AddWithValue("@state", cbbState.Text);
-                    cmd.Parameters.AddWithValue("@public", cbbPublic.Text);
-                    cmd.Parameters.AddWithValue("@idProject", txtProjectID.Text);
+                    cmd.Parameters.AddWithValue("@access", txtAccessR.Text);
+                    cmd.Parameters.AddWithValue("@status", txtStatus.Text);
+                    cmd.Parameters.AddWithValue("@prjPub", txtPrjPub.Text);
+                    cmd.Parameters.AddWithValue("@depPub", txtDepPub.Text);
+                    cmd.Parameters.AddWithValue("@idPrj", txtPrjID.Text);
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
@@ -78,9 +78,9 @@ namespace MainProject
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (txtProjectID.Text == "" || txtTaskID.Text == ""
-                || txtName.Text == "" || cbbPriority.Text == ""
-                || cbbState.Text == "" || cbbPublic.Text == "")
+            if (txtPrjID.Text == "" || txtJobID.Text == ""
+                || txtMngID.Text == "" || txtAccessR.Text == ""
+                || txtDepPub.Text == "" || txtPrjPub.Text == "")
             {
                 MessageBox.Show("Không được để trống thông tin!");
                 return;
@@ -90,20 +90,20 @@ namespace MainProject
                 if (MessageBox.Show("Bạn có muốn cập nhật công việc này?", "Xác nhận",
                            MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    cmd = new SqlCommand($"UPDATE WORK SET WORK_ID=@idTask, WORK_NAME=@name, FIRST_DAY=@start, LAST_DAY=@end, PRIORITY=@priority, STATE=@state, OPEN_PUBLIC=@public, PROJECT_ID=@idProject WHERE WORK_ID={txtTaskID.Text}", conn);
-                    cmd.Parameters.AddWithValue("@idTask", txtTaskID.Text);
+                    cmd = new SqlCommand($"UPDATE JOB SET ID=@idJob, JOB_MANAGER_ID=@idMng, NAME=@name, ACCESS_RIGHT=@access, STATUS=@status, PROJECT_PUBLIC=@prjPub, DEPARTMENT_PUBLIC=@depPub, PROJECT_ID=@idPrj WHERE ID='{txtJobID.Text}'", conn);
+                    cmd.Parameters.AddWithValue("@idJob", txtJobID.Text);
+                    cmd.Parameters.AddWithValue("@idMng", txtMngID.Text);
                     cmd.Parameters.AddWithValue("@name", txtName.Text);
-                    cmd.Parameters.AddWithValue("@start", dtpStart.Text);
-                    cmd.Parameters.AddWithValue("@end", dtpEnd.Text);
-                    cmd.Parameters.AddWithValue("@priority", cbbPriority.Text);
-                    cmd.Parameters.AddWithValue("@state", cbbState.Text);
-                    cmd.Parameters.AddWithValue("@public", cbbPublic.Text);
-                    cmd.Parameters.AddWithValue("@idProject", txtProjectID.Text);
+                    cmd.Parameters.AddWithValue("@access", txtAccessR.Text);
+                    cmd.Parameters.AddWithValue("@status", txtStatus.Text);
+                    cmd.Parameters.AddWithValue("@prjPub", txtPrjPub.Text);
+                    cmd.Parameters.AddWithValue("@depPub", txtDepPub.Text);
+                    cmd.Parameters.AddWithValue("@idPrj", txtPrjID.Text);
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
                     ResetTextBox();
-                    MessageBox.Show("Cập nhật công việc thành công!");
+                    MessageBox.Show("Sửa công việc thành công!");
                     this.Dispose();
                 }
             }
@@ -122,14 +122,14 @@ namespace MainProject
 
         private void ResetTextBox()
         {
-            txtProjectID.ResetText();
-            txtTaskID.ResetText();
             txtName.ResetText();
-            dtpStart.ResetText();
-            dtpEnd.ResetText();
-            cbbPriority.ResetText();
-            cbbState.ResetText();
-            cbbPublic.ResetText();
+            txtJobID.ResetText();
+            txtMngID.ResetText();
+            txtAccessR.ResetText();
+            txtStatus.ResetText();
+            txtPrjPub.ResetText();
+            txtDepPub.ResetText();
+            txtPrjID.ResetText();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

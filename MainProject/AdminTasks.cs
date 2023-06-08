@@ -14,7 +14,7 @@ namespace MainProject
 {
     public partial class AdminTasks : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=PROJECT_MANAGEMENT;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=PROJECT_MANAGEMENT_TEMP;Integrated Security=True");
         SqlCommand cmd = new SqlCommand();
         SqlDataReader rd = null;
 
@@ -32,16 +32,14 @@ namespace MainProject
         {
             dgvTasks.Rows.Clear();
             conn.Open();
-            cmd=new SqlCommand("SELECT * FROM WORK", conn);
+            cmd=new SqlCommand("SELECT * FROM JOB", conn);
             rd= cmd.ExecuteReader();
             while (rd.Read())
             {
-                string strFirstDay = GetDate(rd["FIRST_DAY"]);
-                string strLastDay = GetDate(rd["LAST_DAY"]);
-
-                dgvTasks.Rows.Add(rd["WORK_ID"].ToString(), rd["WORK_NAME"].ToString(),
-                    strFirstDay, strLastDay, rd["PRIORITY"].ToString(), rd["STATE"].ToString(),
-                    rd["OPEN_PUBLIC"].ToString(), rd["PROJECT_ID"].ToString());
+                dgvTasks.Rows.Add(rd["ID"].ToString(), rd["JOB_MANAGER_ID"].ToString(),
+                    rd["NAME"].ToString(), rd["ACCESS_RIGHT"].ToString(), 
+                    rd["STATUS"].ToString(), rd["PROJECT_PUBLIC"].ToString(),
+                    rd["DEPARTMENT_PUBLIC"].ToString(), rd["PROJECT_ID"].ToString());
             }
             rd.Close();
             conn.Close();
@@ -72,18 +70,21 @@ namespace MainProject
             if (strColName == "Edit")
             {
                 AdminTasksModule adminTasksModule = new AdminTasksModule();
-                adminTasksModule.txtTaskID.Text = dgvTasks.Rows[e.RowIndex].Cells[0].Value.ToString();
-                adminTasksModule.txtName.Text = dgvTasks.Rows[e.RowIndex].Cells[1].Value.ToString();
-                adminTasksModule.dtpStart.Text = dgvTasks.Rows[e.RowIndex].Cells[2].Value.ToString();
-                adminTasksModule.dtpEnd.Text = dgvTasks.Rows[e.RowIndex].Cells[3].Value.ToString();
-                adminTasksModule.cbbPriority.Text = dgvTasks.Rows[e.RowIndex].Cells[4].Value.ToString();
-                adminTasksModule.cbbState.Text = dgvTasks.Rows[e.RowIndex].Cells[5].Value.ToString();
-                adminTasksModule.cbbPublic.Text = dgvTasks.Rows[e.RowIndex].Cells[6].Value.ToString();
-                adminTasksModule.txtProjectID.Text = dgvTasks.Rows[e.RowIndex].Cells[7].Value.ToString();
+                adminTasksModule.txtJobID.Text = dgvTasks.Rows[e.RowIndex].Cells[0].Value.ToString();
+                adminTasksModule.txtMngID.Text = dgvTasks.Rows[e.RowIndex].Cells[1].Value.ToString();
+                adminTasksModule.txtName.Text = dgvTasks.Rows[e.RowIndex].Cells[2].Value.ToString();
+                adminTasksModule.txtAccessR.Text = dgvTasks.Rows[e.RowIndex].Cells[3].Value.ToString();
+                adminTasksModule.txtStatus.Text = dgvTasks.Rows[e.RowIndex].Cells[4].Value.ToString();
+                adminTasksModule.txtPrjPub.Text = dgvTasks.Rows[e.RowIndex].Cells[5].Value.ToString();
+                adminTasksModule.txtDepPub.Text = dgvTasks.Rows[e.RowIndex].Cells[6].Value.ToString();
+                adminTasksModule.txtPrjID.Text = dgvTasks.Rows[e.RowIndex].Cells[7].Value.ToString();
 
                 adminTasksModule.btnSave.Enabled = false;
                 adminTasksModule.btnUpdate.Enabled = true;
                 adminTasksModule.btnClear.Enabled = false;
+                adminTasksModule.txtPrjID.Enabled = false;
+                adminTasksModule.txtJobID.Enabled = false;
+                adminTasksModule.txtMngID.Enabled = false;
                 adminTasksModule.ShowDialog();
             }
             else if (strColName == "Delete")
@@ -93,7 +94,7 @@ namespace MainProject
                 {
                     conn.Open();
                     string strIDTask = dgvTasks.Rows[e.RowIndex].Cells[0].Value.ToString();
-                    cmd = new SqlCommand($"DELETE FROM WORK WHERE WORK_ID='{strIDTask}'", conn);
+                    cmd = new SqlCommand($"DELETE FROM JOB WHERE ID='{strIDTask}'", conn);
                     cmd.ExecuteNonQuery();
                     conn.Close();
                     MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK);
@@ -110,16 +111,14 @@ namespace MainProject
             {
                 dgvTasks.Rows.Clear();
                 conn.Open();
-                cmd = new SqlCommand($"SELECT * FROM WORK WHERE PROJECT_ID LIKE '{txtSearchProject.Text}'", conn);
+                cmd = new SqlCommand($"SELECT * FROM JOB WHERE PROJECT_ID LIKE '%{txtSearchProject.Text}%'", conn);
                 rd = cmd.ExecuteReader();
                 while (rd.Read())
                 {
-                    string strFirstDay = GetDate(rd["FIRST_DAY"]);
-                    string strLastDay = GetDate(rd["LAST_DAY"]);
-
-                    dgvTasks.Rows.Add(rd["WORK_ID"].ToString(), rd["WORK_NAME"].ToString(),
-                        strFirstDay, strLastDay, rd["PRIORITY"].ToString(), rd["STATE"].ToString(),
-                        rd["OPEN_PUBLIC"].ToString(), rd["PROJECT_ID"].ToString());
+                    dgvTasks.Rows.Add(rd["ID"].ToString(), rd["JOB_MANAGER_ID"].ToString(),
+                        rd["NAME"].ToString(), rd["ACCESS_RIGHT"].ToString(),
+                        rd["STATUS"].ToString(), rd["PROJECT_PUBLIC"].ToString(),
+                        rd["DEPARTMENT_PUBLIC"].ToString(), rd["PROJECT_ID"].ToString());
                 }
                 rd.Close();
                 conn.Close();
@@ -134,16 +133,14 @@ namespace MainProject
             {
                 dgvTasks.Rows.Clear();
                 conn.Open();
-                cmd = new SqlCommand($"SELECT * FROM WORK WHERE WORK_ID LIKE '{txtSearchTask.Text}'", conn);
+                cmd = new SqlCommand($"SELECT * FROM JOB WHERE ID LIKE '%{txtSearchTask.Text}%'", conn);
                 rd = cmd.ExecuteReader();
                 while (rd.Read())
                 {
-                    string strFirstDay = GetDate(rd["FIRST_DAY"]);
-                    string strLastDay = GetDate(rd["LAST_DAY"]);
-
-                    dgvTasks.Rows.Add(rd["WORK_ID"].ToString(), rd["WORK_NAME"].ToString(),
-                        strFirstDay, strLastDay, rd["PRIORITY"].ToString(), rd["STATE"].ToString(),
-                        rd["OPEN_PUBLIC"].ToString(), rd["PROJECT_ID"].ToString());
+                    dgvTasks.Rows.Add(rd["ID"].ToString(), rd["JOB_MANAGER_ID"].ToString(),
+                        rd["NAME"].ToString(), rd["ACCESS_RIGHT"].ToString(),
+                        rd["STATUS"].ToString(), rd["PROJECT_PUBLIC"].ToString(),
+                        rd["DEPARTMENT_PUBLIC"].ToString(), rd["PROJECT_ID"].ToString());
                 }
                 rd.Close();
                 conn.Close();

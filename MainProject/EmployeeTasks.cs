@@ -13,7 +13,7 @@ namespace MainProject
 {
     public partial class EmployeeTasks : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=PROJECT_MANAGEMENT;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=PROJECT_MANAGEMENT_TEMP;Integrated Security=True");
         SqlCommand cmd = new SqlCommand();
         SqlDataReader rd = null;
 
@@ -31,16 +31,14 @@ namespace MainProject
         {
             dgvTasks.Rows.Clear();
             conn.Open();
-            cmd = new SqlCommand("SELECT * FROM WORK", conn);
+            cmd = new SqlCommand("SELECT * FROM JOB", conn);
             rd = cmd.ExecuteReader();
             while (rd.Read())
             {
-                string strFirstDay = GetDate(rd["FIRST_DAY"]);
-                string strLastDay = GetDate(rd["LAST_DAY"]);
-
-                dgvTasks.Rows.Add(rd["WORK_ID"].ToString(), rd["WORK_NAME"].ToString(),
-                    strFirstDay, strLastDay, rd["PRIORITY"].ToString(), rd["STATE"].ToString(),
-                    rd["OPEN_PUBLIC"].ToString(), rd["PROJECT_ID"].ToString());
+                dgvTasks.Rows.Add(rd["ID"].ToString(), rd["JOB_MANAGER_ID"].ToString(),
+                    rd["NAME"].ToString(), rd["ACCESS_RIGHT"].ToString(),
+                    rd["STATUS"].ToString(), rd["PROJECT_PUBLIC"].ToString(),
+                    rd["DEPARTMENT_PUBLIC"].ToString(), rd["PROJECT_ID"].ToString());
             }
             rd.Close();
             conn.Close();
@@ -54,6 +52,50 @@ namespace MainProject
                 return date.ToString("MM/dd/yyyy");
             }
             return string.Empty;
+        }
+
+        private void txtSearchProject_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtSearchProject.Text == "")
+                LoadEmployeeTasks();
+            else
+            {
+                dgvTasks.Rows.Clear();
+                conn.Open();
+                cmd = new SqlCommand($"SELECT * FROM JOB WHERE PROJECT_ID LIKE '%{txtSearchProject.Text}%'", conn);
+                rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    dgvTasks.Rows.Add(rd["ID"].ToString(), rd["JOB_MANAGER_ID"].ToString(),
+                        rd["NAME"].ToString(), rd["ACCESS_RIGHT"].ToString(),
+                        rd["STATUS"].ToString(), rd["PROJECT_PUBLIC"].ToString(),
+                        rd["DEPARTMENT_PUBLIC"].ToString(), rd["PROJECT_ID"].ToString());
+                }
+                rd.Close();
+                conn.Close();
+            }
+        }
+
+        private void txtSearchTask_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtSearchTask.Text == "")
+                LoadEmployeeTasks();
+            else
+            {
+                dgvTasks.Rows.Clear();
+                conn.Open();
+                cmd = new SqlCommand($"SELECT * FROM JOB WHERE ID LIKE '%{txtSearchTask.Text}%'", conn);
+                rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    dgvTasks.Rows.Add(rd["ID"].ToString(), rd["JOB_MANAGER_ID"].ToString(),
+                        rd["NAME"].ToString(), rd["ACCESS_RIGHT"].ToString(),
+                        rd["STATUS"].ToString(), rd["PROJECT_PUBLIC"].ToString(),
+                        rd["DEPARTMENT_PUBLIC"].ToString(), rd["PROJECT_ID"].ToString());
+                }
+                rd.Close();
+                conn.Close();
+            }
         }
     }
 }

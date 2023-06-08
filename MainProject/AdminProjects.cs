@@ -13,8 +13,9 @@ namespace MainProject
 {
     public partial class AdminProjects : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=PROJECT_MANAGEMENT;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=PROJECT_MANAGEMENT_TEMP;Integrated Security=True");
         SqlCommand cmd = new SqlCommand();
+        SqlCommand cmd2 = new SqlCommand();
         SqlDataReader rd = null;
 
         public AdminProjects()
@@ -31,16 +32,17 @@ namespace MainProject
         {
             dgvProjects.Rows.Clear();
             conn.Open();
-            cmd=new SqlCommand("SELECT * FROM PROJECT", conn);
+            cmd=new SqlCommand("SELECT P.ID, P.NAME, P.ACCESS_RIGHT, P.STATUS, P.CUSTOMER_NAME, P.PROJECT_MANAGER_ID, IP.DEPARTMENT_ID, IP.PROJECT_START_DATE, IP.PROJECT_END_DATE FROM PROJECT AS P INNER JOIN IMPLEMENT_PROJECT AS IP ON P.ID = IP.PROJECT_ID", conn);
             rd= cmd.ExecuteReader();
             while (rd.Read())
             {
-                string strFirstDay = GetDate(rd["FIRST_DAY"]);
-                string strLastDay = GetDate(rd["LAST_DAY"]);
+                string strFirstDay = GetDate(rd["PROJECT_START_DATE"]);
+                string strLastDay = GetDate(rd["PROJECT_END_DATE"]);
 
-                dgvProjects.Rows.Add(rd["PROJECT_ID"].ToString(), 
-                    rd["PROJECT_NAME"].ToString(),rd["CUSTOMER"].ToString(), 
-                    strFirstDay, strLastDay, rd["STATE"].ToString());
+                dgvProjects.Rows.Add(rd["ID"].ToString(), rd["NAME"].ToString(),
+                    rd["ACCESS_RIGHT"].ToString(), rd["STATUS"].ToString(),
+                    rd["CUSTOMER_NAME"].ToString(), rd["PROJECT_MANAGER_ID"].ToString(),
+                    rd["DEPARTMENT_ID"].ToString(), strFirstDay, strLastDay);
             }
             rd.Close();
             conn.Close();
@@ -71,16 +73,22 @@ namespace MainProject
             if(strColName == "Edit")
             {
                 AdminProjectsModule adminProjectsModule = new AdminProjectsModule();
-                adminProjectsModule.txtID.Text = dgvProjects.Rows[e.RowIndex].Cells[0].Value.ToString();
+                adminProjectsModule.txtIDPrj.Text = dgvProjects.Rows[e.RowIndex].Cells[0].Value.ToString();
                 adminProjectsModule.txtName.Text = dgvProjects.Rows[e.RowIndex].Cells[1].Value.ToString();
-                adminProjectsModule.txtCustomer.Text = dgvProjects.Rows[e.RowIndex].Cells[2].Value.ToString();
-                adminProjectsModule.dtpStart.Text = dgvProjects.Rows[e.RowIndex].Cells[3].Value.ToString();
-                adminProjectsModule.dtpEnd.Text = dgvProjects.Rows[e.RowIndex].Cells[4].Value.ToString();
-                adminProjectsModule.cbbState.Text = dgvProjects.Rows[e.RowIndex].Cells[5].Value.ToString();
+                adminProjectsModule.txtAccess.Text = dgvProjects.Rows[e.RowIndex].Cells[2].Value.ToString();
+                adminProjectsModule.txtStatus.Text = dgvProjects.Rows[e.RowIndex].Cells[3].Value.ToString();
+                adminProjectsModule.txtCustomer.Text = dgvProjects.Rows[e.RowIndex].Cells[4].Value.ToString();
+                adminProjectsModule.txtIDManager.Text = dgvProjects.Rows[e.RowIndex].Cells[5].Value.ToString();
+                adminProjectsModule.txtIDDep.Text = dgvProjects.Rows[e.RowIndex].Cells[6].Value.ToString();
+                adminProjectsModule.dtpStart.Text = dgvProjects.Rows[e.RowIndex].Cells[7].Value.ToString();
+                adminProjectsModule.dtpEnd.Text = dgvProjects.Rows[e.RowIndex].Cells[8].Value.ToString();
 
                 adminProjectsModule.btnSave.Enabled = false;
                 adminProjectsModule.btnUpdate.Enabled = true;
                 adminProjectsModule.btnClear.Enabled = false;
+                adminProjectsModule.txtIDPrj.Enabled = false;
+                adminProjectsModule.txtIDManager.Enabled = false;
+                adminProjectsModule.txtIDDep.Enabled = false;
                 adminProjectsModule.ShowDialog();
             }
             else if(strColName == "Delete")
@@ -90,37 +98,17 @@ namespace MainProject
                 {
                     conn.Open();
                     string strIDProject = dgvProjects.Rows[e.RowIndex].Cells[0].Value.ToString();
-                    cmd = new SqlCommand($"DELETE FROM PROJECT WHERE PROJECT_ID='{strIDProject}'", conn);
+                    cmd2 = new SqlCommand($"DELETE FROM IMPLEMENT_PROJECT WHERE PROJECT_ID='{strIDProject}'", conn);
+                    cmd2.ExecuteNonQuery();
+
+                    cmd = new SqlCommand($"DELETE FROM PROJECT WHERE ID='{strIDProject}'", conn);
                     cmd.ExecuteNonQuery();
+
                     conn.Close();
                     MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK);
                 }
             }
             LoadAdminProjects();
-        }
-
-        private void txtSearchProject_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (txtSearchProject.Text == "")
-                LoadAdminProjects();
-            else
-            {
-                dgvProjects.Rows.Clear();
-                conn.Open();
-                cmd = new SqlCommand($"SELECT * FROM PROJECT WHERE PROJECT_ID LIKE '{txtSearchProject.Text}'", conn);
-                rd = cmd.ExecuteReader();
-                while (rd.Read())
-                {
-                    string strFirstDay = GetDate(rd["FIRST_DAY"]);
-                    string strLastDay = GetDate(rd["LAST_DAY"]);
-
-                    dgvProjects.Rows.Add(rd["PROJECT_ID"].ToString(),
-                        rd["PROJECT_NAME"].ToString(), rd["CUSTOMER"].ToString(),
-                        strFirstDay, strLastDay, rd["STATE"].ToString());
-                }
-                rd.Close();
-                conn.Close();
-            }
         }
     }
 }

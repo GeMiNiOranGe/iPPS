@@ -29,12 +29,15 @@
         private void InitializeComponent()
         {
             this.dgvProjects = new System.Windows.Forms.DataGridView();
-            this.MADA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TENDA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.KhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayBatDau = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayKetThuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDProject = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProjectName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AccessRight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDTask = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDPhongBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.start = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.end = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjects)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,12 +48,15 @@
             this.dgvProjects.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(128)))), ((int)(((byte)(134)))));
             this.dgvProjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProjects.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MADA,
-            this.TENDA,
+            this.IDProject,
+            this.ProjectName,
+            this.AccessRight,
+            this.TrangThai,
             this.KhachHang,
-            this.NgayBatDau,
-            this.NgayKetThuc,
-            this.TrangThai});
+            this.IDTask,
+            this.IDPhongBan,
+            this.start,
+            this.end});
             this.dgvProjects.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvProjects.Location = new System.Drawing.Point(0, 0);
             this.dgvProjects.Name = "dgvProjects";
@@ -58,47 +64,31 @@
             this.dgvProjects.RowHeadersWidth = 51;
             this.dgvProjects.RowTemplate.Height = 24;
             this.dgvProjects.Size = new System.Drawing.Size(1082, 553);
-            this.dgvProjects.TabIndex = 0;
+            this.dgvProjects.TabIndex = 1;
             // 
-            // MADA
+            // IDProject
             // 
-            this.MADA.HeaderText = "Mã";
-            this.MADA.MinimumWidth = 6;
-            this.MADA.Name = "MADA";
-            this.MADA.ReadOnly = true;
-            this.MADA.Width = 72;
+            this.IDProject.HeaderText = "ID dự án";
+            this.IDProject.MinimumWidth = 6;
+            this.IDProject.Name = "IDProject";
+            this.IDProject.ReadOnly = true;
+            this.IDProject.Width = 70;
             // 
-            // TENDA
+            // ProjectName
             // 
-            this.TENDA.HeaderText = "Tên dự án";
-            this.TENDA.MinimumWidth = 6;
-            this.TENDA.Name = "TENDA";
-            this.TENDA.ReadOnly = true;
-            this.TENDA.Width = 150;
+            this.ProjectName.HeaderText = "Tên dự án";
+            this.ProjectName.MinimumWidth = 6;
+            this.ProjectName.Name = "ProjectName";
+            this.ProjectName.ReadOnly = true;
+            this.ProjectName.Width = 125;
             // 
-            // KhachHang
+            // AccessRight
             // 
-            this.KhachHang.HeaderText = "Khách hàng";
-            this.KhachHang.MinimumWidth = 6;
-            this.KhachHang.Name = "KhachHang";
-            this.KhachHang.ReadOnly = true;
-            this.KhachHang.Width = 140;
-            // 
-            // NgayBatDau
-            // 
-            this.NgayBatDau.HeaderText = "Ngày bắt đầu";
-            this.NgayBatDau.MinimumWidth = 6;
-            this.NgayBatDau.Name = "NgayBatDau";
-            this.NgayBatDau.ReadOnly = true;
-            this.NgayBatDau.Width = 120;
-            // 
-            // NgayKetThuc
-            // 
-            this.NgayKetThuc.HeaderText = "Ngày kết thúc";
-            this.NgayKetThuc.MinimumWidth = 6;
-            this.NgayKetThuc.Name = "NgayKetThuc";
-            this.NgayKetThuc.ReadOnly = true;
-            this.NgayKetThuc.Width = 120;
+            this.AccessRight.HeaderText = "Quyền truy cập";
+            this.AccessRight.MinimumWidth = 6;
+            this.AccessRight.Name = "AccessRight";
+            this.AccessRight.ReadOnly = true;
+            this.AccessRight.Width = 60;
             // 
             // TrangThai
             // 
@@ -106,7 +96,47 @@
             this.TrangThai.MinimumWidth = 6;
             this.TrangThai.Name = "TrangThai";
             this.TrangThai.ReadOnly = true;
-            this.TrangThai.Width = 135;
+            this.TrangThai.Width = 60;
+            // 
+            // KhachHang
+            // 
+            this.KhachHang.HeaderText = "Tên khách hàng";
+            this.KhachHang.MinimumWidth = 6;
+            this.KhachHang.Name = "KhachHang";
+            this.KhachHang.ReadOnly = true;
+            this.KhachHang.Width = 125;
+            // 
+            // IDTask
+            // 
+            this.IDTask.HeaderText = "ID quản lý";
+            this.IDTask.MinimumWidth = 6;
+            this.IDTask.Name = "IDTask";
+            this.IDTask.ReadOnly = true;
+            this.IDTask.Width = 70;
+            // 
+            // IDPhongBan
+            // 
+            this.IDPhongBan.HeaderText = "ID phòng ban";
+            this.IDPhongBan.MinimumWidth = 6;
+            this.IDPhongBan.Name = "IDPhongBan";
+            this.IDPhongBan.ReadOnly = true;
+            this.IDPhongBan.Width = 70;
+            // 
+            // start
+            // 
+            this.start.HeaderText = "Ngày bắt đầu";
+            this.start.MinimumWidth = 6;
+            this.start.Name = "start";
+            this.start.ReadOnly = true;
+            this.start.Width = 80;
+            // 
+            // end
+            // 
+            this.end.HeaderText = "Ngày kết thúc";
+            this.end.MinimumWidth = 6;
+            this.end.Name = "end";
+            this.end.ReadOnly = true;
+            this.end.Width = 80;
             // 
             // EmployeeProjects
             // 
@@ -127,11 +157,14 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvProjects;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MADA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TENDA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn KhachHang;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NgayBatDau;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NgayKetThuc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDProject;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProjectName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AccessRight;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KhachHang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDTask;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDPhongBan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn start;
+        private System.Windows.Forms.DataGridViewTextBoxColumn end;
     }
 }

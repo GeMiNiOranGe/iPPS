@@ -22,8 +22,9 @@ namespace MainProject
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
-        SqlConnection conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=PROJECT_MANAGEMENT;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=PROJECT_MANAGEMENT_TEMP;Integrated Security=True");
         SqlCommand cmd = new SqlCommand();
+        SqlCommand cmd2 = new SqlCommand();
         public AdminProjectsModule()
         {
             InitializeComponent();
@@ -40,10 +41,12 @@ namespace MainProject
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if(txtID.Text=="" || txtName.Text == "" 
-                || txtCustomer.Text == "" || cbbState.Text == "")
+            if(txtIDPrj.Text=="" || txtName.Text == "" 
+                || txtAccess.Text == "" || txtStatus.Text == ""
+                || txtCustomer.Text == "" || txtIDManager.Text == ""
+                || txtIDDep.Text == "" || dtpStart.Text == "" || dtpEnd.Text == "")
             {
-                MessageBox.Show("Không được để trống thông tin!");
+                MessageBox.Show("Mời bạn nhập đầy đủ thông tin!");
                 return;
             }
             try
@@ -51,15 +54,23 @@ namespace MainProject
                 if(MessageBox.Show("Bạn có muốn lưu dự án này?", "Xác nhận",
                            MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    cmd = new SqlCommand("INSERT INTO PROJECT VALUES(@id,@name,@cus,@start,@end,@state)", conn);
-                    cmd.Parameters.AddWithValue("@id", txtID.Text);
+                    cmd = new SqlCommand("INSERT INTO PROJECT VALUES(@idPrj,@name,@access,@status,@cus,@idMng)", conn);
+                    cmd.Parameters.AddWithValue("@idPrj", txtIDPrj.Text);
                     cmd.Parameters.AddWithValue("@name", txtName.Text);
+                    cmd.Parameters.AddWithValue("@access", txtAccess.Text);
+                    cmd.Parameters.AddWithValue("@status", txtStatus.Text);
                     cmd.Parameters.AddWithValue("@cus", txtCustomer.Text);
-                    cmd.Parameters.AddWithValue("@start", dtpStart.Text);
-                    cmd.Parameters.AddWithValue("@end", dtpEnd.Text);
-                    cmd.Parameters.AddWithValue("@state", cbbState.Text);
+                    cmd.Parameters.AddWithValue("@idMng", txtIDManager.Text);
+
+                    cmd2 = new SqlCommand("INSERT INTO IMPLEMENT_PROJECT VALUES(@idDep,@idPrj2,@start,@end)", conn);
+                    cmd2.Parameters.AddWithValue("@idDep", txtIDDep.Text);
+                    cmd2.Parameters.AddWithValue("@idPrj2", txtIDPrj.Text);
+                    cmd2.Parameters.AddWithValue("@start", dtpStart.Text);
+                    cmd2.Parameters.AddWithValue("@end", dtpEnd.Text);
+
                     conn.Open();
                     cmd.ExecuteNonQuery();
+                    cmd2.ExecuteNonQuery();
                     conn.Close();
                     ResetTextBox();
                     MessageBox.Show("Lưu dự án thành công!");
@@ -74,10 +85,12 @@ namespace MainProject
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (txtID.Text == "" || txtName.Text == ""
-                || txtCustomer.Text == "" || cbbState.Text == "")
+            if (txtIDPrj.Text == "" || txtName.Text == ""
+                || txtAccess.Text == "" || txtStatus.Text == ""
+                || txtCustomer.Text == "" || txtIDManager.Text == ""
+                || txtIDDep.Text == "" || dtpStart.Text == "" || dtpEnd.Text == "")
             {
-                MessageBox.Show("Không được để trống thông tin!");
+                MessageBox.Show("Mời bạn nhập đầy đủ thông tin!");
                 return;
             }
             try
@@ -85,18 +98,45 @@ namespace MainProject
                 if (MessageBox.Show("Bạn có muốn cập nhật dự án này?", "Xác nhận",
                            MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    cmd = new SqlCommand($"UPDATE PROJECT SET PROJECT_ID=@id, PROJECT_NAME=@name, CUSTOMER=@cus, FIRST_DAY=@start, LAST_DAY=@end, STATE=@state WHERE PROJECT_ID={txtID.Text}", conn);
-                    cmd.Parameters.AddWithValue("@id", txtID.Text);
+                    conn.Open();
+                    string updateProjectQuery = @"
+                        UPDATE PROJECT
+                        SET NAME = @name,
+                            ACCESS_RIGHT = @access,
+                            STATUS = @status,
+                            CUSTOMER_NAME = @cus,
+                            PROJECT_MANAGER_ID = @idMng
+                        FROM PROJECT P
+                        INNER JOIN IMPLEMENT_PROJECT IP ON P.ID = IP.PROJECT_ID
+                        WHERE P.ID = @idPrj";
+
+                    cmd = new SqlCommand(updateProjectQuery, conn);
                     cmd.Parameters.AddWithValue("@name", txtName.Text);
+                    cmd.Parameters.AddWithValue("@access", txtAccess.Text);
+                    cmd.Parameters.AddWithValue("@status", txtStatus.Text);
                     cmd.Parameters.AddWithValue("@cus", txtCustomer.Text);
+                    cmd.Parameters.AddWithValue("@idMng", txtIDManager.Text);
+                    cmd.Parameters.AddWithValue("@idPrj", txtIDPrj.Text);
+                    cmd.ExecuteNonQuery();
+
+                    string updateImplementProjectQuery = @"
+                        UPDATE IMPLEMENT_PROJECT
+                        SET DEPARTMENT_ID = @idDep,
+                            PROJECT_START_DATE = @start,
+                            PROJECT_END_DATE = @end
+                        FROM PROJECT P
+                        INNER JOIN IMPLEMENT_PROJECT IP ON P.ID = IP.PROJECT_ID
+                        WHERE P.ID = @idPrj";
+
+                    cmd = new SqlCommand(updateImplementProjectQuery, conn);
+                    cmd.Parameters.AddWithValue("@idDep", txtIDDep.Text);
                     cmd.Parameters.AddWithValue("@start", dtpStart.Text);
                     cmd.Parameters.AddWithValue("@end", dtpEnd.Text);
-                    cmd.Parameters.AddWithValue("@state", cbbState.Text);
-                    conn.Open();
+                    cmd.Parameters.AddWithValue("@idPrj", txtIDPrj.Text);
                     cmd.ExecuteNonQuery();
                     conn.Close();
                     ResetTextBox();
-                    MessageBox.Show("Cập nhật dự án thành công!");
+                    MessageBox.Show("Sửa dự án thành công!");
                     this.Dispose();
                 }
             }
@@ -115,12 +155,13 @@ namespace MainProject
 
         public void ResetTextBox()
         {
-            txtID.ResetText();
+            txtIDPrj.ResetText();
             txtName.ResetText();
+            txtAccess.ResetText();
+            txtStatus.ResetText();
             txtCustomer.ResetText();
-            dtpStart.ResetText();
-            dtpEnd.ResetText();
-            cbbState.ResetText();
+            txtIDManager.ResetText();
+            txtIDDep.ResetText();
         }
 
         private void ptbClose_Click(object sender, EventArgs e)
