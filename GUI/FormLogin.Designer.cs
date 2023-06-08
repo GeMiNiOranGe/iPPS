@@ -94,7 +94,7 @@ namespace GUI {
             // LbError
             // 
             this.LbError.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.LbError.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbError.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LbError.ForeColor = System.Drawing.Color.Red;
             this.LbError.Location = new System.Drawing.Point(49, 217);
             this.LbError.Name = "LbError";

@@ -67,36 +67,34 @@ namespace GUI {
             // Kiểm tra kết quả
             switch (status) {
             case BLL.LoginStatus.Success:
-                // Hiển thị thông báo thành công và chuyển sang form khác
-                MessageBox.Show("Đăng nhập thành công!");
+                LbError.Text = "Đăng nhập thành công!";
                 var formMain = new FormMain();
                 formMain.Show();
-                //this.Hide();
-                break;
+                return;
             case BLL.LoginStatus.InvalidInput:
-                // Hiển thị thông báo lỗi do dữ liệu đầu vào không hợp lệ
-                MessageBox.Show("Tên đăng nhập và mật khẩu không được để trống!");
+                // Displays an error message due to invalid input data
+                LbError.Text ="Tên đăng nhập và mật khẩu không được để trống!";
                 TxtUserId.Clear();
                 TxtPassword.Clear();
                 TxtUserId.Focus();
                 break;
             case BLL.LoginStatus.InvalidAccount:
-                // Hiển thị thông báo lỗi do tài khoản không tồn tại hoặc sai thông tin
-                MessageBox.Show("Tên đăng nhập hoặc mật khẩu sai!");
+                // Displays an error message because the account does not exist or has incorrect information
+                LbError.Text ="Tên đăng nhập hoặc mật khẩu sai!";
                 TxtUserId.Clear();
                 TxtPassword.Clear();
                 TxtUserId.Focus();
                 break;
             case BLL.LoginStatus.LockedAccount:
-                // Hiển thị thông báo lỗi do tài khoản bị khóa
-                MessageBox.Show("Tài khoản của bạn đã bị khóa!");
+                // Shows an error message because the account is locked
+                LbError.Text ="Tài khoản của bạn đã bị khóa!";
                 TxtUserId.Clear();
                 TxtPassword.Clear();
                 TxtUserId.Focus();
                 break;
             case BLL.LoginStatus.OtherError:
-                // Hiển thị thông báo lỗi do các nguyên nhân khác
-                MessageBox.Show("Đã xảy ra lỗi trong quá trình đăng nhập!");
+                // Display error messages due to other causes
+                LbError.Text ="Đã xảy ra lỗi trong quá trình đăng nhập!";
                 TxtUserId.Clear();
                 TxtPassword.Clear();
                 TxtUserId.Focus();
