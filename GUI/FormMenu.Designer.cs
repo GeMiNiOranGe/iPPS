@@ -141,33 +141,39 @@ namespace GUI {
             // 
             this.PnlReport.Controls.Add(this.PcbReport);
             this.PnlReport.Controls.Add(this.LbReport);
+            this.PnlReport.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PnlReport.Dock = System.Windows.Forms.DockStyle.Top;
             this.PnlReport.Location = new System.Drawing.Point(15, 269);
             this.PnlReport.Margin = new System.Windows.Forms.Padding(0);
             this.PnlReport.Name = "PnlReport";
             this.PnlReport.Size = new System.Drawing.Size(255, 50);
             this.PnlReport.TabIndex = 11;
+            this.PnlReport.Click += new System.EventHandler(this.PnlReport_Click);
             // 
             // PcbReport
             // 
             this.PcbReport.BackgroundImage = global::GUI.Properties.Resources.Database;
             this.PcbReport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PcbReport.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PcbReport.Location = new System.Drawing.Point(0, 0);
             this.PcbReport.Name = "PcbReport";
             this.PcbReport.Size = new System.Drawing.Size(50, 50);
             this.PcbReport.TabIndex = 3;
             this.PcbReport.TabStop = false;
+            this.PcbReport.Click += new System.EventHandler(this.PcbReport_Click);
             // 
             // LbReport
             // 
             this.LbReport.AutoSize = true;
+            this.LbReport.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LbReport.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LbReport.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.LbReport.Location = new System.Drawing.Point(56, 9);
             this.LbReport.Name = "LbReport";
-            this.LbReport.Size = new System.Drawing.Size(99, 32);
+            this.LbReport.Size = new System.Drawing.Size(89, 32);
             this.LbReport.TabIndex = 7;
-            this.LbReport.Text = "Báo cáo";
+            this.LbReport.Text = "Tài liệu";
+            this.LbReport.Click += new System.EventHandler(this.LbReport_Click);
             // 
             // PnlSidebarInterrupt3
             // 

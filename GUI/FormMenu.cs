@@ -21,5 +21,21 @@ namespace GUI {
             if (dialogResulth == DialogResult.Yes)
                 Application.Exit();
         }
+
+        public void OpenUploadFile() {
+            var formUpload = new FormUpload();
+            formUpload.ShowDialog();
+        }
+        private void LbReport_Click(object sender, EventArgs e) {
+            OpenUploadFile();
+        }
+
+        private void PcbReport_Click(object sender, EventArgs e) {
+            OpenUploadFile();
+        }
+
+        private void PnlReport_Click(object sender, EventArgs e) {
+            OpenUploadFile();
+        }
     }
 }
