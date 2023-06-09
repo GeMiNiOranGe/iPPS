@@ -56,7 +56,7 @@ namespace GUI {
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picExit = new System.Windows.Forms.PictureBox();
             this.PnlLeft.SuspendLayout();
             this.PnlStatusTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbStatusTable)).BeginInit();
@@ -75,7 +75,7 @@ namespace GUI {
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
             this.SuspendLayout();
             // 
             // PnlLeft
@@ -125,7 +125,7 @@ namespace GUI {
             this.LbStatusTable.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.LbStatusTable.Location = new System.Drawing.Point(56, 9);
             this.LbStatusTable.Name = "LbStatusTable";
-            this.LbStatusTable.Size = new System.Drawing.Size(181, 32);
+            this.LbStatusTable.Size = new System.Drawing.Size(173, 31);
             this.LbStatusTable.TabIndex = 6;
             this.LbStatusTable.Text = "Bảng tình trạng";
             // 
@@ -165,7 +165,7 @@ namespace GUI {
             this.LbReport.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.LbReport.Location = new System.Drawing.Point(56, 9);
             this.LbReport.Name = "LbReport";
-            this.LbReport.Size = new System.Drawing.Size(99, 32);
+            this.LbReport.Size = new System.Drawing.Size(94, 31);
             this.LbReport.TabIndex = 7;
             this.LbReport.Text = "Báo cáo";
             // 
@@ -205,7 +205,7 @@ namespace GUI {
             this.LbManage.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.LbManage.Location = new System.Drawing.Point(56, 9);
             this.LbManage.Name = "LbManage";
-            this.LbManage.Size = new System.Drawing.Size(102, 32);
+            this.LbManage.Size = new System.Drawing.Size(96, 31);
             this.LbManage.TabIndex = 5;
             this.LbManage.Text = "Quản Lý";
             // 
@@ -247,7 +247,7 @@ namespace GUI {
             this.LbInfo.Location = new System.Drawing.Point(56, 9);
             this.LbInfo.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.LbInfo.Name = "LbInfo";
-            this.LbInfo.Size = new System.Drawing.Size(119, 32);
+            this.LbInfo.Size = new System.Drawing.Size(112, 31);
             this.LbInfo.TabIndex = 0;
             this.LbInfo.Text = "Thông tin";
             // 
@@ -337,7 +337,7 @@ namespace GUI {
             this.LbUsername.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.LbUsername.Location = new System.Drawing.Point(72, 12);
             this.LbUsername.Name = "LbUsername";
-            this.LbUsername.Size = new System.Drawing.Size(198, 32);
+            this.LbUsername.Size = new System.Drawing.Size(188, 31);
             this.LbUsername.TabIndex = 8;
             this.LbUsername.Text = "Nguyễn Văn AAA";
             // 
@@ -349,7 +349,7 @@ namespace GUI {
             this.LbRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(183)))), ((int)(((byte)(180)))));
             this.LbRole.Location = new System.Drawing.Point(73, 47);
             this.LbRole.Name = "LbRole";
-            this.LbRole.Size = new System.Drawing.Size(48, 25);
+            this.LbRole.Size = new System.Drawing.Size(46, 25);
             this.LbRole.TabIndex = 8;
             this.LbRole.Text = "CEO";
             // 
@@ -391,7 +391,7 @@ namespace GUI {
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(63)))), ((int)(((byte)(60)))));
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.picExit);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -416,14 +416,15 @@ namespace GUI {
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // pictureBox1
+            // picExit
             // 
-            this.pictureBox1.Image = global::GUI.Properties.Resources.CloseCircleFill;
-            this.pictureBox1.Location = new System.Drawing.Point(1302, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.picExit.Image = global::GUI.Properties.Resources.CloseCircleFill;
+            this.picExit.Location = new System.Drawing.Point(1302, 6);
+            this.picExit.Name = "picExit";
+            this.picExit.Size = new System.Drawing.Size(32, 32);
+            this.picExit.TabIndex = 0;
+            this.picExit.TabStop = false;
+            this.picExit.Click += new System.EventHandler(this.picExit_Click);
             // 
             // FormMenu
             // 
@@ -460,7 +461,7 @@ namespace GUI {
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picExit)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -499,7 +500,7 @@ namespace GUI {
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picExit;
     }
 }
 

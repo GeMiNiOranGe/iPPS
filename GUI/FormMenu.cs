@@ -13,5 +13,13 @@ namespace GUI {
         public FormMenu() {
             InitializeComponent();
         }
+
+        private void picExit_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResulth = MessageBox.Show
+                ("Bạn có chắc muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResulth == DialogResult.Yes)
+                Application.Exit();
+        }
     }
 }
