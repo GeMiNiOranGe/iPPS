@@ -125,7 +125,7 @@ namespace GUI {
             this.LbStatusTable.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.LbStatusTable.Location = new System.Drawing.Point(56, 9);
             this.LbStatusTable.Name = "LbStatusTable";
-            this.LbStatusTable.Size = new System.Drawing.Size(173, 31);
+            this.LbStatusTable.Size = new System.Drawing.Size(181, 32);
             this.LbStatusTable.TabIndex = 6;
             this.LbStatusTable.Text = "Bảng tình trạng";
             // 
@@ -165,7 +165,7 @@ namespace GUI {
             this.LbReport.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.LbReport.Location = new System.Drawing.Point(56, 9);
             this.LbReport.Name = "LbReport";
-            this.LbReport.Size = new System.Drawing.Size(94, 31);
+            this.LbReport.Size = new System.Drawing.Size(99, 32);
             this.LbReport.TabIndex = 7;
             this.LbReport.Text = "Báo cáo";
             // 
@@ -205,7 +205,7 @@ namespace GUI {
             this.LbManage.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.LbManage.Location = new System.Drawing.Point(56, 9);
             this.LbManage.Name = "LbManage";
-            this.LbManage.Size = new System.Drawing.Size(96, 31);
+            this.LbManage.Size = new System.Drawing.Size(102, 32);
             this.LbManage.TabIndex = 5;
             this.LbManage.Text = "Quản Lý";
             // 
@@ -247,7 +247,7 @@ namespace GUI {
             this.LbInfo.Location = new System.Drawing.Point(56, 9);
             this.LbInfo.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.LbInfo.Name = "LbInfo";
-            this.LbInfo.Size = new System.Drawing.Size(112, 31);
+            this.LbInfo.Size = new System.Drawing.Size(119, 32);
             this.LbInfo.TabIndex = 0;
             this.LbInfo.Text = "Thông tin";
             // 
@@ -337,7 +337,7 @@ namespace GUI {
             this.LbUsername.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.LbUsername.Location = new System.Drawing.Point(72, 12);
             this.LbUsername.Name = "LbUsername";
-            this.LbUsername.Size = new System.Drawing.Size(188, 31);
+            this.LbUsername.Size = new System.Drawing.Size(198, 32);
             this.LbUsername.TabIndex = 8;
             this.LbUsername.Text = "Nguyễn Văn AAA";
             // 
@@ -349,7 +349,7 @@ namespace GUI {
             this.LbRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(183)))), ((int)(((byte)(180)))));
             this.LbRole.Location = new System.Drawing.Point(73, 47);
             this.LbRole.Name = "LbRole";
-            this.LbRole.Size = new System.Drawing.Size(46, 25);
+            this.LbRole.Size = new System.Drawing.Size(48, 25);
             this.LbRole.TabIndex = 8;
             this.LbRole.Text = "CEO";
             // 
@@ -404,6 +404,7 @@ namespace GUI {
             this.pictureBox3.Location = new System.Drawing.Point(1226, 6);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
             // 
@@ -413,6 +414,7 @@ namespace GUI {
             this.pictureBox2.Location = new System.Drawing.Point(1264, 6);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
@@ -422,6 +424,7 @@ namespace GUI {
             this.picExit.Location = new System.Drawing.Point(1302, 6);
             this.picExit.Name = "picExit";
             this.picExit.Size = new System.Drawing.Size(32, 32);
+            this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picExit.TabIndex = 0;
             this.picExit.TabStop = false;
             this.picExit.Click += new System.EventHandler(this.picExit_Click);
