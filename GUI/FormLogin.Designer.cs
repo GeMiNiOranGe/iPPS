@@ -29,13 +29,14 @@ namespace GUI {
             this.TxtPassword = new System.Windows.Forms.TextBox();
             this.BtnLogin = new System.Windows.Forms.Button();
             this.LbError = new System.Windows.Forms.Label();
-            this.PictureUserID = new System.Windows.Forms.PictureBox();
-            this.PicturePassWord = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureUserID)).BeginInit();
+            this.PcbClose = new System.Windows.Forms.PictureBox();
+            this.PicturePassWord = new System.Windows.Forms.PictureBox();
+            this.PictureUserID = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicturePassWord)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureUserID)).BeginInit();
             this.SuspendLayout();
             // 
             // TxtUserId
@@ -101,27 +102,6 @@ namespace GUI {
             this.LbError.TabIndex = 3;
             this.LbError.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // PictureUserID
-            // 
-            this.PictureUserID.BackgroundImage = global::GUI.Properties.Resources.UserWhite;
-            this.PictureUserID.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PictureUserID.Location = new System.Drawing.Point(49, 76);
-            this.PictureUserID.Name = "PictureUserID";
-            this.PictureUserID.Size = new System.Drawing.Size(52, 50);
-            this.PictureUserID.TabIndex = 4;
-            this.PictureUserID.TabStop = false;
-            // 
-            // PicturePassWord
-            // 
-            this.PicturePassWord.BackgroundImage = global::GUI.Properties.Resources.CloseLockWhite;
-            this.PicturePassWord.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PicturePassWord.Location = new System.Drawing.Point(49, 151);
-            this.PicturePassWord.Name = "PicturePassWord";
-            this.PicturePassWord.Size = new System.Drawing.Size(52, 50);
-            this.PicturePassWord.TabIndex = 5;
-            this.PicturePassWord.TabStop = false;
-            this.PicturePassWord.Click += new System.EventHandler(this.PicturePassWord_Click);
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
@@ -138,15 +118,37 @@ namespace GUI {
             this.panel2.Size = new System.Drawing.Size(362, 1);
             this.panel2.TabIndex = 7;
             // 
-            // label1
+            // PcbClose
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(441, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(27, 30);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "X";
-            this.label1.Click += new System.EventHandler(this.Label1_Click);
+            this.PcbClose.Image = global::GUI.Properties.Resources.CloseCircleFill;
+            this.PcbClose.Location = new System.Drawing.Point(422, 14);
+            this.PcbClose.Margin = new System.Windows.Forms.Padding(5);
+            this.PcbClose.Name = "PcbClose";
+            this.PcbClose.Size = new System.Drawing.Size(32, 32);
+            this.PcbClose.TabIndex = 9;
+            this.PcbClose.TabStop = false;
+            this.PcbClose.Click += new System.EventHandler(this.PcbClose_Click);
+            // 
+            // PicturePassWord
+            // 
+            this.PicturePassWord.BackgroundImage = global::GUI.Properties.Resources.CloseLockWhite;
+            this.PicturePassWord.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PicturePassWord.Location = new System.Drawing.Point(49, 151);
+            this.PicturePassWord.Name = "PicturePassWord";
+            this.PicturePassWord.Size = new System.Drawing.Size(52, 50);
+            this.PicturePassWord.TabIndex = 5;
+            this.PicturePassWord.TabStop = false;
+            this.PicturePassWord.Click += new System.EventHandler(this.PicturePassWord_Click);
+            // 
+            // PictureUserID
+            // 
+            this.PictureUserID.BackgroundImage = global::GUI.Properties.Resources.UserWhite;
+            this.PictureUserID.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PictureUserID.Location = new System.Drawing.Point(49, 76);
+            this.PictureUserID.Name = "PictureUserID";
+            this.PictureUserID.Size = new System.Drawing.Size(52, 50);
+            this.PictureUserID.TabIndex = 4;
+            this.PictureUserID.TabStop = false;
             // 
             // FormLogin
             // 
@@ -155,7 +157,7 @@ namespace GUI {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(63)))), ((int)(((byte)(60)))));
             this.ClientSize = new System.Drawing.Size(468, 311);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.PcbClose);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.PicturePassWord);
@@ -171,8 +173,9 @@ namespace GUI {
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng Nhập";
-            ((System.ComponentModel.ISupportInitialize)(this.PictureUserID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicturePassWord)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureUserID)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,7 +192,7 @@ namespace GUI {
         private System.Windows.Forms.PictureBox PicturePassWord;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox PcbClose;
     }
 }
 

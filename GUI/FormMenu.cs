@@ -9,13 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI {
-    public partial class FormMain : Form {
-        public FormMain() {
+    public partial class FormMenu : Form {
+        public FormMenu() {
             InitializeComponent();
-        }
-
-        private void FormMain_Load(object sender, EventArgs e) {
-            DgvMain.DataSource = BLL.CProjectBLL.GetProjectList();
         }
     }
 }

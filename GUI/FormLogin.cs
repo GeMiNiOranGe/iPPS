@@ -25,8 +25,8 @@ namespace GUI {
             switch (status) {
             case BLL.LoginStatus.Success:
                 LbError.Text = "Đăng nhập thành công!";
-                var formMain = new FormMain();
-                formMain.Show();
+                var formMenu = new FormMenu();
+                formMenu.ShowDialog();
                 break;
             case BLL.LoginStatus.InvalidInput:
                 // Displays an error message due to invalid input data
@@ -112,7 +112,7 @@ namespace GUI {
             }
         }
 
-        private void Label1_Click(object sender, EventArgs e) {
+        private void PcbClose_Click(object sender, EventArgs e) {
             Application.Exit();
         }
     }

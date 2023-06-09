@@ -46,17 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormMain.Designer.cs">
-      <DependentUpon>FormMain.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMenu.Designer.cs">
+      <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="HandleControl.cs" />
     <Compile Include="Program.cs" />
@@ -64,8 +64,8 @@
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMain.resx">
-      <DependentUpon>FormMain.cs</DependentUpon>
+    <EmbeddedResource Include="FormMenu.resx">
+      <DependentUpon>FormMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -123,6 +123,39 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\UserYellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CloseCircleFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AccImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Database.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Project.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FullScreenCircleFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MinimizeCircleFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NormalScreenCircleFill.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
