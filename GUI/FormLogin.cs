@@ -1,15 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-
-using Config;
 using HandleControl;
 
 namespace GUI {
@@ -20,7 +11,6 @@ namespace GUI {
             InitializeComponent();
             ForTextbox.SetPlaceHolder(this.TxtUserId, BLL.CAccountBLL.USER_ID_PLACEHOLDER);
             ForTextbox.SetPlaceHolder(this.TxtPassword, BLL.CAccountBLL.PASSWORD_PLACEHOLDER);
-            //TxtPassword.UseSystemPasswordChar = false;
         }
 
         private void BtnLogin_Click(object sender, EventArgs e) {
