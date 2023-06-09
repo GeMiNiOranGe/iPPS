@@ -24,286 +24,424 @@ namespace MainProject {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.pnLeft = new System.Windows.Forms.Panel();
-            this.lbIPPS = new System.Windows.Forms.Label();
-            this.lbBaocao = new System.Windows.Forms.Label();
-            this.lbBTT = new System.Windows.Forms.Label();
-            this.lbDuan = new System.Windows.Forms.Label();
-            this.lbTaikhoan = new System.Windows.Forms.Label();
-            this.pcbBTT = new System.Windows.Forms.PictureBox();
-            this.pcbBaocao = new System.Windows.Forms.PictureBox();
-            this.pcbDuan = new System.Windows.Forms.PictureBox();
-            this.pcbTaikhoan = new System.Windows.Forms.PictureBox();
-            this.pnAbove = new System.Windows.Forms.Panel();
-            this.pcbSidebar = new System.Windows.Forms.PictureBox();
-            this.pcbOut = new System.Windows.Forms.PictureBox();
-            this.pcbBell = new System.Windows.Forms.PictureBox();
-            this.PcbUser = new System.Windows.Forms.PictureBox();
-            this.lbUsername = new System.Windows.Forms.Label();
-            this.pnCenter = new System.Windows.Forms.Panel();
-            this.lbCenter = new System.Windows.Forms.Label();
-            this.pnLeft.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbBTT)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbBaocao)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbDuan)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbTaikhoan)).BeginInit();
-            this.pnAbove.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbSidebar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbOut)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbBell)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbUser)).BeginInit();
-            this.pnCenter.SuspendLayout();
+            this.PnlLeft = new System.Windows.Forms.Panel();
+            this.PnlStatusTable = new System.Windows.Forms.Panel();
+            this.PcbStatusTable = new System.Windows.Forms.PictureBox();
+            this.LbStatusTable = new System.Windows.Forms.Label();
+            this.PnlSidebarInterrupt4 = new System.Windows.Forms.Panel();
+            this.PnlReport = new System.Windows.Forms.Panel();
+            this.PcbReport = new System.Windows.Forms.PictureBox();
+            this.LbReport = new System.Windows.Forms.Label();
+            this.PnlSidebarInterrupt3 = new System.Windows.Forms.Panel();
+            this.PnlManage = new System.Windows.Forms.Panel();
+            this.PcbManage = new System.Windows.Forms.PictureBox();
+            this.LbManage = new System.Windows.Forms.Label();
+            this.PnlSidebarInterrupt2 = new System.Windows.Forms.Panel();
+            this.PnlAccountInfo = new System.Windows.Forms.Panel();
+            this.PcbAccount = new System.Windows.Forms.PictureBox();
+            this.LbInfo = new System.Windows.Forms.Label();
+            this.PnlSidebarInterrupt1 = new System.Windows.Forms.Panel();
+            this.PnlSidebarRight = new System.Windows.Forms.Panel();
+            this.PnlSidebarLeft = new System.Windows.Forms.Panel();
+            this.LbiPPS = new System.Windows.Forms.Label();
+            this.PnlAbove = new System.Windows.Forms.Panel();
+            this.PnlLogout = new System.Windows.Forms.Panel();
+            this.PcbLogout = new System.Windows.Forms.PictureBox();
+            this.PnlAccount = new System.Windows.Forms.Panel();
+            this.LbUsername = new System.Windows.Forms.Label();
+            this.LbRole = new System.Windows.Forms.Label();
+            this.PcbImageUser = new System.Windows.Forms.PictureBox();
+            this.PnlCenter = new System.Windows.Forms.Panel();
+            this.LbAppName = new System.Windows.Forms.Label();
+            this.PnlLeft.SuspendLayout();
+            this.PnlStatusTable.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbStatusTable)).BeginInit();
+            this.PnlReport.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbReport)).BeginInit();
+            this.PnlManage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbManage)).BeginInit();
+            this.PnlAccountInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbAccount)).BeginInit();
+            this.PnlAbove.SuspendLayout();
+            this.PnlLogout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbLogout)).BeginInit();
+            this.PnlAccount.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbImageUser)).BeginInit();
+            this.PnlCenter.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pnLeft
+            // PnlLeft
             // 
-            this.pnLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(63)))), ((int)(((byte)(60)))));
-            this.pnLeft.Controls.Add(this.lbIPPS);
-            this.pnLeft.Controls.Add(this.lbBaocao);
-            this.pnLeft.Controls.Add(this.lbBTT);
-            this.pnLeft.Controls.Add(this.lbDuan);
-            this.pnLeft.Controls.Add(this.lbTaikhoan);
-            this.pnLeft.Controls.Add(this.pcbBTT);
-            this.pnLeft.Controls.Add(this.pcbBaocao);
-            this.pnLeft.Controls.Add(this.pcbDuan);
-            this.pnLeft.Controls.Add(this.pcbTaikhoan);
-            this.pnLeft.Location = new System.Drawing.Point(3, 0);
-            this.pnLeft.Name = "pnLeft";
-            this.pnLeft.Size = new System.Drawing.Size(195, 764);
-            this.pnLeft.TabIndex = 0;
+            this.PnlLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(63)))), ((int)(((byte)(60)))));
+            this.PnlLeft.Controls.Add(this.PnlStatusTable);
+            this.PnlLeft.Controls.Add(this.PnlSidebarInterrupt4);
+            this.PnlLeft.Controls.Add(this.PnlReport);
+            this.PnlLeft.Controls.Add(this.PnlSidebarInterrupt3);
+            this.PnlLeft.Controls.Add(this.PnlManage);
+            this.PnlLeft.Controls.Add(this.PnlSidebarInterrupt2);
+            this.PnlLeft.Controls.Add(this.PnlAccountInfo);
+            this.PnlLeft.Controls.Add(this.PnlSidebarInterrupt1);
+            this.PnlLeft.Controls.Add(this.PnlSidebarRight);
+            this.PnlLeft.Controls.Add(this.PnlSidebarLeft);
+            this.PnlLeft.Controls.Add(this.LbiPPS);
+            this.PnlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PnlLeft.Location = new System.Drawing.Point(0, 0);
+            this.PnlLeft.Name = "PnlLeft";
+            this.PnlLeft.Size = new System.Drawing.Size(290, 768);
+            this.PnlLeft.TabIndex = 0;
             // 
-            // lbIPPS
+            // PnlStatusTable
             // 
-            this.lbIPPS.AutoSize = true;
-            this.lbIPPS.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbIPPS.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbIPPS.Location = new System.Drawing.Point(31, 27);
-            this.lbIPPS.Name = "lbIPPS";
-            this.lbIPPS.Size = new System.Drawing.Size(151, 81);
-            this.lbIPPS.TabIndex = 8;
-            this.lbIPPS.Text = "IPPS";
+            this.PnlStatusTable.Controls.Add(this.PcbStatusTable);
+            this.PnlStatusTable.Controls.Add(this.LbStatusTable);
+            this.PnlStatusTable.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PnlStatusTable.Location = new System.Drawing.Point(15, 349);
+            this.PnlStatusTable.Name = "PnlStatusTable";
+            this.PnlStatusTable.Size = new System.Drawing.Size(255, 50);
+            this.PnlStatusTable.TabIndex = 16;
             // 
-            // lbBaocao
+            // PcbStatusTable
             // 
-            this.lbBaocao.AutoSize = true;
-            this.lbBaocao.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbBaocao.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbBaocao.Location = new System.Drawing.Point(49, 546);
-            this.lbBaocao.Name = "lbBaocao";
-            this.lbBaocao.Size = new System.Drawing.Size(94, 31);
-            this.lbBaocao.TabIndex = 7;
-            this.lbBaocao.Text = "Báo cáo";
+            this.PcbStatusTable.BackgroundImage = global::MainProject.Properties.Resources.bảng;
+            this.PcbStatusTable.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PcbStatusTable.Location = new System.Drawing.Point(0, 0);
+            this.PcbStatusTable.Name = "PcbStatusTable";
+            this.PcbStatusTable.Size = new System.Drawing.Size(50, 50);
+            this.PcbStatusTable.TabIndex = 4;
+            this.PcbStatusTable.TabStop = false;
             // 
-            // lbBTT
+            // LbStatusTable
             // 
-            this.lbBTT.AutoSize = true;
-            this.lbBTT.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbBTT.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbBTT.Location = new System.Drawing.Point(9, 713);
-            this.lbBTT.Name = "lbBTT";
-            this.lbBTT.Size = new System.Drawing.Size(173, 31);
-            this.lbBTT.TabIndex = 6;
-            this.lbBTT.Text = "Bảng tình trạng";
+            this.LbStatusTable.AutoSize = true;
+            this.LbStatusTable.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbStatusTable.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LbStatusTable.Location = new System.Drawing.Point(56, 9);
+            this.LbStatusTable.Name = "LbStatusTable";
+            this.LbStatusTable.Size = new System.Drawing.Size(181, 32);
+            this.LbStatusTable.TabIndex = 6;
+            this.LbStatusTable.Text = "Bảng tình trạng";
             // 
-            // lbDuan
+            // PnlSidebarInterrupt4
             // 
-            this.lbDuan.AutoSize = true;
-            this.lbDuan.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDuan.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbDuan.Location = new System.Drawing.Point(67, 387);
-            this.lbDuan.Name = "lbDuan";
-            this.lbDuan.Size = new System.Drawing.Size(75, 31);
-            this.lbDuan.TabIndex = 5;
-            this.lbDuan.Text = "Dự án";
+            this.PnlSidebarInterrupt4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PnlSidebarInterrupt4.Location = new System.Drawing.Point(15, 319);
+            this.PnlSidebarInterrupt4.Name = "PnlSidebarInterrupt4";
+            this.PnlSidebarInterrupt4.Size = new System.Drawing.Size(255, 30);
+            this.PnlSidebarInterrupt4.TabIndex = 17;
             // 
-            // lbTaikhoan
+            // PnlReport
             // 
-            this.lbTaikhoan.AutoSize = true;
-            this.lbTaikhoan.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTaikhoan.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbTaikhoan.Location = new System.Drawing.Point(49, 227);
-            this.lbTaikhoan.Name = "lbTaikhoan";
-            this.lbTaikhoan.Size = new System.Drawing.Size(109, 31);
-            this.lbTaikhoan.TabIndex = 0;
-            this.lbTaikhoan.Text = "Tài khoản";
+            this.PnlReport.Controls.Add(this.PcbReport);
+            this.PnlReport.Controls.Add(this.LbReport);
+            this.PnlReport.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PnlReport.Location = new System.Drawing.Point(15, 269);
+            this.PnlReport.Margin = new System.Windows.Forms.Padding(0);
+            this.PnlReport.Name = "PnlReport";
+            this.PnlReport.Size = new System.Drawing.Size(255, 50);
+            this.PnlReport.TabIndex = 11;
             // 
-            // pcbBTT
+            // PcbReport
             // 
-            this.pcbBTT.BackgroundImage = global::MainProject.Properties.Resources.bảng;
-            this.pcbBTT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pcbBTT.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pcbBTT.Location = new System.Drawing.Point(55, 621);
-            this.pcbBTT.Name = "pcbBTT";
-            this.pcbBTT.Size = new System.Drawing.Size(87, 89);
-            this.pcbBTT.TabIndex = 4;
-            this.pcbBTT.TabStop = false;
+            this.PcbReport.BackgroundImage = global::MainProject.Properties.Resources.csdl2;
+            this.PcbReport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PcbReport.Location = new System.Drawing.Point(0, 0);
+            this.PcbReport.Name = "PcbReport";
+            this.PcbReport.Size = new System.Drawing.Size(50, 50);
+            this.PcbReport.TabIndex = 3;
+            this.PcbReport.TabStop = false;
             // 
-            // pcbBaocao
+            // LbReport
             // 
-            this.pcbBaocao.BackgroundImage = global::MainProject.Properties.Resources.csdl2;
-            this.pcbBaocao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pcbBaocao.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pcbBaocao.Location = new System.Drawing.Point(55, 454);
-            this.pcbBaocao.Name = "pcbBaocao";
-            this.pcbBaocao.Size = new System.Drawing.Size(87, 89);
-            this.pcbBaocao.TabIndex = 3;
-            this.pcbBaocao.TabStop = false;
+            this.LbReport.AutoSize = true;
+            this.LbReport.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbReport.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LbReport.Location = new System.Drawing.Point(56, 9);
+            this.LbReport.Name = "LbReport";
+            this.LbReport.Size = new System.Drawing.Size(99, 32);
+            this.LbReport.TabIndex = 7;
+            this.LbReport.Text = "Báo cáo";
             // 
-            // pcbDuan
+            // PnlSidebarInterrupt3
             // 
-            this.pcbDuan.BackgroundImage = global::MainProject.Properties.Resources.dự__án_2;
-            this.pcbDuan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pcbDuan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pcbDuan.Location = new System.Drawing.Point(55, 295);
-            this.pcbDuan.Name = "pcbDuan";
-            this.pcbDuan.Size = new System.Drawing.Size(87, 89);
-            this.pcbDuan.TabIndex = 2;
-            this.pcbDuan.TabStop = false;
+            this.PnlSidebarInterrupt3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PnlSidebarInterrupt3.Location = new System.Drawing.Point(15, 239);
+            this.PnlSidebarInterrupt3.Name = "PnlSidebarInterrupt3";
+            this.PnlSidebarInterrupt3.Size = new System.Drawing.Size(255, 30);
+            this.PnlSidebarInterrupt3.TabIndex = 15;
             // 
-            // pcbTaikhoan
+            // PnlManage
             // 
-            this.pcbTaikhoan.BackgroundImage = global::MainProject.Properties.Resources.in4_2;
-            this.pcbTaikhoan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pcbTaikhoan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pcbTaikhoan.Location = new System.Drawing.Point(55, 135);
-            this.pcbTaikhoan.Name = "pcbTaikhoan";
-            this.pcbTaikhoan.Size = new System.Drawing.Size(87, 89);
-            this.pcbTaikhoan.TabIndex = 1;
-            this.pcbTaikhoan.TabStop = false;
+            this.PnlManage.Controls.Add(this.PcbManage);
+            this.PnlManage.Controls.Add(this.LbManage);
+            this.PnlManage.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PnlManage.Location = new System.Drawing.Point(15, 189);
+            this.PnlManage.Margin = new System.Windows.Forms.Padding(0);
+            this.PnlManage.Name = "PnlManage";
+            this.PnlManage.Size = new System.Drawing.Size(255, 50);
+            this.PnlManage.TabIndex = 11;
             // 
-            // pnAbove
+            // PcbManage
             // 
-            this.pnAbove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(63)))), ((int)(((byte)(60)))));
-            this.pnAbove.Controls.Add(this.pcbSidebar);
-            this.pnAbove.Controls.Add(this.pcbOut);
-            this.pnAbove.Controls.Add(this.pcbBell);
-            this.pnAbove.Controls.Add(this.PcbUser);
-            this.pnAbove.Controls.Add(this.lbUsername);
-            this.pnAbove.Location = new System.Drawing.Point(204, 2);
-            this.pnAbove.Name = "pnAbove";
-            this.pnAbove.Size = new System.Drawing.Size(1131, 67);
-            this.pnAbove.TabIndex = 1;
+            this.PcbManage.BackgroundImage = global::MainProject.Properties.Resources.dự__án_2;
+            this.PcbManage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PcbManage.Location = new System.Drawing.Point(0, 0);
+            this.PcbManage.Name = "PcbManage";
+            this.PcbManage.Size = new System.Drawing.Size(50, 50);
+            this.PcbManage.TabIndex = 2;
+            this.PcbManage.TabStop = false;
             // 
-            // pcbSidebar
+            // LbManage
             // 
-            this.pcbSidebar.BackgroundImage = global::MainProject.Properties.Resources.Amitjakhu_Drip_Menu_512;
-            this.pcbSidebar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pcbSidebar.Location = new System.Drawing.Point(13, 4);
-            this.pcbSidebar.Name = "pcbSidebar";
-            this.pcbSidebar.Size = new System.Drawing.Size(62, 49);
-            this.pcbSidebar.TabIndex = 10;
-            this.pcbSidebar.TabStop = false;
+            this.LbManage.AutoSize = true;
+            this.LbManage.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbManage.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LbManage.Location = new System.Drawing.Point(56, 9);
+            this.LbManage.Name = "LbManage";
+            this.LbManage.Size = new System.Drawing.Size(102, 32);
+            this.LbManage.TabIndex = 5;
+            this.LbManage.Text = "Quản Lý";
             // 
-            // pcbOut
+            // PnlSidebarInterrupt2
             // 
-            this.pcbOut.BackgroundImage = global::MainProject.Properties.Resources._126467;
-            this.pcbOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pcbOut.Location = new System.Drawing.Point(745, 4);
-            this.pcbOut.Name = "pcbOut";
-            this.pcbOut.Size = new System.Drawing.Size(44, 49);
-            this.pcbOut.TabIndex = 8;
-            this.pcbOut.TabStop = false;
+            this.PnlSidebarInterrupt2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PnlSidebarInterrupt2.Location = new System.Drawing.Point(15, 159);
+            this.PnlSidebarInterrupt2.Name = "PnlSidebarInterrupt2";
+            this.PnlSidebarInterrupt2.Size = new System.Drawing.Size(255, 30);
+            this.PnlSidebarInterrupt2.TabIndex = 14;
             // 
-            // pcbBell
+            // PnlAccountInfo
             // 
-            this.pcbBell.BackgroundImage = global::MainProject.Properties.Resources.bell;
-            this.pcbBell.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pcbBell.Location = new System.Drawing.Point(668, 4);
-            this.pcbBell.Name = "pcbBell";
-            this.pcbBell.Size = new System.Drawing.Size(52, 49);
-            this.pcbBell.TabIndex = 9;
-            this.pcbBell.TabStop = false;
+            this.PnlAccountInfo.Controls.Add(this.PcbAccount);
+            this.PnlAccountInfo.Controls.Add(this.LbInfo);
+            this.PnlAccountInfo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PnlAccountInfo.Location = new System.Drawing.Point(15, 109);
+            this.PnlAccountInfo.Margin = new System.Windows.Forms.Padding(0);
+            this.PnlAccountInfo.Name = "PnlAccountInfo";
+            this.PnlAccountInfo.Size = new System.Drawing.Size(255, 50);
+            this.PnlAccountInfo.TabIndex = 9;
             // 
-            // PcbUser
+            // PcbAccount
             // 
-            this.PcbUser.BackgroundImage = global::MainProject.Properties.Resources.ảnh_hồ_sơ;
-            this.PcbUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PcbUser.Location = new System.Drawing.Point(873, -2);
-            this.PcbUser.Name = "PcbUser";
-            this.PcbUser.Size = new System.Drawing.Size(61, 59);
-            this.PcbUser.TabIndex = 10;
-            this.PcbUser.TabStop = false;
+            this.PcbAccount.BackgroundImage = global::MainProject.Properties.Resources.in4_2;
+            this.PcbAccount.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PcbAccount.Location = new System.Drawing.Point(0, 0);
+            this.PcbAccount.Margin = new System.Windows.Forms.Padding(3, 15, 3, 3);
+            this.PcbAccount.Name = "PcbAccount";
+            this.PcbAccount.Size = new System.Drawing.Size(50, 50);
+            this.PcbAccount.TabIndex = 1;
+            this.PcbAccount.TabStop = false;
             // 
-            // lbUsername
+            // LbInfo
             // 
-            this.lbUsername.AutoSize = true;
-            this.lbUsername.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbUsername.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbUsername.Location = new System.Drawing.Point(940, 0);
-            this.lbUsername.Name = "lbUsername";
-            this.lbUsername.Size = new System.Drawing.Size(188, 31);
-            this.lbUsername.TabIndex = 8;
-            this.lbUsername.Text = "Nguyễn Văn AAA";
+            this.LbInfo.AutoSize = true;
+            this.LbInfo.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbInfo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LbInfo.Location = new System.Drawing.Point(56, 9);
+            this.LbInfo.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.LbInfo.Name = "LbInfo";
+            this.LbInfo.Size = new System.Drawing.Size(119, 32);
+            this.LbInfo.TabIndex = 0;
+            this.LbInfo.Text = "Thông tin";
             // 
-            // pnCenter
+            // PnlSidebarInterrupt1
             // 
-            this.pnCenter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(128)))), ((int)(((byte)(134)))));
-            this.pnCenter.Controls.Add(this.lbCenter);
-            this.pnCenter.Location = new System.Drawing.Point(204, 75);
-            this.pnCenter.Name = "pnCenter";
-            this.pnCenter.Size = new System.Drawing.Size(1131, 689);
-            this.pnCenter.TabIndex = 2;
+            this.PnlSidebarInterrupt1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PnlSidebarInterrupt1.Location = new System.Drawing.Point(15, 79);
+            this.PnlSidebarInterrupt1.Name = "PnlSidebarInterrupt1";
+            this.PnlSidebarInterrupt1.Size = new System.Drawing.Size(255, 30);
+            this.PnlSidebarInterrupt1.TabIndex = 13;
             // 
-            // lbCenter
+            // PnlSidebarRight
             // 
-            this.lbCenter.AutoSize = true;
-            this.lbCenter.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCenter.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbCenter.Location = new System.Drawing.Point(274, 12);
-            this.lbCenter.Name = "lbCenter";
-            this.lbCenter.Size = new System.Drawing.Size(642, 59);
-            this.lbCenter.TabIndex = 7;
-            this.lbCenter.Text = "Phần mềm quản lý tiến độ dự án";
+            this.PnlSidebarRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PnlSidebarRight.Location = new System.Drawing.Point(270, 79);
+            this.PnlSidebarRight.Name = "PnlSidebarRight";
+            this.PnlSidebarRight.Size = new System.Drawing.Size(20, 689);
+            this.PnlSidebarRight.TabIndex = 13;
+            // 
+            // PnlSidebarLeft
+            // 
+            this.PnlSidebarLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PnlSidebarLeft.Location = new System.Drawing.Point(0, 79);
+            this.PnlSidebarLeft.Name = "PnlSidebarLeft";
+            this.PnlSidebarLeft.Size = new System.Drawing.Size(15, 689);
+            this.PnlSidebarLeft.TabIndex = 12;
+            // 
+            // LbiPPS
+            // 
+            this.LbiPPS.BackColor = System.Drawing.Color.Transparent;
+            this.LbiPPS.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LbiPPS.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbiPPS.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LbiPPS.Location = new System.Drawing.Point(0, 0);
+            this.LbiPPS.Name = "LbiPPS";
+            this.LbiPPS.Size = new System.Drawing.Size(290, 79);
+            this.LbiPPS.TabIndex = 8;
+            this.LbiPPS.Text = "iPPS Ver.0";
+            this.LbiPPS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PnlAbove
+            // 
+            this.PnlAbove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(83)))), ((int)(((byte)(80)))));
+            this.PnlAbove.Controls.Add(this.PnlLogout);
+            this.PnlAbove.Controls.Add(this.PnlAccount);
+            this.PnlAbove.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PnlAbove.Location = new System.Drawing.Point(290, 0);
+            this.PnlAbove.Name = "PnlAbove";
+            this.PnlAbove.Size = new System.Drawing.Size(1049, 82);
+            this.PnlAbove.TabIndex = 1;
+            // 
+            // PnlLogout
+            // 
+            this.PnlLogout.Controls.Add(this.PcbLogout);
+            this.PnlLogout.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PnlLogout.Location = new System.Drawing.Point(990, 0);
+            this.PnlLogout.Name = "PnlLogout";
+            this.PnlLogout.Size = new System.Drawing.Size(59, 82);
+            this.PnlLogout.TabIndex = 13;
+            // 
+            // PcbLogout
+            // 
+            this.PcbLogout.BackgroundImage = global::MainProject.Properties.Resources._126467;
+            this.PcbLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PcbLogout.Location = new System.Drawing.Point(3, 24);
+            this.PcbLogout.Name = "PcbLogout";
+            this.PcbLogout.Size = new System.Drawing.Size(35, 35);
+            this.PcbLogout.TabIndex = 8;
+            this.PcbLogout.TabStop = false;
+            // 
+            // PnlAccount
+            // 
+            this.PnlAccount.Controls.Add(this.LbUsername);
+            this.PnlAccount.Controls.Add(this.LbRole);
+            this.PnlAccount.Controls.Add(this.PcbImageUser);
+            this.PnlAccount.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PnlAccount.Location = new System.Drawing.Point(0, 0);
+            this.PnlAccount.Name = "PnlAccount";
+            this.PnlAccount.Size = new System.Drawing.Size(279, 82);
+            this.PnlAccount.TabIndex = 12;
+            // 
+            // LbUsername
+            // 
+            this.LbUsername.AutoSize = true;
+            this.LbUsername.BackColor = System.Drawing.Color.Transparent;
+            this.LbUsername.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbUsername.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LbUsername.Location = new System.Drawing.Point(72, 12);
+            this.LbUsername.Name = "LbUsername";
+            this.LbUsername.Size = new System.Drawing.Size(198, 32);
+            this.LbUsername.TabIndex = 8;
+            this.LbUsername.Text = "Nguyễn Văn AAA";
+            // 
+            // LbRole
+            // 
+            this.LbRole.AutoSize = true;
+            this.LbRole.BackColor = System.Drawing.Color.Transparent;
+            this.LbRole.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(183)))), ((int)(((byte)(180)))));
+            this.LbRole.Location = new System.Drawing.Point(73, 47);
+            this.LbRole.Name = "LbRole";
+            this.LbRole.Size = new System.Drawing.Size(48, 25);
+            this.LbRole.TabIndex = 8;
+            this.LbRole.Text = "CEO";
+            // 
+            // PcbImageUser
+            // 
+            this.PcbImageUser.BackgroundImage = global::MainProject.Properties.Resources.ảnh_hồ_sơ;
+            this.PcbImageUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PcbImageUser.Location = new System.Drawing.Point(6, 12);
+            this.PcbImageUser.Name = "PcbImageUser";
+            this.PcbImageUser.Size = new System.Drawing.Size(60, 60);
+            this.PcbImageUser.TabIndex = 10;
+            this.PcbImageUser.TabStop = false;
+            // 
+            // PnlCenter
+            // 
+            this.PnlCenter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(128)))), ((int)(((byte)(134)))));
+            this.PnlCenter.Controls.Add(this.LbAppName);
+            this.PnlCenter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PnlCenter.Location = new System.Drawing.Point(290, 82);
+            this.PnlCenter.Name = "PnlCenter";
+            this.PnlCenter.Size = new System.Drawing.Size(1049, 686);
+            this.PnlCenter.TabIndex = 2;
+            // 
+            // LbAppName
+            // 
+            this.LbAppName.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LbAppName.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbAppName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LbAppName.Location = new System.Drawing.Point(0, 0);
+            this.LbAppName.Name = "LbAppName";
+            this.LbAppName.Size = new System.Drawing.Size(1049, 59);
+            this.LbAppName.TabIndex = 7;
+            this.LbAppName.Text = "Phần mềm quản lý tiến độ dự án";
+            this.LbAppName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1339, 768);
-            this.Controls.Add(this.pnCenter);
-            this.Controls.Add(this.pnAbove);
-            this.Controls.Add(this.pnLeft);
+            this.Controls.Add(this.PnlCenter);
+            this.Controls.Add(this.PnlAbove);
+            this.Controls.Add(this.PnlLeft);
             this.Name = "FormMenu";
             this.Text = "Phần mềm quản lý tiến độ dự án";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.pnLeft.ResumeLayout(false);
-            this.pnLeft.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbBTT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbBaocao)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbDuan)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbTaikhoan)).EndInit();
-            this.pnAbove.ResumeLayout(false);
-            this.pnAbove.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbSidebar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbOut)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbBell)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbUser)).EndInit();
-            this.pnCenter.ResumeLayout(false);
-            this.pnCenter.PerformLayout();
+            this.PnlLeft.ResumeLayout(false);
+            this.PnlStatusTable.ResumeLayout(false);
+            this.PnlStatusTable.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbStatusTable)).EndInit();
+            this.PnlReport.ResumeLayout(false);
+            this.PnlReport.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbReport)).EndInit();
+            this.PnlManage.ResumeLayout(false);
+            this.PnlManage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbManage)).EndInit();
+            this.PnlAccountInfo.ResumeLayout(false);
+            this.PnlAccountInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbAccount)).EndInit();
+            this.PnlAbove.ResumeLayout(false);
+            this.PnlLogout.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PcbLogout)).EndInit();
+            this.PnlAccount.ResumeLayout(false);
+            this.PnlAccount.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbImageUser)).EndInit();
+            this.PnlCenter.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel pnLeft;
-        private System.Windows.Forms.PictureBox pcbTaikhoan;
-        private System.Windows.Forms.Panel pnAbove;
-        private System.Windows.Forms.Panel pnCenter;
-        private System.Windows.Forms.PictureBox pcbBTT;
-        private System.Windows.Forms.PictureBox pcbBaocao;
-        private System.Windows.Forms.PictureBox pcbDuan;
-        private System.Windows.Forms.Label lbIPPS;
-        private System.Windows.Forms.Label lbBaocao;
-        private System.Windows.Forms.Label lbBTT;
-        private System.Windows.Forms.Label lbDuan;
-        private System.Windows.Forms.Label lbTaikhoan;
-        private System.Windows.Forms.PictureBox pcbSidebar;
-        private System.Windows.Forms.PictureBox pcbOut;
-        private System.Windows.Forms.PictureBox pcbBell;
-        private System.Windows.Forms.PictureBox PcbUser;
-        private System.Windows.Forms.Label lbUsername;
-        private System.Windows.Forms.Label lbCenter;
+        private System.Windows.Forms.Panel PnlLeft;
+        private System.Windows.Forms.PictureBox PcbAccount;
+        private System.Windows.Forms.Panel PnlAbove;
+        private System.Windows.Forms.Panel PnlCenter;
+        private System.Windows.Forms.PictureBox PcbStatusTable;
+        private System.Windows.Forms.PictureBox PcbReport;
+        private System.Windows.Forms.Label LbiPPS;
+        private System.Windows.Forms.Label LbReport;
+        private System.Windows.Forms.Label LbStatusTable;
+        private System.Windows.Forms.Label LbInfo;
+        private System.Windows.Forms.PictureBox PcbLogout;
+        private System.Windows.Forms.PictureBox PcbImageUser;
+        private System.Windows.Forms.Label LbUsername;
+        private System.Windows.Forms.Label LbAppName;
+        private System.Windows.Forms.Label LbRole;
+        private System.Windows.Forms.Panel PnlAccount;
+        private System.Windows.Forms.Panel PnlLogout;
+        private System.Windows.Forms.Panel PnlAccountInfo;
+        private System.Windows.Forms.Panel PnlSidebarInterrupt1;
+        private System.Windows.Forms.Panel PnlSidebarLeft;
+        private System.Windows.Forms.Panel PnlManage;
+        private System.Windows.Forms.PictureBox PcbManage;
+        private System.Windows.Forms.Label LbManage;
+        private System.Windows.Forms.Panel PnlReport;
+        private System.Windows.Forms.Panel PnlSidebarInterrupt3;
+        private System.Windows.Forms.Panel PnlSidebarInterrupt2;
+        private System.Windows.Forms.Panel PnlStatusTable;
+        private System.Windows.Forms.Panel PnlSidebarRight;
+        private System.Windows.Forms.Panel PnlSidebarInterrupt4;
     }
 }
 
