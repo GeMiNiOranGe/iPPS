@@ -46,14 +46,63 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="AdminProjects.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="AdminProjects.Designer.cs">
+      <DependentUpon>AdminProjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminProjectsModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminProjectsModule.Designer.cs">
+      <DependentUpon>AdminProjectsModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminTasks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminTasks.Designer.cs">
+      <DependentUpon>AdminTasks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminTasksModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminTasksModule.Designer.cs">
+      <DependentUpon>AdminTasksModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeProjects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeProjects.Designer.cs">
+      <DependentUpon>EmployeeProjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeTasks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeTasks.Designer.cs">
+      <DependentUpon>EmployeeTasks.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AdminProjects.resx">
+      <DependentUpon>AdminProjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminProjectsModule.resx">
+      <DependentUpon>AdminProjectsModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminTasks.resx">
+      <DependentUpon>AdminTasks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminTasksModule.resx">
+      <DependentUpon>AdminTasksModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeProjects.resx">
+      <DependentUpon>EmployeeProjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeTasks.resx">
+      <DependentUpon>EmployeeTasks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
