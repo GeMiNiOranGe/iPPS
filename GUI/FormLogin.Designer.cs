@@ -60,7 +60,7 @@ namespace GUI {
             this.LbAppName.Name = "LbAppName";
             this.LbAppName.Size = new System.Drawing.Size(468, 59);
             this.LbAppName.TabIndex = 0;
-            this.LbAppName.Text = "PHẦN MỀM iPPS";
+            this.LbAppName.Text = "iPPS Ver.0";
             this.LbAppName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TxtPassword
@@ -74,7 +74,6 @@ namespace GUI {
             this.TxtPassword.Name = "TxtPassword";
             this.TxtPassword.Size = new System.Drawing.Size(305, 30);
             this.TxtPassword.TabIndex = 3;
-            this.TxtPassword.UseSystemPasswordChar = true;
             this.TxtPassword.Click += new System.EventHandler(this.TxtPassword_Click);
             this.TxtPassword.Enter += new System.EventHandler(this.TxtPassword_Enter);
             this.TxtPassword.Leave += new System.EventHandler(this.TxtPassword_Leave);
@@ -172,7 +171,6 @@ namespace GUI {
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng Nhập";
-            this.Load += new System.EventHandler(this.FormLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PictureUserID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicturePassWord)).EndInit();
             this.ResumeLayout(false);

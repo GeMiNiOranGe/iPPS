@@ -25,38 +25,22 @@ namespace BLL {
         private CAccountBLL() { }
         #endregion
 
+        public const string USER_ID_PLACEHOLDER = "ID người dùng";
+        public const string PASSWORD_PLACEHOLDER = "Mật khẩu";
+
         public LoginStatus GetLoginStatus(DTO.CAccount account) {
-            //if (string.IsNullOrWhiteSpace(account.EmployeeId)) {
-
-            //}
-            //if (1 <= account.EmployeeId.Length && account.EmployeeId.Length <= 8) {
-
-            //}
-
-            //if (DAL.CAccountDAL.Instance.CheckAccount(account)) {
-            //    return DAL.CAccountDAL.Instance.IsActive(account);
-            //}
-            //else {
-            //    return false;
-            //}
-
             // Check account existence
             bool bExist = DAL.CAccountDAL.Instance.IsAccountExist(account);
             // Check active account
             bool bActive = DAL.CAccountDAL.Instance.IsActive(account);
 
-            if (string.IsNullOrEmpty(account.EmployeeId) || string.IsNullOrEmpty(account.Password)) {
+            if (account.EmployeeId == USER_ID_PLACEHOLDER && account.Password == PASSWORD_PLACEHOLDER)
                 return LoginStatus.InvalidInput;
-            }
-            else if (bExist) {
+            if (bExist)
                 return bActive ? LoginStatus.Success : LoginStatus.LockedAccount;
-            }
-            else if (!bExist) {
+            if (!bExist)
                 return LoginStatus.InvalidAccount;
-            }
-            else {
-                return LoginStatus.OtherError;
-            }
+            return LoginStatus.OtherError;
         }
     }
 }
