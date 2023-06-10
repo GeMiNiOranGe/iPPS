@@ -1,4 +1,4 @@
-﻿namespace MainProject
+﻿namespace GUI
 {
     partial class AdminTasksModule
     {

@@ -26,19 +26,15 @@ namespace GUI {
         private void InitializeComponent() {
             this.PnlLeft = new System.Windows.Forms.Panel();
             this.PnlStatusTable = new System.Windows.Forms.Panel();
-            this.PcbStatusTable = new System.Windows.Forms.PictureBox();
             this.LbStatusTable = new System.Windows.Forms.Label();
             this.PnlSidebarInterrupt4 = new System.Windows.Forms.Panel();
             this.PnlReport = new System.Windows.Forms.Panel();
-            this.PcbReport = new System.Windows.Forms.PictureBox();
             this.LbReport = new System.Windows.Forms.Label();
             this.PnlSidebarInterrupt3 = new System.Windows.Forms.Panel();
             this.PnlManage = new System.Windows.Forms.Panel();
-            this.PcbManage = new System.Windows.Forms.PictureBox();
             this.LbManage = new System.Windows.Forms.Label();
             this.PnlSidebarInterrupt2 = new System.Windows.Forms.Panel();
             this.PnlAccountInfo = new System.Windows.Forms.Panel();
-            this.PcbAccount = new System.Windows.Forms.PictureBox();
             this.LbInfo = new System.Windows.Forms.Label();
             this.PnlSidebarInterrupt1 = new System.Windows.Forms.Panel();
             this.PnlSidebarRight = new System.Windows.Forms.Panel();
@@ -46,33 +42,37 @@ namespace GUI {
             this.LbiPPS = new System.Windows.Forms.Label();
             this.PnlAbove = new System.Windows.Forms.Panel();
             this.PnlLogout = new System.Windows.Forms.Panel();
-            this.PcbLogout = new System.Windows.Forms.PictureBox();
             this.PnlAccount = new System.Windows.Forms.Panel();
             this.LbUsername = new System.Windows.Forms.Label();
             this.LbRole = new System.Windows.Forms.Label();
-            this.PcbImageUser = new System.Windows.Forms.PictureBox();
             this.PnlWorkplace = new System.Windows.Forms.Panel();
             this.LbAppName = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.PcbLogout = new System.Windows.Forms.PictureBox();
+            this.PcbImageUser = new System.Windows.Forms.PictureBox();
+            this.PcbStatusTable = new System.Windows.Forms.PictureBox();
+            this.PcbReport = new System.Windows.Forms.PictureBox();
+            this.PcbManage = new System.Windows.Forms.PictureBox();
+            this.PcbAccount = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.picExit = new System.Windows.Forms.PictureBox();
             this.PnlLeft.SuspendLayout();
             this.PnlStatusTable.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbStatusTable)).BeginInit();
             this.PnlReport.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbReport)).BeginInit();
             this.PnlManage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbManage)).BeginInit();
             this.PnlAccountInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbAccount)).BeginInit();
             this.PnlAbove.SuspendLayout();
             this.PnlLogout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbLogout)).BeginInit();
             this.PnlAccount.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbImageUser)).BeginInit();
             this.PnlWorkplace.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbLogout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbImageUser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbStatusTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbReport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbManage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbAccount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
@@ -108,16 +108,6 @@ namespace GUI {
             this.PnlStatusTable.Size = new System.Drawing.Size(255, 50);
             this.PnlStatusTable.TabIndex = 16;
             // 
-            // PcbStatusTable
-            // 
-            this.PcbStatusTable.BackgroundImage = global::GUI.Properties.Resources.Report;
-            this.PcbStatusTable.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PcbStatusTable.Location = new System.Drawing.Point(0, 0);
-            this.PcbStatusTable.Name = "PcbStatusTable";
-            this.PcbStatusTable.Size = new System.Drawing.Size(50, 50);
-            this.PcbStatusTable.TabIndex = 4;
-            this.PcbStatusTable.TabStop = false;
-            // 
             // LbStatusTable
             // 
             this.LbStatusTable.AutoSize = true;
@@ -150,18 +140,6 @@ namespace GUI {
             this.PnlReport.TabIndex = 11;
             this.PnlReport.Click += new System.EventHandler(this.PnlReport_Click);
             // 
-            // PcbReport
-            // 
-            this.PcbReport.BackgroundImage = global::GUI.Properties.Resources.Database;
-            this.PcbReport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PcbReport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PcbReport.Location = new System.Drawing.Point(0, 0);
-            this.PcbReport.Name = "PcbReport";
-            this.PcbReport.Size = new System.Drawing.Size(50, 50);
-            this.PcbReport.TabIndex = 3;
-            this.PcbReport.TabStop = false;
-            this.PcbReport.Click += new System.EventHandler(this.PcbReport_Click);
-            // 
             // LbReport
             // 
             this.LbReport.AutoSize = true;
@@ -193,16 +171,7 @@ namespace GUI {
             this.PnlManage.Name = "PnlManage";
             this.PnlManage.Size = new System.Drawing.Size(255, 50);
             this.PnlManage.TabIndex = 11;
-            // 
-            // PcbManage
-            // 
-            this.PcbManage.BackgroundImage = global::GUI.Properties.Resources.Project;
-            this.PcbManage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PcbManage.Location = new System.Drawing.Point(0, 0);
-            this.PcbManage.Name = "PcbManage";
-            this.PcbManage.Size = new System.Drawing.Size(50, 50);
-            this.PcbManage.TabIndex = 2;
-            this.PcbManage.TabStop = false;
+            this.PnlManage.Click += new System.EventHandler(this.PnlManage_Click);
             // 
             // LbManage
             // 
@@ -214,6 +183,7 @@ namespace GUI {
             this.LbManage.Size = new System.Drawing.Size(102, 32);
             this.LbManage.TabIndex = 5;
             this.LbManage.Text = "Quản Lý";
+            this.LbManage.Click += new System.EventHandler(this.LbManage_Click);
             // 
             // PnlSidebarInterrupt2
             // 
@@ -233,17 +203,6 @@ namespace GUI {
             this.PnlAccountInfo.Name = "PnlAccountInfo";
             this.PnlAccountInfo.Size = new System.Drawing.Size(255, 50);
             this.PnlAccountInfo.TabIndex = 9;
-            // 
-            // PcbAccount
-            // 
-            this.PcbAccount.BackgroundImage = global::GUI.Properties.Resources.Info;
-            this.PcbAccount.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PcbAccount.Location = new System.Drawing.Point(0, 0);
-            this.PcbAccount.Margin = new System.Windows.Forms.Padding(3, 15, 3, 3);
-            this.PcbAccount.Name = "PcbAccount";
-            this.PcbAccount.Size = new System.Drawing.Size(50, 50);
-            this.PcbAccount.TabIndex = 1;
-            this.PcbAccount.TabStop = false;
             // 
             // LbInfo
             // 
@@ -314,16 +273,6 @@ namespace GUI {
             this.PnlLogout.Size = new System.Drawing.Size(59, 82);
             this.PnlLogout.TabIndex = 13;
             // 
-            // PcbLogout
-            // 
-            this.PcbLogout.BackgroundImage = global::GUI.Properties.Resources.Logout;
-            this.PcbLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PcbLogout.Location = new System.Drawing.Point(3, 24);
-            this.PcbLogout.Name = "PcbLogout";
-            this.PcbLogout.Size = new System.Drawing.Size(35, 35);
-            this.PcbLogout.TabIndex = 8;
-            this.PcbLogout.TabStop = false;
-            // 
             // PnlAccount
             // 
             this.PnlAccount.Controls.Add(this.LbUsername);
@@ -355,19 +304,8 @@ namespace GUI {
             this.LbRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(183)))), ((int)(((byte)(180)))));
             this.LbRole.Location = new System.Drawing.Point(73, 47);
             this.LbRole.Name = "LbRole";
-            this.LbRole.Size = new System.Drawing.Size(48, 25);
+            this.LbRole.Size = new System.Drawing.Size(0, 25);
             this.LbRole.TabIndex = 8;
-            this.LbRole.Text = "CEO";
-            // 
-            // PcbImageUser
-            // 
-            this.PcbImageUser.BackgroundImage = global::GUI.Properties.Resources.AccImage;
-            this.PcbImageUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PcbImageUser.Location = new System.Drawing.Point(6, 12);
-            this.PcbImageUser.Name = "PcbImageUser";
-            this.PcbImageUser.Size = new System.Drawing.Size(60, 60);
-            this.PcbImageUser.TabIndex = 10;
-            this.PcbImageUser.TabStop = false;
             // 
             // PnlWorkplace
             // 
@@ -403,6 +341,70 @@ namespace GUI {
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1339, 45);
             this.panel1.TabIndex = 3;
+            // 
+            // PcbLogout
+            // 
+            this.PcbLogout.BackgroundImage = global::GUI.Properties.Resources.Logout;
+            this.PcbLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PcbLogout.Location = new System.Drawing.Point(3, 24);
+            this.PcbLogout.Name = "PcbLogout";
+            this.PcbLogout.Size = new System.Drawing.Size(35, 35);
+            this.PcbLogout.TabIndex = 8;
+            this.PcbLogout.TabStop = false;
+            // 
+            // PcbImageUser
+            // 
+            this.PcbImageUser.BackgroundImage = global::GUI.Properties.Resources.AccImage;
+            this.PcbImageUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PcbImageUser.Location = new System.Drawing.Point(6, 12);
+            this.PcbImageUser.Name = "PcbImageUser";
+            this.PcbImageUser.Size = new System.Drawing.Size(60, 60);
+            this.PcbImageUser.TabIndex = 10;
+            this.PcbImageUser.TabStop = false;
+            // 
+            // PcbStatusTable
+            // 
+            this.PcbStatusTable.BackgroundImage = global::GUI.Properties.Resources.Report;
+            this.PcbStatusTable.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PcbStatusTable.Location = new System.Drawing.Point(0, 0);
+            this.PcbStatusTable.Name = "PcbStatusTable";
+            this.PcbStatusTable.Size = new System.Drawing.Size(50, 50);
+            this.PcbStatusTable.TabIndex = 4;
+            this.PcbStatusTable.TabStop = false;
+            // 
+            // PcbReport
+            // 
+            this.PcbReport.BackgroundImage = global::GUI.Properties.Resources.Database;
+            this.PcbReport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PcbReport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PcbReport.Location = new System.Drawing.Point(0, 0);
+            this.PcbReport.Name = "PcbReport";
+            this.PcbReport.Size = new System.Drawing.Size(50, 50);
+            this.PcbReport.TabIndex = 3;
+            this.PcbReport.TabStop = false;
+            this.PcbReport.Click += new System.EventHandler(this.PcbReport_Click);
+            // 
+            // PcbManage
+            // 
+            this.PcbManage.BackgroundImage = global::GUI.Properties.Resources.Project;
+            this.PcbManage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PcbManage.Location = new System.Drawing.Point(0, 0);
+            this.PcbManage.Name = "PcbManage";
+            this.PcbManage.Size = new System.Drawing.Size(50, 50);
+            this.PcbManage.TabIndex = 2;
+            this.PcbManage.TabStop = false;
+            this.PcbManage.Click += new System.EventHandler(this.PcbManage_Click);
+            // 
+            // PcbAccount
+            // 
+            this.PcbAccount.BackgroundImage = global::GUI.Properties.Resources.Info;
+            this.PcbAccount.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PcbAccount.Location = new System.Drawing.Point(0, 0);
+            this.PcbAccount.Margin = new System.Windows.Forms.Padding(3, 15, 3, 3);
+            this.PcbAccount.Name = "PcbAccount";
+            this.PcbAccount.Size = new System.Drawing.Size(50, 50);
+            this.PcbAccount.TabIndex = 1;
+            this.PcbAccount.TabStop = false;
             // 
             // pictureBox3
             // 
@@ -446,28 +448,30 @@ namespace GUI {
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Giao diện chính";
+            this.Load += new System.EventHandler(this.FormMenu_Load);
             this.PnlLeft.ResumeLayout(false);
             this.PnlStatusTable.ResumeLayout(false);
             this.PnlStatusTable.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbStatusTable)).EndInit();
             this.PnlReport.ResumeLayout(false);
             this.PnlReport.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbReport)).EndInit();
             this.PnlManage.ResumeLayout(false);
             this.PnlManage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbManage)).EndInit();
             this.PnlAccountInfo.ResumeLayout(false);
             this.PnlAccountInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbAccount)).EndInit();
             this.PnlAbove.ResumeLayout(false);
             this.PnlLogout.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PcbLogout)).EndInit();
             this.PnlAccount.ResumeLayout(false);
             this.PnlAccount.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbImageUser)).EndInit();
             this.PnlWorkplace.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PcbLogout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbImageUser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbStatusTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbReport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbManage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbAccount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picExit)).EndInit();

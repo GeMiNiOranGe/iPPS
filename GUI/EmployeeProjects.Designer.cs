@@ -1,4 +1,4 @@
-﻿namespace MainProject
+﻿namespace GUI
 {
     partial class EmployeeProjects
     {
@@ -144,7 +144,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1082, 553);
             this.Controls.Add(this.dgvProjects);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EmployeeProjects";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EmployeeProjects";

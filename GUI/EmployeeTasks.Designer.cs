@@ -1,4 +1,4 @@
-﻿namespace MainProject
+﻿namespace GUI
 {
     partial class EmployeeTasks
     {
@@ -74,7 +74,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(453, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(156, 22);
+            this.label1.Size = new System.Drawing.Size(165, 24);
             this.label1.TabIndex = 3;
             this.label1.Text = "Nhập ID công việc";
             // 
@@ -93,7 +93,7 @@
             this.lblSearch.ForeColor = System.Drawing.Color.White;
             this.lblSearch.Location = new System.Drawing.Point(69, 30);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(125, 22);
+            this.lblSearch.Size = new System.Drawing.Size(131, 24);
             this.lblSearch.TabIndex = 0;
             this.lblSearch.Text = "Nhập ID dự án";
             // 
@@ -127,6 +127,7 @@
             this.idJob.MinimumWidth = 6;
             this.idJob.Name = "idJob";
             this.idJob.ReadOnly = true;
+            this.idJob.Width = 125;
             // 
             // idMng
             // 
@@ -134,6 +135,7 @@
             this.idMng.MinimumWidth = 6;
             this.idMng.Name = "idMng";
             this.idMng.ReadOnly = true;
+            this.idMng.Width = 125;
             // 
             // WorkName
             // 
@@ -181,6 +183,7 @@
             this.ProjectID.MinimumWidth = 6;
             this.ProjectID.Name = "ProjectID";
             this.ProjectID.ReadOnly = true;
+            this.ProjectID.Width = 125;
             // 
             // EmployeeTasks
             // 
@@ -189,7 +192,6 @@
             this.ClientSize = new System.Drawing.Size(1082, 553);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvTasks);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EmployeeTasks";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EmployeeTasks";

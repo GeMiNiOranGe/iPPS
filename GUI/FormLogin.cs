@@ -6,6 +6,8 @@ using HandleControl;
 namespace GUI {
     public partial class FormLogin : Form {
         private readonly DTO.CAccount account = new DTO.CAccount();
+        public static string strTempUserId;
+        public static string strTempPassword;
 
         public FormLogin() {
             InitializeComponent();
@@ -17,6 +19,8 @@ namespace GUI {
             // Get data from textboxes
             account.EmployeeId = TxtUserId.Text;
             account.Password = TxtPassword.Text;
+            strTempUserId = TxtUserId.Text;
+            strTempPassword = TxtPassword.Text;
 
             // Call the login handler method and get the result
             BLL.LoginStatus status = BLL.CAccountBLL.Instance.GetLoginStatus(account);
