@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI {
-    public partial class Admin : Form {
-        public Admin() {
+    public partial class FormAdmin : Form {
+        public FormAdmin() {
             InitializeComponent();
         }
 

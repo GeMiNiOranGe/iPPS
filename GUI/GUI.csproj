@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin.cs">
+    <Compile Include="FormAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin.Designer.cs">
-      <DependentUpon>Admin.cs</DependentUpon>
+    <Compile Include="FormAdmin.Designer.cs">
+      <DependentUpon>FormAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminProjects.cs">
       <SubType>Form</SubType>
@@ -77,11 +77,11 @@
       <DependentUpon>AdminTasksModule.cs</DependentUpon>
     </Compile>
     <Compile Include="Config.cs" />
-    <Compile Include="Employee.cs">
+    <Compile Include="FormEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Employee.Designer.cs">
-      <DependentUpon>Employee.cs</DependentUpon>
+    <Compile Include="FormEmployee.Designer.cs">
+      <DependentUpon>FormEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="EmployeeProjects.cs">
       <SubType>Form</SubType>
@@ -116,8 +116,8 @@
     <Compile Include="HandleControl.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Admin.resx">
-      <DependentUpon>Admin.cs</DependentUpon>
+    <EmbeddedResource Include="FormAdmin.resx">
+      <DependentUpon>FormAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminProjects.resx">
       <DependentUpon>AdminProjects.cs</DependentUpon>
@@ -131,8 +131,8 @@
     <EmbeddedResource Include="AdminTasksModule.resx">
       <DependentUpon>AdminTasksModule.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Employee.resx">
-      <DependentUpon>Employee.cs</DependentUpon>
+    <EmbeddedResource Include="FormEmployee.resx">
+      <DependentUpon>FormEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeeProjects.resx">
       <DependentUpon>EmployeeProjects.cs</DependentUpon>

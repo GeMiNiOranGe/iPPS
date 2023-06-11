@@ -1,6 +1,6 @@
 ﻿
 namespace GUI {
-    partial class Admin {
+    partial class FormEmployee {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -24,31 +24,31 @@ namespace GUI {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.BtnTask = new System.Windows.Forms.Button();
             this.BtnProject = new System.Windows.Forms.Button();
+            this.BtnTask = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // BtnTask
-            // 
-            this.BtnTask.Location = new System.Drawing.Point(130, 173);
-            this.BtnTask.Name = "BtnTask";
-            this.BtnTask.Size = new System.Drawing.Size(183, 71);
-            this.BtnTask.TabIndex = 0;
-            this.BtnTask.Text = "Công Việc";
-            this.BtnTask.UseVisualStyleBackColor = true;
-            this.BtnTask.Click += new System.EventHandler(this.BtnTask_Click);
             // 
             // BtnProject
             // 
-            this.BtnProject.Location = new System.Drawing.Point(466, 173);
+            this.BtnProject.Location = new System.Drawing.Point(466, 182);
             this.BtnProject.Name = "BtnProject";
             this.BtnProject.Size = new System.Drawing.Size(183, 71);
-            this.BtnProject.TabIndex = 0;
+            this.BtnProject.TabIndex = 1;
             this.BtnProject.Text = "Dự án";
             this.BtnProject.UseVisualStyleBackColor = true;
             this.BtnProject.Click += new System.EventHandler(this.BtnProject_Click);
             // 
-            // Admin
+            // BtnTask
+            // 
+            this.BtnTask.Location = new System.Drawing.Point(130, 182);
+            this.BtnTask.Name = "BtnTask";
+            this.BtnTask.Size = new System.Drawing.Size(183, 71);
+            this.BtnTask.TabIndex = 2;
+            this.BtnTask.Text = "Công Việc";
+            this.BtnTask.UseVisualStyleBackColor = true;
+            this.BtnTask.Click += new System.EventHandler(this.BtnTask_Click);
+            // 
+            // Employee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -56,15 +56,15 @@ namespace GUI {
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.BtnProject);
             this.Controls.Add(this.BtnTask);
-            this.Name = "Admin";
-            this.Text = "Admin";
+            this.Name = "Employee";
+            this.Text = "Employee";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button BtnTask;
         private System.Windows.Forms.Button BtnProject;
+        private System.Windows.Forms.Button BtnTask;
     }
 }
