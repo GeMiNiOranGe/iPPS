@@ -239,5 +239,14 @@
   <ItemGroup>
     <None Include="Resources\MultiplePages.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DoughnutChart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DoughnutChartFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MultiplePagesFill.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

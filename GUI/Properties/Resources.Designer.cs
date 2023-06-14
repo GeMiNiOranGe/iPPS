@@ -113,6 +113,26 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DoughnutChart {
+            get {
+                object obj = ResourceManager.GetObject("DoughnutChart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DoughnutChartFill {
+            get {
+                object obj = ResourceManager.GetObject("DoughnutChartFill", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap FullScreenCircleFill {
             get {
                 object obj = ResourceManager.GetObject("FullScreenCircleFill", resourceCulture);
@@ -176,6 +196,16 @@ namespace GUI.Properties {
         internal static System.Drawing.Bitmap MultiplePages {
             get {
                 object obj = ResourceManager.GetObject("MultiplePages", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MultiplePagesFill {
+            get {
+                object obj = ResourceManager.GetObject("MultiplePagesFill", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -68,30 +68,6 @@ namespace GUI {
             conn.Close();
         }
 
-        private void Document_Click(object sender, EventArgs e) {
-            var formUpload = new FormUpload();
-            formUpload.ShowDialog();
-        }
-        private void Document_MouseHover(object sender, EventArgs e) {
-            PnlDocument.BackColor = Color.FromArgb(72, 73, 70);
-        }
-
-        private void Document_MouseLeave(object sender, EventArgs e) {
-            PnlDocument.BackColor = Color.FromArgb(61, 63, 60);
-        }
-
-        private void LbManage_Click(object sender, EventArgs e) {
-            FindRole();
-        }
-
-        private void PnlManage_Click(object sender, EventArgs e) {
-            FindRole();
-        }
-
-        private void PcbManage_Click(object sender, EventArgs e) {
-            FindRole();
-        }
-
         private void FormMenu_Load(object sender, EventArgs e) {
             LbUsername.Text = GetFullname();
         }
@@ -103,5 +79,41 @@ namespace GUI {
             }
         }
 
+        private void BtnManage_MouseClick(object sender, MouseEventArgs e) {
+            FindRole();
+        }
+
+        #region button document
+        private void BtnDocument_MouseClick(object sender, MouseEventArgs e) {
+            var formUpload = new FormUpload();
+            formUpload.ShowDialog();
+        }
+
+        private void BtnDocument_MouseDown(object sender, MouseEventArgs e) {
+            BtnDocument.Image = Properties.Resources.MultiplePagesFill;
+            BtnDocument.ForeColor = Color.Black;
+        }
+
+        private void BtnDocument_MouseUp(object sender, MouseEventArgs e) {
+            BtnDocument.Image = Properties.Resources.MultiplePages;
+            BtnDocument.ForeColor = Color.White;
+        }
+        #endregion
+
+        #region button progress
+        private void BtnProgress_MouseClick(object sender, MouseEventArgs e) {
+
+        }
+
+        private void BtnProgress_MouseDown(object sender, MouseEventArgs e) {
+            BtnProgress.Image = Properties.Resources.DoughnutChartFill;
+            BtnProgress.ForeColor = Color.Black;
+        }
+
+        private void BtnProgress_MouseUp(object sender, MouseEventArgs e) {
+            BtnProgress.Image = Properties.Resources.DoughnutChart;
+            BtnProgress.ForeColor = Color.White;
+        }
+        #endregion
     }
 }
