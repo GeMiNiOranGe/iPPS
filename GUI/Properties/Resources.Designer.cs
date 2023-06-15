@@ -133,6 +133,26 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Folder {
+            get {
+                object obj = ResourceManager.GetObject("Folder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FolderFill {
+            get {
+                object obj = ResourceManager.GetObject("FolderFill", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap FullScreenCircleFill {
             get {
                 object obj = ResourceManager.GetObject("FullScreenCircleFill", resourceCulture);
@@ -236,6 +256,26 @@ namespace GUI.Properties {
         internal static System.Drawing.Bitmap OpenLockYellow {
             get {
                 object obj = ResourceManager.GetObject("OpenLockYellow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PasteClipboard {
+            get {
+                object obj = ResourceManager.GetObject("PasteClipboard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PasteClipboardFill {
+            get {
+                object obj = ResourceManager.GetObject("PasteClipboardFill", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

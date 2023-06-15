@@ -248,5 +248,17 @@
   <ItemGroup>
     <None Include="Resources\MultiplePagesFill.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PasteClipboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PasteClipboardFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FolderFill.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

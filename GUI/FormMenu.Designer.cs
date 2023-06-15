@@ -28,7 +28,6 @@ namespace GUI {
             this.PnlAccount = new System.Windows.Forms.Panel();
             this.LbUsername = new System.Windows.Forms.Label();
             this.LbRole = new System.Windows.Forms.Label();
-            this.PnlSidebarInterrupt2 = new System.Windows.Forms.Panel();
             this.LbiPPS = new System.Windows.Forms.Label();
             this.PnlAbove = new System.Windows.Forms.Panel();
             this.PnlLogout = new System.Windows.Forms.Panel();
@@ -38,7 +37,8 @@ namespace GUI {
             this.PcbLogout = new System.Windows.Forms.PictureBox();
             this.BtnProgress = new System.Windows.Forms.Button();
             this.BtnDocument = new System.Windows.Forms.Button();
-            this.BtnManage = new System.Windows.Forms.Button();
+            this.BtnProject = new System.Windows.Forms.Button();
+            this.BtnJob = new System.Windows.Forms.Button();
             this.PcbImageUser = new System.Windows.Forms.PictureBox();
             this.PcbMinimize = new System.Windows.Forms.PictureBox();
             this.PcbMaximize = new System.Windows.Forms.PictureBox();
@@ -60,9 +60,9 @@ namespace GUI {
             this.PnlLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(63)))), ((int)(((byte)(60)))));
             this.PnlLeft.Controls.Add(this.BtnProgress);
             this.PnlLeft.Controls.Add(this.BtnDocument);
-            this.PnlLeft.Controls.Add(this.BtnManage);
+            this.PnlLeft.Controls.Add(this.BtnProject);
+            this.PnlLeft.Controls.Add(this.BtnJob);
             this.PnlLeft.Controls.Add(this.PnlAccount);
-            this.PnlLeft.Controls.Add(this.PnlSidebarInterrupt2);
             this.PnlLeft.Controls.Add(this.LbiPPS);
             this.PnlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.PnlLeft.Location = new System.Drawing.Point(0, 51);
@@ -104,14 +104,6 @@ namespace GUI {
             this.LbRole.Size = new System.Drawing.Size(48, 25);
             this.LbRole.TabIndex = 8;
             this.LbRole.Text = "Role";
-            // 
-            // PnlSidebarInterrupt2
-            // 
-            this.PnlSidebarInterrupt2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PnlSidebarInterrupt2.Location = new System.Drawing.Point(0, 84);
-            this.PnlSidebarInterrupt2.Name = "PnlSidebarInterrupt2";
-            this.PnlSidebarInterrupt2.Size = new System.Drawing.Size(254, 21);
-            this.PnlSidebarInterrupt2.TabIndex = 14;
             // 
             // LbiPPS
             // 
@@ -203,7 +195,7 @@ namespace GUI {
             this.BtnProgress.ForeColor = System.Drawing.Color.White;
             this.BtnProgress.Image = global::GUI.Properties.Resources.DoughnutChart;
             this.BtnProgress.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnProgress.Location = new System.Drawing.Point(0, 225);
+            this.BtnProgress.Location = new System.Drawing.Point(0, 264);
             this.BtnProgress.Name = "BtnProgress";
             this.BtnProgress.Padding = new System.Windows.Forms.Padding(15, 5, 0, 5);
             this.BtnProgress.Size = new System.Drawing.Size(254, 60);
@@ -227,7 +219,7 @@ namespace GUI {
             this.BtnDocument.ForeColor = System.Drawing.Color.White;
             this.BtnDocument.Image = global::GUI.Properties.Resources.MultiplePages;
             this.BtnDocument.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnDocument.Location = new System.Drawing.Point(0, 165);
+            this.BtnDocument.Location = new System.Drawing.Point(0, 204);
             this.BtnDocument.Name = "BtnDocument";
             this.BtnDocument.Padding = new System.Windows.Forms.Padding(15, 5, 0, 5);
             this.BtnDocument.Size = new System.Drawing.Size(254, 60);
@@ -240,27 +232,53 @@ namespace GUI {
             this.BtnDocument.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnDocument_MouseDown);
             this.BtnDocument.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnDocument_MouseUp);
             // 
-            // BtnManage
+            // BtnProject
             // 
-            this.BtnManage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(63)))), ((int)(((byte)(60)))));
-            this.BtnManage.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnManage.FlatAppearance.BorderSize = 0;
-            this.BtnManage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(245)))), ((int)(((byte)(168)))));
-            this.BtnManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnManage.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnManage.ForeColor = System.Drawing.Color.White;
-            this.BtnManage.Image = global::GUI.Properties.Resources.Laptop;
-            this.BtnManage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnManage.Location = new System.Drawing.Point(0, 105);
-            this.BtnManage.Name = "BtnManage";
-            this.BtnManage.Padding = new System.Windows.Forms.Padding(15, 5, 0, 5);
-            this.BtnManage.Size = new System.Drawing.Size(254, 60);
-            this.BtnManage.TabIndex = 18;
-            this.BtnManage.Text = "Quản lý";
-            this.BtnManage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnManage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnManage.UseVisualStyleBackColor = false;
-            this.BtnManage.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BtnManage_MouseClick);
+            this.BtnProject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(63)))), ((int)(((byte)(60)))));
+            this.BtnProject.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnProject.FlatAppearance.BorderSize = 0;
+            this.BtnProject.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(245)))), ((int)(((byte)(168)))));
+            this.BtnProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnProject.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnProject.ForeColor = System.Drawing.Color.White;
+            this.BtnProject.Image = global::GUI.Properties.Resources.Folder;
+            this.BtnProject.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnProject.Location = new System.Drawing.Point(0, 144);
+            this.BtnProject.Name = "BtnProject";
+            this.BtnProject.Padding = new System.Windows.Forms.Padding(15, 5, 0, 5);
+            this.BtnProject.Size = new System.Drawing.Size(254, 60);
+            this.BtnProject.TabIndex = 21;
+            this.BtnProject.Text = "Dự án";
+            this.BtnProject.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnProject.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnProject.UseVisualStyleBackColor = false;
+            this.BtnProject.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BtnProject_MouseClick);
+            this.BtnProject.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnProject_MouseDown);
+            this.BtnProject.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnProject_MouseUp);
+            // 
+            // BtnJob
+            // 
+            this.BtnJob.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(63)))), ((int)(((byte)(60)))));
+            this.BtnJob.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnJob.FlatAppearance.BorderSize = 0;
+            this.BtnJob.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(245)))), ((int)(((byte)(168)))));
+            this.BtnJob.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnJob.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnJob.ForeColor = System.Drawing.Color.White;
+            this.BtnJob.Image = global::GUI.Properties.Resources.PasteClipboard;
+            this.BtnJob.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnJob.Location = new System.Drawing.Point(0, 84);
+            this.BtnJob.Name = "BtnJob";
+            this.BtnJob.Padding = new System.Windows.Forms.Padding(15, 5, 0, 5);
+            this.BtnJob.Size = new System.Drawing.Size(254, 60);
+            this.BtnJob.TabIndex = 18;
+            this.BtnJob.Text = "Công việc";
+            this.BtnJob.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnJob.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnJob.UseVisualStyleBackColor = false;
+            this.BtnJob.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BtnJob_MouseClick);
+            this.BtnJob.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnJob_MouseDown);
+            this.BtnJob.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnJob_MouseUp);
             // 
             // PcbImageUser
             // 
@@ -305,7 +323,7 @@ namespace GUI {
             this.PcbClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.PcbClose.TabIndex = 0;
             this.PcbClose.TabStop = false;
-            this.PcbClose.Click += new System.EventHandler(this.picExit_Click);
+            this.PcbClose.Click += new System.EventHandler(this.PcbClose_Click);
             // 
             // FormMenu
             // 
@@ -350,14 +368,14 @@ namespace GUI {
         private System.Windows.Forms.Label LbRole;
         private System.Windows.Forms.Panel PnlAccount;
         private System.Windows.Forms.Panel PnlLogout;
-        private System.Windows.Forms.Panel PnlSidebarInterrupt2;
         private System.Windows.Forms.Panel PnlHead;
         private System.Windows.Forms.PictureBox PcbMinimize;
         private System.Windows.Forms.PictureBox PcbMaximize;
         private System.Windows.Forms.PictureBox PcbClose;
-        private System.Windows.Forms.Button BtnManage;
+        private System.Windows.Forms.Button BtnJob;
         private System.Windows.Forms.Button BtnProgress;
         private System.Windows.Forms.Button BtnDocument;
+        private System.Windows.Forms.Button BtnProject;
     }
 }
 

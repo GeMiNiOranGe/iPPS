@@ -32,7 +32,7 @@ namespace GUI {
             InitializeComponent();
         }
 
-        private void picExit_Click(object sender, EventArgs e) {
+        private void PcbClose_Click(object sender, EventArgs e) {
             DialogResult dialogResulth = MessageBox.Show
                 ("Bạn có chắc muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogResulth == DialogResult.Yes)
@@ -50,23 +50,6 @@ namespace GUI {
             conn.Close();
             return strFullname;
         }
-        void FindRole() {
-            string query = $"select * from EMPLOYEE inner join ROLE on EMPLOYEE.ID = ROLE.EMPLOYEE_ID where EMPLOYEE.ID = N'{strUserId}'";
-            conn.Open();
-            var sqlCommand = new SqlCommand(query, conn);
-            var sqlDataReader = sqlCommand.ExecuteReader();
-            if (sqlDataReader.Read()) {
-                if ((byte)sqlDataReader["PERMISSION_LEVER"] <= 1) {
-                    var admin = new FormAdmin();
-                    admin.ShowDialog();
-                }
-                else {
-                    var employee = new FormEmployee();
-                    employee.ShowDialog();
-                }
-            }
-            conn.Close();
-        }
 
         private void FormMenu_Load(object sender, EventArgs e) {
             LbUsername.Text = GetFullname();
@@ -79,9 +62,65 @@ namespace GUI {
             }
         }
 
-        private void BtnManage_MouseClick(object sender, MouseEventArgs e) {
-            FindRole();
+        #region button job
+        private void BtnJob_MouseClick(object sender, MouseEventArgs e) {
+            string query = $"select * from EMPLOYEE inner join ROLE on EMPLOYEE.ID = ROLE.EMPLOYEE_ID where EMPLOYEE.ID = N'{strUserId ?? "emp00001"}'";
+            conn.Open();
+            var sqlCommand = new SqlCommand(query, conn);
+            var sqlDataReader = sqlCommand.ExecuteReader();
+            if (sqlDataReader.Read()) {
+                if ((byte)sqlDataReader["PERMISSION_LEVER"] <= 1) {
+                    var admin = new AdminTasks();
+                    admin.ShowDialog();
+                }
+                else {
+                    var employee = new EmployeeTasks();
+                    employee.ShowDialog();
+                }
+            }
+            conn.Close();
         }
+
+        private void BtnJob_MouseDown(object sender, MouseEventArgs e) {
+            BtnJob.Image = Properties.Resources.PasteClipboardFill;
+            BtnJob.ForeColor = Color.Black;
+        }
+
+        private void BtnJob_MouseUp(object sender, MouseEventArgs e) {
+            BtnJob.Image = Properties.Resources.PasteClipboard;
+            BtnJob.ForeColor = Color.White;
+        }
+        #endregion
+
+        #region button project
+        private void BtnProject_MouseClick(object sender, MouseEventArgs e) {
+            string query = $"select * from EMPLOYEE inner join ROLE on EMPLOYEE.ID = ROLE.EMPLOYEE_ID where EMPLOYEE.ID = N'{strUserId ?? "emp00001"}'";
+            conn.Open();
+            var sqlCommand = new SqlCommand(query, conn);
+            var sqlDataReader = sqlCommand.ExecuteReader();
+            if (sqlDataReader.Read()) {
+                if ((byte)sqlDataReader["PERMISSION_LEVER"] <= 1) {
+                    var admin = new AdminProjects();
+                    admin.ShowDialog();
+                }
+                else {
+                    var employee = new EmployeeProjects();
+                    employee.ShowDialog();
+                }
+            }
+            conn.Close();
+        }
+
+        private void BtnProject_MouseDown(object sender, MouseEventArgs e) {
+            BtnProject.Image = Properties.Resources.FolderFill;
+            BtnProject.ForeColor = Color.Black;
+        }
+
+        private void BtnProject_MouseUp(object sender, MouseEventArgs e) {
+            BtnProject.Image = Properties.Resources.Folder;
+            BtnProject.ForeColor = Color.White;
+        }
+        #endregion
 
         #region button document
         private void BtnDocument_MouseClick(object sender, MouseEventArgs e) {
