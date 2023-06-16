@@ -54,16 +54,18 @@
             this.panel1.Controls.Add(this.txtSearchProject);
             this.panel1.Controls.Add(this.lblSearch);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 473);
+            this.panel1.Location = new System.Drawing.Point(0, 467);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1082, 80);
+            this.panel1.Size = new System.Drawing.Size(984, 94);
             this.panel1.TabIndex = 3;
             // 
             // txtSearchTask
             // 
-            this.txtSearchTask.Location = new System.Drawing.Point(639, 28);
+            this.txtSearchTask.Location = new System.Drawing.Point(146, 52);
+            this.txtSearchTask.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSearchTask.Name = "txtSearchTask";
-            this.txtSearchTask.Size = new System.Drawing.Size(150, 22);
+            this.txtSearchTask.Size = new System.Drawing.Size(169, 31);
             this.txtSearchTask.TabIndex = 4;
             this.txtSearchTask.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearchTask_KeyPress);
             // 
@@ -72,17 +74,18 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(453, 28);
+            this.label1.Location = new System.Drawing.Point(12, 59);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(165, 24);
+            this.label1.Size = new System.Drawing.Size(128, 18);
             this.label1.TabIndex = 3;
             this.label1.Text = "Nhập ID công việc";
             // 
             // txtSearchProject
             // 
-            this.txtSearchProject.Location = new System.Drawing.Point(218, 30);
+            this.txtSearchProject.Location = new System.Drawing.Point(146, 13);
+            this.txtSearchProject.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSearchProject.Name = "txtSearchProject";
-            this.txtSearchProject.Size = new System.Drawing.Size(150, 22);
+            this.txtSearchProject.Size = new System.Drawing.Size(169, 31);
             this.txtSearchProject.TabIndex = 1;
             this.txtSearchProject.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearchProject_KeyPress);
             // 
@@ -91,9 +94,9 @@
             this.lblSearch.AutoSize = true;
             this.lblSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSearch.ForeColor = System.Drawing.Color.White;
-            this.lblSearch.Location = new System.Drawing.Point(69, 30);
+            this.lblSearch.Location = new System.Drawing.Point(39, 20);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(131, 24);
+            this.lblSearch.Size = new System.Drawing.Size(101, 18);
             this.lblSearch.TabIndex = 0;
             this.lblSearch.Text = "Nhập ID dự án";
             // 
@@ -112,13 +115,14 @@
             this.PrjPublic,
             this.DepPublic,
             this.ProjectID});
-            this.dgvTasks.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgvTasks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTasks.Location = new System.Drawing.Point(0, 0);
+            this.dgvTasks.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvTasks.Name = "dgvTasks";
             this.dgvTasks.ReadOnly = true;
             this.dgvTasks.RowHeadersWidth = 51;
             this.dgvTasks.RowTemplate.Height = 24;
-            this.dgvTasks.Size = new System.Drawing.Size(1082, 474);
+            this.dgvTasks.Size = new System.Drawing.Size(984, 467);
             this.dgvTasks.TabIndex = 2;
             // 
             // idJob
@@ -127,7 +131,7 @@
             this.idJob.MinimumWidth = 6;
             this.idJob.Name = "idJob";
             this.idJob.ReadOnly = true;
-            this.idJob.Width = 125;
+            this.idJob.Width = 150;
             // 
             // idMng
             // 
@@ -143,7 +147,7 @@
             this.WorkName.MinimumWidth = 6;
             this.WorkName.Name = "WorkName";
             this.WorkName.ReadOnly = true;
-            this.WorkName.Width = 120;
+            this.WorkName.Width = 160;
             // 
             // AccessRight
             // 
@@ -151,7 +155,7 @@
             this.AccessRight.MinimumWidth = 6;
             this.AccessRight.Name = "AccessRight";
             this.AccessRight.ReadOnly = true;
-            this.AccessRight.Width = 80;
+            this.AccessRight.Width = 160;
             // 
             // Status
             // 
@@ -159,7 +163,7 @@
             this.Status.MinimumWidth = 6;
             this.Status.Name = "Status";
             this.Status.ReadOnly = true;
-            this.Status.Width = 80;
+            this.Status.Width = 160;
             // 
             // PrjPublic
             // 
@@ -167,7 +171,7 @@
             this.PrjPublic.MinimumWidth = 6;
             this.PrjPublic.Name = "PrjPublic";
             this.PrjPublic.ReadOnly = true;
-            this.PrjPublic.Width = 80;
+            this.PrjPublic.Width = 220;
             // 
             // DepPublic
             // 
@@ -175,7 +179,7 @@
             this.DepPublic.MinimumWidth = 6;
             this.DepPublic.Name = "DepPublic";
             this.DepPublic.ReadOnly = true;
-            this.DepPublic.Width = 80;
+            this.DepPublic.Width = 220;
             // 
             // ProjectID
             // 
@@ -187,11 +191,13 @@
             // 
             // EmployeeTasks
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1082, 553);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.dgvTasks);
+            this.Controls.Add(this.panel1);
+            this.Font = new System.Drawing.Font("Segoe UI", 13F);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "EmployeeTasks";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EmployeeTasks";

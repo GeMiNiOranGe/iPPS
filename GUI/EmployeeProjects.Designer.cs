@@ -59,11 +59,12 @@
             this.end});
             this.dgvProjects.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvProjects.Location = new System.Drawing.Point(0, 0);
+            this.dgvProjects.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvProjects.Name = "dgvProjects";
             this.dgvProjects.ReadOnly = true;
             this.dgvProjects.RowHeadersWidth = 51;
             this.dgvProjects.RowTemplate.Height = 24;
-            this.dgvProjects.Size = new System.Drawing.Size(1082, 553);
+            this.dgvProjects.Size = new System.Drawing.Size(984, 561);
             this.dgvProjects.TabIndex = 1;
             // 
             // IDProject
@@ -72,7 +73,7 @@
             this.IDProject.MinimumWidth = 6;
             this.IDProject.Name = "IDProject";
             this.IDProject.ReadOnly = true;
-            this.IDProject.Width = 70;
+            this.IDProject.Width = 150;
             // 
             // ProjectName
             // 
@@ -88,7 +89,7 @@
             this.AccessRight.MinimumWidth = 6;
             this.AccessRight.Name = "AccessRight";
             this.AccessRight.ReadOnly = true;
-            this.AccessRight.Width = 60;
+            this.AccessRight.Width = 180;
             // 
             // TrangThai
             // 
@@ -96,7 +97,7 @@
             this.TrangThai.MinimumWidth = 6;
             this.TrangThai.Name = "TrangThai";
             this.TrangThai.ReadOnly = true;
-            this.TrangThai.Width = 60;
+            this.TrangThai.Width = 120;
             // 
             // KhachHang
             // 
@@ -104,7 +105,7 @@
             this.KhachHang.MinimumWidth = 6;
             this.KhachHang.Name = "KhachHang";
             this.KhachHang.ReadOnly = true;
-            this.KhachHang.Width = 125;
+            this.KhachHang.Width = 160;
             // 
             // IDTask
             // 
@@ -112,7 +113,7 @@
             this.IDTask.MinimumWidth = 6;
             this.IDTask.Name = "IDTask";
             this.IDTask.ReadOnly = true;
-            this.IDTask.Width = 70;
+            this.IDTask.Width = 140;
             // 
             // IDPhongBan
             // 
@@ -120,7 +121,7 @@
             this.IDPhongBan.MinimumWidth = 6;
             this.IDPhongBan.Name = "IDPhongBan";
             this.IDPhongBan.ReadOnly = true;
-            this.IDPhongBan.Width = 70;
+            this.IDPhongBan.Width = 160;
             // 
             // start
             // 
@@ -128,7 +129,7 @@
             this.start.MinimumWidth = 6;
             this.start.Name = "start";
             this.start.ReadOnly = true;
-            this.start.Width = 80;
+            this.start.Width = 160;
             // 
             // end
             // 
@@ -136,14 +137,16 @@
             this.end.MinimumWidth = 6;
             this.end.Name = "end";
             this.end.ReadOnly = true;
-            this.end.Width = 80;
+            this.end.Width = 160;
             // 
             // EmployeeProjects
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1082, 553);
+            this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.dgvProjects);
+            this.Font = new System.Drawing.Font("Segoe UI", 13F);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "EmployeeProjects";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EmployeeProjects";

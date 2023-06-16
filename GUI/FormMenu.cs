@@ -18,49 +18,37 @@ namespace GUI {
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
-        public string UserId {
-            get => strUserId;
-            set => strUserId = value;
-        }
-
         [DllImportAttribute("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
+        public string UserId {
+            get => strUserId;
+            set => strUserId = value;
+        }
+
         public FormMenu() {
             InitializeComponent();
         }
 
-        private void PcbMinimize_Click(object sender, EventArgs e) {
-            WindowState = FormWindowState.Minimized;
-        }
+        private Form currentFormChild;
 
-        private void PcbMaximize_Click(object sender, EventArgs e) {
-            if (WindowState == FormWindowState.Normal) {
-                FormBorderStyle = FormBorderStyle.Sizable;
-                WindowState = FormWindowState.Maximized;
-                FormBorderStyle = FormBorderStyle.None;
-                PcbMaximize.Image = Properties.Resources.NormalScreenCircleFill;
-            }
-            else {
-                FormBorderStyle = FormBorderStyle.Sizable;
-                WindowState = FormWindowState.Normal;
-                FormBorderStyle = FormBorderStyle.None;
-                PcbMaximize.Image = Properties.Resources.FullScreenCircleFill;
-            }
-        }
-
-        private void PcbClose_Click(object sender, EventArgs e) {
-            DialogResult dialogResulth = MessageBox.Show
-                ("Bạn có chắc muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dialogResulth == DialogResult.Yes)
-                Application.Exit();
+        private void OpenChildForm(Form childForm) {
+            if (currentFormChild != null)
+                currentFormChild.Close();
+            currentFormChild = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            PnlWorkplace.Controls.Add(childForm);
+            childForm.BringToFront();
+            childForm.Show();
         }
 
         public string GetFullname() {
             string strFullname;
-            string query = $"select FIRST_NAME, MIDDLE_NAME, LAST_NAME from EMPLOYEE where EMPLOYEE.ID = N'{strUserId ?? "emp00001"}'";
+            string query = $"select FIRST_NAME, MIDDLE_NAME, LAST_NAME from EMPLOYEE where EMPLOYEE.ID = N'{strUserId}'";
             conn.Open();
             var sqlCommand = new SqlCommand(query, conn);
             var sqlDataReader = sqlCommand.ExecuteReader();
@@ -81,20 +69,45 @@ namespace GUI {
             }
         }
 
+        #region button minimize, maximize, close
+        private void PcbMinimize_Click(object sender, EventArgs e) {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void PcbMaximize_Click(object sender, EventArgs e) {
+            if (WindowState == FormWindowState.Normal) {
+                FormBorderStyle = FormBorderStyle.Sizable;
+                WindowState = FormWindowState.Maximized;
+                FormBorderStyle = FormBorderStyle.None;
+                PcbMaximize.Image = Properties.Resources.NormalScreenCircleFill;
+            }
+            else {
+                FormBorderStyle = FormBorderStyle.Sizable;
+                WindowState = FormWindowState.Normal;
+                FormBorderStyle = FormBorderStyle.None;
+                PcbMaximize.Image = Properties.Resources.FullScreenCircleFill;
+            }
+        }
+
+        private void PcbClose_Click(object sender, EventArgs e) {
+            DialogResult dialogResulth = MessageBox.Show("Bạn có chắc muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResulth == DialogResult.Yes)
+                Application.Exit();
+        }
+        #endregion
+
         #region button job
         private void BtnJob_MouseClick(object sender, MouseEventArgs e) {
-            string query = $"select * from EMPLOYEE inner join ROLE on EMPLOYEE.ID = ROLE.EMPLOYEE_ID where EMPLOYEE.ID = N'{strUserId ?? "emp00001"}'";
+            string query = $"select * from EMPLOYEE inner join ROLE on EMPLOYEE.ID = ROLE.EMPLOYEE_ID where EMPLOYEE.ID = N'{strUserId}'";
             conn.Open();
             var sqlCommand = new SqlCommand(query, conn);
             var sqlDataReader = sqlCommand.ExecuteReader();
             if (sqlDataReader.Read()) {
                 if ((byte)sqlDataReader["PERMISSION_LEVER"] <= 1) {
-                    var admin = new AdminTasks();
-                    admin.ShowDialog();
+                    OpenChildForm(new AdminTasks());
                 }
                 else {
-                    var employee = new EmployeeTasks();
-                    employee.ShowDialog();
+                    OpenChildForm(new EmployeeTasks());
                 }
             }
             conn.Close();
@@ -113,18 +126,16 @@ namespace GUI {
 
         #region button project
         private void BtnProject_MouseClick(object sender, MouseEventArgs e) {
-            string query = $"select * from EMPLOYEE inner join ROLE on EMPLOYEE.ID = ROLE.EMPLOYEE_ID where EMPLOYEE.ID = N'{strUserId ?? "emp00001"}'";
+            string query = $"select * from EMPLOYEE inner join ROLE on EMPLOYEE.ID = ROLE.EMPLOYEE_ID where EMPLOYEE.ID = N'{strUserId}'";
             conn.Open();
             var sqlCommand = new SqlCommand(query, conn);
             var sqlDataReader = sqlCommand.ExecuteReader();
             if (sqlDataReader.Read()) {
                 if ((byte)sqlDataReader["PERMISSION_LEVER"] <= 1) {
-                    var admin = new AdminProjects();
-                    admin.ShowDialog();
+                    OpenChildForm(new AdminProjects());
                 }
                 else {
-                    var employee = new EmployeeProjects();
-                    employee.ShowDialog();
+                    OpenChildForm(new EmployeeProjects());
                 }
             }
             conn.Close();
@@ -143,8 +154,7 @@ namespace GUI {
 
         #region button document
         private void BtnDocument_MouseClick(object sender, MouseEventArgs e) {
-            var formUpload = new FormUpload();
-            formUpload.ShowDialog();
+            OpenChildForm(new FormUpload());
         }
 
         private void BtnDocument_MouseDown(object sender, MouseEventArgs e) {

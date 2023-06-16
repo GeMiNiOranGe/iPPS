@@ -28,7 +28,8 @@ namespace GUI {
                 var formMenu = new FormMenu {
                     UserId = TxtUserId.Text
                 };
-                formMenu.ShowDialog();
+                formMenu.Show();
+                Hide();
                 break;
             case BLL.LoginStatus.InvalidInput:
                 // Displays an error message due to invalid input data
