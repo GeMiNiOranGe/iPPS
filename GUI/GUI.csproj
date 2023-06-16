@@ -204,9 +204,6 @@
     <None Include="Resources\Logout.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Report.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\FullScreenCircleFill.png" />
   </ItemGroup>
   <ItemGroup>
