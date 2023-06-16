@@ -58,8 +58,21 @@ namespace GUI {
             return strFullname;
         }
 
+        public string GetRole() {
+            string strRole;
+            string query = $"select NAME from ROLE where EMPLOYEE_ID = N'{strUserId}'";
+            conn.Open();
+            var sqlCommand = new SqlCommand(query, conn);
+            var sqlDataReader = sqlCommand.ExecuteReader();
+            sqlDataReader.Read();
+            strRole = sqlDataReader["NAME"].ToString();
+            conn.Close();
+            return strRole;
+        }
+
         private void FormMenu_Load(object sender, EventArgs e) {
             LbUsername.Text = GetFullname();
+            LbRole.Text = GetRole();
         }
 
         private void PnlHead_MouseDown(object sender, MouseEventArgs e) {
@@ -103,7 +116,7 @@ namespace GUI {
             var sqlCommand = new SqlCommand(query, conn);
             var sqlDataReader = sqlCommand.ExecuteReader();
             if (sqlDataReader.Read()) {
-                if ((byte)sqlDataReader["PERMISSION_LEVER"] <= 1) {
+                if ((byte)sqlDataReader["PERMISSION_LEVEL"] <= 1) {
                     OpenChildForm(new AdminTasks());
                 }
                 else {
@@ -131,7 +144,7 @@ namespace GUI {
             var sqlCommand = new SqlCommand(query, conn);
             var sqlDataReader = sqlCommand.ExecuteReader();
             if (sqlDataReader.Read()) {
-                if ((byte)sqlDataReader["PERMISSION_LEVER"] <= 1) {
+                if ((byte)sqlDataReader["PERMISSION_LEVEL"] <= 1) {
                     OpenChildForm(new AdminProjects());
                 }
                 else {
