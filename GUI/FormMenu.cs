@@ -32,6 +32,25 @@ namespace GUI {
             InitializeComponent();
         }
 
+        private void PcbMinimize_Click(object sender, EventArgs e) {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void PcbMaximize_Click(object sender, EventArgs e) {
+            if (WindowState == FormWindowState.Normal) {
+                FormBorderStyle = FormBorderStyle.Sizable;
+                WindowState = FormWindowState.Maximized;
+                FormBorderStyle = FormBorderStyle.None;
+                PcbMaximize.Image = Properties.Resources.NormalScreenCircleFill;
+            }
+            else {
+                FormBorderStyle = FormBorderStyle.Sizable;
+                WindowState = FormWindowState.Normal;
+                FormBorderStyle = FormBorderStyle.None;
+                PcbMaximize.Image = Properties.Resources.FullScreenCircleFill;
+            }
+        }
+
         private void PcbClose_Click(object sender, EventArgs e) {
             DialogResult dialogResulth = MessageBox.Show
                 ("Bạn có chắc muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

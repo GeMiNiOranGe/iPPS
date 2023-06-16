@@ -275,6 +275,7 @@ namespace GUI {
             this.PcbMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.PcbMinimize.TabIndex = 0;
             this.PcbMinimize.TabStop = false;
+            this.PcbMinimize.Click += new System.EventHandler(this.PcbMinimize_Click);
             // 
             // PcbMaximize
             // 
@@ -286,6 +287,7 @@ namespace GUI {
             this.PcbMaximize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.PcbMaximize.TabIndex = 0;
             this.PcbMaximize.TabStop = false;
+            this.PcbMaximize.Click += new System.EventHandler(this.PcbMaximize_Click);
             // 
             // PcbClose
             // 
