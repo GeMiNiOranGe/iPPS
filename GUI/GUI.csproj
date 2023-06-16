@@ -46,14 +46,62 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="ControlEmployee.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlEmployee.Designer.cs">
+      <DependentUpon>ControlEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlProject.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlProject.Designer.cs">
+      <DependentUpon>ControlProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlWorkOfEmployee.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlWorkOfEmployee.Designer.cs">
+      <DependentUpon>ControlWorkOfEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlWorkOfProject.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlWorkOfProject.Designer.cs">
+      <DependentUpon>ControlWorkOfProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStatus.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormStatus.Designer.cs">
+      <DependentUpon>FormStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormWorkOfProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormWorkOfProject.Designer.cs">
+      <DependentUpon>FormWorkOfProject.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ControlEmployee.resx">
+      <DependentUpon>ControlEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlProject.resx">
+      <DependentUpon>ControlProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlWorkOfEmployee.resx">
+      <DependentUpon>ControlWorkOfEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlWorkOfProject.resx">
+      <DependentUpon>ControlWorkOfProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStatus.resx">
+      <DependentUpon>FormStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormWorkOfProject.resx">
+      <DependentUpon>FormWorkOfProject.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

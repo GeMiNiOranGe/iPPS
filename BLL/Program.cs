@@ -5,15 +5,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BLL {
-    static class Program {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main() {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+    class Program
+    {
+        static void Main(string[] args)
+        {
         }
     }
 }
