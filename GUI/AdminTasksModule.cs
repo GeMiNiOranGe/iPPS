@@ -22,7 +22,7 @@ namespace GUI
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
-        SqlConnection conn = new SqlConnection(@"Data Source=.;Initial Catalog=PROJECT_MANAGEMENT_TEMP;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=.;Initial Catalog=PROJECT_MANAGEMENT;Integrated Security=True");
         SqlCommand cmd = new SqlCommand();
 
         public AdminTasksModule()

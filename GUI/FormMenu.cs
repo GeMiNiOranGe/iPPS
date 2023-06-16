@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace GUI {
     public partial class FormMenu : Form {
-        private readonly SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=PROJECT_MANAGEMENT_TEMP;Integrated Security=True");
+        private readonly SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=PROJECT_MANAGEMENT;Integrated Security=True");
         private string strUserId;
 
         public const int WM_NCLBUTTONDOWN = 0xA1;

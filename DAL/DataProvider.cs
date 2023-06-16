@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL {
     internal class DataProvider {
-        private const string CONNECTION_STRING = @"Data Source=.;Initial Catalog=PROJECT_MANAGEMENT_TEMP;Integrated Security=True";
+        private const string CONNECTION_STRING = @"Data Source=.;Initial Catalog=PROJECT_MANAGEMENT;Integrated Security=True";
 
         #region Singleton Design Pattern
         private static DataProvider instance;
