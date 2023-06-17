@@ -19,7 +19,7 @@ namespace DAL
         }
         private CEmployeeInfoDAL() { }
         #endregion
-
+        //Lấy dữ liệu từ table EMPLOYEE trong database dựa vào ID 
         public CEmployee getEmployeebyEmployeeID(string employeeID)
         {
             DataTable data = DataProvider.Instance.ExecuteQuery("Select * from EMPLOYEE where ID = '" + employeeID + "'");
@@ -29,6 +29,7 @@ namespace DAL
             }
             return null;
         }
+        //Lấy dữ liệu từ table ROLE trong database dựa vào EMPLOYEE_ID
         public CRole getRolebyEmployeeID(string employeeID)
         {
             DataTable data = DataProvider.Instance.ExecuteQuery("Select * from ROLE where EMPLOYEE_ID = '" + employeeID + "'");
@@ -38,6 +39,7 @@ namespace DAL
             }
             return null;
         }
+        //Lấy dữ liệu từ table DEPARTMENT trong database dựa vào ID
         public CDepartment getDepartmentbyDepartmentID(string departmentID)
         {
             DataTable data = DataProvider.Instance.ExecuteQuery("Select * from DEPARTMENT where ID = '" + departmentID + "'");
@@ -47,6 +49,7 @@ namespace DAL
             }
             return null;
         }
+        //Lấy dữ liệu từ table EMPLOYEE_BELONG_TO_PROJECT trong database dựa vào EMPLOYEE_ID
         public List<CEmployeeBelongToProject> getProjectIDbyEmployeeID(string employeeID)
         {
             List<CEmployeeBelongToProject> listProjectID = new List<CEmployeeBelongToProject>();
@@ -58,6 +61,7 @@ namespace DAL
             }
             return listProjectID;
         }
+        //Lấy dữ liệu từ table PROJECT trong database dựa vào ID
         public CProject getProjectbyProjectID(string projectID)
         {
             DataTable data = DataProvider.Instance.ExecuteQuery("Select * from PROJECT where ID = '" + projectID + "'");
@@ -67,6 +71,7 @@ namespace DAL
             }
             return null;
         }
+        //Lấy dữ liệu từ table EMPLOYEE_PHONE_NUMBER trong database dựa vào EMPLOYEE_ID
         public List<CEmployeePhoneNumber> getPhoneNumberbyEmployeeID(string employeeID)
         {
             List<CEmployeePhoneNumber> listPhoneNumber = new List<CEmployeePhoneNumber>();

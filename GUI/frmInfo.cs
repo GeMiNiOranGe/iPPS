@@ -18,9 +18,6 @@ namespace GUI
         public frmInfo(string employeeID)
         {
             InitializeComponent();
-            dtpEmployeeBirthday.MaxDate = new DateTime(DateTime.Now.Year - 15, 12, 31);
-            dtpEmployeeBirthday.MinDate = new DateTime(DateTime.Now.Year - 150, 1, 1);
-            dtpEmployeeBirthday.Value = new DateTime(DateTime.Now.Year - 15, 1, 1);
             strId = employeeID;
         }
 
@@ -28,17 +25,17 @@ namespace GUI
         {
             CEmployee getEmployee = BLL.CEmployeeInfoBLL.getEmployeebyEmployeeID(strId);
             txtEmpoyeeID.Text = getEmployee.Id;
-            txtFMName.Text = getEmployee.FirstName + " " + getEmployee.MiddleName;
-            txtLName.Text = getEmployee.LastName;
-            txtFMLName.Text = getEmployee.FirstName + " " + getEmployee.MiddleName + " " + getEmployee.LastName;
+            txtEmployeeName.Text = getEmployee.FirstName + " " + getEmployee.MiddleName + " " + getEmployee.LastName;
             bool bSex = getEmployee.Sex;
             if (bSex)
             {
                 rdoMale.Checked = true;
+                rdoFemale.Enabled = false;
             }
             else
             {
                 rdoFemale.Checked = true;
+                rdoMale.Enabled = false;
             }
             string employeeBirthday = getEmployee.DateOfBirth.ToString();
             dtpEmployeeBirthday.Value = DateTime.Parse(employeeBirthday);
