@@ -30,6 +30,7 @@ namespace GUI {
 
         public FormMenu() {
             InitializeComponent();
+            employeeID = userID;
         }
 
         private Form currentFormChild;

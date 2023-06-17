@@ -1,5 +1,30 @@
-﻿namespace DTO {
+﻿using System.Data;
+using System;
+
+namespace DTO {
     public class CEmployee {
+        public CEmployee(string strId, string strDepartmentId, string strFirstName, string strMiddleName, string strLastName, bool bSex, DateTime dtDateOfBirth, string strCitizenIdNumber)
+        {
+            this.Id = strId;
+            this.DepartmentId = strDepartmentId;
+            this.FirstName = strFirstName;
+            this.MiddleName = strMiddleName;
+            this.LastName = strLastName;
+            this.Sex = bSex;
+            this.DateOfBirth = dtDateOfBirth;
+            this.CitizenIdNumber = strCitizenIdNumber;
+        }
+        public CEmployee(DataRow row)
+        {
+            this.Id = row["ID"].ToString();
+            this.DepartmentId = row["DEPARTMENT_ID"].ToString();
+            this.FirstName = row["FIRST_NAME"].ToString();
+            this.MiddleName = row["MIDDLE_NAME"].ToString();
+            this.LastName = row["LAST_NAME"].ToString();
+            this.Sex = Convert.ToBoolean(row["SEX"]);
+            this.DateOfBirth = Convert.ToDateTime(row["DATE_OF_BIRTH"]);
+            this.CitizenIdNumber = row["CITIZEN_ID_NUMBER"].ToString();
+        }
         // Declare the properties as private fields
         private string strId;
         private string strDepartmentId;

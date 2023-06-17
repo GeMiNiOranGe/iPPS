@@ -1,5 +1,17 @@
-﻿namespace DTO {
-    class CProject {
+﻿using System.Data;
+
+namespace DTO {
+        public class CProject {
+        public CProject(string strId,  string strName)
+        {
+            this.Id = strId;
+            this.Name = strName;
+        }
+        public CProject(DataRow row)
+        {
+            this.Id = row["ID"].ToString();
+            this.Name = row["NAME"].ToString();
+        }
         public string strId ;
         public string strEmployeeId ;
         public string strProjectManagerId ;

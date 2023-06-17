@@ -20,7 +20,7 @@ namespace GUI {
 
             // Call the login handler method and get the result
             BLL.LoginStatus status = BLL.CAccountBLL.Instance.GetLoginStatus(account);
-
+            string userID = TxtUserId.Text;
             // Check the result
             switch (status) {
             case BLL.LoginStatus.Success:
