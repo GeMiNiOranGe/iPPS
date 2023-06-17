@@ -30,7 +30,6 @@ namespace GUI {
 
         public FormMenu() {
             InitializeComponent();
-            employeeID = userID;
         }
 
         private Form currentFormChild;
@@ -197,5 +196,27 @@ namespace GUI {
             BtnProgress.ForeColor = Color.White;
         }
         #endregion
+
+        private void Account_MouseClick(object sender, MouseEventArgs e) {
+            OpenChildForm(new frmInfo(strUserId));
+        }
+
+        private void Account_MouseDown(object sender, MouseEventArgs e) {
+            PnlAccount.BackColor = Color.FromArgb(248, 245, 168);
+            LbUsername.ForeColor = Color.Black;
+        }
+
+        private void Account_MouseUp(object sender, MouseEventArgs e) {
+            PnlAccount.BackColor = Color.Transparent;
+            LbUsername.ForeColor = Color.White;
+        }
+
+        private void Account_MouseEnter(object sender, EventArgs e) {
+            PnlAccount.BackColor = Color.FromArgb(81, 83, 80);
+        }
+
+        private void Account_MouseLeave(object sender, EventArgs e) {
+            PnlAccount.BackColor = Color.Transparent;
+        }
     }
 }

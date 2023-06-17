@@ -67,6 +67,7 @@ namespace GUI {
             // 
             // PnlAccount
             // 
+            this.PnlAccount.BackColor = System.Drawing.Color.Transparent;
             this.PnlAccount.Controls.Add(this.LbUsername);
             this.PnlAccount.Controls.Add(this.LbRole);
             this.PnlAccount.Controls.Add(this.PcbImageUser);
@@ -75,6 +76,11 @@ namespace GUI {
             this.PnlAccount.Name = "PnlAccount";
             this.PnlAccount.Size = new System.Drawing.Size(250, 72);
             this.PnlAccount.TabIndex = 12;
+            this.PnlAccount.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Account_MouseClick);
+            this.PnlAccount.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Account_MouseDown);
+            this.PnlAccount.MouseEnter += new System.EventHandler(this.Account_MouseEnter);
+            this.PnlAccount.MouseLeave += new System.EventHandler(this.Account_MouseLeave);
+            this.PnlAccount.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Account_MouseUp);
             // 
             // LbUsername
             // 
@@ -84,9 +90,14 @@ namespace GUI {
             this.LbUsername.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.LbUsername.Location = new System.Drawing.Point(66, 12);
             this.LbUsername.Name = "LbUsername";
-            this.LbUsername.Size = new System.Drawing.Size(64, 25);
+            this.LbUsername.Size = new System.Drawing.Size(82, 32);
             this.LbUsername.TabIndex = 8;
             this.LbUsername.Text = "Name";
+            this.LbUsername.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Account_MouseClick);
+            this.LbUsername.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Account_MouseDown);
+            this.LbUsername.MouseEnter += new System.EventHandler(this.Account_MouseEnter);
+            this.LbUsername.MouseLeave += new System.EventHandler(this.Account_MouseLeave);
+            this.LbUsername.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Account_MouseUp);
             // 
             // LbRole
             // 
@@ -96,9 +107,14 @@ namespace GUI {
             this.LbRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(183)))), ((int)(((byte)(180)))));
             this.LbRole.Location = new System.Drawing.Point(67, 40);
             this.LbRole.Name = "LbRole";
-            this.LbRole.Size = new System.Drawing.Size(39, 20);
+            this.LbRole.Size = new System.Drawing.Size(48, 25);
             this.LbRole.TabIndex = 8;
             this.LbRole.Text = "Role";
+            this.LbRole.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Account_MouseClick);
+            this.LbRole.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Account_MouseDown);
+            this.LbRole.MouseEnter += new System.EventHandler(this.Account_MouseEnter);
+            this.LbRole.MouseLeave += new System.EventHandler(this.Account_MouseLeave);
+            this.LbRole.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Account_MouseUp);
             // 
             // PcbImageUser
             // 
@@ -109,6 +125,11 @@ namespace GUI {
             this.PcbImageUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PcbImageUser.TabIndex = 10;
             this.PcbImageUser.TabStop = false;
+            this.PcbImageUser.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Account_MouseClick);
+            this.PcbImageUser.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Account_MouseDown);
+            this.PcbImageUser.MouseEnter += new System.EventHandler(this.Account_MouseEnter);
+            this.PcbImageUser.MouseLeave += new System.EventHandler(this.Account_MouseLeave);
+            this.PcbImageUser.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Account_MouseUp);
             // 
             // BtnProgress
             // 
@@ -305,7 +326,7 @@ namespace GUI {
             // 
             // FormMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Controls.Add(this.PnlWorkplace);
@@ -314,7 +335,7 @@ namespace GUI {
             this.Controls.Add(this.PnlHead);
             this.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Giao diện chính";
