@@ -120,6 +120,7 @@
             // rdoFemale
             // 
             this.rdoFemale.AutoSize = true;
+            this.rdoFemale.Enabled = false;
             this.rdoFemale.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdoFemale.ForeColor = System.Drawing.Color.White;
             this.rdoFemale.Location = new System.Drawing.Point(300, 104);
@@ -133,6 +134,7 @@
             // rdoMale
             // 
             this.rdoMale.AutoSize = true;
+            this.rdoMale.Enabled = false;
             this.rdoMale.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdoMale.ForeColor = System.Drawing.Color.White;
             this.rdoMale.Location = new System.Drawing.Point(180, 104);

@@ -30,12 +30,10 @@ namespace GUI
             if (bSex)
             {
                 rdoMale.Checked = true;
-                rdoFemale.Enabled = false;
             }
             else
             {
                 rdoFemale.Checked = true;
-                rdoMale.Enabled = false;
             }
             string employeeBirthday = getEmployee.DateOfBirth.ToString();
             dtpEmployeeBirthday.Value = DateTime.Parse(employeeBirthday);
