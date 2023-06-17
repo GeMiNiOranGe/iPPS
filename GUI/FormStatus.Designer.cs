@@ -29,17 +29,21 @@ namespace GUI {
             // 
             // flPanelAllProject
             // 
-            this.flPanelAllProject.Location = new System.Drawing.Point(36, 33);
+            this.flPanelAllProject.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flPanelAllProject.Location = new System.Drawing.Point(0, 0);
             this.flPanelAllProject.Name = "flPanelAllProject";
-            this.flPanelAllProject.Size = new System.Drawing.Size(765, 416);
+            this.flPanelAllProject.Padding = new System.Windows.Forms.Padding(15);
+            this.flPanelAllProject.Size = new System.Drawing.Size(1067, 554);
             this.flPanelAllProject.TabIndex = 0;
             // 
             // FormStatus
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(128)))), ((int)(((byte)(134)))));
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.flPanelAllProject);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormStatus";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.FormStatus_Load);

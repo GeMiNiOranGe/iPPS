@@ -49,7 +49,6 @@
     <Compile Include="BLL_Employee.cs" />
     <Compile Include="BLL_Job.cs" />
     <Compile Include="BLL_Project.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

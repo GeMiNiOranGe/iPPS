@@ -51,7 +51,6 @@
     <Compile Include="DAL_Job.cs" />
     <Compile Include="DAL_Project.cs" />
     <Compile Include="DBConnect.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

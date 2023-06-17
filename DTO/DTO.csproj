@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E3C13DA8-C98D-4459-9D88-91BE39AA1FD9}</ProjectGuid>
+    <ProjectGuid>{C8B046D7-286D-41C5-BA96-204531DF24AC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>DTO</RootNamespace>
     <AssemblyName>DTO</AssemblyName>

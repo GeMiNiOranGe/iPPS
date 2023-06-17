@@ -183,7 +183,7 @@ namespace GUI {
 
         #region button progress
         private void BtnProgress_MouseClick(object sender, MouseEventArgs e) {
-
+            OpenChildForm(new FormStatus());
         }
 
         private void BtnProgress_MouseDown(object sender, MouseEventArgs e) {
