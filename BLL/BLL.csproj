@@ -30,6 +30,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -43,6 +46,10 @@
   <ItemGroup>
     <Compile Include="CAccountBLL.cs" />
     <Compile Include="CProjectBLL.cs" />
+    <Compile Include="BLL_Employee.cs" />
+    <Compile Include="BLL_Job.cs" />
+    <Compile Include="BLL_Project.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

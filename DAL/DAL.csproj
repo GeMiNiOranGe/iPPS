@@ -30,6 +30,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -44,6 +47,11 @@
     <Compile Include="CAccountDAL.cs" />
     <Compile Include="CProjectDAL.cs" />
     <Compile Include="DataProvider.cs" />
+    <Compile Include="DAL_Employee.cs" />
+    <Compile Include="DAL_Job.cs" />
+    <Compile Include="DAL_Project.cs" />
+    <Compile Include="DBConnect.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
