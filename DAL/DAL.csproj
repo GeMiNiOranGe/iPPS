@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CAccountDAL.cs" />
+    <Compile Include="CEmployeeInfoDAL.cs" />
     <Compile Include="CProjectDAL.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

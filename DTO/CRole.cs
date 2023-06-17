@@ -1,5 +1,20 @@
-﻿namespace DTO {
+﻿using System.Data;
+using System;
+
+namespace DTO {
     public class CRole {
+        public CRole(string strId, string strEmployeeId, string strName)
+        {
+            this.Id = strId;
+            this.EmployeeId = strEmployeeId;
+            this.Name = strName;
+        }
+        public CRole(DataRow row)
+        {
+            this.Id = row["ID"].ToString();
+            this.EmployeeId = row["EMPLOYEE_ID"].ToString();
+            this.Name = row["NAME"].ToString();
+        }
         public string strId;
         public string strEmployeeId;
         public string strName;

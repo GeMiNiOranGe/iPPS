@@ -20,12 +20,12 @@ namespace GUI {
 
             // Call the login handler method and get the result
             BLL.LoginStatus status = BLL.CAccountBLL.Instance.GetLoginStatus(account);
-
+            string userID = TxtUserId.Text;
             // Check the result
             switch (status) {
             case BLL.LoginStatus.Success:
                 LbError.Text = "Đăng nhập thành công!";
-                var formMenu = new FormMenu();
+                var formMenu = new FormMenu(userID);
                 formMenu.ShowDialog();
                 break;
             case BLL.LoginStatus.InvalidInput:

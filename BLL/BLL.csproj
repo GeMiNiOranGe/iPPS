@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CAccountBLL.cs" />
+    <Compile Include="CEmployeeInfoBLL.cs" />
     <Compile Include="CProjectBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

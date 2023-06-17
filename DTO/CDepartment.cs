@@ -1,5 +1,17 @@
-﻿namespace DTO {
-    class CDepartment {
+﻿using System.Data;
+
+namespace DTO {
+        public class CDepartment {
+        public CDepartment(string strId, string strName)
+        {
+            this.Id = strId;
+            this.Name = strName;
+        }
+        public CDepartment(DataRow row)
+        {
+            this.Id = row["ID"].ToString();
+            this.Name = row["NAME"].ToString();
+        }
         // Private data members
         private string strId; 
         private string strName; 

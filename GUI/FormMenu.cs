@@ -10,8 +10,10 @@ using System.Windows.Forms;
 
 namespace GUI {
     public partial class FormMenu : Form {
-        public FormMenu() {
+        string employeeID;
+        public FormMenu(string userID) {
             InitializeComponent();
+            employeeID = userID;
         }
 
         private void picExit_Click(object sender, EventArgs e)
@@ -36,6 +38,12 @@ namespace GUI {
 
         private void PnlReport_Click(object sender, EventArgs e) {
             OpenUploadFile();
+        }
+
+        private void PnlAccountInfo_Click(object sender, EventArgs e)
+        {
+            frmInfo f = new frmInfo(employeeID);
+            f.ShowDialog();
         }
     }
 }
