@@ -1,5 +1,4 @@
-﻿using Config;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,7 +27,7 @@ namespace GUI
 
         private void FormUpload_Load(object sender, EventArgs e)
         {
-            sqlConnection = new SqlConnection(Database.CONNECTION_STRING);
+            sqlConnection = new SqlConnection(Config.Database.CONNECTION_STRING);
             //sqlConnection.Open();
             loadJob_ID();
             loadPartner_Code();

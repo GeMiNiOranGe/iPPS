@@ -13,7 +13,7 @@ namespace GUI
 {
     public partial class AdminProjects : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=PROJECT_MANAGEMENT;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(Config.Database.CONNECTION_STRING);
         SqlCommand cmd = new SqlCommand();
         SqlCommand cmd2 = new SqlCommand();
         SqlDataReader rd = null;
