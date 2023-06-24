@@ -9,6 +9,10 @@ namespace DAL
 {
     public class DBConnect
     {
-        protected SqlConnection _conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\VS2019_Source\CSharp\iPPS\DAL\PROJECT_MANAGEMENT.mdf;Integrated Security=True");
+        private static readonly string DATABASE = "PROJECT_MANAGEMENT.mdf";
+        private static readonly string DATABASE_PATH = System.IO.Path.GetFullPath(DATABASE);
+        private static readonly string CONNECTION_STRING = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + DATABASE_PATH + ";Integrated Security=True";
+
+        protected SqlConnection _conn = new SqlConnection(CONNECTION_STRING);
     }
 }

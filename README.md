@@ -9,10 +9,8 @@ You are a developer and you want to run this project, you have to follow these i
 	```bash
 	git clone https://github.com/GeMiNiOranGe/iPPS.git
 	```
-* Step 2: open 'iPPS.sln' by Visual Studio
+* Step 2: open `iPPS.sln` by Visual Studio
 
-* Step 3: open MSSQL server management and execute 'PROJECT_MANAGEMENT.sql'
+* Step 3: add a new item `Service-based Database` with name "PROJECT_MANAGEMENT" in any project (GUI project is recommended), open and connect `PROJECT_MANAGEMENT.sql` to "PROJECT_MANAGEMENT" you just create (make sure the connection is correct to the database, if it is false it can be created in the "master" database)
 
-* Step 4: return visual studio, change connection string in 'DataProvider.cs' of DAL and 'Config.cs' of GUI
-
-* Step 5: build and run the app
+* Step 4: build and run the app

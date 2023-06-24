@@ -1,5 +1,7 @@
 ﻿namespace Config {
     public static class Database {
-        public const string CONNECTION_STRING = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\VS2019_Source\CSharp\iPPS\DAL\PROJECT_MANAGEMENT.mdf;Integrated Security=True";
+        private static readonly string DATABASE = "PROJECT_MANAGEMENT.mdf";
+        private static readonly string DATABASE_PATH = System.IO.Path.GetFullPath(DATABASE);
+        public static readonly string CONNECTION_STRING = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + DATABASE_PATH + ";Integrated Security=True";
     }
 }
