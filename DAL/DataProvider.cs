@@ -8,7 +8,11 @@ using System.Threading.Tasks;
 
 namespace DAL {
     internal class DataProvider {
-        private const string CONNECTION_STRING = @"Data Source=.;Initial Catalog=PROJECT_MANAGEMENT;Integrated Security=True";
+        // Because "Instance" is a static variable, we must add the keyword "static" to the variable when declaring it in the class,
+        // the variable will be used normally, no need to add "instance" or "Instance" when accessing the variable in the class.
+        private static readonly string DATABASE = "PROJECT_MANAGEMENT.mdf";
+        private static readonly string DATABASE_PATH = System.IO.Path.GetFullPath(DATABASE);
+        private static readonly string CONNECTION_STRING = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + DATABASE_PATH + ";Integrated Security=True";
 
         #region Singleton Design Pattern
         private static DataProvider instance;
