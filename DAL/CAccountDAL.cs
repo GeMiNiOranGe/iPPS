@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DAL {
+﻿namespace DAL {
     public class CAccountDAL {
         #region Singleton Design Pattern
         private static CAccountDAL instance;
@@ -14,11 +12,11 @@ namespace DAL {
         #endregion
 
         public bool IsAccountExist(DTO.CAccount account) {
-            // Create query check account
-            string query = $"Select EMPLOYEE_ID, PASSWORD From ACCOUNT Where EMPLOYEE_ID = '{account.EmployeeId}' And PASSWORD = '{account.Password}'";
+            // Create a query to check if the account exists or not
+            string strQuery = $"Select EMPLOYEE_ID, PASSWORD From ACCOUNT Where EMPLOYEE_ID = '{account.EmployeeId}' And PASSWORD = '{account.Password}'";
             
             // Execute query
-            var sqlCommand = DataProvider.Instance.GetCommand(query);
+            var sqlCommand = DataProvider.Instance.GetCommand(strQuery);
             
             // Check data
             DataProvider.Instance.OpenConnection(sqlCommand);
@@ -31,11 +29,11 @@ namespace DAL {
         }
 
         public bool IsActive(DTO.CAccount account) {
-            // Create query check account
-            string query = $"Select IS_ACTIVE From ACCOUNT Where EMPLOYEE_ID = '{account.EmployeeId}'";
+            // Create a query to check if the account is active or not
+            string strQuery = $"Select IS_ACTIVE From ACCOUNT Where EMPLOYEE_ID = '{account.EmployeeId}'";
             
             // Execute query
-            bool bActive = Convert.ToBoolean(DataProvider.Instance.ExecuteScalar(query));
+            bool bActive = System.Convert.ToBoolean(DataProvider.Instance.ExecuteScalar(strQuery));
             return bActive;
         }
     }

@@ -48,10 +48,8 @@
     <Compile Include="CEmployeeInfoDAL.cs" />
     <Compile Include="CProjectDAL.cs" />
     <Compile Include="DataProvider.cs" />
-    <Compile Include="DAL_Employee.cs" />
-    <Compile Include="DAL_Job.cs" />
-    <Compile Include="DAL_Project.cs" />
-    <Compile Include="DBConnect.cs" />
+    <Compile Include="CEmployeeDAL.cs" />
+    <Compile Include="CJobDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 
 namespace DAL {
     public class CProjectDAL {
@@ -18,9 +13,19 @@ namespace DAL {
         private CProjectDAL() { }
         #endregion
 
+        /// <summary>
+        ///     Retrieve all projects
+        /// </summary>
+        /// <returns>
+        ///     List of projects
+        /// </returns>
         public DataTable GetProjectList() {
-            string query = "EXECUTE SP_SELECT_ALL_PROJECT";
-            return DataProvider.Instance.ExecuteQuery(query);
+            string strQuery = string.Format(@"
+                SELECT PROJECT_ID, PROJECT.NAME PROJECT_NAME, DEPARTMENT.NAME DEPARTMENT_NAME, STATUS PROJECT_STATUS 
+                FROM IMPLEMENT_PROJECT, PROJECT, DEPARTMENT 
+                WHERE IMPLEMENT_PROJECT.PROJECT_ID = PROJECT.ID AND IMPLEMENT_PROJECT.DEPARTMENT_ID = DEPARTMENT.ID
+            ");
+            return DataProvider.Instance.ExecuteQuery(strQuery);
         }
     }
 }
