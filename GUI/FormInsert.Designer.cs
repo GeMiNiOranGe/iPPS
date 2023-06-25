@@ -29,6 +29,13 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbIssue_Purpose = new System.Windows.Forms.ComboBox();
+            this.lbIDJob = new System.Windows.Forms.Label();
+            this.lbIDPro = new System.Windows.Forms.Label();
+            this.lbIDDoc = new System.Windows.Forms.Label();
+            this.dateIssused_On = new System.Windows.Forms.TextBox();
+            this.dateDate = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.cbLastest_Revision = new System.Windows.Forms.ComboBox();
@@ -69,18 +76,13 @@
             this.cbNameJob = new System.Windows.Forms.ComboBox();
             this.txtWork_Item = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.dateDate = new System.Windows.Forms.TextBox();
-            this.dateIssused_On = new System.Windows.Forms.TextBox();
-            this.lbIDDoc = new System.Windows.Forms.Label();
-            this.lbIDPro = new System.Windows.Forms.Label();
-            this.lbIDJob = new System.Windows.Forms.Label();
-            this.cbIssue_Purpose = new System.Windows.Forms.ComboBox();
+            this.label24 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label24);
             this.panel1.Controls.Add(this.cbIssue_Purpose);
             this.panel1.Controls.Add(this.lbIDJob);
             this.panel1.Controls.Add(this.lbIDPro);
@@ -132,6 +134,85 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(630, 1350);
             this.panel1.TabIndex = 0;
+            // 
+            // cbIssue_Purpose
+            // 
+            this.cbIssue_Purpose.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbIssue_Purpose.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbIssue_Purpose.FormattingEnabled = true;
+            this.cbIssue_Purpose.Items.AddRange(new object[] {
+            "F1",
+            "FA",
+            "FR"});
+            this.cbIssue_Purpose.Location = new System.Drawing.Point(180, 593);
+            this.cbIssue_Purpose.Name = "cbIssue_Purpose";
+            this.cbIssue_Purpose.Size = new System.Drawing.Size(189, 29);
+            this.cbIssue_Purpose.TabIndex = 181;
+            // 
+            // lbIDJob
+            // 
+            this.lbIDJob.AutoSize = true;
+            this.lbIDJob.BackColor = System.Drawing.Color.White;
+            this.lbIDJob.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbIDJob.ForeColor = System.Drawing.Color.Black;
+            this.lbIDJob.Location = new System.Drawing.Point(526, 114);
+            this.lbIDJob.Name = "lbIDJob";
+            this.lbIDJob.Size = new System.Drawing.Size(102, 21);
+            this.lbIDJob.TabIndex = 180;
+            this.lbIDJob.Text = "ID công việc";
+            // 
+            // lbIDPro
+            // 
+            this.lbIDPro.AutoSize = true;
+            this.lbIDPro.BackColor = System.Drawing.Color.White;
+            this.lbIDPro.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbIDPro.ForeColor = System.Drawing.Color.Black;
+            this.lbIDPro.Location = new System.Drawing.Point(526, 53);
+            this.lbIDPro.Name = "lbIDPro";
+            this.lbIDPro.Size = new System.Drawing.Size(75, 21);
+            this.lbIDPro.TabIndex = 179;
+            this.lbIDPro.Text = "ID dự án";
+            // 
+            // lbIDDoc
+            // 
+            this.lbIDDoc.AutoSize = true;
+            this.lbIDDoc.BackColor = System.Drawing.Color.White;
+            this.lbIDDoc.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbIDDoc.ForeColor = System.Drawing.Color.Black;
+            this.lbIDDoc.Location = new System.Drawing.Point(187, 0);
+            this.lbIDDoc.Name = "lbIDDoc";
+            this.lbIDDoc.Size = new System.Drawing.Size(83, 21);
+            this.lbIDDoc.TabIndex = 178;
+            this.lbIDDoc.Text = "ID tài liệu";
+            // 
+            // dateIssused_On
+            // 
+            this.dateIssused_On.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateIssused_On.Location = new System.Drawing.Point(180, 1064);
+            this.dateIssused_On.Name = "dateIssused_On";
+            this.dateIssused_On.Size = new System.Drawing.Size(181, 28);
+            this.dateIssused_On.TabIndex = 177;
+            // 
+            // dateDate
+            // 
+            this.dateDate.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dateDate.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateDate.Location = new System.Drawing.Point(180, 537);
+            this.dateDate.Name = "dateDate";
+            this.dateDate.Size = new System.Drawing.Size(189, 28);
+            this.dateDate.TabIndex = 176;
+            // 
+            // label23
+            // 
+            this.label23.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.White;
+            this.label23.Location = new System.Drawing.Point(70, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(87, 21);
+            this.label23.TabIndex = 174;
+            this.label23.Text = "Mã tài liệu";
             // 
             // btnSave
             // 
@@ -456,12 +537,14 @@
             // cbNameProject
             // 
             this.cbNameProject.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbNameProject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbNameProject.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbNameProject.FormattingEnabled = true;
             this.cbNameProject.Location = new System.Drawing.Point(180, 50);
             this.cbNameProject.Name = "cbNameProject";
             this.cbNameProject.Size = new System.Drawing.Size(189, 29);
             this.cbNameProject.TabIndex = 138;
+            this.cbNameProject.SelectedIndexChanged += new System.EventHandler(this.cbNameProject_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -596,84 +679,14 @@
             this.label21.TabIndex = 131;
             this.label21.Text = "Mã đối tác";
             // 
-            // label23
+            // label24
             // 
-            this.label23.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.White;
-            this.label23.Location = new System.Drawing.Point(70, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(87, 21);
-            this.label23.TabIndex = 174;
-            this.label23.Text = "Mã tài liệu";
-            // 
-            // dateDate
-            // 
-            this.dateDate.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dateDate.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateDate.Location = new System.Drawing.Point(180, 537);
-            this.dateDate.Name = "dateDate";
-            this.dateDate.Size = new System.Drawing.Size(189, 28);
-            this.dateDate.TabIndex = 176;
-            // 
-            // dateIssused_On
-            // 
-            this.dateIssused_On.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateIssused_On.Location = new System.Drawing.Point(180, 1064);
-            this.dateIssused_On.Name = "dateIssused_On";
-            this.dateIssused_On.Size = new System.Drawing.Size(181, 28);
-            this.dateIssused_On.TabIndex = 177;
-            // 
-            // lbIDDoc
-            // 
-            this.lbIDDoc.AutoSize = true;
-            this.lbIDDoc.BackColor = System.Drawing.Color.White;
-            this.lbIDDoc.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbIDDoc.ForeColor = System.Drawing.Color.Black;
-            this.lbIDDoc.Location = new System.Drawing.Point(187, 0);
-            this.lbIDDoc.Name = "lbIDDoc";
-            this.lbIDDoc.Size = new System.Drawing.Size(83, 21);
-            this.lbIDDoc.TabIndex = 178;
-            this.lbIDDoc.Text = "ID tài liệu";
-            // 
-            // lbIDPro
-            // 
-            this.lbIDPro.AutoSize = true;
-            this.lbIDPro.BackColor = System.Drawing.Color.White;
-            this.lbIDPro.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbIDPro.ForeColor = System.Drawing.Color.Black;
-            this.lbIDPro.Location = new System.Drawing.Point(526, 53);
-            this.lbIDPro.Name = "lbIDPro";
-            this.lbIDPro.Size = new System.Drawing.Size(75, 21);
-            this.lbIDPro.TabIndex = 179;
-            this.lbIDPro.Text = "ID dự án";
-            // 
-            // lbIDJob
-            // 
-            this.lbIDJob.AutoSize = true;
-            this.lbIDJob.BackColor = System.Drawing.Color.White;
-            this.lbIDJob.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbIDJob.ForeColor = System.Drawing.Color.Black;
-            this.lbIDJob.Location = new System.Drawing.Point(526, 114);
-            this.lbIDJob.Name = "lbIDJob";
-            this.lbIDJob.Size = new System.Drawing.Size(102, 21);
-            this.lbIDJob.TabIndex = 180;
-            this.lbIDJob.Text = "ID công việc";
-            // 
-            // cbIssue_Purpose
-            // 
-            this.cbIssue_Purpose.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbIssue_Purpose.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbIssue_Purpose.FormattingEnabled = true;
-            this.cbIssue_Purpose.Items.AddRange(new object[] {
-            "F1",
-            "FA",
-            "FR"});
-            this.cbIssue_Purpose.Location = new System.Drawing.Point(180, 593);
-            this.cbIssue_Purpose.Name = "cbIssue_Purpose";
-            this.cbIssue_Purpose.Size = new System.Drawing.Size(189, 29);
-            this.cbIssue_Purpose.TabIndex = 181;
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(4, 4);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(51, 16);
+            this.label24.TabIndex = 182;
+            this.label24.Text = "label24";
             // 
             // FormInsert
             // 
@@ -681,7 +694,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(63)))), ((int)(((byte)(60)))));
-            this.ClientSize = new System.Drawing.Size(696, 501);
+            this.ClientSize = new System.Drawing.Size(717, 501);
             this.Controls.Add(this.panel1);
             this.Name = "FormInsert";
             this.Text = "FormInsert";
@@ -742,5 +755,6 @@
         private System.Windows.Forms.Label lbIDPro;
         private System.Windows.Forms.Label lbIDDoc;
         private System.Windows.Forms.ComboBox cbIssue_Purpose;
+        private System.Windows.Forms.Label label24;
     }
 }

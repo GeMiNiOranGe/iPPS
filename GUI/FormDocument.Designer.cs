@@ -32,7 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvDocument = new System.Windows.Forms.DataGridView();
-            this.btnInsert = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,6 +52,10 @@
             this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnInsert = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.lbIDDoc = new System.Windows.Forms.Label();
+            this.btnEdit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocument)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,16 +116,7 @@
             this.dgvDocument.RowTemplate.Height = 24;
             this.dgvDocument.Size = new System.Drawing.Size(970, 325);
             this.dgvDocument.TabIndex = 0;
-            // 
-            // btnInsert
-            // 
-            this.btnInsert.Location = new System.Drawing.Point(482, 21);
-            this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(89, 55);
-            this.btnInsert.TabIndex = 1;
-            this.btnInsert.Text = "Thêm";
-            this.btnInsert.UseVisualStyleBackColor = true;
-            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
+            this.dgvDocument.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocument_CellContentClick);
             // 
             // Column1
             // 
@@ -304,12 +298,54 @@
             this.Column20.ReadOnly = true;
             this.Column20.Width = 1000;
             // 
+            // btnInsert
+            // 
+            this.btnInsert.Location = new System.Drawing.Point(12, 12);
+            this.btnInsert.Name = "btnInsert";
+            this.btnInsert.Size = new System.Drawing.Size(89, 55);
+            this.btnInsert.TabIndex = 1;
+            this.btnInsert.Text = "Thêm";
+            this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(216, 12);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(89, 55);
+            this.btnDelete.TabIndex = 2;
+            this.btnDelete.Text = "Xoá";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // lbIDDoc
+            // 
+            this.lbIDDoc.AutoSize = true;
+            this.lbIDDoc.Location = new System.Drawing.Point(136, 29);
+            this.lbIDDoc.Name = "lbIDDoc";
+            this.lbIDDoc.Size = new System.Drawing.Size(44, 16);
+            this.lbIDDoc.TabIndex = 3;
+            this.lbIDDoc.Text = "label1";
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(337, 10);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(89, 55);
+            this.btnEdit.TabIndex = 4;
+            this.btnEdit.Text = "Sửa";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
             // FormDocument
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(63)))), ((int)(((byte)(60)))));
             this.ClientSize = new System.Drawing.Size(994, 520);
+            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.lbIDDoc);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnInsert);
             this.Controls.Add(this.dgvDocument);
             this.Name = "FormDocument";
@@ -317,6 +353,7 @@
             this.Load += new System.EventHandler(this.FormDocument_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocument)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -344,5 +381,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Label lbIDDoc;
+        private System.Windows.Forms.Button btnEdit;
     }
 }
