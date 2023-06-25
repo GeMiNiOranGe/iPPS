@@ -34,8 +34,6 @@ namespace GUI
             this.dgvDocument.DefaultCellStyle.ForeColor = Color.Black;
             dataDocument();
 
-            instance = this;
-
         }
         public void dataDocument()
         {
@@ -55,8 +53,6 @@ namespace GUI
         {
             //Form formInsert = new FormInsert();
             //formInsert.ShowDialog();
-
-            FormInsert.instance.lb1.Text = "1";
 ;        }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -102,7 +98,6 @@ namespace GUI
             formInsert.ISSUSED_ON = dgvDocument.CurrentRow.Cells[17].Value.ToString();
             formInsert.ISSUSED_VIA = dgvDocument.CurrentRow.Cells[18].Value.ToString();
             formInsert.TITLE = dgvDocument.CurrentRow.Cells[19].Value.ToString();
-            formInsert.lb1.Text = "1";
             formInsert.Show();
         }
     }
