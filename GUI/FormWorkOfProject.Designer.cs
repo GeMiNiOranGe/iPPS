@@ -117,7 +117,7 @@ namespace GUI
             this.btnWatch.TabIndex = 6;
             this.btnWatch.Text = "Xem";
             this.btnWatch.UseVisualStyleBackColor = true;
-            this.btnWatch.Click += new System.EventHandler(this.btnWatch_Click);
+            this.btnWatch.Click += new System.EventHandler(this.BtnWatch_Click);
             // 
             // lbOtherJobOfManager
             // 

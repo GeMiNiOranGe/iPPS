@@ -58,11 +58,11 @@
     <Compile Include="ControlEmployee.Designer.cs">
       <DependentUpon>ControlEmployee.cs</DependentUpon>
     </Compile>
-    <Compile Include="ControlProject.cs">
+    <Compile Include="UCProject.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ControlProject.Designer.cs">
-      <DependentUpon>ControlProject.cs</DependentUpon>
+    <Compile Include="UCProject.Designer.cs">
+      <DependentUpon>UCProject.cs</DependentUpon>
     </Compile>
     <Compile Include="ControlWorkOfEmployee.cs">
       <SubType>UserControl</SubType>
@@ -152,8 +152,8 @@
     <EmbeddedResource Include="ControlEmployee.resx">
       <DependentUpon>ControlEmployee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ControlProject.resx">
-      <DependentUpon>ControlProject.cs</DependentUpon>
+    <EmbeddedResource Include="UCProject.resx">
+      <DependentUpon>UCProject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ControlWorkOfEmployee.resx">
       <DependentUpon>ControlWorkOfEmployee.cs</DependentUpon>
