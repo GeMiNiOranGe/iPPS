@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label24 = new System.Windows.Forms.Label();
             this.cbIssue_Purpose = new System.Windows.Forms.ComboBox();
             this.lbIDJob = new System.Windows.Forms.Label();
             this.lbIDPro = new System.Windows.Forms.Label();
@@ -76,7 +77,6 @@
             this.cbNameJob = new System.Windows.Forms.ComboBox();
             this.txtWork_Item = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -134,6 +134,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(630, 1350);
             this.panel1.TabIndex = 0;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(4, 4);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(51, 16);
+            this.label24.TabIndex = 182;
+            this.label24.Text = "label24";
             // 
             // cbIssue_Purpose
             // 
@@ -379,9 +388,9 @@
             this.label18.ForeColor = System.Drawing.Color.White;
             this.label18.Location = new System.Drawing.Point(40, 1071);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(119, 21);
+            this.label18.Size = new System.Drawing.Size(126, 21);
             this.label18.TabIndex = 155;
-            this.label18.Text = "Ban hành ngày";
+            this.label18.Text = "Ngày phát hành";
             // 
             // txtChecked_By
             // 
@@ -679,22 +688,13 @@
             this.label21.TabIndex = 131;
             this.label21.Text = "Mã đối tác";
             // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(4, 4);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(51, 16);
-            this.label24.TabIndex = 182;
-            this.label24.Text = "label24";
-            // 
             // FormInsert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(63)))), ((int)(((byte)(60)))));
-            this.ClientSize = new System.Drawing.Size(717, 501);
+            this.ClientSize = new System.Drawing.Size(738, 501);
             this.Controls.Add(this.panel1);
             this.Name = "FormInsert";
             this.Text = "FormInsert";

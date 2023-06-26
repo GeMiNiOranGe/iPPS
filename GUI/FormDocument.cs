@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace GUI
 {
@@ -51,8 +52,8 @@ namespace GUI
         }
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            //Form formInsert = new FormInsert();
-            //formInsert.ShowDialog();
+            FormInsert  formInsert = new FormInsert("1");
+            formInsert.ShowDialog();
 ;        }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -77,7 +78,7 @@ namespace GUI
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            FormInsert formInsert = new FormInsert();
+            FormInsert formInsert = new FormInsert("0");
             formInsert.ID = dgvDocument.CurrentRow.Cells[0].Value.ToString();
             formInsert.JOB_ID = dgvDocument.CurrentRow.Cells[1].Value.ToString();
             formInsert.PACKAGE = dgvDocument.CurrentRow.Cells[2].Value.ToString();
@@ -99,6 +100,45 @@ namespace GUI
             formInsert.ISSUSED_VIA = dgvDocument.CurrentRow.Cells[18].Value.ToString();
             formInsert.TITLE = dgvDocument.CurrentRow.Cells[19].Value.ToString();
             formInsert.Show();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            sqlConnection.Open();
+            if (radioIDDoc.Checked == true)
+            {
+                sqlCommand = new SqlCommand("SELECT ID,JOB_ID,PACKAGE,WORK_ITEM,TYPE,PARTNER_CODE,REVISION_NUMBER,LASTEST_REVISION,DATE,ISSUE_PURPOSE,PREPARED_BY,CHECKED_BY,APPROVED_BY,ACTION,SUPPORT,REFERRENCE,TO_COMPANY,ISSUSED_ON,ISSUSED_VIA,TITLE FROM DOCUMENT WHERE ID LIKE '%" + txtSearch.Text + "%'", sqlConnection);
+                sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                dgvDocument.DataSource = dataTable;
+                txtSearch.Clear();
+            }
+            else if(radioISSUSED_ON.Checked == true)
+            {
+                sqlCommand = new SqlCommand("SELECT ID,JOB_ID,PACKAGE,WORK_ITEM,TYPE,PARTNER_CODE,REVISION_NUMBER,LASTEST_REVISION,DATE,ISSUE_PURPOSE,PREPARED_BY,CHECKED_BY,APPROVED_BY,ACTION,SUPPORT,REFERRENCE,TO_COMPANY,ISSUSED_ON,ISSUSED_VIA,TITLE FROM DOCUMENT WHERE ISSUSED_ON LIKE '%" + txtSearch.Text + "%'", sqlConnection);
+                sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                dgvDocument.DataSource = dataTable;
+                txtSearch.Clear();
+            }
+            else if(radioLASTEST_REVISION.Checked == true)
+            {
+                txtSearch.Text = "Latest";
+                sqlCommand = new SqlCommand("SELECT ID,JOB_ID,PACKAGE,WORK_ITEM,TYPE,PARTNER_CODE,REVISION_NUMBER,LASTEST_REVISION,DATE,ISSUE_PURPOSE,PREPARED_BY,CHECKED_BY,APPROVED_BY,ACTION,SUPPORT,REFERRENCE,TO_COMPANY,ISSUSED_ON,ISSUSED_VIA,TITLE FROM DOCUMENT WHERE LASTEST_REVISION LIKE '%" + txtSearch.Text + "%'", sqlConnection);
+                sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                dgvDocument.DataSource = dataTable;
+                txtSearch.Clear();
+            }
+            sqlConnection.Close();
+        }
+
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            dataDocument();
         }
     }
 }
