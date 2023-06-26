@@ -1,7 +1,7 @@
 ﻿
 namespace GUI
 {
-    partial class FormWorkOfProject
+    partial class FormJobDetail
     {
         /// <summary>
         /// Required designer variable.

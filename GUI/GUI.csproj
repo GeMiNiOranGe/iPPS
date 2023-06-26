@@ -58,11 +58,11 @@
     <Compile Include="ControlEmployee.Designer.cs">
       <DependentUpon>ControlEmployee.cs</DependentUpon>
     </Compile>
-    <Compile Include="UCProject.cs">
+    <Compile Include="UCProjectItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UCProject.Designer.cs">
-      <DependentUpon>UCProject.cs</DependentUpon>
+    <Compile Include="UCProjectItem.Designer.cs">
+      <DependentUpon>UCProjectItem.cs</DependentUpon>
     </Compile>
     <Compile Include="ControlWorkOfEmployee.cs">
       <SubType>UserControl</SubType>
@@ -76,17 +76,17 @@
     <Compile Include="ControlWorkOfProject.Designer.cs">
       <DependentUpon>ControlWorkOfProject.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormStatus.cs">
+    <Compile Include="FormProgress.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormStatus.Designer.cs">
-      <DependentUpon>FormStatus.cs</DependentUpon>
+    <Compile Include="FormProgress.Designer.cs">
+      <DependentUpon>FormProgress.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormWorkOfProject.cs">
+    <Compile Include="FormJobDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormWorkOfProject.Designer.cs">
-      <DependentUpon>FormWorkOfProject.cs</DependentUpon>
+    <Compile Include="FormJobDetail.Designer.cs">
+      <DependentUpon>FormJobDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminProjectsModule.cs">
       <SubType>Form</SubType>
@@ -152,8 +152,8 @@
     <EmbeddedResource Include="ControlEmployee.resx">
       <DependentUpon>ControlEmployee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UCProject.resx">
-      <DependentUpon>UCProject.cs</DependentUpon>
+    <EmbeddedResource Include="UCProjectItem.resx">
+      <DependentUpon>UCProjectItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ControlWorkOfEmployee.resx">
       <DependentUpon>ControlWorkOfEmployee.cs</DependentUpon>
@@ -161,11 +161,11 @@
     <EmbeddedResource Include="ControlWorkOfProject.resx">
       <DependentUpon>ControlWorkOfProject.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormStatus.resx">
-      <DependentUpon>FormStatus.cs</DependentUpon>
+    <EmbeddedResource Include="FormProgress.resx">
+      <DependentUpon>FormProgress.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormWorkOfProject.resx">
-      <DependentUpon>FormWorkOfProject.cs</DependentUpon>
+    <EmbeddedResource Include="FormJobDetail.resx">
+      <DependentUpon>FormJobDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminProjectsModule.resx">
       <DependentUpon>AdminProjectsModule.cs</DependentUpon>

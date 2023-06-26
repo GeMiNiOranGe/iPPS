@@ -1,7 +1,7 @@
 ﻿
 namespace GUI
 {
-    partial class UCProject
+    partial class UCProjectItem
     {
         /// <summary> 
         /// Required designer variable.
@@ -46,7 +46,7 @@ namespace GUI
             this.lbPercent.Name = "lbPercent";
             this.lbPercent.Size = new System.Drawing.Size(200, 130);
             this.lbPercent.TabIndex = 0;
-            this.lbPercent.Text = "50%";
+            this.lbPercent.Text = "0%";
             this.lbPercent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbPercent.Click += new System.EventHandler(this.UCProject_Click);
             this.lbPercent.MouseEnter += new System.EventHandler(this.UCProject_MouseEnter);
@@ -94,13 +94,13 @@ namespace GUI
             this.lbDepartmentName.Name = "lbDepartmentName";
             this.lbDepartmentName.Size = new System.Drawing.Size(200, 40);
             this.lbDepartmentName.TabIndex = 3;
-            this.lbDepartmentName.Text = "Tên bộ phận";
+            this.lbDepartmentName.Text = "Tên phòng ban";
             this.lbDepartmentName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lbDepartmentName.Click += new System.EventHandler(this.UCProject_Click);
             this.lbDepartmentName.MouseEnter += new System.EventHandler(this.UCProject_MouseEnter);
             this.lbDepartmentName.MouseLeave += new System.EventHandler(this.UCProject_MouseLeave);
             // 
-            // UCProject
+            // UCProjectItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -111,7 +111,7 @@ namespace GUI
             this.Controls.Add(this.lbId);
             this.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(5);
-            this.Name = "UCProject";
+            this.Name = "UCProjectItem";
             this.Size = new System.Drawing.Size(200, 250);
             this.Click += new System.EventHandler(this.UCProject_Click);
             this.MouseEnter += new System.EventHandler(this.UCProject_MouseEnter);

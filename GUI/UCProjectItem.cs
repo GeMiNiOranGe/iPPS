@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI {
-    public partial class UCProject : UserControl {
-        public UCProject() {
+    public partial class UCProjectItem : UserControl {
+        public UCProjectItem() {
             InitializeComponent();
         }
 
@@ -28,8 +28,9 @@ namespace GUI {
                 lbId.Text = value;
             }
         }
+
         [Category("Custom Props")]
-        public string Tenduan {
+        public new string Name {
             get => strName;
             set {
                 strName = value;
@@ -77,8 +78,10 @@ namespace GUI {
         private void UCProject_Click(object sender, EventArgs e) {
             idProject = lbId.Text;
             NameProject = lbName.Text;
-            var form = new FormWorkOfProject();
-            form.Show();
+            var formJobDetail = new FormJobDetail();
+            formJobDetail.ProjectId = idProject;
+            formJobDetail.ProjectName = NameProject;
+            formJobDetail.Show();
         }
     }
 }

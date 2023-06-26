@@ -9,43 +9,54 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI {
-    public partial class FormWorkOfProject : Form {
-        private readonly string idProjectFormWork = UCProject.idProject;
-        private readonly string nameProjectFormWork = UCProject.NameProject;
-        public FormWorkOfProject() {
+    public partial class FormJobDetail : Form {
+        private string strProjectId= UCProjectItem.idProject;
+        private string strProjectName = UCProjectItem.NameProject;
+        public string idEmployee;
+
+        public string ProjectId {
+            get => strProjectId;
+            set => strProjectId = value;
+        }
+
+        public string ProjectName {
+            get => strProjectName;
+            set => strProjectName = value;
+        }
+
+        public FormJobDetail() {
             InitializeComponent();
-            lblIdProject.Text = idProjectFormWork;
-            lblNameProject.Text = nameProjectFormWork;
+            lblIdProject.Text = ProjectId;
+            lblNameProject.Text = ProjectName;
         }
 
         private void FormWorkOfProject_Load(object sender, EventArgs e) {
             ShowJobOfProject(lblIdProject.Text);
         }
 
-        private void ShowJobOfProject(string idProject) {
+        private void ShowJobOfProject(string strProjectId) {
             flPanelListWork.Controls.Clear();
-            var dataTable = BLL.CJobBLL.Instance.GetAllFromProject(idProject);
+            var dataTable = BLL.CJobBLL.Instance.GetAllFromProject(strProjectId);
 
             if (dataTable != null && dataTable.Rows.Count > 0) {
                 foreach (DataRow row in dataTable.Rows) {
-                    var listItems = new ControlWorkOfProject {
+                    var projectItem = new ControlWorkOfProject {
                         Macongviec = row["JOB_ID"].ToString(),
                         Tencongviec = row["JOB_NAME"].ToString()
                     };
 
                     if (row["JOB_STATUS"].ToString() == "0")
-                        listItems.Tilecongviec = "80%";
+                        projectItem.Tilecongviec = "80%";
                     else if (row["JOB_STATUS"].ToString() == "1")
-                        listItems.Tilecongviec = "50%";
+                        projectItem.Tilecongviec = "50%";
                     else
-                        listItems.Tilecongviec = "0%";
+                        projectItem.Tilecongviec = "0%";
 
-                    flPanelListWork.Controls.Add(listItems);
+                    flPanelListWork.Controls.Add(projectItem);
                 }
             }
         }
 
-        public string idEmployee;
 
         private void BtnWatch_Click(object sender, EventArgs e) {
             panelEmployeeOfWork.Controls.Clear();
