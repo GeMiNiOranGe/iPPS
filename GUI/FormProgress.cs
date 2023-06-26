@@ -14,12 +14,16 @@ namespace GUI {
             InitializeComponent();
         }
 
+        private void FormProgress_Load(object sender, EventArgs e) {
+            ShowAllProject();
+        }
+
         private void ShowAllProject() {
             flPnlAllProject.Controls.Clear();
-            DataTable dt = BLL.CProjectBLL.Instance.GetProjectList();
+            var dataTable = BLL.CProjectBLL.Instance.GetProjectList();
 
-            if (dt != null && dt.Rows.Count > 0) {
-                foreach (DataRow row in dt.Rows) {
+            if (dataTable != null && dataTable.Rows.Count > 0) {
+                foreach (DataRow row in dataTable.Rows) {
                     var projectItem = new UCProjectItem {
                         Id = row["PROJECT_ID"].ToString(),
                         Name = row["PROJECT_NAME"].ToString(),
@@ -36,10 +40,6 @@ namespace GUI {
                     flPnlAllProject.Controls.Add(projectItem);
                 }
             }
-        }
-
-        private void FormProgress_Load(object sender, EventArgs e) {
-            ShowAllProject();
         }
     }
 }

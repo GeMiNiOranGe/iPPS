@@ -10,28 +10,26 @@ using System.Windows.Forms;
 
 namespace GUI {
     public partial class FormJobDetail : Form {
-        private string strProjectId= UCProjectItem.idProject;
-        private string strProjectName = UCProjectItem.NameProject;
         public string idEmployee;
 
+        #region Properties
         public string ProjectId {
-            get => strProjectId;
-            set => strProjectId = value;
+            get => lblIdProject.Text;
+            set => lblIdProject.Text = value;
         }
 
         public string ProjectName {
-            get => strProjectName;
-            set => strProjectName = value;
+            get => lblNameProject.Text;
+            set => lblNameProject.Text = value;
         }
+        #endregion
 
         public FormJobDetail() {
             InitializeComponent();
-            lblIdProject.Text = ProjectId;
-            lblNameProject.Text = ProjectName;
         }
 
         private void FormWorkOfProject_Load(object sender, EventArgs e) {
-            ShowJobOfProject(lblIdProject.Text);
+            ShowJobOfProject(ProjectId);
         }
 
         private void ShowJobOfProject(string strProjectId) {

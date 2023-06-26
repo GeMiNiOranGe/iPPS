@@ -10,56 +10,38 @@ using System.Windows.Forms;
 
 namespace GUI {
     public partial class UCProjectItem : UserControl {
-        public UCProjectItem() {
-            InitializeComponent();
-        }
+        bool isHover = false;
 
-        //Chỗ này phục vụ cho việc đọc dữ liệu để add vào label của ProjectControlChoos
-        private string strId;
-        private string strName;
-        private string strDepartmentName;
-        private string strPercent;
-
+        #region Properties
         [Category("Custom Props")]
         public string Id {
-            get => strId;
-            set {
-                strId = value;
-                lbId.Text = value;
-            }
+            get => lbId.Text;
+            set => lbId.Text = value;
         }
 
         [Category("Custom Props")]
         public new string Name {
-            get => strName;
-            set {
-                strName = value;
-                lbName.Text = value;
-            }
+            get => lbName.Text;
+            set => lbName.Text = value;
         }
 
         [Category("Custom Props")]
         public string DepartmentName {
-            get => strDepartmentName;
-            set {
-                strDepartmentName = value;
-                lbDepartmentName.Text = value;
-            }
+            get => lbDepartmentName.Text;
+            set => lbDepartmentName.Text = value;
         }
 
         [Category("Custom Props")]
         public string Percent {
-            get => strPercent;
-            set {
-                strPercent = value;
-                lbPercent.Text = value;
-            }
+            get => lbPercent.Text;
+            set => lbPercent.Text = value;
+        }
+        #endregion
+
+        public UCProjectItem() {
+            InitializeComponent();
         }
 
-        public static string idProject;
-        public static string NameProject;
-
-        bool isHover = false;
         private void UCProject_MouseEnter(object sender, EventArgs e) {
             if (isHover == true) return;
 
@@ -76,11 +58,10 @@ namespace GUI {
         }
 
         private void UCProject_Click(object sender, EventArgs e) {
-            idProject = lbId.Text;
-            NameProject = lbName.Text;
-            var formJobDetail = new FormJobDetail();
-            formJobDetail.ProjectId = idProject;
-            formJobDetail.ProjectName = NameProject;
+            var formJobDetail = new FormJobDetail {
+                ProjectId = Id,
+                ProjectName = Name
+            };
             formJobDetail.Show();
         }
     }
