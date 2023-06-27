@@ -38,7 +38,7 @@ namespace GUI
         }
         public void dataDocument()
         {
-            sqlCommand = new SqlCommand("SELECT ID,JOB_ID,PACKAGE,WORK_ITEM,TYPE,PARTNER_CODE,REVISION_NUMBER,LASTEST_REVISION,DATE,ISSUE_PURPOSE,PREPARED_BY,CHECKED_BY,APPROVED_BY,ACTION,SUPPORT,REFERRENCE,TO_COMPANY,ISSUSED_ON,ISSUSED_VIA,TITLE FROM DOCUMENT", sqlConnection);
+            sqlCommand = new SqlCommand("SELECT DOCUMENT.ID,JOB_ID,PACKAGE,WORK_ITEM,TYPE,PARTNER_CODE,REVISION_NUMBER,LASTEST_REVISION,DATE,ISSUE_PURPOSE,PREPARED_BY,CHECKED_BY,APPROVED_BY,ACTION,SUPPORT,REFERRENCE,TO_COMPANY,ISSUSED_ON,ISSUSED_VIA,TITLE,NAME,NATIVE_FILE_FORMAT FROM DOCUMENT,DOCUMENT_NATIVE_FILE_FORMAT WHERE DOCUMENT.ID=DOCUMENT_NATIVE_FILE_FORMAT.ID", sqlConnection);
             sqlDataAdapter = new SqlDataAdapter(sqlCommand);
             dataTable = new DataTable();
             sqlDataAdapter.Fill(dataTable);
@@ -49,6 +49,7 @@ namespace GUI
             DataGridViewRow dataGridViewRow = new DataGridViewRow();
             dataGridViewRow = dgvDocument.Rows[e.RowIndex];
             lbIDDoc.Text = Convert.ToString(dataGridViewRow.Cells[0].Value);
+            label1.Text = Convert.ToString(dataGridViewRow.Cells[21].Value);
         }
         private void btnInsert_Click(object sender, EventArgs e)
         {
@@ -139,6 +140,77 @@ namespace GUI
         private void btnReload_Click(object sender, EventArgs e)
         {
             dataDocument();
+        }
+
+        private void btnOpenFile_Click(object sender, EventArgs e)
+        {
+            string id = lbIDDoc.Text;
+            OpenFile(id);
+        }
+        public void OpenFile(string id)
+        {
+            sqlConnection.Open();
+            using (sqlCommand = new SqlCommand("SELECT NAME,NATIVE_FILE_FORMAT,LINK FROM DOCUMENT_NATIVE_FILE_FORMAT WHERE ID=@id", sqlConnection))
+            {
+                sqlCommand.Parameters.Add("@id", SqlDbType.VarChar).Value = id;
+                sqlDataReader = sqlCommand.ExecuteReader();
+                if (sqlDataReader.Read())
+                {
+                    var name = sqlDataReader["NAME"].ToString();
+                    var type = sqlDataReader["NATIVE_FILE_FORMAT"].ToString();
+                    var link = (byte[])sqlDataReader["LINK"];
+                    var newFile = name.Replace(type, DateTime.Now.ToString("ddMMyyyyhhmmss")) + type;
+                    File.WriteAllBytes(newFile, link);
+                    System.Diagnostics.Process.Start(newFile);
+                }
+            }
+            sqlConnection.Close();
+        }
+
+        private void btnDownload_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog() { Filter = "Text DOCUMENT_NATIVE_FILE_FORMAT ('"+label1.Text+ "') | *'"+label1.Text+"'", ValidateNames = true })
+            {
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Bạn có muốn DownLoad?", "Thông báo", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        string strFile = saveFileDialog.FileName;
+                        Download(strFile);
+                    }
+                }
+            }
+        }
+        public void Download(string strFile)
+        {
+            sqlConnection.Open();
+            bool bFlag = false;
+            using (sqlCommand = new SqlCommand("select LINK from  DOCUMENT_NATIVE_FILE_FORMAT where ID='" + lbIDDoc.Text + "'", sqlConnection))
+            {
+                using (sqlDataReader = sqlCommand.ExecuteReader(CommandBehavior.Default))
+                {
+                    if (sqlDataReader.Read())
+                    {
+                        bFlag = true;
+                        byte[] link = (byte[])sqlDataReader.GetValue(0);
+                        using (FileStream fileStream = new FileStream(strFile, FileMode.Create, FileAccess.ReadWrite))
+                        {
+                            using (BinaryWriter binaryWriter = new BinaryWriter(fileStream))
+                            {
+                                binaryWriter.Write(link);
+                                binaryWriter.Close();
+                            }
+                        }
+                    }
+                    if (bFlag == false)
+                    {
+                        MessageBox.Show("Không có Data", "Thông báo", MessageBoxButtons.OK);
+                    }
+                    sqlDataReader.Close();
+                }
+            }
+            sqlConnection.Close();
         }
     }
 }

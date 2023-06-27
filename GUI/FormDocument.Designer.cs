@@ -28,10 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvDocument = new System.Windows.Forms.DataGridView();
+            this.btnInsert = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.lbIDDoc = new System.Windows.Forms.Label();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.radioIDDoc = new System.Windows.Forms.RadioButton();
+            this.radioISSUSED_ON = new System.Windows.Forms.RadioButton();
+            this.radioLASTEST_REVISION = new System.Windows.Forms.RadioButton();
+            this.btnReload = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,16 +62,11 @@
             this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnInsert = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.lbIDDoc = new System.Windows.Forms.Label();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.radioIDDoc = new System.Windows.Forms.RadioButton();
-            this.radioISSUSED_ON = new System.Windows.Forms.RadioButton();
-            this.radioLASTEST_REVISION = new System.Windows.Forms.RadioButton();
-            this.btnReload = new System.Windows.Forms.Button();
+            this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnOpenFile = new System.Windows.Forms.Button();
+            this.btnDownload = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocument)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,21 +74,21 @@
             // 
             this.dgvDocument.AllowUserToAddRows = false;
             this.dgvDocument.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvDocument.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgvDocument.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDocument.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDocument.BackgroundColor = System.Drawing.Color.White;
             this.dgvDocument.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDocument.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDocument.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvDocument.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDocument.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -105,15 +110,17 @@
             this.Column17,
             this.Column18,
             this.Column19,
-            this.Column20});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDocument.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column20,
+            this.Column21,
+            this.Column22});
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDocument.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvDocument.EnableHeadersVisualStyles = false;
             this.dgvDocument.Location = new System.Drawing.Point(12, 183);
             this.dgvDocument.Name = "dgvDocument";
@@ -123,6 +130,105 @@
             this.dgvDocument.Size = new System.Drawing.Size(970, 325);
             this.dgvDocument.TabIndex = 0;
             this.dgvDocument.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocument_CellContentClick);
+            // 
+            // btnInsert
+            // 
+            this.btnInsert.Location = new System.Drawing.Point(12, 12);
+            this.btnInsert.Name = "btnInsert";
+            this.btnInsert.Size = new System.Drawing.Size(89, 55);
+            this.btnInsert.TabIndex = 1;
+            this.btnInsert.Text = "Thêm";
+            this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(216, 12);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(89, 55);
+            this.btnDelete.TabIndex = 2;
+            this.btnDelete.Text = "Xoá";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // lbIDDoc
+            // 
+            this.lbIDDoc.AutoSize = true;
+            this.lbIDDoc.Location = new System.Drawing.Point(136, 29);
+            this.lbIDDoc.Name = "lbIDDoc";
+            this.lbIDDoc.Size = new System.Drawing.Size(44, 16);
+            this.lbIDDoc.TabIndex = 3;
+            this.lbIDDoc.Text = "label1";
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(337, 10);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(89, 55);
+            this.btnEdit.TabIndex = 4;
+            this.btnEdit.Text = "Sửa";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(446, 29);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(168, 22);
+            this.txtSearch.TabIndex = 5;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(635, 27);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 6;
+            this.btnSearch.Text = "Tìm kiếm";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // radioIDDoc
+            // 
+            this.radioIDDoc.AutoSize = true;
+            this.radioIDDoc.Location = new System.Drawing.Point(446, 75);
+            this.radioIDDoc.Name = "radioIDDoc";
+            this.radioIDDoc.Size = new System.Drawing.Size(88, 20);
+            this.radioIDDoc.TabIndex = 7;
+            this.radioIDDoc.TabStop = true;
+            this.radioIDDoc.Text = "Mã tài liệu";
+            this.radioIDDoc.UseVisualStyleBackColor = true;
+            // 
+            // radioISSUSED_ON
+            // 
+            this.radioISSUSED_ON.AutoSize = true;
+            this.radioISSUSED_ON.Location = new System.Drawing.Point(565, 74);
+            this.radioISSUSED_ON.Name = "radioISSUSED_ON";
+            this.radioISSUSED_ON.Size = new System.Drawing.Size(122, 20);
+            this.radioISSUSED_ON.TabIndex = 8;
+            this.radioISSUSED_ON.TabStop = true;
+            this.radioISSUSED_ON.Text = "Ngày phát hành";
+            this.radioISSUSED_ON.UseVisualStyleBackColor = true;
+            // 
+            // radioLASTEST_REVISION
+            // 
+            this.radioLASTEST_REVISION.AutoSize = true;
+            this.radioLASTEST_REVISION.Location = new System.Drawing.Point(700, 75);
+            this.radioLASTEST_REVISION.Name = "radioLASTEST_REVISION";
+            this.radioLASTEST_REVISION.Size = new System.Drawing.Size(141, 20);
+            this.radioLASTEST_REVISION.TabIndex = 9;
+            this.radioLASTEST_REVISION.TabStop = true;
+            this.radioLASTEST_REVISION.Text = "Phiên bản mới nhất";
+            this.radioLASTEST_REVISION.UseVisualStyleBackColor = true;
+            // 
+            // btnReload
+            // 
+            this.btnReload.Location = new System.Drawing.Point(741, 27);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Size = new System.Drawing.Size(75, 23);
+            this.btnReload.TabIndex = 10;
+            this.btnReload.Text = "Reload";
+            this.btnReload.UseVisualStyleBackColor = true;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
             // Column1
             // 
@@ -304,104 +410,52 @@
             this.Column20.ReadOnly = true;
             this.Column20.Width = 1000;
             // 
-            // btnInsert
+            // Column21
             // 
-            this.btnInsert.Location = new System.Drawing.Point(12, 12);
-            this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(89, 55);
-            this.btnInsert.TabIndex = 1;
-            this.btnInsert.Text = "Thêm";
-            this.btnInsert.UseVisualStyleBackColor = true;
-            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
+            this.Column21.DataPropertyName = "NAME";
+            this.Column21.HeaderText = "Tên tệp";
+            this.Column21.MinimumWidth = 6;
+            this.Column21.Name = "Column21";
+            this.Column21.ReadOnly = true;
+            this.Column21.Width = 125;
             // 
-            // btnDelete
+            // Column22
             // 
-            this.btnDelete.Location = new System.Drawing.Point(216, 12);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(89, 55);
-            this.btnDelete.TabIndex = 2;
-            this.btnDelete.Text = "Xoá";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.Column22.DataPropertyName = "NATIVE_FILE_FORMAT";
+            this.Column22.HeaderText = "Kiểu tệp";
+            this.Column22.MinimumWidth = 6;
+            this.Column22.Name = "Column22";
+            this.Column22.ReadOnly = true;
+            this.Column22.Width = 125;
             // 
-            // lbIDDoc
+            // btnOpenFile
             // 
-            this.lbIDDoc.AutoSize = true;
-            this.lbIDDoc.Location = new System.Drawing.Point(136, 29);
-            this.lbIDDoc.Name = "lbIDDoc";
-            this.lbIDDoc.Size = new System.Drawing.Size(44, 16);
-            this.lbIDDoc.TabIndex = 3;
-            this.lbIDDoc.Text = "label1";
+            this.btnOpenFile.Location = new System.Drawing.Point(48, 134);
+            this.btnOpenFile.Name = "btnOpenFile";
+            this.btnOpenFile.Size = new System.Drawing.Size(75, 23);
+            this.btnOpenFile.TabIndex = 11;
+            this.btnOpenFile.Text = "Mở tệp";
+            this.btnOpenFile.UseVisualStyleBackColor = true;
+            this.btnOpenFile.Click += new System.EventHandler(this.btnOpenFile_Click);
             // 
-            // btnEdit
+            // btnDownload
             // 
-            this.btnEdit.Location = new System.Drawing.Point(337, 10);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(89, 55);
-            this.btnEdit.TabIndex = 4;
-            this.btnEdit.Text = "Sửa";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            this.btnDownload.Location = new System.Drawing.Point(197, 134);
+            this.btnDownload.Name = "btnDownload";
+            this.btnDownload.Size = new System.Drawing.Size(125, 23);
+            this.btnDownload.TabIndex = 12;
+            this.btnDownload.Text = "DownLoad";
+            this.btnDownload.UseVisualStyleBackColor = true;
+            this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
             // 
-            // txtSearch
+            // label1
             // 
-            this.txtSearch.Location = new System.Drawing.Point(446, 29);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(168, 22);
-            this.txtSearch.TabIndex = 5;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(635, 27);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 6;
-            this.btnSearch.Text = "Tìm kiếm";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // radioIDDoc
-            // 
-            this.radioIDDoc.AutoSize = true;
-            this.radioIDDoc.Location = new System.Drawing.Point(446, 75);
-            this.radioIDDoc.Name = "radioIDDoc";
-            this.radioIDDoc.Size = new System.Drawing.Size(88, 20);
-            this.radioIDDoc.TabIndex = 7;
-            this.radioIDDoc.TabStop = true;
-            this.radioIDDoc.Text = "Mã tài liệu";
-            this.radioIDDoc.UseVisualStyleBackColor = true;
-            // 
-            // radioISSUSED_ON
-            // 
-            this.radioISSUSED_ON.AutoSize = true;
-            this.radioISSUSED_ON.Location = new System.Drawing.Point(565, 74);
-            this.radioISSUSED_ON.Name = "radioISSUSED_ON";
-            this.radioISSUSED_ON.Size = new System.Drawing.Size(122, 20);
-            this.radioISSUSED_ON.TabIndex = 8;
-            this.radioISSUSED_ON.TabStop = true;
-            this.radioISSUSED_ON.Text = "Ngày phát hành";
-            this.radioISSUSED_ON.UseVisualStyleBackColor = true;
-            // 
-            // radioLASTEST_REVISION
-            // 
-            this.radioLASTEST_REVISION.AutoSize = true;
-            this.radioLASTEST_REVISION.Location = new System.Drawing.Point(700, 75);
-            this.radioLASTEST_REVISION.Name = "radioLASTEST_REVISION";
-            this.radioLASTEST_REVISION.Size = new System.Drawing.Size(141, 20);
-            this.radioLASTEST_REVISION.TabIndex = 9;
-            this.radioLASTEST_REVISION.TabStop = true;
-            this.radioLASTEST_REVISION.Text = "Phiên bản mới nhất";
-            this.radioLASTEST_REVISION.UseVisualStyleBackColor = true;
-            // 
-            // btnReload
-            // 
-            this.btnReload.Location = new System.Drawing.Point(741, 27);
-            this.btnReload.Name = "btnReload";
-            this.btnReload.Size = new System.Drawing.Size(75, 23);
-            this.btnReload.TabIndex = 10;
-            this.btnReload.Text = "Reload";
-            this.btnReload.UseVisualStyleBackColor = true;
-            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(354, 134);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 16);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "label1";
             // 
             // FormDocument
             // 
@@ -409,6 +463,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(63)))), ((int)(((byte)(60)))));
             this.ClientSize = new System.Drawing.Size(994, 520);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnDownload);
+            this.Controls.Add(this.btnOpenFile);
             this.Controls.Add(this.btnReload);
             this.Controls.Add(this.radioLASTEST_REVISION);
             this.Controls.Add(this.radioISSUSED_ON);
@@ -433,6 +490,15 @@
 
         private System.Windows.Forms.DataGridView dgvDocument;
         private System.Windows.Forms.Button btnInsert;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Label lbIDDoc;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.RadioButton radioIDDoc;
+        private System.Windows.Forms.RadioButton radioISSUSED_ON;
+        private System.Windows.Forms.RadioButton radioLASTEST_REVISION;
+        private System.Windows.Forms.Button btnReload;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -453,14 +519,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Label lbIDDoc;
-        private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.RadioButton radioIDDoc;
-        private System.Windows.Forms.RadioButton radioISSUSED_ON;
-        private System.Windows.Forms.RadioButton radioLASTEST_REVISION;
-        private System.Windows.Forms.Button btnReload;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column21;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column22;
+        private System.Windows.Forms.Button btnOpenFile;
+        private System.Windows.Forms.Button btnDownload;
+        private System.Windows.Forms.Label label1;
     }
 }

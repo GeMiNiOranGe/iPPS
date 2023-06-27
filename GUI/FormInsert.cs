@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
@@ -12,6 +13,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.LinkLabel;
 
 namespace GUI
 {
@@ -187,8 +189,10 @@ namespace GUI
                 else
                 {
                     sqlCommand = new SqlCommand("INSERT INTO DOCUMENT (ID, JOB_ID, PACKAGE, WORK_ITEM, TYPE, PARTNER_CODE, REVISION_NUMBER, LASTEST_REVISION, DATE, ISSUE_PURPOSE, PREPARED_BY, CHECKED_BY, APPROVED_BY, ACTION, SUPPORT, REFERRENCE, TO_COMPANY, ISSUSED_ON, ISSUSED_VIA, TITLE) VALUES ('" + lbIDDoc.Text + "', '" + lbIDJob.Text + "', '" + cbPackage.Text + "', '" + txtWork_Item.Text + "', '" + cbType.Text + "', '" + cbPartner_Code.Text + "', '" + cbRevision_Number.Text + "', '" + cbLastest_Revision.Text + "', '" + dateDate.Text + "', '" + cbIssue_Purpose.Text + "', '" + txtPrepared_By.Text + "', '" + txtChecked_By.Text + "', '" + txtApproved_By.Text + "', '" + cbAction.Text + "', '" + cbSupport.Text + "', '" + cbReference.Text + "', '" + txtTo_Company.Text + "', '" + dateIssused_On.Text + "', '" + txtIssused_Via.Text + "', N'" + txtTitle.Text + "')", sqlConnection);
-                    MessageBox.Show("Thêm tài liệu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     sqlCommand.ExecuteNonQuery();
+                    sqlConnection.Close();
+                    SaveFile(txtLink.Text);
+                    MessageBox.Show("Thêm tài liệu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else
@@ -196,10 +200,35 @@ namespace GUI
                 sqlCommand = new SqlCommand("UPDATE DOCUMENT SET JOB_ID='" + lbIDJob.Text + "', PACKAGE='" + cbPackage.Text + "', WORK_ITEM='" + txtWork_Item.Text + "', TYPE='" + cbType.Text + "', PARTNER_CODE='" + cbPartner_Code.Text + "', REVISION_NUMBER='" + cbRevision_Number.Text + "', LASTEST_REVISION='" + cbLastest_Revision.Text + "', DATE='" + dateDate.Text + "', ISSUE_PURPOSE='" + cbIssue_Purpose.Text + "', PREPARED_BY='" + txtPrepared_By.Text + "', CHECKED_BY='" + txtChecked_By.Text + "', APPROVED_BY='" + txtApproved_By.Text + "', ACTION='" + cbAction.Text + "', SUPPORT='" + cbSupport.Text + "', REFERRENCE='" + cbReference.Text + "', TO_COMPANY='" + txtTo_Company.Text + "', ISSUSED_ON='" + dateIssused_On.Text + "', ISSUSED_VIA='" + txtIssused_Via.Text + "', TITLE=N'" + txtTitle.Text + "' where ID='" + lbIDDoc.Text + "'", sqlConnection);
                 MessageBox.Show("Cập nhật tài liệu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 sqlCommand.ExecuteNonQuery();
+                sqlConnection.Close();
+            }
+        }
+
+        private void btnBroser_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.ShowDialog();
+            txtLink.Text = openFileDialog.FileName;
+        }
+        public void SaveFile(string fileName)
+        {
+            sqlConnection.Open();
+            using(Stream stream = File.OpenRead(fileName))
+            {
+                byte[] buffer = new byte[stream.Length];
+                stream.Read(buffer, 0, buffer.Length);
+                string name = new FileInfo(fileName).Name;
+                string extension = new FileInfo(fileName).Extension;
+                using (sqlCommand = new SqlCommand("INSERT INTO DOCUMENT_NATIVE_FILE_FORMAT(ID, NAME, NATIVE_FILE_FORMAT, LINK) VALUES(@ID, @NAME, @NATIVE_FILE_FORMAT, @LINK)", sqlConnection))
+                {
+                    sqlCommand.Parameters.AddWithValue("@ID", lbIDDoc.Text);
+                    sqlCommand.Parameters.AddWithValue("@NAME", SqlDbType.VarChar).Value = name;
+                    sqlCommand.Parameters.AddWithValue("@NATIVE_FILE_FORMAT", SqlDbType.Char).Value = extension;
+                    sqlCommand.Parameters.AddWithValue("@LINK", SqlDbType.VarBinary).Value = buffer;
+                    sqlCommand.ExecuteNonQuery();
+                }
             }
             sqlConnection.Close();
         }
-
-        
     }
 }

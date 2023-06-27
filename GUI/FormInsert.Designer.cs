@@ -77,11 +77,17 @@
             this.cbNameJob = new System.Windows.Forms.ComboBox();
             this.txtWork_Item = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.txtLink = new System.Windows.Forms.TextBox();
+            this.btnBroser = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnBroser);
+            this.panel1.Controls.Add(this.label25);
+            this.panel1.Controls.Add(this.txtLink);
             this.panel1.Controls.Add(this.label24);
             this.panel1.Controls.Add(this.cbIssue_Purpose);
             this.panel1.Controls.Add(this.lbIDJob);
@@ -227,7 +233,7 @@
             // 
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnSave.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(266, 1239);
+            this.btnSave.Location = new System.Drawing.Point(510, 1281);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(117, 66);
             this.btnSave.TabIndex = 172;
@@ -688,6 +694,37 @@
             this.label21.TabIndex = 131;
             this.label21.Text = "Mã đối tác";
             // 
+            // label25
+            // 
+            this.label25.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.Color.White;
+            this.label25.Location = new System.Drawing.Point(42, 1242);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(39, 21);
+            this.label25.TabIndex = 183;
+            this.label25.Text = "Link";
+            // 
+            // txtLink
+            // 
+            this.txtLink.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtLink.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLink.Location = new System.Drawing.Point(90, 1240);
+            this.txtLink.Name = "txtLink";
+            this.txtLink.Size = new System.Drawing.Size(279, 28);
+            this.txtLink.TabIndex = 184;
+            // 
+            // btnBroser
+            // 
+            this.btnBroser.Location = new System.Drawing.Point(389, 1244);
+            this.btnBroser.Name = "btnBroser";
+            this.btnBroser.Size = new System.Drawing.Size(75, 23);
+            this.btnBroser.TabIndex = 185;
+            this.btnBroser.Text = "Broser";
+            this.btnBroser.UseVisualStyleBackColor = true;
+            this.btnBroser.Click += new System.EventHandler(this.btnBroser_Click);
+            // 
             // FormInsert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -756,5 +793,8 @@
         private System.Windows.Forms.Label lbIDDoc;
         private System.Windows.Forms.ComboBox cbIssue_Purpose;
         private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Button btnBroser;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox txtLink;
     }
 }
