@@ -48,8 +48,9 @@ namespace GUI
         {
             DataGridViewRow dataGridViewRow = new DataGridViewRow();
             dataGridViewRow = dgvDocument.Rows[e.RowIndex];
-            lbIDDoc.Text = Convert.ToString(dataGridViewRow.Cells[0].Value);
-            label1.Text = Convert.ToString(dataGridViewRow.Cells[21].Value);
+            txtIDDoc.Text = Convert.ToString(dataGridViewRow.Cells[0].Value);
+            txtIDJob.Text = Convert.ToString(dataGridViewRow.Cells[1].Value);
+            txtTypeFile.Text = Convert.ToString(dataGridViewRow.Cells[21].Value);
         }
         private void btnInsert_Click(object sender, EventArgs e)
         {
@@ -59,14 +60,20 @@ namespace GUI
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            sqlConnection.Open();
-            if (lbIDDoc.Text != "label1")
+            if (!(string.IsNullOrEmpty(txtIDDoc.Text)))
             {
                 if (MessageBox.Show("Bạn có chắc muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    sqlCommand = new SqlCommand("DELETE DOCUMENT WHERE ID='" + lbIDDoc.Text + "'", sqlConnection);
+                    sqlConnection.Open();
+                    sqlCommand = new SqlCommand("DELETE DOCUMENT_NATIVE_FILE_FORMAT WHERE ID='" + txtIDDoc.Text + "'", sqlConnection);
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnection.Close();
+
+                    sqlConnection.Open();
+                    sqlCommand = new SqlCommand("DELETE DOCUMENT WHERE ID='" + txtIDDoc.Text + "'", sqlConnection);
                     MessageBox.Show("Xóa tài liệu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     sqlCommand.ExecuteNonQuery();
+                    sqlConnection.Close();
                     dataDocument();
                 }
             }
@@ -74,7 +81,6 @@ namespace GUI
             {
                 MessageBox.Show("Vui chọn tài liệu để xoá", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            sqlConnection.Close();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -124,10 +130,9 @@ namespace GUI
                 dgvDocument.DataSource = dataTable;
                 txtSearch.Clear();
             }
-            else if(radioLASTEST_REVISION.Checked == true)
+            else if(radioIDJob.Checked == true)
             {
-                txtSearch.Text = "Latest";
-                sqlCommand = new SqlCommand("SELECT ID,JOB_ID,PACKAGE,WORK_ITEM,TYPE,PARTNER_CODE,REVISION_NUMBER,LASTEST_REVISION,DATE,ISSUE_PURPOSE,PREPARED_BY,CHECKED_BY,APPROVED_BY,ACTION,SUPPORT,REFERRENCE,TO_COMPANY,ISSUSED_ON,ISSUSED_VIA,TITLE FROM DOCUMENT WHERE LASTEST_REVISION LIKE '%" + txtSearch.Text + "%'", sqlConnection);
+                sqlCommand = new SqlCommand("SELECT ID,JOB_ID,PACKAGE,WORK_ITEM,TYPE,PARTNER_CODE,REVISION_NUMBER,LASTEST_REVISION,DATE,ISSUE_PURPOSE,PREPARED_BY,CHECKED_BY,APPROVED_BY,ACTION,SUPPORT,REFERRENCE,TO_COMPANY,ISSUSED_ON,ISSUSED_VIA,TITLE FROM DOCUMENT WHERE JOB_ID LIKE '%" + txtSearch.Text + "%'", sqlConnection);
                 sqlDataAdapter = new SqlDataAdapter(sqlCommand);
                 dataTable = new DataTable();
                 sqlDataAdapter.Fill(dataTable);
@@ -144,7 +149,7 @@ namespace GUI
 
         private void btnOpenFile_Click(object sender, EventArgs e)
         {
-            string id = lbIDDoc.Text;
+            string id = txtIDDoc.Text;
             OpenFile(id);
         }
         public void OpenFile(string id)
@@ -169,7 +174,7 @@ namespace GUI
 
         private void btnDownload_Click(object sender, EventArgs e)
         {
-            using (SaveFileDialog saveFileDialog = new SaveFileDialog() { Filter = "Text DOCUMENT_NATIVE_FILE_FORMAT ('"+label1.Text+ "') | *'"+label1.Text+"'", ValidateNames = true })
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog() { Filter = "Text DOCUMENT_NATIVE_FILE_FORMAT ('"+txtTypeFile.Text+ "') | *'"+ txtTypeFile.Text +"'", ValidateNames = true })
             {
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -186,7 +191,7 @@ namespace GUI
         {
             sqlConnection.Open();
             bool bFlag = false;
-            using (sqlCommand = new SqlCommand("select LINK from  DOCUMENT_NATIVE_FILE_FORMAT where ID='" + lbIDDoc.Text + "'", sqlConnection))
+            using (sqlCommand = new SqlCommand("select LINK from  DOCUMENT_NATIVE_FILE_FORMAT where ID='" + txtIDDoc.Text + "'", sqlConnection))
             {
                 using (sqlDataReader = sqlCommand.ExecuteReader(CommandBehavior.Default))
                 {
@@ -211,6 +216,28 @@ namespace GUI
                 }
             }
             sqlConnection.Close();
+        }
+
+        private void txtIDDoc_TextChanged(object sender, EventArgs e)
+        {
+            sqlConnection.Open();
+            sqlCommand = new SqlCommand("SELECT JOB.NAME FROM JOB,DOCUMENT WHERE JOB.ID=JOB_ID AND DOCUMENT.ID like '" + txtIDDoc.Text + "' ", sqlConnection);
+            txtNameJob.Text = Convert.ToString(sqlCommand.ExecuteScalar());
+            sqlConnection.Close();
+        }
+
+        private void txtIDJob_TextChanged(object sender, EventArgs e)
+        {
+            sqlConnection.Open();
+            sqlCommand = new SqlCommand("SELECT PROJECT.ID FROM JOB,PROJECT WHERE PROJECT.ID=JOB.PROJECT_ID AND JOB.ID like '" + txtIDJob.Text + "' ", sqlConnection);
+            txtIDPro.Text = Convert.ToString(sqlCommand.ExecuteScalar());
+            sqlConnection.Close();
+            
+            sqlConnection.Open();
+            sqlCommand = new SqlCommand("SELECT PROJECT.NAME FROM JOB,PROJECT WHERE PROJECT.ID=JOB.PROJECT_ID AND JOB.ID like '" + txtIDJob.Text + "' ", sqlConnection);
+            txtNameProject.Text = Convert.ToString(sqlCommand.ExecuteScalar());
+            sqlConnection.Close();
+            
         }
     }
 }

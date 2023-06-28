@@ -179,7 +179,6 @@ namespace GUI
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            sqlConnection.Open();
             if (label24.Text == "1")
             {
                 if ((string.IsNullOrEmpty(cbNameProject.Text)) || (string.IsNullOrEmpty(cbPackage.Text)) || (string.IsNullOrEmpty(txtWork_Item.Text)) || (string.IsNullOrEmpty(cbType.Text)) || (string.IsNullOrEmpty(cbPartner_Code.Text)) || (string.IsNullOrEmpty(cbRevision_Number.Text)) || (string.IsNullOrEmpty(cbIssue_Purpose.Text)))
@@ -188,19 +187,42 @@ namespace GUI
                 }
                 else
                 {
+                    sqlConnection.Open();
                     sqlCommand = new SqlCommand("INSERT INTO DOCUMENT (ID, JOB_ID, PACKAGE, WORK_ITEM, TYPE, PARTNER_CODE, REVISION_NUMBER, LASTEST_REVISION, DATE, ISSUE_PURPOSE, PREPARED_BY, CHECKED_BY, APPROVED_BY, ACTION, SUPPORT, REFERRENCE, TO_COMPANY, ISSUSED_ON, ISSUSED_VIA, TITLE) VALUES ('" + lbIDDoc.Text + "', '" + lbIDJob.Text + "', '" + cbPackage.Text + "', '" + txtWork_Item.Text + "', '" + cbType.Text + "', '" + cbPartner_Code.Text + "', '" + cbRevision_Number.Text + "', '" + cbLastest_Revision.Text + "', '" + dateDate.Text + "', '" + cbIssue_Purpose.Text + "', '" + txtPrepared_By.Text + "', '" + txtChecked_By.Text + "', '" + txtApproved_By.Text + "', '" + cbAction.Text + "', '" + cbSupport.Text + "', '" + cbReference.Text + "', '" + txtTo_Company.Text + "', '" + dateIssused_On.Text + "', '" + txtIssused_Via.Text + "', N'" + txtTitle.Text + "')", sqlConnection);
                     sqlCommand.ExecuteNonQuery();
                     sqlConnection.Close();
-                    SaveFile(txtLink.Text);
+
+                    if (!(string.IsNullOrEmpty(txtLink.Text))) {
+                        SaveFile(txtLink.Text);
+                    }
+                    else
+                    {
+                        sqlConnection.Open();
+                        sqlCommand = new SqlCommand("INSERT INTO DOCUMENT_NATIVE_FILE_FORMAT VALUES ('" + lbIDDoc.Text + "', null, null, null)", sqlConnection);
+                        sqlCommand.ExecuteNonQuery();
+                        sqlConnection.Close();
+                    }
+
                     MessageBox.Show("Thêm tài liệu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else
             {
+                sqlConnection.Open();
                 sqlCommand = new SqlCommand("UPDATE DOCUMENT SET JOB_ID='" + lbIDJob.Text + "', PACKAGE='" + cbPackage.Text + "', WORK_ITEM='" + txtWork_Item.Text + "', TYPE='" + cbType.Text + "', PARTNER_CODE='" + cbPartner_Code.Text + "', REVISION_NUMBER='" + cbRevision_Number.Text + "', LASTEST_REVISION='" + cbLastest_Revision.Text + "', DATE='" + dateDate.Text + "', ISSUE_PURPOSE='" + cbIssue_Purpose.Text + "', PREPARED_BY='" + txtPrepared_By.Text + "', CHECKED_BY='" + txtChecked_By.Text + "', APPROVED_BY='" + txtApproved_By.Text + "', ACTION='" + cbAction.Text + "', SUPPORT='" + cbSupport.Text + "', REFERRENCE='" + cbReference.Text + "', TO_COMPANY='" + txtTo_Company.Text + "', ISSUSED_ON='" + dateIssused_On.Text + "', ISSUSED_VIA='" + txtIssused_Via.Text + "', TITLE=N'" + txtTitle.Text + "' where ID='" + lbIDDoc.Text + "'", sqlConnection);
                 MessageBox.Show("Cập nhật tài liệu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 sqlCommand.ExecuteNonQuery();
                 sqlConnection.Close();
+
+                if (!(string.IsNullOrEmpty(txtLink.Text)))
+                {
+                    sqlConnection.Open();
+                    sqlCommand = new SqlCommand("DELETE DOCUMENT_NATIVE_FILE_FORMAT WHERE ID='" + lbIDDoc.Text + "'", sqlConnection);
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnection.Close();
+
+                    SaveFile(txtLink.Text);
+                }
             }
         }
 
