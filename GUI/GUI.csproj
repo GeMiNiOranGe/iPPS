@@ -52,11 +52,11 @@
     <Compile Include="AdminProjects.Designer.cs">
       <DependentUpon>AdminProjects.cs</DependentUpon>
     </Compile>
-    <Compile Include="ControlEmployee.cs">
+    <Compile Include="UCManagerItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ControlEmployee.Designer.cs">
-      <DependentUpon>ControlEmployee.cs</DependentUpon>
+    <Compile Include="UCManagerItem.Designer.cs">
+      <DependentUpon>UCManagerItem.cs</DependentUpon>
     </Compile>
     <Compile Include="UCProjectItem.cs">
       <SubType>UserControl</SubType>
@@ -70,11 +70,11 @@
     <Compile Include="ControlWorkOfEmployee.Designer.cs">
       <DependentUpon>ControlWorkOfEmployee.cs</DependentUpon>
     </Compile>
-    <Compile Include="ControlWorkOfProject.cs">
+    <Compile Include="UCJobItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ControlWorkOfProject.Designer.cs">
-      <DependentUpon>ControlWorkOfProject.cs</DependentUpon>
+    <Compile Include="UCJobItem.Designer.cs">
+      <DependentUpon>UCJobItem.cs</DependentUpon>
     </Compile>
     <Compile Include="FormProgress.cs">
       <SubType>Form</SubType>
@@ -149,8 +149,8 @@
     <EmbeddedResource Include="AdminProjects.resx">
       <DependentUpon>AdminProjects.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ControlEmployee.resx">
-      <DependentUpon>ControlEmployee.cs</DependentUpon>
+    <EmbeddedResource Include="UCManagerItem.resx">
+      <DependentUpon>UCManagerItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCProjectItem.resx">
       <DependentUpon>UCProjectItem.cs</DependentUpon>
@@ -158,8 +158,8 @@
     <EmbeddedResource Include="ControlWorkOfEmployee.resx">
       <DependentUpon>ControlWorkOfEmployee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ControlWorkOfProject.resx">
-      <DependentUpon>ControlWorkOfProject.cs</DependentUpon>
+    <EmbeddedResource Include="UCJobItem.resx">
+      <DependentUpon>UCJobItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormProgress.resx">
       <DependentUpon>FormProgress.cs</DependentUpon>

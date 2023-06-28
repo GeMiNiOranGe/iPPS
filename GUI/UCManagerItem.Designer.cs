@@ -1,7 +1,7 @@
 ﻿
 namespace GUI
 {
-    partial class ControlEmployee
+    partial class UCManagerItem
     {
         /// <summary> 
         /// Required designer variable.
@@ -36,32 +36,35 @@ namespace GUI
             // lblIdEmployee
             // 
             this.lblIdEmployee.AutoSize = true;
-            this.lblIdEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdEmployee.Location = new System.Drawing.Point(32, 19);
+            this.lblIdEmployee.Location = new System.Drawing.Point(8, 8);
+            this.lblIdEmployee.Margin = new System.Windows.Forms.Padding(8, 8, 8, 5);
             this.lblIdEmployee.Name = "lblIdEmployee";
-            this.lblIdEmployee.Size = new System.Drawing.Size(136, 24);
+            this.lblIdEmployee.Size = new System.Drawing.Size(97, 20);
             this.lblIdEmployee.TabIndex = 0;
             this.lblIdEmployee.Text = "Mã nhân viên";
             // 
             // lblNameEmployee
             // 
             this.lblNameEmployee.AutoSize = true;
-            this.lblNameEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNameEmployee.Location = new System.Drawing.Point(32, 43);
+            this.lblNameEmployee.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNameEmployee.Location = new System.Drawing.Point(8, 33);
+            this.lblNameEmployee.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNameEmployee.Name = "lblNameEmployee";
-            this.lblNameEmployee.Size = new System.Drawing.Size(132, 24);
+            this.lblNameEmployee.Size = new System.Drawing.Size(150, 30);
             this.lblNameEmployee.TabIndex = 1;
             this.lblNameEmployee.Text = "Tên nhân viên";
             // 
-            // ControlEmployee
+            // UCManagerItem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.Controls.Add(this.lblNameEmployee);
             this.Controls.Add(this.lblIdEmployee);
-            this.Name = "ControlEmployee";
-            this.Size = new System.Drawing.Size(353, 84);
+            this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Name = "UCManagerItem";
+            this.Size = new System.Drawing.Size(471, 85);
             this.ResumeLayout(false);
             this.PerformLayout();
 

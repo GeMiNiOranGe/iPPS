@@ -62,7 +62,7 @@ namespace GUI {
                 ProjectId = Id,
                 ProjectName = Name
             };
-            formJobDetail.Show();
+            formJobDetail.ShowDialog();
         }
     }
 }
