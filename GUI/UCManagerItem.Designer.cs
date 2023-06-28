@@ -29,38 +29,38 @@ namespace GUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblIdEmployee = new System.Windows.Forms.Label();
-            this.lblNameEmployee = new System.Windows.Forms.Label();
+            this.lbManagerId = new System.Windows.Forms.Label();
+            this.lbManagerName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // lblIdEmployee
+            // lbManagerId
             // 
-            this.lblIdEmployee.AutoSize = true;
-            this.lblIdEmployee.Location = new System.Drawing.Point(8, 8);
-            this.lblIdEmployee.Margin = new System.Windows.Forms.Padding(8, 8, 8, 5);
-            this.lblIdEmployee.Name = "lblIdEmployee";
-            this.lblIdEmployee.Size = new System.Drawing.Size(97, 20);
-            this.lblIdEmployee.TabIndex = 0;
-            this.lblIdEmployee.Text = "Mã nhân viên";
+            this.lbManagerId.AutoSize = true;
+            this.lbManagerId.Location = new System.Drawing.Point(8, 8);
+            this.lbManagerId.Margin = new System.Windows.Forms.Padding(8, 8, 8, 5);
+            this.lbManagerId.Name = "lbManagerId";
+            this.lbManagerId.Size = new System.Drawing.Size(125, 20);
+            this.lbManagerId.TabIndex = 0;
+            this.lbManagerId.Text = "Mã người quản lý";
             // 
-            // lblNameEmployee
+            // lbManagerName
             // 
-            this.lblNameEmployee.AutoSize = true;
-            this.lblNameEmployee.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNameEmployee.Location = new System.Drawing.Point(8, 33);
-            this.lblNameEmployee.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblNameEmployee.Name = "lblNameEmployee";
-            this.lblNameEmployee.Size = new System.Drawing.Size(150, 30);
-            this.lblNameEmployee.TabIndex = 1;
-            this.lblNameEmployee.Text = "Tên nhân viên";
+            this.lbManagerName.AutoSize = true;
+            this.lbManagerName.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbManagerName.Location = new System.Drawing.Point(8, 33);
+            this.lbManagerName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbManagerName.Name = "lbManagerName";
+            this.lbManagerName.Size = new System.Drawing.Size(191, 30);
+            this.lbManagerName.TabIndex = 1;
+            this.lbManagerName.Text = "Tên người quản lý";
             // 
             // UCManagerItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.Controls.Add(this.lblNameEmployee);
-            this.Controls.Add(this.lblIdEmployee);
+            this.Controls.Add(this.lbManagerName);
+            this.Controls.Add(this.lbManagerId);
             this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "UCManagerItem";
@@ -72,7 +72,7 @@ namespace GUI
 
         #endregion
 
-        private System.Windows.Forms.Label lblIdEmployee;
-        private System.Windows.Forms.Label lblNameEmployee;
+        private System.Windows.Forms.Label lbManagerId;
+        private System.Windows.Forms.Label lbManagerName;
     }
 }

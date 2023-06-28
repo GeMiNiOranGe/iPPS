@@ -64,11 +64,11 @@
     <Compile Include="UCProjectItem.Designer.cs">
       <DependentUpon>UCProjectItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="ControlWorkOfEmployee.cs">
+    <Compile Include="UCJobOfEmployee.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ControlWorkOfEmployee.Designer.cs">
-      <DependentUpon>ControlWorkOfEmployee.cs</DependentUpon>
+    <Compile Include="UCJobOfEmployee.Designer.cs">
+      <DependentUpon>UCJobOfEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="UCJobItem.cs">
       <SubType>UserControl</SubType>
@@ -155,8 +155,8 @@
     <EmbeddedResource Include="UCProjectItem.resx">
       <DependentUpon>UCProjectItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ControlWorkOfEmployee.resx">
-      <DependentUpon>ControlWorkOfEmployee.cs</DependentUpon>
+    <EmbeddedResource Include="UCJobOfEmployee.resx">
+      <DependentUpon>UCJobOfEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCJobItem.resx">
       <DependentUpon>UCJobItem.cs</DependentUpon>

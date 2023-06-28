@@ -16,14 +16,14 @@ namespace GUI {
 
         [Category("Custom Props")]
         public string Id {
-            get => lblIdEmployee.Text;
-            set => lblIdEmployee.Text = value;
+            get => lbManagerId.Text;
+            set => lbManagerId.Text = value;
         }
 
         [Category("Custom Props")]
         public new string Name {
-            get => lblNameEmployee.Text;
-            set => lblNameEmployee.Text = value;
+            get => lbManagerName.Text;
+            set => lbManagerName.Text = value;
         }
     }
 }

@@ -22,8 +22,8 @@ namespace GUI {
             set => pnlManager = value;
         }
 
-        public Panel PanelJobOfEmployee { 
-            get => pnlJobOfEmployee; 
+        public Panel PanelJobOfEmployee {
+            get => pnlJobOfEmployee;
             set => pnlJobOfEmployee = value;
         }
 
@@ -45,18 +45,22 @@ namespace GUI {
             set => lbJobPercent.Text = value;
         }
 
-        public void RetrieveInfomation(string strId, ref Panel pnlManager, ref Panel pnlJobOfEmployee) {
-            pnlManager.Controls.Clear();
-            var dataTable = BLL.CJobBLL.Instance.GetManager(strId);
+        public void RetrieveInfomation(string strJobId, ref Panel pnlManager, ref Panel pnlJobOfEmployee) {
+            if (pnlManager.Controls.Count > 0) pnlManager.Controls.Clear();
+            if (pnlJobOfEmployee.Controls.Count > 0) pnlJobOfEmployee.Controls.Clear();
 
-            if (dataTable != null && dataTable.Rows.Count > 0) {
-                foreach (DataRow row in dataTable.Rows) {
+            string managerTempId = null;
+
+            var dtManager = BLL.CJobBLL.Instance.GetManager(strJobId);
+
+            if (dtManager != null && dtManager.Rows.Count > 0) {
+                foreach (DataRow row in dtManager.Rows) {
                     var managerItem = new UCManagerItem {
                         Id = row["EMPLOYEE_ID"].ToString(),
                         Name = row["EMPLOYEE_FULLNAME"].ToString()
                     };
 
-                    strId = managerItem.Id;
+                    managerTempId = managerItem.Id;
 
                     managerItem.Size = new Size() {
                         Width = pnlManager.Size.Width,
@@ -66,24 +70,24 @@ namespace GUI {
                 }
             }
 
-            pnlJobOfEmployee.Controls.Clear();
-            DataTable dt2 = BLL.CJobBLL.Instance.GetAllByEmployee(strId);
-            if (dt2 != null && dt2.Rows.Count > 0) {
-                foreach (DataRow row in dt2.Rows) {
-                    var listItems = new ControlWorkOfEmployee {
-                        Maduan = row["PROJECT_ID"].ToString(),
-                        Macongviec = row["JOB_ID"].ToString(),
-                        Tencongviec = row["JOB_NAME"].ToString()
+            var dtJobsByProject = BLL.CJobBLL.Instance.GetAllByEmployee(managerTempId);
+
+            if (dtJobsByProject != null && dtJobsByProject.Rows.Count > 0) {
+                foreach (DataRow row in dtJobsByProject.Rows) {
+                    var jobOfEmployeeItem = new UCJobOfEmployee {
+                        ProjectId = row["PROJECT_ID"].ToString(),
+                        JobId = row["JOB_ID"].ToString(),
+                        JobName = row["JOB_NAME"].ToString()
                     };
 
                     if (row["JOB_STATUS"].ToString() == "0")
-                        listItems.Tilecongviec = "80%";
+                        jobOfEmployeeItem.JobPercent = "80%";
                     else if (row["JOB_STATUS"].ToString() == "1")
-                        listItems.Tilecongviec = "50%";
+                        jobOfEmployeeItem.JobPercent = "50%";
                     else
-                        listItems.Tilecongviec = "0%";
+                        jobOfEmployeeItem.JobPercent = "0%";
 
-                    pnlJobOfEmployee.Controls.Add(listItems);
+                    pnlJobOfEmployee.Controls.Add(jobOfEmployeeItem);
                 }
             }
         }

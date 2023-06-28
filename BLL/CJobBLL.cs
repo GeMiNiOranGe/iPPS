@@ -22,8 +22,8 @@ namespace BLL {
             return DAL.CJobDAL.Instance.GetAllByEmployee(strEmployeeId);
         }
         
-        public DataTable GetManager(string strEmployeeId) {
-            return DAL.CJobDAL.Instance.GetManager(strEmployeeId);
+        public DataTable GetManager(string strJobId) {
+            return DAL.CJobDAL.Instance.GetManager(strJobId);
         }
     }
 }
