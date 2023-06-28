@@ -49,8 +49,7 @@ namespace GUI {
             pnlManager.Controls.Clear();
             var dataTable = BLL.CJobBLL.Instance.GetManager(strId);
 
-            if (dataTable != null && 
-                dataTable.Rows.Count > 0) {
+            if (dataTable != null && dataTable.Rows.Count > 0) {
                 foreach (DataRow row in dataTable.Rows) {
                     var managerItem = new UCManagerItem {
                         Id = row["EMPLOYEE_ID"].ToString(),
@@ -89,10 +88,7 @@ namespace GUI {
             }
         }
 
-        public static string strManagerId;
-
         private void ControlWorkOfProject_Click(object sender, EventArgs e) {
-            //strManagerId = lbJobId.Text;
             RetrieveInfomation(Id, ref pnlManager, ref pnlJobOfEmployee);
         }
 
