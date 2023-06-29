@@ -94,7 +94,14 @@ namespace GUI
                 {
                     conn.Open();
                     string strIDTask = dgvTasks.Rows[e.RowIndex].Cells[0].Value.ToString();
-                    cmd = new SqlCommand($"DELETE FROM JOB WHERE ID='{strIDTask}'", conn);
+                    cmd = new SqlCommand($"DELETE FROM JOIN_JOB WHERE JOB_ID = '{strIDTask}' --1", conn);
+                    cmd.ExecuteNonQuery();
+                    cmd = new SqlCommand($"DELETE DOCUMENT_NATIVE_FILE_FORMAT " +
+                        $"FROM DOCUMENT_NATIVE_FILE_FORMAT JOIN DOCUMENT ON DOCUMENT_NATIVE_FILE_FORMAT.ID = DOCUMENT.ID WHERE DOCUMENT.JOB_ID = '{strIDTask}'--2", conn);
+                    cmd.ExecuteNonQuery();
+                    cmd = new SqlCommand($"DELETE FROM DOCUMENT WHERE JOB_ID = '{strIDTask}' --3", conn);
+                    cmd.ExecuteNonQuery();
+                    cmd = new SqlCommand($"DELETE FROM JOB WHERE ID='{strIDTask}' --4", conn);
                     cmd.ExecuteNonQuery();
                     conn.Close();
                     MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK);
