@@ -22,7 +22,6 @@ namespace GUI {
 
         public FormMenu() {
             InitializeComponent();
-            UserId = UserId ?? "EMP00001";
         }
 
         private void OpenChildForm(Form childForm) {
