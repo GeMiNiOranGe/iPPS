@@ -163,10 +163,14 @@ namespace GUI
                 {
                     var name = sqlDataReader["NAME"].ToString();
                     var type = sqlDataReader["NATIVE_FILE_FORMAT"].ToString();
-                    var link = (byte[])sqlDataReader["LINK"];
-                    var newFile = name.Replace(type, DateTime.Now.ToString("ddMMyyyyhhmmss")) + type;
-                    File.WriteAllBytes(newFile, link);
-                    System.Diagnostics.Process.Start(newFile);
+                    if (!Convert.IsDBNull(sqlDataReader["LINK"])) {
+                        var link = (byte[])sqlDataReader["LINK"];
+                        var newFile = name.Replace(type, DateTime.Now.ToString("ddMMyyyyhhmmss")) + type;
+                        File.WriteAllBytes(newFile, link);
+                        System.Diagnostics.Process.Start(newFile);
+                    }
+                    else
+                        MessageBox.Show("Không có Data", "Thông báo", MessageBoxButtons.OK);
                 }
             }
             sqlConnection.Close();
