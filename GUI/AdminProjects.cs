@@ -101,7 +101,20 @@ namespace GUI
                     cmd2 = new SqlCommand($"DELETE FROM IMPLEMENT_PROJECT WHERE PROJECT_ID='{strIDProject}'", conn);
                     cmd2.ExecuteNonQuery();
 
-                    cmd = new SqlCommand($"DELETE FROM PROJECT WHERE ID='{strIDProject}'", conn);
+                    cmd = new SqlCommand($"DELETE FROM EMPLOYEE_BELONG_TO_PROJECT WHERE PROJECT_ID = '{strIDProject}'", conn);
+                    cmd.ExecuteNonQuery();
+                    cmd = new SqlCommand($"DELETE JOIN_JOB FROM JOIN_JOB JOIN JOB ON JOIN_JOB.JOB_ID = JOB.ID WHERE JOB.PROJECT_ID = '{strIDProject}'", conn);
+                    cmd.ExecuteNonQuery();
+                    cmd = new SqlCommand($"DELETE DOCUMENT_NATIVE_FILE_FORMAT FROM DOCUMENT JOIN DOCUMENT_NATIVE_FILE_FORMAT ON DOCUMENT.ID = DOCUMENT_NATIVE_FILE_FORMAT.ID", conn);
+                    cmd.ExecuteNonQuery();
+                    cmd = new SqlCommand($"DELETE DOCUMENT FROM DOCUMENT JOIN JOB ON DOCUMENT.JOB_ID = JOB.ID WHERE JOB.PROJECT_ID = '{strIDProject}'", conn);
+                    cmd.ExecuteNonQuery();
+                    cmd = new SqlCommand($"DELETE FROM JOB WHERE PROJECT_ID = '{strIDProject}'", conn);
+                    cmd.ExecuteNonQuery();
+                    //$"DELETE FROM IMPLEMENT_PROJECT WHERE PROJECT_ID = '{strIDProject}'--6" +
+                    cmd = new SqlCommand($"DELETE FROM JOIN_PROJECT WHERE PROJECT_ID = '{strIDProject}'", conn);
+                    cmd.ExecuteNonQuery();
+                    cmd = new SqlCommand($"DELETE FROM PROJECT WHERE ID = '{strIDProject}'", conn);
                     cmd.ExecuteNonQuery();
 
                     conn.Close();
