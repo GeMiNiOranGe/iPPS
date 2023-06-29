@@ -24,28 +24,26 @@ namespace GUI {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.flPnlAllProject = new System.Windows.Forms.FlowLayoutPanel();
+            this.flPnlProjectList = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
-            // flPnlAllProject
+            // flPnlProjectList
             // 
-            this.flPnlAllProject.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flPnlAllProject.Location = new System.Drawing.Point(0, 0);
-            this.flPnlAllProject.Margin = new System.Windows.Forms.Padding(2);
-            this.flPnlAllProject.Name = "flPnlAllProject";
-            this.flPnlAllProject.Padding = new System.Windows.Forms.Padding(12, 12, 12, 0);
-            this.flPnlAllProject.Size = new System.Drawing.Size(800, 450);
-            this.flPnlAllProject.TabIndex = 0;
+            this.flPnlProjectList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.flPnlProjectList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flPnlProjectList.Location = new System.Drawing.Point(0, 0);
+            this.flPnlProjectList.Name = "flPnlProjectList";
+            this.flPnlProjectList.Padding = new System.Windows.Forms.Padding(12);
+            this.flPnlProjectList.Size = new System.Drawing.Size(284, 261);
+            this.flPnlProjectList.TabIndex = 0;
             // 
             // FormProgress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(128)))), ((int)(((byte)(134)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.flPnlAllProject);
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.flPnlProjectList);
             this.Name = "FormProgress";
-            this.Text = "Form1";
             this.Load += new System.EventHandler(this.FormProgress_Load);
             this.ResumeLayout(false);
 
@@ -53,7 +51,7 @@ namespace GUI {
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel flPnlAllProject;
+        private System.Windows.Forms.FlowLayoutPanel flPnlProjectList;
     }
 }
 

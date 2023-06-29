@@ -48,7 +48,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(63)))), ((int)(((byte)(60)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.panel1.Controls.Add(this.txtSearchTask);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.txtSearchProject);
@@ -104,7 +104,7 @@
             // 
             this.dgvTasks.AllowUserToAddRows = false;
             this.dgvTasks.AllowUserToDeleteRows = false;
-            this.dgvTasks.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(128)))), ((int)(((byte)(134)))));
+            this.dgvTasks.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.dgvTasks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTasks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idJob,

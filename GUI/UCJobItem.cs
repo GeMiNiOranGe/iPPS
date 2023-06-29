@@ -10,10 +10,8 @@ using System.Windows.Forms;
 
 namespace GUI {
     public partial class UCJobItem : UserControl {
-        public UCJobItem() {
-            InitializeComponent();
-        }
-
+        #region Properties
+        bool isHover = false;
         private Panel pnlManager;
         private Panel pnlJobOfEmployee;
 
@@ -43,6 +41,11 @@ namespace GUI {
         public string Percent {
             get => lbJobPercent.Text;
             set => lbJobPercent.Text = value;
+        }
+        #endregion
+
+        public UCJobItem() {
+            InitializeComponent();
         }
 
         public void RetrieveInfomation(string strJobId, ref Panel pnlManager, ref Panel pnlJobOfEmployee) {
@@ -92,12 +95,23 @@ namespace GUI {
             }
         }
 
-        private void ControlWorkOfProject_Click(object sender, EventArgs e) {
+        private void UCJobItem_Click(object sender, EventArgs e) {
             RetrieveInfomation(Id, ref pnlManager, ref pnlJobOfEmployee);
         }
 
-        private void ControlWorkOfProject_MouseEnter(object sender, EventArgs e) {
+        private void UCJobItem_MouseEnter(object sender, EventArgs e) {
+            if (isHover == true) return;
+
+            BackColor = Color.FromArgb(22, 22, 22);
             this.Cursor = Cursors.Hand;
+            isHover = true;
+        }
+
+        private void UCJobItem_MouseLeave(object sender, EventArgs e) {
+            if (isHover == false) return;
+
+            BackColor = Color.FromArgb(29, 29, 29);
+            isHover = false;
         }
     }
 }

@@ -45,7 +45,7 @@
             // 
             this.dgvProjects.AllowUserToAddRows = false;
             this.dgvProjects.AllowUserToDeleteRows = false;
-            this.dgvProjects.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(128)))), ((int)(((byte)(134)))));
+            this.dgvProjects.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.dgvProjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProjects.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDProject,

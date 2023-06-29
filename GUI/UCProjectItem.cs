@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GUI {
     public partial class UCProjectItem : UserControl {
+        #region Properties
         bool isHover = false;
 
-        #region Properties
         [Category("Custom Props")]
         public string Id {
             get => lbId.Text;
@@ -45,7 +45,7 @@ namespace GUI {
         private void UCProject_MouseEnter(object sender, EventArgs e) {
             if (isHover == true) return;
 
-            BackColor = Color.FromArgb(224, 229, 222);
+            BackColor = Color.FromArgb(22, 22, 22);
             this.Cursor = Cursors.Hand;
             isHover = true;
         }
@@ -53,7 +53,7 @@ namespace GUI {
         private void UCProject_MouseLeave(object sender, EventArgs e) {
             if (isHover == false) return;
 
-            BackColor = Color.White;
+            BackColor = Color.FromArgb(29, 29, 29);
             isHover = false;
         }
 

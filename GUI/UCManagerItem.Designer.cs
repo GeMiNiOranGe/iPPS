@@ -36,6 +36,7 @@ namespace GUI
             // lbManagerId
             // 
             this.lbManagerId.AutoSize = true;
+            this.lbManagerId.ForeColor = System.Drawing.Color.White;
             this.lbManagerId.Location = new System.Drawing.Point(8, 8);
             this.lbManagerId.Margin = new System.Windows.Forms.Padding(8, 8, 8, 5);
             this.lbManagerId.Name = "lbManagerId";
@@ -47,6 +48,7 @@ namespace GUI
             // 
             this.lbManagerName.AutoSize = true;
             this.lbManagerName.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbManagerName.ForeColor = System.Drawing.Color.White;
             this.lbManagerName.Location = new System.Drawing.Point(8, 33);
             this.lbManagerName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbManagerName.Name = "lbManagerName";
@@ -58,7 +60,7 @@ namespace GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.Controls.Add(this.lbManagerName);
             this.Controls.Add(this.lbManagerId);
             this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

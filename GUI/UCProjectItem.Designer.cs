@@ -40,7 +40,7 @@ namespace GUI
             this.lbPercent.BackColor = System.Drawing.Color.Transparent;
             this.lbPercent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbPercent.Font = new System.Drawing.Font("Segoe UI", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPercent.ForeColor = System.Drawing.Color.DarkTurquoise;
+            this.lbPercent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(130)))), ((int)(((byte)(253)))));
             this.lbPercent.Location = new System.Drawing.Point(0, 40);
             this.lbPercent.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbPercent.Name = "lbPercent";
@@ -57,6 +57,7 @@ namespace GUI
             this.lbName.BackColor = System.Drawing.Color.Transparent;
             this.lbName.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lbName.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbName.ForeColor = System.Drawing.Color.White;
             this.lbName.Location = new System.Drawing.Point(0, 170);
             this.lbName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbName.Name = "lbName";
@@ -73,6 +74,7 @@ namespace GUI
             this.lbId.BackColor = System.Drawing.Color.Transparent;
             this.lbId.Dock = System.Windows.Forms.DockStyle.Top;
             this.lbId.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbId.ForeColor = System.Drawing.Color.White;
             this.lbId.Location = new System.Drawing.Point(0, 0);
             this.lbId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbId.Name = "lbId";
@@ -89,6 +91,7 @@ namespace GUI
             this.lbDepartmentName.BackColor = System.Drawing.Color.Transparent;
             this.lbDepartmentName.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lbDepartmentName.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDepartmentName.ForeColor = System.Drawing.Color.White;
             this.lbDepartmentName.Location = new System.Drawing.Point(0, 210);
             this.lbDepartmentName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbDepartmentName.Name = "lbDepartmentName";
@@ -104,7 +107,7 @@ namespace GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.Controls.Add(this.lbPercent);
             this.Controls.Add(this.lbName);
             this.Controls.Add(this.lbDepartmentName);

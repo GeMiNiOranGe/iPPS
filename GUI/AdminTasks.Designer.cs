@@ -188,7 +188,7 @@
             // dgvTasks
             // 
             this.dgvTasks.AllowUserToAddRows = false;
-            this.dgvTasks.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(128)))), ((int)(((byte)(134)))));
+            this.dgvTasks.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.dgvTasks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTasks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idJob,
@@ -213,7 +213,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(63)))), ((int)(((byte)(60)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.panel2.Controls.Add(this.txtSearchProject);
             this.panel2.Controls.Add(this.txtSearchTask);
             this.panel2.Controls.Add(this.lblSearch);

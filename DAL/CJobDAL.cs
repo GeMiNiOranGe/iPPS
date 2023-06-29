@@ -55,7 +55,7 @@ namespace DAL {
         /// </returns>
         public DataTable GetManager(string strJobId) {
             string strQuery = string.Format(@"
-                SELECT EMPLOYEE.ID EMPLOYEE_ID, FIRST_NAME + ' ' + MIDDLE_NAME + ' ' + LAST_NAME EMPLOYEE_FULLNAME 
+                SELECT EMPLOYEE.ID EMPLOYEE_ID, LAST_NAME + ' ' + MIDDLE_NAME + ' ' + FIRST_NAME EMPLOYEE_FULLNAME 
                 FROM EMPLOYEE, JOB 
                 WHERE EMPLOYEE.ID = JOB.JOB_MANAGER_ID AND JOB.ID = '{0}'
             ", strJobId);

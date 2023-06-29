@@ -19,7 +19,8 @@ namespace GUI {
         }
 
         private void ShowAllProject() {
-            flPnlAllProject.Controls.Clear();
+            if (flPnlProjectList.Controls.Count > 0) flPnlProjectList.Controls.Clear();
+
             var dataTable = BLL.CProjectBLL.Instance.GetProjectList();
 
             if (dataTable != null && dataTable.Rows.Count > 0) {
@@ -37,7 +38,7 @@ namespace GUI {
                     else
                         projectItem.Percent = "100%";
 
-                    flPnlAllProject.Controls.Add(projectItem);
+                    flPnlProjectList.Controls.Add(projectItem);
                 }
             }
         }
