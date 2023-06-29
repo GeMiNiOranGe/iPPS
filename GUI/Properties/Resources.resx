@@ -136,9 +136,6 @@
   <data name="TK" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TK.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="UserWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\UserWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Report" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Report.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -148,8 +145,8 @@
   <data name="NormalScreenCircleFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NormalScreenCircleFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="CloseLockYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CloseLockYellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="insert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\insert.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MinimizeCircleFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MinimizeCircleFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,6 +160,12 @@
   <data name="CloseCircleFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CloseCircleFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="UserWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UserWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AccImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AccImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="CloseLockWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CloseLockWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -172,10 +175,13 @@
   <data name="MK" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MK.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="AccImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AccImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Search" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="insert" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\insert.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CloseLockYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CloseLockYellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="reload" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\reload.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
