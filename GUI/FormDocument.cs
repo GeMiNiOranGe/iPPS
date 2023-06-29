@@ -54,7 +54,7 @@ namespace GUI
         }
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            FormInsert  formInsert = new FormInsert("1");
+            FormInsert  formInsert = new FormInsert("Thêm tài liệu");
             formInsert.ShowDialog();
 ;        }
 
@@ -85,7 +85,7 @@ namespace GUI
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            FormInsert formInsert = new FormInsert("0");
+            FormInsert formInsert = new FormInsert("Sửa tài liệu");
             formInsert.ID = dgvDocument.CurrentRow.Cells[0].Value.ToString();
             formInsert.JOB_ID = dgvDocument.CurrentRow.Cells[1].Value.ToString();
             formInsert.PACKAGE = dgvDocument.CurrentRow.Cells[2].Value.ToString();

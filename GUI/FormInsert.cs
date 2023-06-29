@@ -45,7 +45,7 @@ namespace GUI
             
 
             label24.Text = strNameTitle;
-            if (label24.Text == "1")
+            if (label24.Text == "Thêm tài liệu")
             {
                 IDDocument();
             }
@@ -81,8 +81,8 @@ namespace GUI
         public string TITLE { set; get; }
         public void LoadData()
         {
-            lbIDDoc.Text = ID;
-            lbIDJob.Text = JOB_ID;
+            txtIDDoc.Text = ID;
+            txtIDJob.Text = JOB_ID;
             cbPackage.Text = PACKAGE;
             txtWork_Item.Text = WORK_ITEM;
             cbType.Text = TYPE;
@@ -130,19 +130,19 @@ namespace GUI
             sqlDataReader = sqlCommand.ExecuteReader();
             while (sqlDataReader.Read())
             {
-                lbIDPro.Text = sqlDataReader["ID"].ToString();
+                txtIDPro.Text = sqlDataReader["ID"].ToString();
             }
             sqlConnection.Close();
 
             sqlConnection.Open();
-            sqlDataAdapter = new SqlDataAdapter("select * from JOB where PROJECT_ID='" + lbIDPro.Text + "'", sqlConnection);
+            sqlDataAdapter = new SqlDataAdapter("select * from JOB where PROJECT_ID='" + txtIDPro.Text + "'", sqlConnection);
             dataTable = new DataTable();
             sqlDataAdapter.Fill(dataTable);
             cbNameJob.DisplayMember = "NAME";
             cbNameJob.ValueMember = "ID";
             cbNameJob.DataSource = dataTable;
-            lbIDJob.DataBindings.Clear();
-            lbIDJob.DataBindings.Add("Text", cbNameJob.DataSource, "ID");
+            txtIDJob.DataBindings.Clear();
+            txtIDJob.DataBindings.Add("Text", cbNameJob.DataSource, "ID");
             sqlConnection.Close();
         }
         public void IDDocument()
@@ -157,23 +157,23 @@ namespace GUI
             iIDDoc++;
             if (iIDDoc < 10)
             {
-                lbIDDoc.Text = iID0000 + iIDDoc.ToString();
+                txtIDDoc.Text = iID0000 + iIDDoc.ToString();
             }
             else if(iIDDoc < 100)
             {
-                lbIDDoc.Text = iID000 + iIDDoc.ToString();
+                txtIDDoc.Text = iID000 + iIDDoc.ToString();
             }
             else if (iIDDoc < 1000)
             {
-                lbIDDoc.Text = iID00 + iIDDoc.ToString();
+                txtIDDoc.Text = iID00 + iIDDoc.ToString();
             }
             else if (iIDDoc < 10000)
             {
-                lbIDDoc.Text = iID0 + iIDDoc.ToString();
+                txtIDDoc.Text = iID0 + iIDDoc.ToString();
             }
             else
             {
-                lbIDDoc.Text = iID + iIDDoc.ToString();
+                txtIDDoc.Text = iID + iIDDoc.ToString();
             }
             
         }
@@ -188,7 +188,7 @@ namespace GUI
                 else
                 {
                     sqlConnection.Open();
-                    sqlCommand = new SqlCommand("INSERT INTO DOCUMENT (ID, JOB_ID, PACKAGE, WORK_ITEM, TYPE, PARTNER_CODE, REVISION_NUMBER, LASTEST_REVISION, DATE, ISSUE_PURPOSE, PREPARED_BY, CHECKED_BY, APPROVED_BY, ACTION, SUPPORT, REFERRENCE, TO_COMPANY, ISSUSED_ON, ISSUSED_VIA, TITLE) VALUES ('" + lbIDDoc.Text + "', '" + lbIDJob.Text + "', '" + cbPackage.Text + "', '" + txtWork_Item.Text + "', '" + cbType.Text + "', '" + cbPartner_Code.Text + "', '" + cbRevision_Number.Text + "', '" + cbLastest_Revision.Text + "', '" + dateDate.Text + "', '" + cbIssue_Purpose.Text + "', '" + txtPrepared_By.Text + "', '" + txtChecked_By.Text + "', '" + txtApproved_By.Text + "', '" + cbAction.Text + "', '" + cbSupport.Text + "', '" + cbReference.Text + "', '" + txtTo_Company.Text + "', '" + dateIssused_On.Text + "', '" + txtIssused_Via.Text + "', N'" + txtTitle.Text + "')", sqlConnection);
+                    sqlCommand = new SqlCommand("INSERT INTO DOCUMENT (ID, JOB_ID, PACKAGE, WORK_ITEM, TYPE, PARTNER_CODE, REVISION_NUMBER, LASTEST_REVISION, DATE, ISSUE_PURPOSE, PREPARED_BY, CHECKED_BY, APPROVED_BY, ACTION, SUPPORT, REFERRENCE, TO_COMPANY, ISSUSED_ON, ISSUSED_VIA, TITLE) VALUES ('" + txtIDDoc.Text + "', '" + txtIDJob.Text + "', '" + cbPackage.Text + "', '" + txtWork_Item.Text + "', '" + cbType.Text + "', '" + cbPartner_Code.Text + "', '" + cbRevision_Number.Text + "', '" + cbLastest_Revision.Text + "', '" + dateDate.Text + "', '" + cbIssue_Purpose.Text + "', '" + txtPrepared_By.Text + "', '" + txtChecked_By.Text + "', '" + txtApproved_By.Text + "', '" + cbAction.Text + "', '" + cbSupport.Text + "', '" + cbReference.Text + "', '" + txtTo_Company.Text + "', '" + dateIssused_On.Text + "', '" + txtIssused_Via.Text + "', N'" + txtTitle.Text + "')", sqlConnection);
                     sqlCommand.ExecuteNonQuery();
                     sqlConnection.Close();
 
@@ -198,7 +198,7 @@ namespace GUI
                     else
                     {
                         sqlConnection.Open();
-                        sqlCommand = new SqlCommand("INSERT INTO DOCUMENT_NATIVE_FILE_FORMAT VALUES ('" + lbIDDoc.Text + "', null, null, null)", sqlConnection);
+                        sqlCommand = new SqlCommand("INSERT INTO DOCUMENT_NATIVE_FILE_FORMAT VALUES ('" + txtIDDoc.Text + "', null, null, null)", sqlConnection);
                         sqlCommand.ExecuteNonQuery();
                         sqlConnection.Close();
                     }
@@ -209,7 +209,7 @@ namespace GUI
             else
             {
                 sqlConnection.Open();
-                sqlCommand = new SqlCommand("UPDATE DOCUMENT SET JOB_ID='" + lbIDJob.Text + "', PACKAGE='" + cbPackage.Text + "', WORK_ITEM='" + txtWork_Item.Text + "', TYPE='" + cbType.Text + "', PARTNER_CODE='" + cbPartner_Code.Text + "', REVISION_NUMBER='" + cbRevision_Number.Text + "', LASTEST_REVISION='" + cbLastest_Revision.Text + "', DATE='" + dateDate.Text + "', ISSUE_PURPOSE='" + cbIssue_Purpose.Text + "', PREPARED_BY='" + txtPrepared_By.Text + "', CHECKED_BY='" + txtChecked_By.Text + "', APPROVED_BY='" + txtApproved_By.Text + "', ACTION='" + cbAction.Text + "', SUPPORT='" + cbSupport.Text + "', REFERRENCE='" + cbReference.Text + "', TO_COMPANY='" + txtTo_Company.Text + "', ISSUSED_ON='" + dateIssused_On.Text + "', ISSUSED_VIA='" + txtIssused_Via.Text + "', TITLE=N'" + txtTitle.Text + "' where ID='" + lbIDDoc.Text + "'", sqlConnection);
+                sqlCommand = new SqlCommand("UPDATE DOCUMENT SET JOB_ID='" + txtIDJob.Text + "', PACKAGE='" + cbPackage.Text + "', WORK_ITEM='" + txtWork_Item.Text + "', TYPE='" + cbType.Text + "', PARTNER_CODE='" + cbPartner_Code.Text + "', REVISION_NUMBER='" + cbRevision_Number.Text + "', LASTEST_REVISION='" + cbLastest_Revision.Text + "', DATE='" + dateDate.Text + "', ISSUE_PURPOSE='" + cbIssue_Purpose.Text + "', PREPARED_BY='" + txtPrepared_By.Text + "', CHECKED_BY='" + txtChecked_By.Text + "', APPROVED_BY='" + txtApproved_By.Text + "', ACTION='" + cbAction.Text + "', SUPPORT='" + cbSupport.Text + "', REFERRENCE='" + cbReference.Text + "', TO_COMPANY='" + txtTo_Company.Text + "', ISSUSED_ON='" + dateIssused_On.Text + "', ISSUSED_VIA='" + txtIssused_Via.Text + "', TITLE=N'" + txtTitle.Text + "' where ID='" + txtIDDoc.Text + "'", sqlConnection);
                 MessageBox.Show("Cập nhật tài liệu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 sqlCommand.ExecuteNonQuery();
                 sqlConnection.Close();
@@ -217,7 +217,7 @@ namespace GUI
                 if (!(string.IsNullOrEmpty(txtLink.Text)))
                 {
                     sqlConnection.Open();
-                    sqlCommand = new SqlCommand("DELETE DOCUMENT_NATIVE_FILE_FORMAT WHERE ID='" + lbIDDoc.Text + "'", sqlConnection);
+                    sqlCommand = new SqlCommand("DELETE DOCUMENT_NATIVE_FILE_FORMAT WHERE ID='" + txtIDDoc.Text + "'", sqlConnection);
                     sqlCommand.ExecuteNonQuery();
                     sqlConnection.Close();
 
@@ -243,7 +243,7 @@ namespace GUI
                 string extension = new FileInfo(fileName).Extension;
                 using (sqlCommand = new SqlCommand("INSERT INTO DOCUMENT_NATIVE_FILE_FORMAT(ID, NAME, NATIVE_FILE_FORMAT, LINK) VALUES(@ID, @NAME, @NATIVE_FILE_FORMAT, @LINK)", sqlConnection))
                 {
-                    sqlCommand.Parameters.AddWithValue("@ID", lbIDDoc.Text);
+                    sqlCommand.Parameters.AddWithValue("@ID", txtIDDoc.Text);
                     sqlCommand.Parameters.AddWithValue("@NAME", SqlDbType.VarChar).Value = name;
                     sqlCommand.Parameters.AddWithValue("@NATIVE_FILE_FORMAT", SqlDbType.Char).Value = extension;
                     sqlCommand.Parameters.AddWithValue("@LINK", SqlDbType.VarBinary).Value = buffer;
