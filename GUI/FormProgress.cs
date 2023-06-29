@@ -21,7 +21,9 @@ namespace GUI {
         private void ShowAllProject() {
             flPnlAllProject.Controls.Clear();
             var dataTable = BLL.CProjectBLL.Instance.GetProjectList();
-
+            double totalDocument = Convert.ToDouble(BLL.CProgressBLL.getTotalDocument());
+            string projectID;
+            double total = 0;
             if (dataTable != null && dataTable.Rows.Count > 0) {
                 foreach (DataRow row in dataTable.Rows) {
                     var projectItem = new UCProjectItem {
@@ -29,15 +31,18 @@ namespace GUI {
                         Name = row["PROJECT_NAME"].ToString(),
                         DepartmentName = row["DEPARTMENT_NAME"].ToString()
                     };
-
-                    if (row["PROJECT_STATUS"].ToString() == "2")
-                        projectItem.Percent = "0%";
-                    else if (row["PROJECT_STATUS"].ToString() == "1")
-                        projectItem.Percent = "50%";
-                    else
-                        projectItem.Percent = "100%";
-
+                    projectID = projectItem.Id;
+                    var dataTable1 = BLL.CJobBLL.Instance.GetAllFromProject(projectID);
+                    if (dataTable1 != null && dataTable1.Rows.Count > 0)
+                    {
+                        foreach (DataRow row1 in dataTable1.Rows)
+                        {
+                            total += Convert.ToDouble(BLL.CProgressBLL.getTotalDocumentbyJobID(row1["JOB_ID"].ToString()));
+                        }
+                    }
+                    projectItem.Percent = Math.Round((total / totalDocument) * 100, 2).ToString();
                     flPnlAllProject.Controls.Add(projectItem);
+                    total = 0;
                 }
             }
         }
