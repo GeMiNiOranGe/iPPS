@@ -47,9 +47,8 @@
     <Compile Include="CAccountBLL.cs" />
     <Compile Include="CEmployeeInfoBLL.cs" />
     <Compile Include="CProjectBLL.cs" />
-    <Compile Include="BLL_Employee.cs" />
-    <Compile Include="BLL_Job.cs" />
-    <Compile Include="BLL_Project.cs" />
+    <Compile Include="CEmployeeBLL.cs" />
+    <Compile Include="CJobBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

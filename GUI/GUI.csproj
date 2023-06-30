@@ -52,41 +52,41 @@
     <Compile Include="AdminProjects.Designer.cs">
       <DependentUpon>AdminProjects.cs</DependentUpon>
     </Compile>
-    <Compile Include="ControlEmployee.cs">
+    <Compile Include="UCManagerItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ControlEmployee.Designer.cs">
-      <DependentUpon>ControlEmployee.cs</DependentUpon>
+    <Compile Include="UCManagerItem.Designer.cs">
+      <DependentUpon>UCManagerItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="ControlProject.cs">
+    <Compile Include="UCProjectItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ControlProject.Designer.cs">
-      <DependentUpon>ControlProject.cs</DependentUpon>
+    <Compile Include="UCProjectItem.Designer.cs">
+      <DependentUpon>UCProjectItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="ControlWorkOfEmployee.cs">
+    <Compile Include="UCJobOfEmployee.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ControlWorkOfEmployee.Designer.cs">
-      <DependentUpon>ControlWorkOfEmployee.cs</DependentUpon>
+    <Compile Include="UCJobOfEmployee.Designer.cs">
+      <DependentUpon>UCJobOfEmployee.cs</DependentUpon>
     </Compile>
-    <Compile Include="ControlWorkOfProject.cs">
+    <Compile Include="UCJobItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ControlWorkOfProject.Designer.cs">
-      <DependentUpon>ControlWorkOfProject.cs</DependentUpon>
+    <Compile Include="UCJobItem.Designer.cs">
+      <DependentUpon>UCJobItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormStatus.cs">
+    <Compile Include="FormProgress.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormStatus.Designer.cs">
-      <DependentUpon>FormStatus.cs</DependentUpon>
+    <Compile Include="FormProgress.Designer.cs">
+      <DependentUpon>FormProgress.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormWorkOfProject.cs">
+    <Compile Include="FormJobDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormWorkOfProject.Designer.cs">
-      <DependentUpon>FormWorkOfProject.cs</DependentUpon>
+    <Compile Include="FormJobDetail.Designer.cs">
+      <DependentUpon>FormJobDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminProjectsModule.cs">
       <SubType>Form</SubType>
@@ -149,23 +149,23 @@
     <EmbeddedResource Include="AdminProjects.resx">
       <DependentUpon>AdminProjects.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ControlEmployee.resx">
-      <DependentUpon>ControlEmployee.cs</DependentUpon>
+    <EmbeddedResource Include="UCManagerItem.resx">
+      <DependentUpon>UCManagerItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ControlProject.resx">
-      <DependentUpon>ControlProject.cs</DependentUpon>
+    <EmbeddedResource Include="UCProjectItem.resx">
+      <DependentUpon>UCProjectItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ControlWorkOfEmployee.resx">
-      <DependentUpon>ControlWorkOfEmployee.cs</DependentUpon>
+    <EmbeddedResource Include="UCJobOfEmployee.resx">
+      <DependentUpon>UCJobOfEmployee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ControlWorkOfProject.resx">
-      <DependentUpon>ControlWorkOfProject.cs</DependentUpon>
+    <EmbeddedResource Include="UCJobItem.resx">
+      <DependentUpon>UCJobItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormStatus.resx">
-      <DependentUpon>FormStatus.cs</DependentUpon>
+    <EmbeddedResource Include="FormProgress.resx">
+      <DependentUpon>FormProgress.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormWorkOfProject.resx">
-      <DependentUpon>FormWorkOfProject.cs</DependentUpon>
+    <EmbeddedResource Include="FormJobDetail.resx">
+      <DependentUpon>FormJobDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminProjectsModule.resx">
       <DependentUpon>AdminProjectsModule.cs</DependentUpon>

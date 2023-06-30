@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL {
     internal class DataProvider {
@@ -25,9 +20,9 @@ namespace DAL {
         private SqlConnection GetConnection() {
             return new SqlConnection(CONNECTION_STRING);
         }
-        public SqlCommand GetCommand(string query) {
+        public SqlCommand GetCommand(string strQuery) {
             var sqlConnection = GetConnection();
-            return new SqlCommand(query, sqlConnection);
+            return new SqlCommand(strQuery, sqlConnection);
         }
 
         public void OpenConnection(SqlConnection sqlConnection) {
@@ -53,11 +48,11 @@ namespace DAL {
         }
 
 
-        public DataTable ExecuteQuery(string query) {
+        public DataTable ExecuteQuery(string strQuery) {
             var dataTable = new DataTable();
             using (var sqlConnection = GetConnection()) {
                 OpenConnection(sqlConnection);
-                var sqlCommand = new SqlCommand(query, sqlConnection);
+                var sqlCommand = new SqlCommand(strQuery, sqlConnection);
                 var sqlDataAdapter = new SqlDataAdapter(sqlCommand);
 
                 // Fill dataTable with returned query
@@ -69,11 +64,11 @@ namespace DAL {
             return dataTable;
         }
 
-        public int ExecuteNonQuery(string query) {
+        public int ExecuteNonQuery(string strQuery) {
             int iData = 0;
             using (var sqlConnection = GetConnection()) {
                 OpenConnection(sqlConnection);
-                var sqlCommand = new SqlCommand(query, sqlConnection);
+                var sqlCommand = new SqlCommand(strQuery, sqlConnection);
 
                 // Execute CRUD
                 try { iData = sqlCommand.ExecuteNonQuery(); }
@@ -89,16 +84,16 @@ namespace DAL {
         ///     Executes the query, and returns the first column of the first row in the result
         ///     set returned by the query. Additional columns or rows are ignored.
         /// </summary>
-        /// <param name="query"></param>
+        /// <param name="strQuery">query script.</param>
         /// <returns>
         ///     The first column of the first row in the result set, or a null reference (Nothing
         ///     in Visual Basic) if the result set is empty. Returns a maximum of 2033 characters.
         /// </returns>
-        public object ExecuteScalar(string query) {
+        public object ExecuteScalar(string strQuery) {
             object objData = 0;
             using (var sqlConnection = GetConnection()) {
                 OpenConnection(sqlConnection);
-                var sqlCommand = new SqlCommand(query, sqlConnection);
+                var sqlCommand = new SqlCommand(strQuery, sqlConnection);
 
                 // Get data 
                 try { objData = sqlCommand.ExecuteScalar(); }
@@ -109,10 +104,10 @@ namespace DAL {
             return objData;
         }
 
-        //public void ExecuteReader(string query, out SqlDataReader dataReader) {
+        //public void ExecuteReader(string strQuery, out SqlDataReader dataReader) {
         //    using (var sqlConnection = GetConnection()) {
         //        OpenConnection(sqlConnection);
-        //        var sqlCommand = new SqlCommand(query, sqlConnection);
+        //        var sqlCommand = new SqlCommand(strQuery, sqlConnection);
         //        try {
         //            dataReader = sqlCommand.ExecuteReader();
         //        }
