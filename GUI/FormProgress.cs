@@ -21,9 +21,11 @@ namespace GUI {
         private void ShowAllProject() {
             flPnlAllProject.Controls.Clear();
             var dataTable = BLL.CProjectBLL.Instance.GetProjectList();
-            double totalDocument = Convert.ToDouble(BLL.CProgressBLL.getTotalDocument());
             string projectID;
-            double total = 0;
+            double total;
+            double total1;
+            double totalJob = 0;
+            double count = 0;
             if (dataTable != null && dataTable.Rows.Count > 0) {
                 foreach (DataRow row in dataTable.Rows) {
                     var projectItem = new UCProjectItem {
@@ -37,12 +39,25 @@ namespace GUI {
                     {
                         foreach (DataRow row1 in dataTable1.Rows)
                         {
-                            total += Convert.ToDouble(BLL.CProgressBLL.getTotalDocumentbyJobID(row1["JOB_ID"].ToString()));
+                            totalJob += 1;
                         }
                     }
-                    projectItem.Percent = Math.Round((total / totalDocument) * 100, 2).ToString();
+                    if (dataTable1 != null && dataTable1.Rows.Count > 0)
+                    {
+                        foreach (DataRow row1 in dataTable1.Rows)
+                        {
+                            total = Convert.ToDouble(BLL.CProgressBLL.getTotalDocumentbyJobID(row1["JOB_ID"].ToString()));
+                            total1 = Convert.ToDouble(BLL.CProgressBLL.getNumberofDocumentbyJobID(row1["JOB_ID"].ToString()));
+                            if(total == total1)
+                            {
+                                count += 1;
+                            }
+                        }
+                    }
+                    projectItem.Percent = Math.Round((count / totalJob) * 100, 2).ToString() + "%";
                     flPnlAllProject.Controls.Add(projectItem);
-                    total = 0;
+                    totalJob = 0;
+                    count = 0;
                 }
             }
         }

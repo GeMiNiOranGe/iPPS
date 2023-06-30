@@ -18,14 +18,14 @@ namespace DAL
         }
         private CProgressDAL() { }
         #endregion
-        //Đếm tổng tài liệu 
-        public string getTotalDocument()
+        //lấy số lượng tài liệu cần của mỗi công việc
+        public string getNumberofDocumentbyJobID(string jobID)
         {
-            string query = "Select Count(ID) from DOCUMENT";
+            string query = "Select NUMBER_OF_DOCUMENTS from JOB where ID = '" + jobID + "'";
             DataTable result = DataProvider.Instance.ExecuteQuery(query);
             return result.Rows[0][0].ToString();
         }
-        //Đếm tổng tài liệu dựa vào JOB_ID
+        //Đếm số lượng tài liệu đã thêm vào của mỗi công việc
         public string getTotalDocumentbyJobID(string jobID)
         {
             string query = "Select Count(ID) from DOCUMENT where JOB_ID = '" + jobID + "'";

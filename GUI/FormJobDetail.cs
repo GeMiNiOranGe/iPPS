@@ -34,15 +34,9 @@ namespace GUI {
 
         private void ShowJobsFromProject(string strProjectId) {
             flPnlListJob.Controls.Clear();
-            double total = 0;
             var dataTable = BLL.CJobBLL.Instance.GetAllFromProject(strProjectId);
-            if (dataTable != null && dataTable.Rows.Count > 0)
-            {
-                foreach (DataRow row1 in dataTable.Rows)
-                {
-                    total += Convert.ToDouble(BLL.CProgressBLL.getTotalDocumentbyJobID(row1["JOB_ID"].ToString()));
-                }
-            }
+            double total;
+            double total1;
             if (dataTable != null && dataTable.Rows.Count > 0) {
                 foreach (DataRow row in dataTable.Rows) {
                     var jobItem = new UCJobItem {
@@ -51,8 +45,9 @@ namespace GUI {
                         PanelManager = pnlManager,
                         PanelJobOfEmployee = flPnlJobOfEmployee
                     };
-
-                    jobItem.Percent = Math.Round(Convert.ToDouble(BLL.CProgressBLL.getTotalDocumentbyJobID(jobItem.Id)) / total, 2).ToString();
+                    total = Convert.ToDouble(BLL.CProgressBLL.getTotalDocumentbyJobID(jobItem.Id));
+                    total1 = Convert.ToDouble(BLL.CProgressBLL.getNumberofDocumentbyJobID(jobItem.Id));
+                    jobItem.Percent = Math.Round((total / total1) * 100, 2).ToString() + "%";
 
                     jobItem.Size = new Size() {
                         Width = flPnlListJob.Size.Width,
