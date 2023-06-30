@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace GUI {
     public partial class UCJobItem : UserControl {
@@ -71,7 +72,8 @@ namespace GUI {
             }
 
             var dtJobsByProject = BLL.CJobBLL.Instance.GetAllByEmployee(managerTempId);
-
+            double total;
+            double total1;
             if (dtJobsByProject != null && dtJobsByProject.Rows.Count > 0) {
                 foreach (DataRow row in dtJobsByProject.Rows) {
                     var jobOfEmployeeItem = new UCJobOfEmployee {
@@ -79,14 +81,9 @@ namespace GUI {
                         JobId = row["JOB_ID"].ToString(),
                         JobName = row["JOB_NAME"].ToString()
                     };
-
-                    if (row["JOB_STATUS"].ToString() == "0")
-                        jobOfEmployeeItem.JobPercent = "80%";
-                    else if (row["JOB_STATUS"].ToString() == "1")
-                        jobOfEmployeeItem.JobPercent = "50%";
-                    else
-                        jobOfEmployeeItem.JobPercent = "0%";
-
+                    total = Convert.ToDouble(BLL.CProgressBLL.getTotalDocumentbyJobID(jobOfEmployeeItem.JobId));
+                    total1 = Convert.ToDouble(BLL.CProgressBLL.getNumberofDocumentbyJobID(jobOfEmployeeItem.JobId));
+                    jobOfEmployeeItem.JobPercent = Math.Round((total / total1) * 100, 2).ToString() + "%";
                     pnlJobOfEmployee.Controls.Add(jobOfEmployeeItem);
                 }
             }
