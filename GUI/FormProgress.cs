@@ -36,24 +36,16 @@ namespace GUI {
                     projectID = projectItem.Id;
                     var dataTable1 = BLL.CJobBLL.Instance.GetAllFromProject(projectID);
                     if (dataTable1 != null && dataTable1.Rows.Count > 0)
-                    {
                         foreach (DataRow row1 in dataTable1.Rows)
-                        {
                             totalJob += 1;
-                        }
-                    }
+
                     if (dataTable1 != null && dataTable1.Rows.Count > 0)
-                    {
-                        foreach (DataRow row1 in dataTable1.Rows)
-                        {
+                        foreach (DataRow row1 in dataTable1.Rows) {
                             total = Convert.ToDouble(BLL.CProgressBLL.getTotalDocumentbyJobID(row1["JOB_ID"].ToString()));
                             total1 = Convert.ToDouble(BLL.CProgressBLL.getNumberofDocumentbyJobID(row1["JOB_ID"].ToString()));
-                            if(total == total1)
-                            {
-                                count += 1;
-                            }
+                            if (total == total1) count += 1;
                         }
-                    }
+
                     projectItem.Percent = Math.Round((count / totalJob) * 100, 2).ToString() + "%";
                     flPnlAllProject.Controls.Add(projectItem);
                     totalJob = 0;
