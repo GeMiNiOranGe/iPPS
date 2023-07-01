@@ -52,6 +52,18 @@
     <Compile Include="AdminProjects.Designer.cs">
       <DependentUpon>AdminProjects.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDocument.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDocument.Designer.cs">
+      <DependentUpon>FormDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormInsert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInsert.Designer.cs">
+      <DependentUpon>FormInsert.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCManagerItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
