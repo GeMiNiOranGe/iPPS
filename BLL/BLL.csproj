@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="CAccountBLL.cs" />
     <Compile Include="CEmployeeInfoBLL.cs" />
+    <Compile Include="CProgressBLL.cs" />
     <Compile Include="CProjectBLL.cs" />
     <Compile Include="CEmployeeBLL.cs" />
     <Compile Include="CJobBLL.cs" />

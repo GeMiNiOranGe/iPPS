@@ -100,6 +100,7 @@ CREATE TABLE JOB (
 	PROJECT_PUBLIC BIT NOT NULL,
 	DEPARTMENT_PUBLIC BIT NOT NULL,
 	PROJECT_ID VARCHAR(10) NOT NULL,
+	NUMBER_OF_DOCUMENTS INT NOT NULL,
 	CONSTRAINT PK_JOB PRIMARY KEY (ID),
 	CONSTRAINT FK_JOB_EMPLOYEE FOREIGN KEY (JOB_MANAGER_ID) REFERENCES EMPLOYEE(ID),
 	CONSTRAINT FK_JOB_PROJECT FOREIGN KEY (PROJECT_ID) REFERENCES PROJECT(ID),
@@ -239,7 +240,6 @@ VALUES	('PRJ00001', N'Dự án A', 1, 			0, 		N'DA A', 		'EMP00001'),
 		('PRJ00002', N'Dự án B', 1, 			1, 		N'DA A', 		'EMP00002'),
 		('PRJ00003', N'Dự án C', 1, 			2, 		N'DA A', 		'EMP00003')
 
--- EMPLOYEE_BELONG_TO_PROJECT
 INSERT INTO EMPLOYEE_BELONG_TO_PROJECT
 		(EMPLOYEE_ID, 	PROJECT_ID) 
 VALUES 	('EMP00001', 	'PRJ00001'),
@@ -361,53 +361,53 @@ VALUES	('RLE00001',	N'Quản lý',		1,					'EMP00001'),
 
 -- JOB
 INSERT INTO JOB
-		(ID,		 JOB_MANAGER_ID, NAME,				ACCESS_RIGHT,	STATUS,	PROJECT_PUBLIC,	DEPARTMENT_PUBLIC,	PROJECT_ID)
-VALUES  ('JOB00001', 'EMP00004',	 N'Công việc 1',	1,				1,		1,				1,					'PRJ00001'),
-		('JOB00002', 'EMP00005',	 N'Công việc 2',	1,				1,		1,				1,					'PRJ00001'),
-		('JOB00003', 'EMP00006',	 N'Công việc 3',	1,				1,		1,				1,					'PRJ00001'),
-		('JOB00004', 'EMP00007',	 N'Công việc 4',	1,				1,		1,				1,					'PRJ00001'),
-		('JOB00005', 'EMP00008',	 N'Công việc 5',	1,				1,		1,				1,					'PRJ00001'),
-		('JOB00006', 'EMP00009',	 N'Công việc 6',	1,				1,		1,				1,					'PRJ00001'),
-		('JOB00007', 'EMP00010',	 N'Công việc 7',	1,				1,		1,				1,					'PRJ00001'),
-		('JOB00008', 'EMP00011',	 N'Công việc 8',	1,				1,		1,				1,					'PRJ00001'),
-		('JOB00009', 'EMP00012',	 N'Công việc 9',	1,				1,		1,				1,					'PRJ00001'),
-		('JOB00010', 'EMP00013',	 N'Công việc 10',	1,				1,		1,				1,					'PRJ00001'),
-		('JOB00011', 'EMP00014',	 N'Công việc 11',	1,				1,		1,				1,					'PRJ00001'),
-		('JOB00012', 'EMP00015',	 N'Công việc 12',	1,				1,		1,				1,					'PRJ00001'),
-		('JOB00013', 'EMP00016',	 N'Công việc 13',	1,				1,		1,				1,					'PRJ00001'),
-		('JOB00014', 'EMP00017',	 N'Công việc 14',	1,				1,		1,				1,					'PRJ00001'),
-		('JOB00015', 'EMP00018',	 N'Công việc 15',	1,				1,		1,				1,					'PRJ00001'),
-		('JOB00016', 'EMP00019',	 N'Công việc 1',	1,				1,		1,				1,					'PRJ00002'),
-		('JOB00017', 'EMP00020',	 N'Công việc 2',	1,				1,		1,				1,					'PRJ00002'),
-		('JOB00018', 'EMP00021',	 N'Công việc 3',	1,				1,		1,				1,					'PRJ00002'),
-		('JOB00019', 'EMP00004',	 N'Công việc 4',	1,				1,		1,				1,					'PRJ00002'),
-		('JOB00020', 'EMP00005',	 N'Công việc 5',	1,				1,		1,				1,					'PRJ00002'),
-		('JOB00021', 'EMP00006',	 N'Công việc 6',	1,				1,		1,				1,					'PRJ00002'),
-		('JOB00022', 'EMP00007',	 N'Công việc 7',	1,				1,		1,				1,					'PRJ00002'),
-		('JOB00023', 'EMP00008',	 N'Công việc 8',	1,				1,		1,				1,					'PRJ00002'),
-		('JOB00024', 'EMP00009',	 N'Công việc 9',	1,				1,		1,				1,					'PRJ00002'),
-		('JOB00025', 'EMP00010',	 N'Công việc 10',	1,				1,		1,				1,					'PRJ00002'),
-		('JOB00026', 'EMP00011',	 N'Công việc 11',	1,				1,		1,				1,					'PRJ00002'),
-		('JOB00027', 'EMP00012',	 N'Công việc 12',	1,				1,		1,				1,					'PRJ00002'),
-		('JOB00028', 'EMP00013',	 N'Công việc 13',	1,				1,		1,				1,					'PRJ00002'),
-		('JOB00029', 'EMP00014',	 N'Công việc 14',	1,				1,		1,				1,					'PRJ00002'),
-		('JOB00030', 'EMP00015',	 N'Công việc 15',	1,				1,		1,				1,					'PRJ00002'),
-		('JOB00031', 'EMP00016',	 N'Công việc 1',	1,				1,		1,				1,					'PRJ00003'),
-		('JOB00032', 'EMP00017',	 N'Công việc 2',	1,				1,		1,				1,					'PRJ00003'),
-		('JOB00033', 'EMP00018',	 N'Công việc 3',	1,				1,		1,				1,					'PRJ00003'),
-		('JOB00034', 'EMP00019',	 N'Công việc 4',	1,				1,		1,				1,					'PRJ00003'),
-		('JOB00035', 'EMP00020',	 N'Công việc 5',	1,				1,		1,				1,					'PRJ00003'),
-		('JOB00036', 'EMP00021',	 N'Công việc 6',	1,				1,		1,				1,					'PRJ00003'),
-		('JOB00037', 'EMP00004',	 N'Công việc 7',	1,				1,		1,				1,					'PRJ00003'),
-		('JOB00038', 'EMP00005',	 N'Công việc 8',	1,				1,		1,				1,					'PRJ00003'),
-		('JOB00039', 'EMP00006',	 N'Công việc 9',	1,				1,		1,				1,					'PRJ00003'),
-		('JOB00040', 'EMP00007',	 N'Công việc 10',	1,				1,		1,				1,					'PRJ00003'),
-		('JOB00041', 'EMP00008',	 N'Công việc 11',	1,				1,		1,				1,					'PRJ00003'),
-		('JOB00042', 'EMP00009',	 N'Công việc 12',	1,				1,		1,				1,					'PRJ00003'),
-		('JOB00043', 'EMP00010',	 N'Công việc 13',	1,				1,		1,				1,					'PRJ00003'),
-		('JOB00044', 'EMP00011',	 N'Công việc 14',	1,				1,		1,				1,					'PRJ00003'),
-		('JOB00045', 'EMP00012',	 N'Công việc 15',	1,				1,		1,				1,					'PRJ00003'),
-		('JOB00046', 'EMP00013',	 N'Công việc 16',	1,				1,		1,				1,					'PRJ00003')
+		(ID,		 JOB_MANAGER_ID, NAME,				ACCESS_RIGHT,	STATUS,	PROJECT_PUBLIC,	DEPARTMENT_PUBLIC,	PROJECT_ID,	NUMBER_OF_DOCUMENTS)
+VALUES  ('JOB00001', 'EMP00004',	 N'Công việc 1',	1,				1,		1,				1,					'PRJ00001',	1),
+		('JOB00002', 'EMP00005',	 N'Công việc 2',	1,				1,		1,				1,					'PRJ00001',	1),
+		('JOB00003', 'EMP00006',	 N'Công việc 3',	1,				1,		1,				1,					'PRJ00001',	1),
+		('JOB00004', 'EMP00007',	 N'Công việc 4',	1,				1,		1,				1,					'PRJ00001',	1),
+		('JOB00005', 'EMP00008',	 N'Công việc 5',	1,				1,		1,				1,					'PRJ00001',	1),
+		('JOB00006', 'EMP00009',	 N'Công việc 6',	1,				1,		1,				1,					'PRJ00001',	1),
+		('JOB00007', 'EMP00010',	 N'Công việc 7',	1,				1,		1,				1,					'PRJ00001',	1),
+		('JOB00008', 'EMP00011',	 N'Công việc 8',	1,				1,		1,				1,					'PRJ00001',	1),
+		('JOB00009', 'EMP00012',	 N'Công việc 9',	1,				1,		1,				1,					'PRJ00001',	1),
+		('JOB00010', 'EMP00013',	 N'Công việc 10',	1,				1,		1,				1,					'PRJ00001',	1),
+		('JOB00011', 'EMP00014',	 N'Công việc 11',	1,				1,		1,				1,					'PRJ00001',	1),
+		('JOB00012', 'EMP00015',	 N'Công việc 12',	1,				1,		1,				1,					'PRJ00001',	1),
+		('JOB00013', 'EMP00016',	 N'Công việc 13',	1,				1,		1,				1,					'PRJ00001',	1),
+		('JOB00014', 'EMP00017',	 N'Công việc 14',	1,				1,		1,				1,					'PRJ00001',	1),
+		('JOB00015', 'EMP00018',	 N'Công việc 15',	1,				1,		1,				1,					'PRJ00001',	1),
+		('JOB00016', 'EMP00019',	 N'Công việc 1',	1,				1,		1,				1,					'PRJ00002',	1),
+		('JOB00017', 'EMP00020',	 N'Công việc 2',	1,				1,		1,				1,					'PRJ00002',	1),
+		('JOB00018', 'EMP00021',	 N'Công việc 3',	1,				1,		1,				1,					'PRJ00002',	1),
+		('JOB00019', 'EMP00004',	 N'Công việc 4',	1,				1,		1,				1,					'PRJ00002',	1),
+		('JOB00020', 'EMP00005',	 N'Công việc 5',	1,				1,		1,				1,					'PRJ00002',	1),
+		('JOB00021', 'EMP00006',	 N'Công việc 6',	1,				1,		1,				1,					'PRJ00002',	1),
+		('JOB00022', 'EMP00007',	 N'Công việc 7',	1,				1,		1,				1,					'PRJ00002',	1),
+		('JOB00023', 'EMP00008',	 N'Công việc 8',	1,				1,		1,				1,					'PRJ00002',	1),
+		('JOB00024', 'EMP00009',	 N'Công việc 9',	1,				1,		1,				1,					'PRJ00002',	1),
+		('JOB00025', 'EMP00010',	 N'Công việc 10',	1,				1,		1,				1,					'PRJ00002',	1),
+		('JOB00026', 'EMP00011',	 N'Công việc 11',	1,				1,		1,				1,					'PRJ00002',	1),
+		('JOB00027', 'EMP00012',	 N'Công việc 12',	1,				1,		1,				1,					'PRJ00002',	1),
+		('JOB00028', 'EMP00013',	 N'Công việc 13',	1,				1,		1,				1,					'PRJ00002',	1),
+		('JOB00029', 'EMP00014',	 N'Công việc 14',	1,				1,		1,				1,					'PRJ00002',	1),
+		('JOB00030', 'EMP00015',	 N'Công việc 15',	1,				1,		1,				1,					'PRJ00002',	1),
+		('JOB00031', 'EMP00016',	 N'Công việc 1',	1,				1,		1,				1,					'PRJ00003',	1),
+		('JOB00032', 'EMP00017',	 N'Công việc 2',	1,				1,		1,				1,					'PRJ00003',	1),
+		('JOB00033', 'EMP00018',	 N'Công việc 3',	1,				1,		1,				1,					'PRJ00003',	1),
+		('JOB00034', 'EMP00019',	 N'Công việc 4',	1,				1,		1,				1,					'PRJ00003',	1),
+		('JOB00035', 'EMP00020',	 N'Công việc 5',	1,				1,		1,				1,					'PRJ00003',	1),
+		('JOB00036', 'EMP00021',	 N'Công việc 6',	1,				1,		1,				1,					'PRJ00003',	1),
+		('JOB00037', 'EMP00004',	 N'Công việc 7',	1,				1,		1,				1,					'PRJ00003',	1),
+		('JOB00038', 'EMP00005',	 N'Công việc 8',	1,				1,		1,				1,					'PRJ00003',	1),
+		('JOB00039', 'EMP00006',	 N'Công việc 9',	1,				1,		1,				1,					'PRJ00003',	1),
+		('JOB00040', 'EMP00007',	 N'Công việc 10',	1,				1,		1,				1,					'PRJ00003',	1),
+		('JOB00041', 'EMP00008',	 N'Công việc 11',	1,				1,		1,				1,					'PRJ00003',	1),
+		('JOB00042', 'EMP00009',	 N'Công việc 12',	1,				1,		1,				1,					'PRJ00003',	1),
+		('JOB00043', 'EMP00010',	 N'Công việc 13',	1,				1,		1,				1,					'PRJ00003',	1),
+		('JOB00044', 'EMP00011',	 N'Công việc 14',	1,				1,		1,				1,					'PRJ00003',	1),
+		('JOB00045', 'EMP00012',	 N'Công việc 15',	1,				1,		1,				1,					'PRJ00003',	1),
+		('JOB00046', 'EMP00013',	 N'Công việc 16',	1,				1,		1,				1,					'PRJ00003',	1)
 
 -- JOIN_JOB
 INSERT INTO JOIN_JOB
@@ -504,7 +504,6 @@ VALUES	('EMP00004', 'JOB00001', '2023-1-1',	 '2023-1-1'),
 		('EMP00013', 'JOB00045', '2023-1-1',	 '2023-1-1'),
 		('EMP00013', 'JOB00046', '2023-1-1',	 '2023-1-1'),
 		('EMP00014', 'JOB00046', '2023-1-1',	 '2023-1-1')
-
 -- IMPLEMENT_PROJECT
 INSERT INTO IMPLEMENT_PROJECT
 		(DEPARTMENT_ID, PROJECT_ID, PROJECT_START_DATE, PROJECT_END_DATE)
@@ -619,7 +618,6 @@ VALUES	('PRJ00001', 'PNR00001'),
 		('PRJ00002', 'PNR00002'),
 		('PRJ00003', 'PNR00003')
 GO
-
 --------------------------------------------------------- <STORED PROCEDURE> ---------------------------------------------------------
 CREATE PROCEDURE SP_SELECT_ALL_PROJECT
 AS SELECT * FROM PROJECT

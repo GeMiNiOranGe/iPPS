@@ -126,7 +126,7 @@ namespace GUI {
 
         #region button document
         private void BtnDocument_MouseClick(object sender, MouseEventArgs e) {
-            OpenChildForm(new FormUpload());
+            OpenChildForm(new FormDocument());
         }
 
         private void BtnDocument_MouseDown(object sender, MouseEventArgs e) {
