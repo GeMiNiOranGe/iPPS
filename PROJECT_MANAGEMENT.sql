@@ -1,8 +1,8 @@
-CREATE DATABASE PROJECT_MANAGEMENT;
-GO
+--CREATE DATABASE PROJECT_MANAGEMENT;
+--GO
 
-USE PROJECT_MANAGEMENT
-GO
+--USE PROJECT_MANAGEMENT
+--GO
 
 CREATE TABLE DEPARTMENT (
 	ID VARCHAR(10) NOT NULL,
@@ -101,6 +101,8 @@ CREATE TABLE JOB (
 	DEPARTMENT_PUBLIC BIT NOT NULL,
 	PROJECT_ID VARCHAR(10) NOT NULL,
 	NUMBER_OF_DOCUMENTS INT NOT NULL,
+	JOB_START_DATE DATE NOT NULL,
+	JOB_END_DATE DATE NOT NULL,
 	CONSTRAINT PK_JOB PRIMARY KEY (ID),
 	CONSTRAINT FK_JOB_EMPLOYEE FOREIGN KEY (JOB_MANAGER_ID) REFERENCES EMPLOYEE(ID),
 	CONSTRAINT FK_JOB_PROJECT FOREIGN KEY (PROJECT_ID) REFERENCES PROJECT(ID),
@@ -158,7 +160,8 @@ GO
 
 CREATE TABLE DOCUMENT_NATIVE_FILE_FORMAT (
 	ID VARCHAR(10) NOT NULL,
-	NATIVE_FILE_FORMAT VARCHAR(20),
+	NAME VARCHAR(100),
+	NATIVE_FILE_FORMAT CHAR(10),
 	LINK VARBINARY(MAX),
 	CONSTRAINT PK_DNFF PRIMARY KEY (ID),
 	CONSTRAINT FK_DNFF_DOCUMENT FOREIGN KEY (ID) REFERENCES DOCUMENT(ID),
@@ -186,7 +189,7 @@ VALUES	('DRT00001', N'Ban giám đốc',			 0), -- Director
 		('ADO00001', N'Phòng hành chính',		 2)  -- Administrative offices
 
 -- PARTNER
-INSERT INTO PARTNER		
+INSERT INTO PARTNER
 		(ID,		 CODE, FUNCTIONAL,									NAME,	 		FULLNAME_IN_ERC,									TAX_CODE,							LEGAL_REPRESENTATIVE,	TITLE_OF_LEGAL_REPRESENTATIVE,	ADDRESS)
 VALUES	('PNR00001', 'EP', 'Employer',									'LDCOLD',		NULL,												NULL,								NULL,					NULL,							NULL),
 		('PNR00002', 'E1', 'PASSET',									'LDCOLD',		'PINE ASIA ASSET MANAGEMENT INC.',					'110111-1749352',					NULL,					NULL,						 	N'No. 7, Guijegeumyung-ro, 2-gil, Yeongdeungpo-gu, Seoul, Republic of Korea'),
@@ -203,7 +206,7 @@ VALUES	('PNR00001', 'EP', 'Employer',									'LDCOLD',		NULL,												NULL,	
 		('PNR00013', '31', 'Contractor/Supplier/Vendor (**)',			'TIN PHAT',		'TIN PHAT LAWFIRM',									NULL,								'NGUYỄN THỊ VÂN',		'Trưởng văn phòng',				N'VP tư vấn: Sảnh 1, Trung tâm hành chính tỉnh, số 36 Trần Phú, Phường 4, Đà Lạt, tỉnh Lâm Đồng ĐC: Số 131 Yersin, Phường 9, Đà Lạt, Lâm Đồng')
 
 -- EMPLOYEE
-INSERT INTO EMPLOYEE 
+INSERT INTO EMPLOYEE
 		(ID,		 LAST_NAME, MIDDLE_NAME, 	FIRST_NAME,	SEX, DATE_OF_BIRTH,	CITIZEN_ID_NUMBER,	TYPE,	DEPARTMENT_ID)
 VALUES	('EMP00001', N'Thục',	 N'Bình',	 	N'Quân',	1,	 '1985-9-27',	029144531829,		2,		'MNG00001'),
 		('EMP00002', N'Bùi',	 N'Thiên',	 	N'Mai', 	0,	 '1995-1-16', 	021471865207, 		2, 		'MNG00001'),
@@ -240,6 +243,7 @@ VALUES	('PRJ00001', N'Dự án A', 1, 			0, 		N'DA A', 		'EMP00001'),
 		('PRJ00002', N'Dự án B', 1, 			1, 		N'DA A', 		'EMP00002'),
 		('PRJ00003', N'Dự án C', 1, 			2, 		N'DA A', 		'EMP00003')
 
+-- EMPLOYEE_BELONG_TO_PROJECT
 INSERT INTO EMPLOYEE_BELONG_TO_PROJECT
 		(EMPLOYEE_ID, 	PROJECT_ID) 
 VALUES 	('EMP00001', 	'PRJ00001'),
@@ -361,53 +365,53 @@ VALUES	('RLE00001',	N'Quản lý',		1,					'EMP00001'),
 
 -- JOB
 INSERT INTO JOB
-		(ID,		 JOB_MANAGER_ID, NAME,				ACCESS_RIGHT,	STATUS,	PROJECT_PUBLIC,	DEPARTMENT_PUBLIC,	PROJECT_ID,	NUMBER_OF_DOCUMENTS)
-VALUES  ('JOB00001', 'EMP00004',	 N'Công việc 1',	1,				1,		1,				1,					'PRJ00001',	1),
-		('JOB00002', 'EMP00005',	 N'Công việc 2',	1,				1,		1,				1,					'PRJ00001',	1),
-		('JOB00003', 'EMP00006',	 N'Công việc 3',	1,				1,		1,				1,					'PRJ00001',	1),
-		('JOB00004', 'EMP00007',	 N'Công việc 4',	1,				1,		1,				1,					'PRJ00001',	1),
-		('JOB00005', 'EMP00008',	 N'Công việc 5',	1,				1,		1,				1,					'PRJ00001',	1),
-		('JOB00006', 'EMP00009',	 N'Công việc 6',	1,				1,		1,				1,					'PRJ00001',	1),
-		('JOB00007', 'EMP00010',	 N'Công việc 7',	1,				1,		1,				1,					'PRJ00001',	1),
-		('JOB00008', 'EMP00011',	 N'Công việc 8',	1,				1,		1,				1,					'PRJ00001',	1),
-		('JOB00009', 'EMP00012',	 N'Công việc 9',	1,				1,		1,				1,					'PRJ00001',	1),
-		('JOB00010', 'EMP00013',	 N'Công việc 10',	1,				1,		1,				1,					'PRJ00001',	1),
-		('JOB00011', 'EMP00014',	 N'Công việc 11',	1,				1,		1,				1,					'PRJ00001',	1),
-		('JOB00012', 'EMP00015',	 N'Công việc 12',	1,				1,		1,				1,					'PRJ00001',	1),
-		('JOB00013', 'EMP00016',	 N'Công việc 13',	1,				1,		1,				1,					'PRJ00001',	1),
-		('JOB00014', 'EMP00017',	 N'Công việc 14',	1,				1,		1,				1,					'PRJ00001',	1),
-		('JOB00015', 'EMP00018',	 N'Công việc 15',	1,				1,		1,				1,					'PRJ00001',	1),
-		('JOB00016', 'EMP00019',	 N'Công việc 1',	1,				1,		1,				1,					'PRJ00002',	1),
-		('JOB00017', 'EMP00020',	 N'Công việc 2',	1,				1,		1,				1,					'PRJ00002',	1),
-		('JOB00018', 'EMP00021',	 N'Công việc 3',	1,				1,		1,				1,					'PRJ00002',	1),
-		('JOB00019', 'EMP00004',	 N'Công việc 4',	1,				1,		1,				1,					'PRJ00002',	1),
-		('JOB00020', 'EMP00005',	 N'Công việc 5',	1,				1,		1,				1,					'PRJ00002',	1),
-		('JOB00021', 'EMP00006',	 N'Công việc 6',	1,				1,		1,				1,					'PRJ00002',	1),
-		('JOB00022', 'EMP00007',	 N'Công việc 7',	1,				1,		1,				1,					'PRJ00002',	1),
-		('JOB00023', 'EMP00008',	 N'Công việc 8',	1,				1,		1,				1,					'PRJ00002',	1),
-		('JOB00024', 'EMP00009',	 N'Công việc 9',	1,				1,		1,				1,					'PRJ00002',	1),
-		('JOB00025', 'EMP00010',	 N'Công việc 10',	1,				1,		1,				1,					'PRJ00002',	1),
-		('JOB00026', 'EMP00011',	 N'Công việc 11',	1,				1,		1,				1,					'PRJ00002',	1),
-		('JOB00027', 'EMP00012',	 N'Công việc 12',	1,				1,		1,				1,					'PRJ00002',	1),
-		('JOB00028', 'EMP00013',	 N'Công việc 13',	1,				1,		1,				1,					'PRJ00002',	1),
-		('JOB00029', 'EMP00014',	 N'Công việc 14',	1,				1,		1,				1,					'PRJ00002',	1),
-		('JOB00030', 'EMP00015',	 N'Công việc 15',	1,				1,		1,				1,					'PRJ00002',	1),
-		('JOB00031', 'EMP00016',	 N'Công việc 1',	1,				1,		1,				1,					'PRJ00003',	1),
-		('JOB00032', 'EMP00017',	 N'Công việc 2',	1,				1,		1,				1,					'PRJ00003',	1),
-		('JOB00033', 'EMP00018',	 N'Công việc 3',	1,				1,		1,				1,					'PRJ00003',	1),
-		('JOB00034', 'EMP00019',	 N'Công việc 4',	1,				1,		1,				1,					'PRJ00003',	1),
-		('JOB00035', 'EMP00020',	 N'Công việc 5',	1,				1,		1,				1,					'PRJ00003',	1),
-		('JOB00036', 'EMP00021',	 N'Công việc 6',	1,				1,		1,				1,					'PRJ00003',	1),
-		('JOB00037', 'EMP00004',	 N'Công việc 7',	1,				1,		1,				1,					'PRJ00003',	1),
-		('JOB00038', 'EMP00005',	 N'Công việc 8',	1,				1,		1,				1,					'PRJ00003',	1),
-		('JOB00039', 'EMP00006',	 N'Công việc 9',	1,				1,		1,				1,					'PRJ00003',	1),
-		('JOB00040', 'EMP00007',	 N'Công việc 10',	1,				1,		1,				1,					'PRJ00003',	1),
-		('JOB00041', 'EMP00008',	 N'Công việc 11',	1,				1,		1,				1,					'PRJ00003',	1),
-		('JOB00042', 'EMP00009',	 N'Công việc 12',	1,				1,		1,				1,					'PRJ00003',	1),
-		('JOB00043', 'EMP00010',	 N'Công việc 13',	1,				1,		1,				1,					'PRJ00003',	1),
-		('JOB00044', 'EMP00011',	 N'Công việc 14',	1,				1,		1,				1,					'PRJ00003',	1),
-		('JOB00045', 'EMP00012',	 N'Công việc 15',	1,				1,		1,				1,					'PRJ00003',	1),
-		('JOB00046', 'EMP00013',	 N'Công việc 16',	1,				1,		1,				1,					'PRJ00003',	1)
+		(ID,		 JOB_MANAGER_ID, NAME,				ACCESS_RIGHT,	STATUS,	PROJECT_PUBLIC,	DEPARTMENT_PUBLIC,	PROJECT_ID,	JOB_START_DATE,	JOB_END_DATE,	NUMBER_OF_DOCUMENTS)
+VALUES  ('JOB00001', 'EMP00004',	 N'Công việc 1',	1,				1,		1,				1,					'PRJ00001',	'2023-1-1',		'2023-3-30',	1),
+		('JOB00002', 'EMP00005',	 N'Công việc 2',	1,				1,		1,				1,					'PRJ00001',	'2023-1-1',		'2023-3-30',	1),
+		('JOB00003', 'EMP00006',	 N'Công việc 3',	1,				1,		1,				1,					'PRJ00001',	'2023-1-1',		'2023-3-30',	1),
+		('JOB00004', 'EMP00007',	 N'Công việc 4',	1,				1,		1,				1,					'PRJ00001',	'2023-1-1',		'2023-3-30',	1),
+		('JOB00005', 'EMP00008',	 N'Công việc 5',	1,				1,		1,				1,					'PRJ00001',	'2023-1-1',		'2023-3-30',	1),
+		('JOB00006', 'EMP00009',	 N'Công việc 6',	1,				1,		1,				1,					'PRJ00001',	'2023-1-1',		'2023-3-30',	1),
+		('JOB00007', 'EMP00010',	 N'Công việc 7',	1,				1,		1,				1,					'PRJ00001',	'2023-1-1',		'2023-3-30',	1),
+		('JOB00008', 'EMP00011',	 N'Công việc 8',	1,				1,		1,				1,					'PRJ00001',	'2023-1-1',		'2023-3-30',	1),
+		('JOB00009', 'EMP00012',	 N'Công việc 9',	1,				1,		1,				1,					'PRJ00001',	'2023-1-1',		'2023-3-30',	1),
+		('JOB00010', 'EMP00013',	 N'Công việc 10',	1,				1,		1,				1,					'PRJ00001',	'2023-1-1',		'2023-3-30',	1),
+		('JOB00011', 'EMP00014',	 N'Công việc 11',	1,				1,		1,				1,					'PRJ00001',	'2023-1-1',		'2023-3-30',	1),
+		('JOB00012', 'EMP00015',	 N'Công việc 12',	1,				1,		1,				1,					'PRJ00001',	'2023-1-1',		'2023-3-30',	1),
+		('JOB00013', 'EMP00016',	 N'Công việc 13',	1,				1,		1,				1,					'PRJ00001',	'2023-1-1',		'2023-3-30',	1),
+		('JOB00014', 'EMP00017',	 N'Công việc 14',	1,				1,		1,				1,					'PRJ00001',	'2023-1-1',		'2023-3-30',	1),
+		('JOB00015', 'EMP00018',	 N'Công việc 15',	1,				1,		1,				1,					'PRJ00001',	'2023-1-1',		'2023-3-30',	1),
+		('JOB00016', 'EMP00019',	 N'Công việc 1',	1,				1,		1,				1,					'PRJ00002',	'2023-2-1',		'2023-3-01',	1),
+		('JOB00017', 'EMP00020',	 N'Công việc 2',	1,				1,		1,				1,					'PRJ00002',	'2023-2-1',		'2023-3-01',	1),
+		('JOB00018', 'EMP00021',	 N'Công việc 3',	1,				1,		1,				1,					'PRJ00002',	'2023-2-1',		'2023-3-01',	1),
+		('JOB00019', 'EMP00004',	 N'Công việc 4',	1,				1,		1,				1,					'PRJ00002',	'2023-2-1',		'2023-3-01',	1),
+		('JOB00020', 'EMP00005',	 N'Công việc 5',	1,				1,		1,				1,					'PRJ00002',	'2023-2-1',		'2023-3-01',	1),
+		('JOB00021', 'EMP00006',	 N'Công việc 6',	1,				1,		1,				1,					'PRJ00002',	'2023-2-1',		'2023-3-01',	1),
+		('JOB00022', 'EMP00007',	 N'Công việc 7',	1,				1,		1,				1,					'PRJ00002',	'2023-2-1',		'2023-3-01',	1),
+		('JOB00023', 'EMP00008',	 N'Công việc 8',	1,				1,		1,				1,					'PRJ00002',	'2023-2-1',		'2023-3-01',	1),
+		('JOB00024', 'EMP00009',	 N'Công việc 9',	1,				1,		1,				1,					'PRJ00002',	'2023-2-1',		'2023-3-01',	1),
+		('JOB00025', 'EMP00010',	 N'Công việc 10',	1,				1,		1,				1,					'PRJ00002',	'2023-2-1',		'2023-3-01',	1),
+		('JOB00026', 'EMP00011',	 N'Công việc 11',	1,				1,		1,				1,					'PRJ00002',	'2023-2-1',		'2023-3-01',	1),
+		('JOB00027', 'EMP00012',	 N'Công việc 12',	1,				1,		1,				1,					'PRJ00002',	'2023-2-1',		'2023-3-01',	1),
+		('JOB00028', 'EMP00013',	 N'Công việc 13',	1,				1,		1,				1,					'PRJ00002',	'2023-2-1',		'2023-3-01',	1),
+		('JOB00029', 'EMP00014',	 N'Công việc 14',	1,				1,		1,				1,					'PRJ00002',	'2023-2-1',		'2023-3-01',	1),
+		('JOB00030', 'EMP00015',	 N'Công việc 15',	1,				1,		1,				1,					'PRJ00002',	'2023-2-1',		'2023-3-01',	1),
+		('JOB00031', 'EMP00016',	 N'Công việc 1',	1,				1,		1,				1,					'PRJ00003',	'2022-3-10',	'2022-4-01',	1),
+		('JOB00032', 'EMP00017',	 N'Công việc 2',	1,				1,		1,				1,					'PRJ00003',	'2022-3-10',	'2022-4-01',	1),
+		('JOB00033', 'EMP00018',	 N'Công việc 3',	1,				1,		1,				1,					'PRJ00003',	'2022-3-10',	'2022-4-01',	1),
+		('JOB00034', 'EMP00019',	 N'Công việc 4',	1,				1,		1,				1,					'PRJ00003',	'2022-3-10',	'2022-4-01',	1),
+		('JOB00035', 'EMP00020',	 N'Công việc 5',	1,				1,		1,				1,					'PRJ00003',	'2022-3-10',	'2022-4-01',	1),
+		('JOB00036', 'EMP00021',	 N'Công việc 6',	1,				1,		1,				1,					'PRJ00003',	'2022-3-10',	'2022-4-01',	1),
+		('JOB00037', 'EMP00004',	 N'Công việc 7',	1,				1,		1,				1,					'PRJ00003',	'2022-3-10',	'2022-4-01',	1),
+		('JOB00038', 'EMP00005',	 N'Công việc 8',	1,				1,		1,				1,					'PRJ00003',	'2022-3-10',	'2022-4-01',	1),
+		('JOB00039', 'EMP00006',	 N'Công việc 9',	1,				1,		1,				1,					'PRJ00003',	'2022-3-10',	'2022-4-01',	1),
+		('JOB00040', 'EMP00007',	 N'Công việc 10',	1,				1,		1,				1,					'PRJ00003',	'2022-3-10',	'2022-4-01',	1),
+		('JOB00041', 'EMP00008',	 N'Công việc 11',	1,				1,		1,				1,					'PRJ00003',	'2022-3-10',	'2022-4-01',	1),
+		('JOB00042', 'EMP00009',	 N'Công việc 12',	1,				1,		1,				1,					'PRJ00003',	'2022-3-10',	'2022-4-01',	1),
+		('JOB00043', 'EMP00010',	 N'Công việc 13',	1,				1,		1,				1,					'PRJ00003',	'2022-3-10',	'2022-4-01',	1),
+		('JOB00044', 'EMP00011',	 N'Công việc 14',	1,				1,		1,				1,					'PRJ00003',	'2022-3-10',	'2022-4-01',	1),
+		('JOB00045', 'EMP00012',	 N'Công việc 15',	1,				1,		1,				1,					'PRJ00003',	'2022-3-10',	'2022-4-01',	1),
+		('JOB00046', 'EMP00013',	 N'Công việc 16',	1,				1,		1,				1,					'PRJ00003',	'2022-3-10',	'2022-4-01',	1)
 
 -- JOIN_JOB
 INSERT INTO JOIN_JOB
@@ -504,112 +508,113 @@ VALUES	('EMP00004', 'JOB00001', '2023-1-1',	 '2023-1-1'),
 		('EMP00013', 'JOB00045', '2023-1-1',	 '2023-1-1'),
 		('EMP00013', 'JOB00046', '2023-1-1',	 '2023-1-1'),
 		('EMP00014', 'JOB00046', '2023-1-1',	 '2023-1-1')
+
 -- IMPLEMENT_PROJECT
 INSERT INTO IMPLEMENT_PROJECT
-		(DEPARTMENT_ID, PROJECT_ID, PROJECT_START_DATE, PROJECT_END_DATE)
-VALUES  ('PDC00001', 'PRJ00001', '2022-12-25', '2023-1-10'),
-		('MKT00001', 'PRJ00002', '2022-12-25', '2023-1-10'),
-		('ADO00001', 'PRJ00003', '2022-12-25', '2023-1-10')
+		(DEPARTMENT_ID,	PROJECT_ID,	PROJECT_START_DATE,	PROJECT_END_DATE)
+VALUES  ('PDC00001',	'PRJ00001',	'2022-12-20',		'2023-8-10'),
+		('MKT00001',	'PRJ00002',	'2023-1-25',		'2023-6-25'),
+		('ADO00001',	'PRJ00003',	'2022-2-5',			'2022-9-10')
 
 -- DOCUMENT
 INSERT INTO DOCUMENT
 		(ID,		 JOB_ID,  	 PACKAGE,	WORK_ITEM,						TYPE,	PARTNER_CODE,	REVISION_NUMBER, LASTEST_REVISION,	DATE,			ISSUE_PURPOSE,	PREPARED_BY,														CHECKED_BY,												APPROVED_BY,											ACTION,			SUPPORT,			REFERRENCE,		TO_COMPANY,																		ISSUSED_ON,		ISSUSED_VIA,					TITLE)
-VALUES	('DOC00001', 'JOB00001', 'Common',	'Project Site Investigation',	'D',	'P1',			'A',			 'Latest',			'2022-10-25',	'F1',			'Tran Anh Tu GDTS / Director',										'An Ji Hyun BCMP R&D Center / Manager',					'Kim Ho Yeong BCMP / Vice President',					'BCMP KOREA',	'BCMP VIETNAM',		NULL,			'Duc Trong PC. Lam Dong PC, LD DONRE, LD DOIT',									'2022-10-25',	'LDUCS/BCMP-DUCTRONG/L-0002',	N'Initial Plan of Project Site Location'),
-		('DOC00002', 'JOB00002', 'Common',	'Investment Project Proposal',	'D',	'P1',			'A',			 'Latest',			'2022-10-31',	'F1',			'An Ji Hyun BCMP R&D Center / Manager',								'Kim Ho Yeong BCMP / Vice President',					'Shin Yong Hoon BCMP / President',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			'2022-10-31',	'LDUCS/BCMP-DUCTRONG/L-0002',	N'Layout of Container Arrangement in Duc Trong'),
-		('DOC00003', 'JOB00003', 'Common',	'Investment Project Proposal',	'D',	'P1',			'A',			 'Latest',			'2022-10-25',	'F1',			'An Ji Hyun BCMP R&D Center / Manager',								'Kim Ho Yeong BCMP / Vice President',					'Shin Yong Hoon BCMP / President',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			'2022-10-31',	'LDUCS/BCMP-DUCTRONG/L-0002',	N'Initial Plan of Project Site Location in Lac Duong'),
-		('DOC00004', 'JOB00004', 'Common',	'"Project Licensing',			'D',	'P1',			'A',			 'Latest',			'2022-03-10',	'F1',			'Kim Du Hwan Chief of BCMP VIETNAM',								'Kim Ho Yeong BCMP / Vice President',					'Shin Yong Hoon BCMP / President',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Initial Project Licensing Plan (Duc Trong Site)'),
-		('DOC00005', 'JOB00005', 'Common',	'DFS',							'D',	'P1',			'A',			 'Latest',			'2023-03-01',   'F1',			'Kim Ho Yeong BCMP / Vice President',								NULL,													'Shin Yong Hoon BCMP / President',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'득쫑 (Duc Trong) 지하냉장물류시설 DFS 추진계획'),
-		('DOC00006', 'JOB00006', 'Common',	'DFS',							'D',	'P1',			'A',			 'Latest',			'2023-03-10',	'F1',			'Shin Yong Hoon BCMP / President',									NULL,													NULL,													'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'LDCOLD 인허가 절차 및 현안사항'),
-		('DOC00007', 'JOB00007', 'Common',	'DFS',							'D',	'P1',			'A',			 'Latest',			'2023-04-13',	'F1',			'An Ji Hyun BCMP R&D Center / Manager',								'Kim Ho Yeong BCMP / Vice President',					'Shin Yong Hoon BCMP / President',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'베트남 람동 지하저온물류터미널 프로젝트의 DFS과업지시서'),
-		('DOC00008', 'JOB00008', 'Common',	'DFS',							'D',	'P1',			'A',			 'Latest',			'2023-05-17',	'F1',			'Shin Jeong In BCM KOREA',											'Kim Ho Yeong BCMP / Vice President',					'Shin Yong Hoon BCMP / President',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Duc Trong Site Layout and Boundary Case 1'),
-		('DOC00009', 'JOB00009', 'Common',	'DFS',							'D',	'P1',			'A',			 'Latest',			'2023-05-17',	'F1',			'Shin Jeong In BCM KOREA',											'Kim Ho Yeong BCMP / Vice President',					'Shin Yong Hoon BCMP / President',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Duc Trong Site Layout and Boundary Case 2'),
-		('DOC00010', 'JOB00010', 'Common',	'Project Site Selection',		'E',	'P1',			'A',			 'Latest',			'2022-12-20',	'F1',			'An Ji Hyun BCMP R&D Center / Manager',								'Kim Ho Yeong BCMP / Vice President',					'Shin Yong Hoon BCMP / President',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			'Duc Trong PC. Lam Dong PC, LD DONRE, LD DOIT',									NULL,			'LDUCS/BCMP-DUCTRONG/L-0001',	N'Initial Bench Marks of Project Site in Lac Duong District, Lam Dong Province, Vietnam'),
-		('DOC00011', 'JOB00011', 'Common',	'Project Site Selection',		'E',	'P1',			'A',			 'Latest',			'2022-12-20',	'F1',			'An Ji Hyun BCMP R&D Center / Manager',								'Kim Ho Yeong BCMP / Vice President',					'Shin Yong Hoon BCMP / President',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			'Duc Trong PC. Lam Dong PC, LD DONRE, LD DOIT',									NULL,			'LDUCS/BCMP-DUCTRONG/L-0002',	N'Initial Bench Marks of Project Site in Duc Trong District, Lam Dong Province, Vietnam'),
-		('DOC00012', 'JOB00012', 'Common',	'DFS',							'F',	'P1',			'A',			 'Latest',			'2022-07-10',	'F1',			'Kim Ho Yeong BCMP / Vice President',								NULL,													'Shin Yong Hoon BCMP / President',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Request for Quotation for Duc Trong Site Investigation'),
-		('DOC00013', 'JOB00013', 'Common',	'DFS',							'F',	'P1',			'A',			 'Latest',			'2023-02-21',	'F1',			'Kim Ho Yeong BCMP / Vice President',								NULL,													'Shin Yong Hoon BCMP / President',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Invitation for Bidder for Work No. 02 (Sample)'),
-		('DOC00014', 'JOB00014', 'Common',	'DFS',							'F',	'P1',			'A',			 'Latest',			'2023-02-28',	'F1',			'Kim Ho Yeong BCMP / Vice President',								NULL,													'Shin Yong Hoon BCMP / President',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Request for Quotation for Work No. 03 (Sample)'),
-		('DOC00015', 'JOB00015', 'Common',	'DFS',							'S',	'P1',			'A',			 'Latest',			'2023-01-30',	'F1',			'Shin Jeong In An Ji Hyun BCMP R&D Center Vanila / BCMP Vietnam',	'Kim Ho Yeong BCMP / Vice President',					'Shin Yong Hoon BCMP / President',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'General Information of Project'),
-		('DOC00016', 'JOB00016', 'Common',	'DFS',							'S',	'P1',			'A',			 'Latest',			'2022-12-16',	'F1',			'Vanila / BCMP Vietnam',											NULL,													'Kim Ho Yeong BCMP / Vice President',					'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Overal Sequence for IPA of Project'),
-		('DOC00017', 'JOB00017', 'Common',	'DFS',							'S',	'P1',			'A',			 NULL,				'2023-03-16',	'F1',			'Vanila / BCMP Vietnam',											NULL,													NULL,													'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Overview of Lam Dong Provinces Functional Organization'),
-		('DOC00018', 'JOB00018', 'Common',	'DFS',							'S',	'P1',			'A',			 'Latest',			'2023-04-05',	'F1',			'Vanila / BCMP Vietnam',											NULL,													NULL,													'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Overview of Lam Dong Provinces Functional Organization'),
-		('DOC00019', 'JOB00019', 'Common',	'General Procedure',			'S',	'P1',			'A',			 'Latest',			'2022-09-01',	'F1',			'Vanila / BCMP Vietnam',											NULL,													NULL,													'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Project Document Control Guidance'),
-		('DOC00020', 'JOB00020', 'Common',	'Project Site Selection',		'L',	'E4',			'A',			 'Latest',			'2023-05-18',	'F1',			'Vanila / BCMP Vietnam',											'Kim Ho Yeong BCMP / Vice President',					'Shin Yong Hoon BCMP / President',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			'Envisolution',																	'2023-05-18',	'Email: huylq@dlu.edu.vn',		N'Negotiation for Service Contract on Measurement and Mapping of Project Land in Duc Trong Site regarding the Underground Cold Storage and Logistics Terminal Project in Lam Dong Province, Vietnam ("LDCOLD Project" or "LDUCS")'),
-		('DOC00021', 'JOB00021', 'Common',	'Project Site Selection',		'L',	'E4',			'A',			 'Latest',			'2023-05-24',	'F1',			'Vanila / BCMP Vietnam',											'Kim Ho Yeong BCMP / Vice President',					'Shin Yong Hoon BCMP / President',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Letter of Award for the Consultant Service on Measurement and Mapping of Project Land in Duc Trong Site regarding the Underground Cold Storage and Logistics Terminal Project in Lam Dong Province, Vietnam ("LDCOLD Project" or "LDUCS")'),
-		('DOC00023', 'JOB00023', 'Common',	'Project Site Selection',		'H',	'E4',			'A',			 'Latest',			'2023-05-24',	'F1',			'Vanila / BCMP Vietnam',											'Kim Ho Yeong BCMP / Vice President',					'Shin Yong Hoon BCMP / President',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'POA to Envisolution - Mrs. Le Thi Ngoc Hai'),
-		('DOC00022', 'JOB00022', 'Common',	'Project Site Selection',		'H',	'E4',			'A',			 'Latest',			'2023-05-24',	'F1',			'Vanila / BCMP Vietnam',											'Kim Ho Yeong BCMP / Vice President',					'Shin Yong Hoon BCMP / President',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'POA to Envisolution - Mr. Le Quang Huy'),
-		('DOC00024', 'JOB00024', 'Common',	'Investment Project Proposal',	'E',	'EP',			'A',			 'Latest',			'2022-10-31',	'F1',			'Shin Jeong In An Ji Hyun BCMP R&D Center Vanila / BCMP Vietnam',	'Oh Se Joong PASSET Shin Yong Hoon BCMP / President',	'Oh Se Joong PASSET Shin Yong Hoon BCMP / President',	'BCMP - PASSET','BCMP VIETNAM',		NULL,			'Lam Dong PC, LD DONRE, LD DOIT, LD DAR, LD DPI, Duc  Trong PC, Lac Duong PC',	'2022-10-31',	'LDUCS/BCMP-LAMDONGPC/L-0001',	N'Conceptual Proposal Report for the Underground Cold Storage and Logistics Terminal Project in Lam Dong Province, Vietnam'),
-		('DOC00025', 'JOB00025', 'Common',	'Investment Project Proposal',	'E',	'EP',			'A',			 'Latest',			'2023-05-20',	'FA',			NULL,																NULL,													NULL,													NULL,			NULL,				NULL,			NULL,																			NULL,			NULL,							N'Application for Investment Project Execution of The Underground Cold Storage and Logistics Terminal Project in Lam Dong Province, Vietnam'),
-		('DOC00026', 'JOB00026', 'Common',	'Investment Project Proposal',	'E',	'EP',			'A',			 'Latest',			'2023-05-20',	'FA',			NULL,																NULL,													NULL,													NULL,			NULL,				NULL,			NULL,																			NULL,			NULL,							N'Investment Project Proposal for the Underground Cold Storage and Logistics Terminal Project in Lam Dong Province, Vietnam'),
-		('DOC00027', 'JOB00027', 'Common',	'Investment Project Proposal',	'E',	'EP',			'A',			 'Latest',			'2022-05-20',	'FA',			'Oh Se Joong',														NULL,													NULL,													NULL,			NULL,				NULL,			NULL,																			NULL,			NULL,							N'베트남 람동 득쫑 지하저온물류터미널 3만톤 IM'),
-		('DOC00028', 'JOB00028', 'Common',	'Investment Project Proposal',	'E',	'EP',			'A',			 'Latest',			'2022-05-20',	'FA',			'Oh Se Joong',														NULL,													NULL,													NULL,			NULL,				NULL,			NULL,																			NULL,			NULL,							N'베트남람동 저온창고PJ Teaser'),
+VALUES	('DOC00001', 'JOB00001', 'Common',	'Project Site Investigation',	'D',	'P1',			'A',			 'Latest',			'2023-1-25',	'F1',			'Tran Anh Tu GDTS / Director',										'An Ji Hyun BCMP R&D Center / Manager',					'Kim Ho Yeong BCMP / Vice President',					'BCMP KOREA',	'BCMP VIETNAM',		NULL,			'Duc Trong PC. Lam Dong PC, LD DONRE, LD DOIT',									'2022-10-25',	'LDUCS/BCMP-DUCTRONG/L-0002',	N'Initial Plan of Project Site Location'),
+		('DOC00002', 'JOB00002', 'Common',	'Investment Project Proposal',	'D',	'P1',			'A',			 'Latest',			'2023-1-31',	'F1',			'An Ji Hyun BCMP R&D Center / Manager',								'Kim Ho Yeong BCMP / Vice President',					'Shin Yong Hoon BCMP / President',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			'2022-10-31',	'LDUCS/BCMP-DUCTRONG/L-0002',	N'Layout of Container Arrangement in Duc Trong'),
+		('DOC00003', 'JOB00003', 'Common',	'Investment Project Proposal',	'D',	'P1',			'A',			 'Latest',			'2023-1-25',	'F1',			'An Ji Hyun BCMP R&D Center / Manager',								'Kim Ho Yeong BCMP / Vice President',					'Shin Yong Hoon BCMP / President',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			'2022-10-31',	'LDUCS/BCMP-DUCTRONG/L-0002',	N'Initial Plan of Project Site Location in Lac Duong'),
+		('DOC00004', 'JOB00004', 'Common',	'"Project Licensing',			'D',	'P1',			'A',			 'Latest',			'2023-1-10',	'F1',			'Kim Du Hwan Chief of BCMP VIETNAM',								'Kim Ho Yeong BCMP / Vice President',					'Shin Yong Hoon BCMP / President',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Initial Project Licensing Plan (Duc Trong Site)'),
+		('DOC00005', 'JOB00005', 'Common',	'DFS',							'D',	'P1',			'A',			 'Latest',			'2023-1-05',   'F1',			'Kim Ho Yeong BCMP / Vice President',								NULL,													'Shin Yong Hoon BCMP / President',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'득쫑 (Duc Trong) 지하냉장물류시설 DFS 추진계획'),
+		('DOC00006', 'JOB00006', 'Common',	'DFS',							'D',	'P1',			'A',			 'Latest',			'2023-1-10',	'F1',			'Shin Yong Hoon BCMP / President',									NULL,													NULL,													'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'LDCOLD 인허가 절차 및 현안사항'),
+		('DOC00007', 'JOB00007', 'Common',	'DFS',							'D',	'P1',			'A',			 'Latest',			'2023-1-13',	'F1',			'An Ji Hyun BCMP R&D Center / Manager',								'Kim Ho Yeong BCMP / Vice President',					'Shin Yong Hoon BCMP / President',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'베트남 람동 지하저온물류터미널 프로젝트의 DFS과업지시서'),
+		('DOC00008', 'JOB00008', 'Common',	'DFS',							'D',	'P1',			'A',			 'Latest',			'2023-1-17',	'F1',			'Shin Jeong In BCM KOREA',											'Kim Ho Yeong BCMP / Vice President',					'Shin Yong Hoon BCMP / President',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Duc Trong Site Layout and Boundary Case 1'),
+		('DOC00009', 'JOB00009', 'Common',	'DFS',							'D',	'P1',			'A',			 'Latest',			'2023-1-17',	'F1',			'Shin Jeong In BCM KOREA',											'Kim Ho Yeong BCMP / Vice President',					'Shin Yong Hoon BCMP / President',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Duc Trong Site Layout and Boundary Case 2'),
+		('DOC00010', 'JOB00010', 'Common',	'Project Site Selection',		'E',	'P1',			'A',			 'Latest',			'2023-1-20',	'F1',			'An Ji Hyun BCMP R&D Center / Manager',								'Kim Ho Yeong BCMP / Vice President',					'Shin Yong Hoon BCMP / President',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			'Duc Trong PC. Lam Dong PC, LD DONRE, LD DOIT',									NULL,			'LDUCS/BCMP-DUCTRONG/L-0001',	N'Initial Bench Marks of Project Site in Lac Duong District, Lam Dong Province, Vietnam'),
+		('DOC00011', 'JOB00011', 'Common',	'Project Site Selection',		'E',	'P1',			'A',			 'Latest',			'2023-1-20',	'F1',			'An Ji Hyun BCMP R&D Center / Manager',								'Kim Ho Yeong BCMP / Vice President',					'Shin Yong Hoon BCMP / President',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			'Duc Trong PC. Lam Dong PC, LD DONRE, LD DOIT',									NULL,			'LDUCS/BCMP-DUCTRONG/L-0002',	N'Initial Bench Marks of Project Site in Duc Trong District, Lam Dong Province, Vietnam'),
+		('DOC00012', 'JOB00012', 'Common',	'DFS',							'F',	'P1',			'A',			 'Latest',			'2023-1-10',	'F1',			'Kim Ho Yeong BCMP / Vice President',								NULL,													'Shin Yong Hoon BCMP / President',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Request for Quotation for Duc Trong Site Investigation'),
+		('DOC00013', 'JOB00013', 'Common',	'DFS',							'F',	'P1',			'A',			 'Latest',			'2023-1-21',	'F1',			'Kim Ho Yeong BCMP / Vice President',								NULL,													'Shin Yong Hoon BCMP / President',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Invitation for Bidder for Work No. 02 (Sample)'),
+		('DOC00014', 'JOB00014', 'Common',	'DFS',							'F',	'P1',			'A',			 'Latest',			'2023-1-28',	'F1',			'Kim Ho Yeong BCMP / Vice President',								NULL,													'Shin Yong Hoon BCMP / President',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Request for Quotation for Work No. 03 (Sample)'),
+		('DOC00015', 'JOB00015', 'Common',	'DFS',							'S',	'P1',			'A',			 'Latest',			'2023-1-30',	'F1',			'Shin Jeong In An Ji Hyun BCMP R&D Center Vanila / BCMP Vietnam',	'Kim Ho Yeong BCMP / Vice President',					'Shin Yong Hoon BCMP / President',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'General Information of Project'),
+		('DOC00016', 'JOB00016', 'Common',	'DFS',							'S',	'P1',			'A',			 'Latest',			'2023-02-16',	'F1',			'Vanila / BCMP Vietnam',											NULL,													'Kim Ho Yeong BCMP / Vice President',					'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Overal Sequence for IPA of Project'),
+		('DOC00017', 'JOB00017', 'Common',	'DFS',							'S',	'P1',			'A',			 NULL,				'2023-02-16',	'F1',			'Vanila / BCMP Vietnam',											NULL,													NULL,													'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Overview of Lam Dong Provinces Functional Organization'),
+		('DOC00018', 'JOB00018', 'Common',	'DFS',							'S',	'P1',			'A',			 'Latest',			'2023-02-05',	'F1',			'Vanila / BCMP Vietnam',											NULL,													NULL,													'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Overview of Lam Dong Provinces Functional Organization'),
+		('DOC00019', 'JOB00019', 'Common',	'General Procedure',			'S',	'P1',			'A',			 'Latest',			'2023-02-05',	'F1',			'Vanila / BCMP Vietnam',											NULL,													NULL,													'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Project Document Control Guidance'),
+		('DOC00020', 'JOB00020', 'Common',	'Project Site Selection',		'L',	'E4',			'A',			 'Latest',			'2023-02-18',	'F1',			'Vanila / BCMP Vietnam',											'Kim Ho Yeong BCMP / Vice President',					'Shin Yong Hoon BCMP / President',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			'Envisolution',																	'2023-05-18',	'Email: huylq@dlu.edu.vn',		N'Negotiation for Service Contract on Measurement and Mapping of Project Land in Duc Trong Site regarding the Underground Cold Storage and Logistics Terminal Project in Lam Dong Province, Vietnam ("LDCOLD Project" or "LDUCS")'),
+		('DOC00021', 'JOB00021', 'Common',	'Project Site Selection',		'L',	'E4',			'A',			 'Latest',			'2023-02-24',	'F1',			'Vanila / BCMP Vietnam',											'Kim Ho Yeong BCMP / Vice President',					'Shin Yong Hoon BCMP / President',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Letter of Award for the Consultant Service on Measurement and Mapping of Project Land in Duc Trong Site regarding the Underground Cold Storage and Logistics Terminal Project in Lam Dong Province, Vietnam ("LDCOLD Project" or "LDUCS")'),
+		('DOC00023', 'JOB00023', 'Common',	'Project Site Selection',		'H',	'E4',			'A',			 'Latest',			'2023-02-24',	'F1',			'Vanila / BCMP Vietnam',											'Kim Ho Yeong BCMP / Vice President',					'Shin Yong Hoon BCMP / President',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'POA to Envisolution - Mrs. Le Thi Ngoc Hai'),
+		('DOC00022', 'JOB00022', 'Common',	'Project Site Selection',		'H',	'E4',			'A',			 'Latest',			'2023-02-24',	'F1',			'Vanila / BCMP Vietnam',											'Kim Ho Yeong BCMP / Vice President',					'Shin Yong Hoon BCMP / President',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'POA to Envisolution - Mr. Le Quang Huy'),
+		('DOC00024', 'JOB00024', 'Common',	'Investment Project Proposal',	'E',	'EP',			'A',			 'Latest',			'2023-02-14',	'F1',			'Shin Jeong In An Ji Hyun BCMP R&D Center Vanila / BCMP Vietnam',	'Oh Se Joong PASSET Shin Yong Hoon BCMP / President',	'Oh Se Joong PASSET Shin Yong Hoon BCMP / President',	'BCMP - PASSET','BCMP VIETNAM',		NULL,			'Lam Dong PC, LD DONRE, LD DOIT, LD DAR, LD DPI, Duc  Trong PC, Lac Duong PC',	'2022-10-31',	'LDUCS/BCMP-LAMDONGPC/L-0001',	N'Conceptual Proposal Report for the Underground Cold Storage and Logistics Terminal Project in Lam Dong Province, Vietnam'),
+		('DOC00025', 'JOB00025', 'Common',	'Investment Project Proposal',	'E',	'EP',			'A',			 'Latest',			'2023-02-20',	'FA',			NULL,																NULL,													NULL,													NULL,			NULL,				NULL,			NULL,																			NULL,			NULL,							N'Application for Investment Project Execution of The Underground Cold Storage and Logistics Terminal Project in Lam Dong Province, Vietnam'),
+		('DOC00026', 'JOB00026', 'Common',	'Investment Project Proposal',	'E',	'EP',			'A',			 'Latest',			'2023-02-20',	'FA',			NULL,																NULL,													NULL,													NULL,			NULL,				NULL,			NULL,																			NULL,			NULL,							N'Investment Project Proposal for the Underground Cold Storage and Logistics Terminal Project in Lam Dong Province, Vietnam'),
+		('DOC00027', 'JOB00027', 'Common',	'Investment Project Proposal',	'E',	'EP',			'A',			 'Latest',			'2023-02-20',	'FA',			'Oh Se Joong',														NULL,													NULL,													NULL,			NULL,				NULL,			NULL,																			NULL,			NULL,							N'베트남 람동 득쫑 지하저온물류터미널 3만톤 IM'),
+		('DOC00028', 'JOB00028', 'Common',	'Investment Project Proposal',	'E',	'EP',			'A',			 'Latest',			'2023-02-20',	'FA',			'Oh Se Joong',														NULL,													NULL,													NULL,			NULL,				NULL,			NULL,																			NULL,			NULL,							N'베트남람동 저온창고PJ Teaser'),
 		('DOC00029', 'JOB00029', 'Common',	'Investment Project Proposal',	'Q',	'EP',			'A',			 'A',				'2023-02-14',	'F1',			'Vanila ',															'Kim Ho Yeong BCMP / Vice President',					'Kim Ho Yeong BCMP / Vice President',	                'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Project Investment Proposal History Summary'),
-		('DOC00030', 'JOB00030', 'Common',	'Investment Project Proposal',	'Q',	'EP',			'B',			 'Latest',			'2023-03-07',	'F1',			'Vanila',															'Kim Ho Yeong BCMP / Vice President',					'Kim Ho Yeong BCMP / Vice President',	                'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Project Investment Proposal History Summary'),
-		('DOC00031', 'JOB00031', 'Common',	'Manpower',						'H',	'E1',			'A',			 'Latest',			'2022-10-28',	'F1',			'Oh Se Joong',														NULL,													'Lee Chun Woo /CEO',									NULL,			NULL,				'BCMP VIETNAM',	NULL,																			NULL,			NULL,							N'Power of Attorney to Mr. Oh Se Joong'),
-		('DOC00032', 'JOB00032', 'Common',	'Investment Project Proposal',	'F',	'E1',			'A',			 'Latest',			'2022-09-24',	'F1',			'Oh Se Joong',														NULL,													NULL,													'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Investment and Licensing Business Plan'),
-		('DOC00033', 'JOB00033', 'Common',	'Investment Project Proposal',	'S',	'E2',			'A',			 'Latest',			'2023-04-14',	'F1',			'AKDF',																NULL,													NULL,													'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'베트남 람동성 득쫑현 지하냉장창고 사업 DFS 과업지시서'),
+		('DOC00030', 'JOB00030', 'Common',	'Investment Project Proposal',	'Q',	'EP',			'B',			 'Latest',			'2023-02-07',	'F1',			'Vanila',															'Kim Ho Yeong BCMP / Vice President',					'Kim Ho Yeong BCMP / Vice President',	                'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Project Investment Proposal History Summary'),
+		('DOC00031', 'JOB00031', 'Common',	'Manpower',						'H',	'E1',			'A',			 'Latest',			'2022-03-28',	'F1',			'Oh Se Joong',														NULL,													'Lee Chun Woo /CEO',									NULL,			NULL,				'BCMP VIETNAM',	NULL,																			NULL,			NULL,							N'Power of Attorney to Mr. Oh Se Joong'),
+		('DOC00032', 'JOB00032', 'Common',	'Investment Project Proposal',	'F',	'E1',			'A',			 'Latest',			'2022-03-24',	'F1',			'Oh Se Joong',														NULL,													NULL,													'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Investment and Licensing Business Plan'),
+		('DOC00033', 'JOB00033', 'Common',	'Investment Project Proposal',	'S',	'E2',			'A',			 'Latest',			'2022-03-14',	'F1',			'AKDF',																NULL,													NULL,													'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'베트남 람동성 득쫑현 지하냉장창고 사업 DFS 과업지시서'),
 		('DOC00034', 'JOB00034', 'Common',	'Investment Project Proposal',	'S',	'E3',			'A',			 'Latest',			NULL,			'F1',			'THE MIND',															NULL,													NULL,													'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							NULL),
-		('DOC00035', 'JOB00035', 'Common',	'Project Site Investigation',	'M',	'11',			'A',			 'Latest',			'2022-12-14',	'FR',			'Ly Nhat Tan, Dinh Quoc Tuan, Tran Quoc Trung',						'Vo Tran The Vi, Tran Anh Tu, Nguyen Nam',				'Tran Anh Tu GDTS / Director',							'BCMP KOREA',	'BCMP VIETNAM',		NULL,			'Duc Trong PC. Lam Dong PC, LD DONRE',											'2023-01-05',	'LDUCS/EP-DUCTRONG/L-0001',		N'Report for Project Site Investigation in Duc Trong District, Lam Dong Province, VietnaM'),
-		('DOC00036', 'JOB00036', 'Common',	'Project Licensing',			'F',	'21',			'A',			 'Latest',			'2022-12-26',	'FR',			'Le Thi Ngoc Hai ENVISOLUTION',										NULL,													'Le Quang Huy ENVISOLUTION / Technical Director',		'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Quotation for EIA & Land Consultant in Duc Trong'),
-		('DOC00037', 'JOB00037', 'Common',	'Project Licensing',			'F',	'21',			'A',			 'Latest',			'2022-12-26',	'FR',			'Le Thi Ngoc Hai ENVISOLUTION',										NULL,													'Le Quang Huy ENVISOLUTION / Technical Director',		'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Quotation for EIA & Land Consultant in Lac Duong'),
-		('DOC00038', 'JOB00038', 'Common',	'Project Licensing',			'S',	'21',			'A',			 'Latest',			'2022-12-26',	'FR',			'Le Thi Ngoc Hai ENVISOLUTION',										NULL,													'Le Quang Huy ENVISOLUTION / Technical Director',		'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Scope of work for EIA & Land Consultant in Duc Trong'),
-		('DOC00039', 'JOB00039', 'Common',	'Project Licensing',			'S',	'21',			'A',			 'Latest',			'2022-12-26',	'FR',			'Le Thi Ngoc Hai ENVISOLUTION',										NULL,													'Le Quang Huy ENVISOLUTION / Technical Director',		'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Scope of work for EIA & Land Consultant in Lac Duong'),
-		('DOC00040', 'JOB00040', 'Common',	'Project Licensing',			'F',	'31',			'A',			 'Latest',			'2022-12-15',	'FR',			'Nguyen Thi Van TIN PHAT / Lawyer',									NULL,													'Nguyen Thi Van TIN PHAT / Lawyer',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Quotation for IPA Process Consultant in Duc Trong'),
-		('DOC00041', 'JOB00041', 'Common',	'Project Licensing',			'F',	'31',			'A',			 'Latest',			'2022-12-15',	'FR',			'Nguyen Thi Van TIN PHAT / Lawyer',									NULL,													'Nguyen Thi Van TIN PHAT / Lawyer',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Quotation for IPA Process Consultant in Lac Duong'),
-		('DOC00042', 'JOB00042', 'Common',	'Project Licensing',			'S',	'31',			'A',			 'Latest',			'2022-12-15',	'FR',			'Nguyen Thi Van TIN PHAT / Lawyer',									NULL,													'Nguyen Thi Van TIN PHAT / Lawyer',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Scope of Work for IPA Process Consultant in Duc Trong'),
-		('DOC00043', 'JOB00043', 'Common',	'Project Licensing',			'S',	'31',			'A',			 'Latest',			'2022-12-15',	'FR',			'Nguyen Thi Van TIN PHAT / Lawyer',									NULL,													'Nguyen Thi Van TIN PHAT / Lawyer',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Scope of Work for IPA Process Consultant in Lac Duong'),
-		('DOC00044', 'JOB00044', 'Common',	'Site Investigation',			'S',	'G1',			'A',			 'Latest',			'2023-02-08',	'F1',			NULL,																NULL,													'Lee Jeong Sang Senior Director',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'On Site Workflow and Checklist for Site Investigation Work'),
-		('DOC00045', 'JOB00045', 'Common',	'Site Investigation',			'S',	'G1',			'A',			 'Latest',			'2023-01-26',	'F1',			NULL,																NULL,													'Lee Jeong Sang Senior Director',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Scope of Assistant Work by local company for Site Investigation Work in Lam Dong'),
-		('DOC00046', 'JOB00046', 'Common',	'Site Investigation',			'S',	'G1',			'A',			 'Latest',			'2023-01-26',	'F1',			NULL,																NULL,													'Lee Jeong Sang Senior Director',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Electrical Resistivity Survey Method Statement')
+		('DOC00035', 'JOB00035', 'Common',	'Project Site Investigation',	'M',	'11',			'A',			 'Latest',			'2022-03-14',	'FR',			'Ly Nhat Tan, Dinh Quoc Tuan, Tran Quoc Trung',						'Vo Tran The Vi, Tran Anh Tu, Nguyen Nam',				'Tran Anh Tu GDTS / Director',							'BCMP KOREA',	'BCMP VIETNAM',		NULL,			'Duc Trong PC. Lam Dong PC, LD DONRE',											'2023-01-05',	'LDUCS/EP-DUCTRONG/L-0001',		N'Report for Project Site Investigation in Duc Trong District, Lam Dong Province, VietnaM'),
+		('DOC00036', 'JOB00036', 'Common',	'Project Licensing',			'F',	'21',			'A',			 'Latest',			'2022-03-26',	'FR',			'Le Thi Ngoc Hai ENVISOLUTION',										NULL,													'Le Quang Huy ENVISOLUTION / Technical Director',		'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Quotation for EIA & Land Consultant in Duc Trong'),
+		('DOC00037', 'JOB00037', 'Common',	'Project Licensing',			'F',	'21',			'A',			 'Latest',			'2022-03-26',	'FR',			'Le Thi Ngoc Hai ENVISOLUTION',										NULL,													'Le Quang Huy ENVISOLUTION / Technical Director',		'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Quotation for EIA & Land Consultant in Lac Duong'),
+		('DOC00038', 'JOB00038', 'Common',	'Project Licensing',			'S',	'21',			'A',			 'Latest',			'2022-03-26',	'FR',			'Le Thi Ngoc Hai ENVISOLUTION',										NULL,													'Le Quang Huy ENVISOLUTION / Technical Director',		'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Scope of work for EIA & Land Consultant in Duc Trong'),
+		('DOC00039', 'JOB00039', 'Common',	'Project Licensing',			'S',	'21',			'A',			 'Latest',			'2022-03-26',	'FR',			'Le Thi Ngoc Hai ENVISOLUTION',										NULL,													'Le Quang Huy ENVISOLUTION / Technical Director',		'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Scope of work for EIA & Land Consultant in Lac Duong'),
+		('DOC00040', 'JOB00040', 'Common',	'Project Licensing',			'F',	'31',			'A',			 'Latest',			'2022-03-15',	'FR',			'Nguyen Thi Van TIN PHAT / Lawyer',									NULL,													'Nguyen Thi Van TIN PHAT / Lawyer',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Quotation for IPA Process Consultant in Duc Trong'),
+		('DOC00041', 'JOB00041', 'Common',	'Project Licensing',			'F',	'31',			'A',			 'Latest',			'2022-03-15',	'FR',			'Nguyen Thi Van TIN PHAT / Lawyer',									NULL,													'Nguyen Thi Van TIN PHAT / Lawyer',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Quotation for IPA Process Consultant in Lac Duong'),
+		('DOC00042', 'JOB00042', 'Common',	'Project Licensing',			'S',	'31',			'A',			 'Latest',			'2022-03-15',	'FR',			'Nguyen Thi Van TIN PHAT / Lawyer',									NULL,													'Nguyen Thi Van TIN PHAT / Lawyer',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Scope of Work for IPA Process Consultant in Duc Trong'),
+		('DOC00043', 'JOB00043', 'Common',	'Project Licensing',			'S',	'31',			'A',			 'Latest',			'2022-03-15',	'FR',			'Nguyen Thi Van TIN PHAT / Lawyer',									NULL,													'Nguyen Thi Van TIN PHAT / Lawyer',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Scope of Work for IPA Process Consultant in Lac Duong'),
+		('DOC00044', 'JOB00044', 'Common',	'Site Investigation',			'S',	'G1',			'A',			 'Latest',			'2022-03-18',	'F1',			NULL,																NULL,													'Lee Jeong Sang Senior Director',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'On Site Workflow and Checklist for Site Investigation Work'),
+		('DOC00045', 'JOB00045', 'Common',	'Site Investigation',			'S',	'G1',			'A',			 'Latest',			'2022-03-26',	'F1',			NULL,																NULL,													'Lee Jeong Sang Senior Director',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Scope of Assistant Work by local company for Site Investigation Work in Lam Dong'),
+		('DOC00046', 'JOB00046', 'Common',	'Site Investigation',			'S',	'G1',			'A',			 'Latest',			'2022-03-26',	'F1',			NULL,																NULL,													'Lee Jeong Sang Senior Director',						'BCMP KOREA',	'BCMP VIETNAM',		NULL,			NULL,																			NULL,			NULL,							N'Electrical Resistivity Survey Method Statement')
 
 -- DOCUMENT_NATIVE_FILE_FORMAT
 INSERT INTO DOCUMENT_NATIVE_FILE_FORMAT
-		(ID,		  NATIVE_FILE_FORMAT)		
-VALUES	('DOC00001', 'Ms. Word'),
-		('DOC00002', 'Ms. Word'),
-		('DOC00003', 'Ms. Word'),
-		('DOC00004', 'Ms. Excel'),
-		('DOC00005', 'Ms. PPT'),
-		('DOC00006', 'Ms. PPT'),
-		('DOC00007', 'Ms. PPT'),
-		('DOC00008', 'PDF'),
-		('DOC00009', 'PDF'),
-		('DOC00010', 'Ms. Word'),
-		('DOC00011', 'Ms. Word'),
-		('DOC00012', 'Ms. Word'),
-		('DOC00013', 'Ms. Word'),
-		('DOC00014', 'Ms. Word'),
-		('DOC00015', 'Ms. Word'),
-		('DOC00016', 'Ms. Word'),
-		('DOC00017', 'Ms. Word'),
-		('DOC00018', 'Ms. Word'),
-		('DOC00019', 'Ms. Word'),
-		('DOC00020', 'Ms. Word'),
-		('DOC00021', 'Ms. Word'),
-		('DOC00023', 'Ms. Word'),
-		('DOC00022', 'Ms. Word'),
-		('DOC00024', 'Ms. Word'),
-		('DOC00025', 'Ms. Word'),
-		('DOC00026', 'Ms. Word'),
-		('DOC00027', 'Ms. PPT'),
-		('DOC00028', 'Ms. PPT'),
-		('DOC00029', 'Ms. Word'),
-		('DOC00030', 'Ms. Word'),
-		('DOC00031', 'MS. Word'),
-		('DOC00032', 'Ms. PPT'),
-		('DOC00033', 'Ms. PPT'),
-		('DOC00034', NULL),
-		('DOC00035', 'Ms. Word'),
-		('DOC00036', 'Ms. Excel'),
-		('DOC00037', 'Ms. Excel'),
-		('DOC00038', 'Ms. Excel'),
-		('DOC00039', 'Ms. Excel'),
-		('DOC00040', 'Ms. Excel'),
-		('DOC00041', 'Ms. Excel'),
-		('DOC00042', 'Ms. Excel'),
-		('DOC00043', 'Ms. Excel'),
-		('DOC00044', 'Ms. Word'),
-		('DOC00045', 'Ms. Word'),
-		('DOC00046', 'Ms. Word')
+		(ID,		 NAME, NATIVE_FILE_FORMAT,	LINK)		
+VALUES	('DOC00001', NULL, NULL,				NULL),
+		('DOC00002', NULL, NULL,				NULL),
+		('DOC00003', NULL, NULL,				NULL),
+		('DOC00004', NULL, NULL,				NULL),
+		('DOC00005', NULL, NULL,				NULL),
+		('DOC00006', NULL, NULL,				NULL),
+		('DOC00007', NULL, NULL,				NULL),
+		('DOC00008', NULL, NULL,				NULL),
+		('DOC00009', NULL, NULL,				NULL),
+		('DOC00010', NULL, NULL,				NULL),
+		('DOC00011', NULL, NULL,				NULL),
+		('DOC00012', NULL, NULL,				NULL),
+		('DOC00013', NULL, NULL,				NULL),
+		('DOC00014', NULL, NULL,				NULL),
+		('DOC00015', NULL, NULL,				NULL),
+		('DOC00016', NULL, NULL,				NULL),
+		('DOC00017', NULL, NULL,				NULL),
+		('DOC00018', NULL, NULL,				NULL),
+		('DOC00019', NULL, NULL,				NULL),
+		('DOC00020', NULL, NULL,				NULL),
+		('DOC00021', NULL, NULL,				NULL),
+		('DOC00023', NULL, NULL,				NULL),
+		('DOC00022', NULL, NULL,				NULL),
+		('DOC00024', NULL, NULL,				NULL),
+		('DOC00025', NULL, NULL,				NULL),
+		('DOC00026', NULL, NULL,				NULL),
+		('DOC00027', NULL, NULL,				NULL),
+		('DOC00028', NULL, NULL,				NULL),
+		('DOC00029', NULL, NULL,				NULL),
+		('DOC00030', NULL, NULL,				NULL),
+		('DOC00031', NULL, NULL,				NULL),
+		('DOC00032', NULL, NULL,				NULL),
+		('DOC00033', NULL, NULL,				NULL),
+		('DOC00034', NULL, NULL,				NULL),
+		('DOC00035', NULL, NULL,				NULL),
+		('DOC00036', NULL, NULL,				NULL),
+		('DOC00037', NULL, NULL,				NULL),
+		('DOC00038', NULL, NULL,				NULL),
+		('DOC00039', NULL, NULL,				NULL),
+		('DOC00040', NULL, NULL,				NULL),
+		('DOC00041', NULL, NULL,				NULL),
+		('DOC00042', NULL, NULL,				NULL),
+		('DOC00043', NULL, NULL,				NULL),
+		('DOC00044', NULL, NULL,				NULL),
+		('DOC00045', NULL, NULL,				NULL),
+		('DOC00046', NULL, NULL,				NULL)
 
 -- JOIN_PROJECT 
 INSERT INTO JOIN_PROJECT 
@@ -618,11 +623,12 @@ VALUES	('PRJ00001', 'PNR00001'),
 		('PRJ00002', 'PNR00002'),
 		('PRJ00003', 'PNR00003')
 GO
---------------------------------------------------------- <STORED PROCEDURE> ---------------------------------------------------------
-CREATE PROCEDURE SP_SELECT_ALL_PROJECT
-AS SELECT * FROM PROJECT
-GO
 
--- EXECUTE SP_SELECT_ALL_PROJECT
--- GO
+--------------------------------------------------------- <STORED PROCEDURE> ---------------------------------------------------------
+--CREATE PROCEDURE SP_SELECT_ALL_PROJECT
+--AS SELECT * FROM PROJECT
+--GO
+
+--EXECUTE SP_SELECT_ALL_PROJECT
+--GO
 -- haizzzzzzzzz
