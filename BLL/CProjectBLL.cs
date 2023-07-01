@@ -1,13 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 
 namespace BLL {
-    public static class CProjectBLL {
-        public static DataTable GetProjectList() {
+    public class CProjectBLL {
+        #region Singleton Design Pattern
+        private static CProjectBLL instance;
+
+        public static CProjectBLL Instance {
+            get => instance ?? (instance = new CProjectBLL());
+            private set => instance = value;
+        }
+
+        private CProjectBLL() { }
+        #endregion
+
+        public DataTable GetProjectList() {
             return DAL.CProjectDAL.Instance.GetProjectList();
         }
     }

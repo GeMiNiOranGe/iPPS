@@ -67,41 +67,58 @@
     <Compile Include="AdminProjects.Designer.cs">
       <DependentUpon>AdminProjects.cs</DependentUpon>
     </Compile>
-    <Compile Include="ControlEmployee.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ControlEmployee.Designer.cs">
-      <DependentUpon>ControlEmployee.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ControlProject.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ControlProject.Designer.cs">
-      <DependentUpon>ControlProject.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ControlWorkOfEmployee.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ControlWorkOfEmployee.Designer.cs">
-      <DependentUpon>ControlWorkOfEmployee.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ControlWorkOfProject.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ControlWorkOfProject.Designer.cs">
-      <DependentUpon>ControlWorkOfProject.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormStatus.cs">
+    <Compile Include="FormDocument.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormStatus.Designer.cs">
-      <DependentUpon>FormStatus.cs</DependentUpon>
+    <Compile Include="FormDocument.Designer.cs">
+      <DependentUpon>FormDocument.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormWorkOfProject.cs">
+    <Compile Include="FormInsert.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormWorkOfProject.Designer.cs">
-      <DependentUpon>FormWorkOfProject.cs</DependentUpon>
+    <Compile Include="FormInsert.Designer.cs">
+      <DependentUpon>FormInsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UCManagerItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCManagerItem.Designer.cs">
+      <DependentUpon>UCManagerItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCProjectItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCProjectItem.Designer.cs">
+      <DependentUpon>UCProjectItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCJobOfEmployee.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCJobOfEmployee.Designer.cs">
+      <DependentUpon>UCJobOfEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCJobItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCJobItem.Designer.cs">
+      <DependentUpon>UCJobItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProgress.Designer.cs">
+      <DependentUpon>FormProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormJobDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormJobDetail.Designer.cs">
+      <DependentUpon>FormJobDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminProjectsModule.cs">
       <SubType>Form</SubType>
@@ -140,12 +157,6 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormUpload.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormUpload.Designer.cs">
-      <DependentUpon>FormUpload.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,23 +175,23 @@
     <EmbeddedResource Include="AdminProjects.resx">
       <DependentUpon>AdminProjects.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ControlEmployee.resx">
-      <DependentUpon>ControlEmployee.cs</DependentUpon>
+    <EmbeddedResource Include="UCManagerItem.resx">
+      <DependentUpon>UCManagerItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ControlProject.resx">
-      <DependentUpon>ControlProject.cs</DependentUpon>
+    <EmbeddedResource Include="UCProjectItem.resx">
+      <DependentUpon>UCProjectItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ControlWorkOfEmployee.resx">
-      <DependentUpon>ControlWorkOfEmployee.cs</DependentUpon>
+    <EmbeddedResource Include="UCJobOfEmployee.resx">
+      <DependentUpon>UCJobOfEmployee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ControlWorkOfProject.resx">
-      <DependentUpon>ControlWorkOfProject.cs</DependentUpon>
+    <EmbeddedResource Include="UCJobItem.resx">
+      <DependentUpon>UCJobItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormStatus.resx">
-      <DependentUpon>FormStatus.cs</DependentUpon>
+    <EmbeddedResource Include="FormProgress.resx">
+      <DependentUpon>FormProgress.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormWorkOfProject.resx">
-      <DependentUpon>FormWorkOfProject.cs</DependentUpon>
+    <EmbeddedResource Include="FormJobDetail.resx">
+      <DependentUpon>FormJobDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminProjectsModule.resx">
       <DependentUpon>AdminProjectsModule.cs</DependentUpon>
@@ -197,14 +208,17 @@
     <EmbeddedResource Include="EmployeeTasks.resx">
       <DependentUpon>EmployeeTasks.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDocument.resx">
+      <DependentUpon>FormDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInsert.resx">
+      <DependentUpon>FormInsert.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormUpload.resx">
-      <DependentUpon>FormUpload.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmInfo.resx">
       <DependentUpon>frmInfo.cs</DependentUpon>
@@ -218,11 +232,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -316,6 +325,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\FolderFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\insert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reload.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">

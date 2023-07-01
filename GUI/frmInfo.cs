@@ -44,12 +44,20 @@ namespace GUI
             CDepartment getDepartment = BLL.CEmployeeInfoBLL.getDepartmentbyDepartmentID(departmentID);
             txtDepartment.Text = getDepartment.Name;
             List<CEmployeeBelongToProject> listProjectID = BLL.CEmployeeInfoBLL.getProjectIDbyEmployeeID(strId);
-            foreach (CEmployeeBelongToProject projectID in listProjectID)
+            if (listProjectID.Count > 0)
             {
-                CProject getProject = BLL.CEmployeeInfoBLL.getProjectbyProjectID(projectID.ProjectId);
-                cbProject.Items.Add(getProject.Name);
+                foreach (CEmployeeBelongToProject projectID in listProjectID)
+                {
+                    CProject getProject = BLL.CEmployeeInfoBLL.getProjectbyProjectID(projectID.ProjectId);
+                    cbProject.Items.Add(getProject.Name);
+                }
+                cbProject.Text = cbProject.Items[0].ToString();
             }
-            cbProject.Text = cbProject.Items[0].ToString();
+            else
+            {
+                cbProject.Items.Add("Không có");
+                cbProject.Text = cbProject.Items[0].ToString();
+            }
             List<CEmployeePhoneNumber> listPhoneNumber = BLL.CEmployeeInfoBLL.getPhoneNumberbyEmployeeID(strId);
             foreach(CEmployeePhoneNumber phoneNumber in listPhoneNumber)
             {

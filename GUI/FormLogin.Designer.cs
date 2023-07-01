@@ -42,13 +42,13 @@ namespace GUI {
             // TxtUserId
             // 
             this.TxtUserId.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TxtUserId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(63)))), ((int)(((byte)(60)))));
+            this.TxtUserId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.TxtUserId.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtUserId.ForeColor = System.Drawing.Color.Gray;
             this.TxtUserId.Location = new System.Drawing.Point(108, 89);
             this.TxtUserId.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.TxtUserId.Name = "TxtUserId";
-            this.TxtUserId.Size = new System.Drawing.Size(305, 30);
+            this.TxtUserId.Size = new System.Drawing.Size(305, 24);
             this.TxtUserId.TabIndex = 2;
             this.TxtUserId.Click += new System.EventHandler(this.TxtUserId_Click);
             // 
@@ -67,13 +67,13 @@ namespace GUI {
             // TxtPassword
             // 
             this.TxtPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TxtPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(63)))), ((int)(((byte)(60)))));
+            this.TxtPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.TxtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtPassword.ForeColor = System.Drawing.Color.Gray;
             this.TxtPassword.Location = new System.Drawing.Point(108, 164);
             this.TxtPassword.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.TxtPassword.Name = "TxtPassword";
-            this.TxtPassword.Size = new System.Drawing.Size(305, 30);
+            this.TxtPassword.Size = new System.Drawing.Size(305, 24);
             this.TxtPassword.TabIndex = 3;
             this.TxtPassword.Click += new System.EventHandler(this.TxtPassword_Click);
             this.TxtPassword.Enter += new System.EventHandler(this.TxtPassword_Enter);
@@ -153,9 +153,9 @@ namespace GUI {
             // FormLogin
             // 
             this.AcceptButton = this.BtnLogin;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 30F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(63)))), ((int)(((byte)(60)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.ClientSize = new System.Drawing.Size(468, 311);
             this.Controls.Add(this.PcbClose);
             this.Controls.Add(this.panel2);
