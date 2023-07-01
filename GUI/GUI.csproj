@@ -131,6 +131,18 @@
     <Compile Include="EmployeeTasks.Designer.cs">
       <DependentUpon>EmployeeTasks.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDocument.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDocument.Designer.cs">
+      <DependentUpon>FormDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormInsert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInsert.Designer.cs">
+      <DependentUpon>FormInsert.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +205,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeeTasks.resx">
       <DependentUpon>EmployeeTasks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDocument.resx">
+      <DependentUpon>FormDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInsert.resx">
+      <DependentUpon>FormInsert.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
@@ -313,6 +331,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\FolderFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\insert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reload.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
