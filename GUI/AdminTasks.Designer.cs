@@ -213,7 +213,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
             this.panel2.Controls.Add(this.txtSearchProject);
             this.panel2.Controls.Add(this.txtSearchTask);
             this.panel2.Controls.Add(this.lblSearch);
