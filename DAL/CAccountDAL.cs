@@ -36,5 +36,24 @@
             bool bActive = System.Convert.ToBoolean(DataProvider.Instance.ExecuteScalar(strQuery));
             return bActive;
         }
+
+        public DTO.CAccount GetAccount(DTO.CAccount account) {
+            string query = $"Select EMPLOYEE_ID, PASSWORD, IS_ACTIVE From ACCOUNT Where EMPLOYEE_ID = '{account.EmployeeId}' And PASSWORD = '{account.Password}'";
+            
+            var sqlCommand = DataProvider.Instance.GetCommand(query);
+            
+            DataProvider.Instance.OpenConnection(sqlCommand);
+            var sqlDataReader = sqlCommand.ExecuteReader();
+            DTO.CAccount newAccount = null;
+            if (sqlDataReader.Read()) {
+                    newAccount = new DTO.CAccount() {
+                    EmployeeId = sqlDataReader["EMPLOYEE_ID"].ToString(),
+                    Password = sqlDataReader["PASSWORD"].ToString(),
+                    IsActive = System.Convert.ToBoolean(sqlDataReader["IS_ACTIVE"])
+                };
+            }
+            DataProvider.Instance.CloseConnection(sqlCommand);
+            return newAccount;
+        }
     }
 }
